@@ -2,14 +2,14 @@
  <h1>Universidad Peruana de Ciencias Aplicadas</h1>
  <img style="height: 200px" src="assets/chapter01/upc.png">
   <h2>Carrera: Ingeniería de Software</h2>
-  <h2>Periodo: 2026-10</h2>
+  <h2>Periodo: 2026-20</h2>
 <br>
-  <h2>Curso: Diseño de Experimentos de Ingeniería de Software</h2>
-  <h2>Codigo del Curso: 1ASI0732</h2>
-  <h2>NRC: 12316</h2>
-  <h2>Profesor: Julio Manuel Noriega Melendez</h2>
+  <h2>Curso: Desarolllo de soluciones IOT</h2>
+  <h2>Codigo del Curso: 1ASI0572</h2>
+  <h2>NRC: 8740</h2>
+  <h2>Profesor: David Carlos Olivera</h2>
 <br>
- <h1>Informe del Avance 2</h1>
+ <h1>Informe del Avance 1</h1>
   <h2>Startup: Frostshield </h2>
   <h2>Producto: IceTrack </h2>
 <br>
@@ -19,18 +19,18 @@
  
 | <div style="width:500px">Alumno</div> | <div style="width:200px">Código</div> |
 | :-----------------------------------: | :-----------------------------------: |
-|  Gonzales Alvarado, Javier Sebastian  |  U202312966                           |
+|  -  |  -                          |
 |  Gordon Salas, Gabriel Fernando       |  U20221E229                           |
 |  Guillen Galindo, Julio Adolfo    	  |  U20241a352                           |
 |  Jiménez Guerra, Gianmarco Fabian     |  U202123843                           |
-|  Melgarejo Gomez, Marcia Victoria     |  U20231C505                           |
+|  -, -     |  -                           |
 |  Quijada Magro, Jeremy Alexander      |  U202219657                           |
 
 </div>
 
 <br>
 
-   <h3>Abril 2026</h3>
+   <h3>Septiembre 2026</h3>
 
 </div>
 
@@ -40,65 +40,30 @@
  
 | Versión | Fecha      | Autor             | Descripción de modificación                        	|
 | :-----: | :--------: | :---------------: | :----------------------------------------------------- |
-| 1.1     | 15/04/2026 | Julio Guillen     | Desarrollo BackEnd para Assets-Management y Monitoring |
-| 1.2     | 30/04/2026 | Jeremy Quijada    | Refactorizacion de la aplicación                       |
-| 2.1     | 04/05/2026 | Julio Guillen     | Revision de los Capitulos III al V                     |
-| 2.2     | 05/05/2026 | Jeremy Quijada    | Desarollo del Capitulo VI                              |
-| 2.2     | 12/05/2026 | Jeremy Quijada    | Desarollo del Capitulo VII                             |
-| 3.1     | 12/05/2026 | Jeremy Quijada    | Desarollo del Capitulo VIII                             |
+| 1.1     | 15/04/2026 | Jeremy Quijada    | Desarrollo del Capitulo I Enfocado en la solución IOT |
 
 </div>
 
 ## Project Report Collaboration Insights
 
 - **URL de la organización del proyecto:** 
-  https://github.com/1ASI0732-FrostShield
+  https://github.com/IceTrack-IoT/Report-IceTrack_Iot
   <br>
 
 - **URL del repositorio del reporte:** 
-  https://github.com/1ASI0732-FrostShield/Report-IceTrack
+  https://github.com/IceTrack-IoT/Report-IceTrack
   <br>
   
 - **URL del repositorio de la Landing Page:**
-  https://github.com/1ASI0732-FrostShield/Landing-Page-IceTrack
+  https://github.com/IceTrack-IoT/Landing-Page-IceTrack
   <br>
 
 - **URL del repositorio del Frontend:** 
-  https://github.com/1ASI0732-FrostShield/Frontend-IceTrack
+  https://github.com/IceTrack-IoT/Frontend-IceTrack
   <br>
 
 - **URL del repositorio del Backend:** 
-  https://github.com/1ASI0732-FrostShield/Platform-IceTrack
-
-Durante la fase de preparación del informe, se llevaron a cabo las siguientes actividades:
-
-**Avance 1:** Las tareas asignadas a la TB1 han sido finalizadas y se encuentran correctamente documentadas en el repositorio de GitHub:
-
-- Se redactaron y crearon los contenidos asignados a cada miembro utilizando formato Markdown, y se realizaron "Conventional Commits" para documentar el avance en el repositorio.
-- Se generaron los recursos necesarios y se añadieron las imágenes al repositorio en la carpeta "assets" correspondiente a cada rama del informe.
-- Se organizaron reuniones para coordinar el progreso de los componentes del informe y del Sprint 1, que estuvo enfocado en el desarrollo de la Landing Page.
-  
-![InsightsTB1](assets/chapter01/Insights-TB1.png)
-
-![NetworkGraph](assets/chapter01/NetworkGraph-TB1.png)
-
-**TP:** Las tareas asignadas a la TP han sido finalizadas y se encuentran correctamente documentadas en el repositorio de GitHub:
-
-- Se redactaron y crearon los contenidos asignados a cada miembro utilizando formato Markdown, y se realizaron "Conventional Commits" para documentar el avance en el repositorio.
-- Se generaron los recursos necesarios y se añadieron las imágenes al repositorio en la carpeta "assets" correspondiente a cada rama del informe.
-- Se organizaron reuniones para coordinar el progreso de los componentes del informe y del Sprint 1, que estuvo enfocado en el desarrollo de la Landing Page.
-
-![InsightsTP](assets/chapter01/Pulse-TP.png)
-
-![NetworkGraphTP](assets/chapter01/Network-TP.png)
-
-**Avance 2:** Las tareas asignadas a la TB2 han sido finalizadas y se encuentran correctamente documentadas en el repositorio de GitHub:
-- Se redactaron y crearon los contenidos asignados a cada miembro utilizando formato Markdown, y se realizaron "Conventional Commits" para documentar el avance en el repositorio.
-- Se generaron los recursos necesarios y se añadieron las imágenes al repositorio en la carpeta "assets" correspondiente a cada rama del informe.
-
-![InsightsAV2](assets/chapter01/Av-pulse.png)
-
-![NetworkGraphAV2](assets/chapter01/Network-av2.png)
+  https://github.com/IceTrack-IoT/Platform-IceTrack
 
 ## Contenido
 
@@ -129,125 +94,78 @@ Durante la fase de preparación del informe, se llevaron a cabo las siguientes a
     - [2.3.3. User Journey Mapping](#233-user-journey-mapping)
     - [2.3.4. Empathy Mapping](#234-empathy-mapping)
   - [2.4. Big Picture Event Storming](#24-big-picture-event-storming)
+  - [2.5. Ubiquitous Language](#25-ubiquitous-language)
 
 - [Capítulo III: Requirements Specification](#capítulo-iii-requirements-specification)
-  - [3.1. To-Be Scenario Mapping](#31-to-be-scenario-mapping)
-  - [3.2. User Stories.](#32-user-stories)
-  - [3.3. Impact Mapping.](#33-impact-mapping)
-  - [3.4. Product Backlog.](#34-product-backlog)
+  - [3.1. User Stories.](#31-user-stories)
+  - [3.2. Impact Mapping.](#32-impact-mapping)
+  - [3.3. Product Backlog.](#33-product-backlog)
 
-- [Capítulo IV: Product Design](#capítulo-iv-product-design)
-  - [4.1. Style Guidelines](#41-style-guidelines)
-    - [4.1.1. General Style Guidelines](#411-general-style-guidelines)
-    - [4.1.2. Web Style Guidelines](#412-web-style-guidelines)
-  - [4.2. Information Architecture](#42-information-architecture)
-    - [4.2.1. Organization Systems](#421-organization-systems)
-    - [4.2.2. Labeling Systems](#422-labeling-systems)
-    - [4.2.3. SEO Tags and Meta Tags](#423-seo-tags-and-meta-tags)
-    - [4.2.4. Searching Systems](#424-searching-systems)
-    - [4.2.5. Navigation Systems](#425-navigation-systems)
-  - [4.3. Landing Page UI Design](#43-landing-page-ui-design)
-    - [4.3.1. Landing Page Wireframe](#431-landing-page-wireframe)
-    - [4.3.2. Landing Page Mock-up](#432-landing-page-mock-up)
-  - [4.4. Web Applications UX/UI Design](#44-web-applications-uxui-design)
-    - [4.4.1. Web Applications Wireframes](#441-web-applications-wireframes)
-    - [4.4.2. Web Applications Wireflow Diagrams](#442-web-applications-wireflow-diagrams)
-    - [4.4.3. Web Applications Mock-ups](#443-web-applications-mock-ups)
-    - [4.4.4. Web Applications User Flow Diagrams](#444-web-applications-user-flow-diagrams)
-  - [4.6. Domain-Driven Software Architecture](#46-domain-driven-software-architecture)
-    - [4.6.1. Design-Level EventStorming](#461-design-level-eventstorming)
-    - [4.6.2. Software Architecture Context Diagram](#462-software-architecture-context-diagram)
-    - [4.6.3. Software Architecture Container Diagrams](#463-software-architecture-container-diagrams)
-    - [4.6.4. Software Architecture Components Diagrams](#464-software-architecture-components-diagrams)
-  - [4.7. Software Object-Oriented Design](#47-software-object-oriented-design)
-    - [4.7.1. Class Diagrams](#471-class-diagrams)
-    - [4.7.2. Class Dictionary](#472-class-dictionary)
-  - [4.8. Database Design](#48-database-design)
-    - [4.8.1. Relational/Non-Relational Database Diagram](#481-relational-non-relational-database-diagram)
+- [Capítulo IV: Solutcion Software Design](#capítulo-iv-solutcion-software-design)
+  - [4.1. Strategic-Level Domain-Driven Design](#41-strategic-level-domain-driven-design)
+    - [4.1.1. Design-Level EventStorming](#411-design-level-eventstorming)
+      - [4.1.1.1. Candidate Context Discovery](#4111-candidate-context-discovery)
+      - [4.1.1.2. Domain Message Flows Modeling](#4112-domain-message-flows-modeling)
+      - [4.1.1.3. Bounded Context Canvases](#4113-bounded-context-canvases)
+    - [4.1.2. Context Mapping](#412-context-mapping)
+    - [4.1.3. Software Architecture](#413-software-architecture)
+      - [4.1.3.1. Software Architecture System Landscape Diagram](#4131-software-architecture-system-landscape-diagram)
+      - [4.1.3.2. Software Architecture Context Level Diagrams](#4132-software-architecture-context-level-diagrams)
+      - [4.1.3.3. Software Architecture Container Level Diagrams](#4133-software-architecture-container-level-diagrams)
+    - [4.2. Tactical-Level Domain-Driven Design](#42-tactical-level-domain-driven-design)
+      - [4.2.1. Bounded Context: <Bounded Context Name>](#421-bounded-context-bounded-context-name)
+        - [4.2.1.1. Domain Layer](#4211-domain-layer)
+        - [4.2.1.2. Interface Layer](#4212-interface-layer)
+        - [4.2.1.3. Application Layer](#4213-application-layer)
+        - [4.2.1.4. Infrastructure Layer](#4214-infrastructure-layer)
+        - [4.2.1.5. Bounded Context Software Architecture Component Level Diagrams](#4215-bounded-context-software-architecture-component-level-diagrams)
+        - [4.2.1.6. Bounded Context Software Architecture Code Level Diagrams](#4216-bounded-context-software-architecture-code-level-diagrams)
+          - [4.2.1.6.1. Bounded Context Domain Layer Class Diagrams](#42161-bounded-context-domain-layer-class-diagrams)
+          - [4.2.1.6.2. Bounded Context Database Design Diagram](#42162-bounded-context-database-design-diagram)
 
-- [Capítulo V: Product Implementation, Validation \& Deployment](#capítulo-v-product-implementation-validation--deployment)
-  - [5.1. Software Configuration Management](#51-software-configuration-management)
-    - [5.1.1. Software Development Environment Configuration](#511-software-development-environment-configuration)
-    - [5.1.2. Source Code Management](#512-source-code-management)
-    - [5.1.3. Source Code Style Guide \& Conventions](#513-source-code-style-guide--conventions)
-    - [5.1.4. Software Deployment Configuration](#514-software-deployment-configuration)
-  - [5.2. Landing Page, Services \& Applications Implementation](#52-landing-page-services--applications-implementation)
-    - [5.2.1. Sprint Backlogs](#521-sprint-backlogs)
-    - [5.2.2. Implemented Landing Page Evidence](#522-implemented-landing-page-evidence)
-    - [5.2.3. Implemented Frontend-Web Application Evidence](#523-implemented-frontend-web-application-evidence)
-    - [5.2.4. Acuerdo de Servicio SaaS](#524-acuerdo-de-servicio-saas)
-    - [5.2.5. Implemented RESTful API and Serverless Backend Evidence](#525-implemented-restful-api-and-serverless-backend-evidence)
-    - [5.2.6. RESTful API documentation](#526-restful-api-documentation)
-    - [5.2.7. Team Collaboration Insights](#527-team-collaboration-insights)
-  - [5.3. Video About-the-Product](#53-video-about-the-product)
+- [Capítulo V: Solution UI/UX](#capítulo-v-solution-uiux)
+  - [5.1. Style Guidelines](#51-style-guidelines)
+    - [5.1.1. General Style Guidelines](#511-general-style-guidelines)
+    - [5.1.2. Web Style Guidelines](#512-web-style-guidelines)
+  - [5.2. Information Architecture](#52-information-architecture)
+    - [5.2.1. Organization Systems](#521-organization-systems)
+    - [5.2.2. Labeling Systems](#522-labeling-systems)
+    - [5.2.3. SEO Tags and Meta Tags](#523-seo-tags-and-meta-tags)
+    - [5.2.4. Searching Systems](#524-searching-systems)
+    - [5.2.5. Navigation Systems](#525-navigation-systems)
+  - [5.3. Landing Page UI Design](#53-landing-page-ui-design)
+    - [5.3.1. Landing Page Wireframe](#531-landing-page-wireframe)
+    - [5.3.2. Landing Page Mock-up](#532-landing-page-mock-up)
+  - [5.4. Applications UX/UI Design](#54-web-applications-uxui-design)
+    - [5.4.1. Applications Wireframes](#541-web-applications-wireframes)
+    - [5.4.2. Applications Wireflow Diagrams](#542-web-applications-wireflow-diagrams)
+    - [5.4.3. Applications Mock-ups](#543-web-applications-mock-ups)
+    - [5.4.4. Applications User Flow Diagrams](#544-web-applications-user-flow-diagrams)
+  - [5.5. Aplications Prototyping](#55-web-applications-prototyping)
+  - [5.6. IoT Devive Design](#56-iot-devive-design)
 
-- [Capítulo VI: Product Verification \& Validation](#capítulo-vi-product-verification--validation)
-  - [6.1 Testing Suites \& Validation](#61-testing-suites--validation)
-    - [6.1.1 Core Entities Unit Tests](#611-core-entities-unit-tests)
-    - [6.1.2 Core Integration Tests](#612-core-integration-tests)
-    - [6.1.3 Core Behavior-Driven Development](#613-core-behavior-driven-development)
-    - [6.1.4 Core System Tests](#614-core-system-tests)
-  - [6.2 Static testing \& Verification](#62-static-testing--verification)
-    - [6.2.1 Static Code Analysis](#621-static-code-analysis)
-      - [6.2.1.1 Coding Standard \& Code Conventions](#6211-coding-standard--code-conventions)
-      - [6.2.1.2 Code Quality \& Code Security](#6212-code-quality--code-security)
-    - [6.2.2 Reviews](#622-reviews)
+- [Capítulo VI: Product Implementation, Validation & Deployment  ](#capítulo-iv-product-implementation-validation--deployment)
+  - [6.1 Software Configuration Management](#61-software-configuration-management)
+    - [6.1.1 Software Development Environment Configuration](#611-software-development-environment-configuration)
+    - [6.1.2 Source Code Management](#612-source-code-management)
+    - [6.1.3 Source Code Style Guide & Conventions](#613-source-code-style-guide--conventions)
+    - [6.1.4 Software Deployment Configuration](#614-software-deployment-configuration)
+  - [6.2 Landing Page, Services & Applications Implementation](#62-landing-page-services--applications-implementation)
+    - [6.2.1 Sprint 1](#621-sprint-1)
+      - [6.2.1.1 Sprint Planning](#6211-sprint-planning)
+      - [6.2.1.2 Sprint Backlog](#6212-sprint-backlog)
+      - [6.2.1.3 Sprint Review](#6213-sprint-review)
+      - [6.2.1.4 Sprint Retrospective](#6214-sprint-retrospective)
+      - [6.2.1.5 Sprint Demo](#6215-sprint-demo)
+      - [6.2.1.6 Sprint Retrospective Summary](#6216-sprint-retrospective-summary)
+      - [6.2.1.7 Sprint Retrospective Action Items](#6217-sprint-retrospective-action-items)
+      - [6.2.1.8 Sprint Retrospective Reminders](#6218-sprint-retrospective-reminders)
+      - [6.2.1.9 Sprint Retrospective Checklist](#6219-sprint-retrospective-checklist)
   - [6.3 Validation Interviews](#63-validation-interviews)
-    - [6.3.1 Diseño de Entrevistas](#631-diseño-de-entrevistas)
-    - [6.3.2 Registro de Entrevistas](#632-registro-de-entrevistas)
+    - [6.3.1 Diseño de entrevistas](#631-diseño-de-entrevistas)
+    - [6.3.2 Registro de entrevistas](#632-registro-de-entrevistas)
     - [6.3.3 Evaluaciones según heurísticas](#633-evaluaciones-según-heurísticas)
-
-- [Capítulo VII: DevOps Practices](#capítulo-vii-devops-practices)
-  - [7.1 Continuous Integration](#71-continuous-integration)
-    - [7.1.1 Tools and Practices](#711-tools-and-practices)
-    - [7.1.2 Build \& Test Suite Pipeline Components](#712-build--test-suite-pipeline-components)
-  - [7.2 Continuous Delivery](#72-continuous-delivery)
-    - [7.2.1 Tools and Practices](#721-tools-and-practices)
-    - [7.2.2 Stages Deployment Pipeline Components](#722-stages-deployment-pipeline-components)
-  - [7.3 Continuous deployment](#73-continuous-deployment)
-    - [7.3.1 Tools and Practices](#731-tools-and-practices)
-    - [7.3.2 Production Deployment Pipeline Components](#732-production-deployment-pipeline-components)
-  - [7.4 Continuous Monitoring](#74-continuous-monitoring)
-    - [7.4.1 Tools and Practices](#741-tools-and-practices)
-    - [7.4.2 Monitoring Pipeline Components](#742-monitoring-pipeline-components)
-    - [7.4.3 Alerting Pipeline Components](#743-alerting-pipeline-components)
-    - [7.4.4 Notification Pipeline Components](#744-notification-pipeline-components)
-
-- [Capítulo VIII: Experiment-Driven Development](#capítulo-viii-experiment-driven-development)
-  - [8.1. Experiment Planning](#81-experiment-planning)
-    - [8.1.1. As-Is Summary.](#811-as-is-summary)
-    - [8.1.2. Raw Material: Assumptions, Knowledge Gaps, Ideas, Claims.](#812-raw-material-assumptions-knowledge-gaps-ideas-claims)
-    - [8.1.3. Experiment-Ready Questions.](#813-experiment-ready-questions)
-    - [8.1.4. Question Backlog.](#814-question-backlog)
-    - [8.1.5. Experiment Cards.](#815-experiment-cards)
-  - [8.2. Experiment Design](#82-experiment-design)
-    - [8.2.1. Hypotheses.](#821-hypotheses)
-    - [8.2.2. Domain Business Metrics](#822-domain-business-metrics)
-    - [8.2.3. Measures.](#823-measures)
-    - [8.2.4. Conditions.](#824-conditions)
-    - [8.2.5. Scale Calculations and Decisions.](#825-scale-calculations-and-decisions)
-    - [8.2.6. Methods Selection.](#826-methods-selection)
-    - [8.2.7. Data Analytics: Goals, KPIs and Metrics Selection.](#827-data-analytics-goals-kpis-and-metrics-selection)
-    - [8.2.8. Web and Mobile Tracking Plan.](#828-web-and-mobile-tracking-plan)
-  - [8.3. Experimentation](#83-experimentation)
-    - [8.3.1. To-Be User Stories.](#831-to-be-user-stories)
-    - [8.3.2. To-Be Product Backlog](#832-to-be-product-backlog)
-    - [8.3.3. Pipeline-supported, Experiment-Driven To-Be Software Platform Lifecycle](#833-pipeline-supported-experiment-driven-to-be-software-platform-lifecycle)
-      - [8.3.3.1. To-Be Sprint Backlogs](#8331-to-be-sprint-backlogs)
-      - [8.3.3.2. Implemented To-Be Landing Page Evidence](#8332-implemented-to-be-landing-page-evidence)
-      - [8.3.3.3. Implemented To-Be Frontend-Web Application Evidence](#8333-implemented-to-be-frontend-web-application-evidence)
-      - [8.3.3.4. Implemented To-Be RESTful API and/or Serverless Backend Evidence](#8334-implemented-to-be-restful-api-andor-serverless-backend-evidence)
-      - [8.3.3.5. Team Collaboration Insights](#8335-team-collaboration-insights)
-    - [8.3.4. To-Be Validation Interviews](#834-to-be-validation-interviews)
-      - [8.3.4.1. Diseño de Entrevistas](#8341-diseño-de-entrevistas)
-      - [8.3.4.2. Registro de Entrevistas](#8342-registro-de-entrevistas)
-  - [8.4. Experiment Aftermath \& Analysis](#84-experiment-aftermath--analysis)
-    - [8.4.1. Analysis and Interpretation of Results](#841-analysis-and-interpretation-of-results)
-    - [8.4.2. Re-scored and Re-prioritized Question Backlog](#842-re-scored-and-re-prioritized-question-backlog)
-  - [8.5. Continuous Learning](#85-continuous-learning)
-    - [8.5.1. Shareback Session Artifacts: Learning Workflow](#851-shareback-session-artifacts-learning-workflow)
-  - [8.6. To-Be Software Platform Pre-launch](#86-to-be-software-platform-pre-launch)
-    - [8.6.1. About-the-Product Intro Video](#861-about-the-product-intro-video)
+  - [6.4 Video About-the-Product](#64-video-about-the-product)
 
 - [Conclusiones](#conclusiones)
   - [Conclusiones y Recomendaciones](#conclusiones-y-recomendaciones)
@@ -266,8 +184,8 @@ En el siguiente cuadro se describe las acciones realizadas y enunciados de concl
 
 | Criterio específico | Acciones realizadas | Conclusiones |
 | :------------------ | :------------------ | :----------- |
-| Trabaja en equipo para proporcionar liderazgo en forma conjunta | <ul><li><b>Quijada Magro, Jeremy Alexander:</b> **Avance 1:** Lideró la arquitectura del sistema y la fase de QA, asegurando que las variables de monitoreo estuvieran correctamente validadas y que el prototipo tuviera trazabilidad técnica. **TP:** Actuó como analista QA, diseñando y ejecutando pruebas de validación sobre los componentes críticos, garantizando la calidad del pipeline de integración y pruebas. **Avance 2:** Realizo el proceso del experiment planning para esta entrega. </li><li><b>Guillen Galindo, Julio Adolfo:</b> **Avance 1:** Lideró el desarrollo del Backend API y la gestión de la base de datos distribuida, asegurando consistencia en la lógica de negocio. **TP:** Se encargó del análisis estático de código y la implementación de seguridad JWT, aportando prácticas de integración continua y control de calidad para robustecer el backend. **Avance 2:** Se enfoco en el deploy de los ambientes de exprimentacion y final. </li><li><b>Gonzales Alvarado, Javier:</b> **Avance 1:** Lideró el diseño de la Landing Page y la estrategia de comunicación del producto. **TP:** Elaboró documentación técnica y coordinó revisiones de código, asegurando que la comunicación del producto estuviera alineada con las prácticas de entrega continua. **Avance 2:** Se enfoco en el desarrollo del expriment design, con enfoque en las hipotesis. </li><li><b>Jiménez Guerra, Gianmarco:</b> **Avance 1:** Lideró el análisis de requerimientos y la validación de escenarios de usuario. **TP:** Diseñó y registró entrevistas de validación, además de definir métricas de monitoreo y alertas para garantizar la trazabilidad de la experiencia del usuario. **Avance 2:** Se enfoco en el desarrollo de las pruebas en lighthouse para la plataforma y su documentacion. </li><li><b>Melgarejo Gomez, Marcia Victoria:</b> **Avance 1:** Lideró el diseño visual (UI) y la creación de prototipos de alta fidelidad. **TP:** Realizó evaluaciones heurísticas de accesibilidad y usabilidad, validando la interfaz en entornos de despliegue continuo.  **Avance 2:** Se enfoco en el desarrollo de las user stories para los nuevos cambios enfocados en nuestros usuarios. </li><li><b>Gordon Salas, Gabriel Fernando:</b> **Avance 1:** Lideró la planificación de Sprints y la organización del equipo mediante el Lean UX Canvas. **TP:** Coordinó revisiones y validaciones, gestionando el backlog y supervisando el pipeline de despliegue por etapas. **Avance 2:** Se enfoco en el desarrollo de product backlog para las user stories.</li></ul>  | <ul> **Avance 1:** El equipo distribuyó el liderazgo de forma equitativa según la especialidad de cada integrante, logrando la integración exitosa del proyecto y asegurando calidad tanto en pruebas como en automatización. **TP:** Los capítulos de Testing/Validación y DevOps/Automatización resumen el esfuerzo del equipo en dos frentes complementarios: por un lado, se aseguraron la calidad y confiabilidad del sistema mediante pruebas unitarias, análisis estático, entrevistas de validación y evaluaciones heurísticas; y por otro, se implementaron prácticas de integración y despliegue continuo, pipelines de construcción y pruebas, automatización de entregas y monitoreo con alertas. **Avance 2:** El equipo distribuyó el capitulo VIII para el desarollo del experiment planing en esta entrega: por un lado se documento todos apartados del capitulo, por otro se realizaron las pruebas para obtener la informacion necesaria.</ul> |
-| Crea un entorno colaborativo e inclusivo, establece metas, planifica tareas y cumple objetivos. | <ul><li><b>Quijada Magro, Jeremy Alexander:</b> **Avance 1:** Lideró la arquitectura del sistema y la fase de QA, asegurando que las variables de monitoreo estuvieran correctamente validadas y que el prototipo tuviera trazabilidad técnica. **TP:** Actuó como analista QA, diseñando y ejecutando pruebas de validación sobre los componentes críticos, garantizando la calidad del pipeline de integración y pruebas. **Avance 2:** Realizo el proceso del experiment planning para esta entrega. </li><li><b>Guillen Galindo, Julio Adolfo:</b> **Avance 1:** Lideró el desarrollo del Backend API y la gestión de la base de datos distribuida, asegurando consistencia en la lógica de negocio. **TP:** Se encargó del análisis estático de código y la implementación de seguridad JWT, aportando prácticas de integración continua y control de calidad para robustecer el backend. **Avance 2:** Se enfoco en el deploy de los ambientes de exprimentacion y final. </li><li><b>Gonzales Alvarado, Javier:</b> **Avance 1:** Lideró el diseño de la Landing Page y la estrategia de comunicación del producto. **TP:** Elaboró documentación técnica y coordinó revisiones de código, asegurando que la comunicación del producto estuviera alineada con las prácticas de entrega continua. **Avance 2:** Se enfoco en el desarrollo del expriment design, con enfoque en las hipotesis. </li><li><b>Jiménez Guerra, Gianmarco:</b> **Avance 1:** Lideró el análisis de requerimientos y la validación de escenarios de usuario. **TP:** Diseñó y registró entrevistas de validación, además de definir métricas de monitoreo y alertas para garantizar la trazabilidad de la experiencia del usuario. **Avance 2:** Se enfoco en el desarrollo de las pruebas en lighthouse para la plataforma y su documentacion. </li><li><b>Melgarejo Gomez, Marcia Victoria:</b> **Avance 1:** Lideró el diseño visual (UI) y la creación de prototipos de alta fidelidad. **TP:** Realizó evaluaciones heurísticas de accesibilidad y usabilidad, validando la interfaz en entornos de despliegue continuo.  **Avance 2:** Se enfoco en el desarrollo de las user stories para los nuevos cambios enfocados en nuestros usuarios. </li><li><b>Gordon Salas, Gabriel Fernando:</b> **Avance 1:** Lideró la planificación de Sprints y la organización del equipo mediante el Lean UX Canvas. **TP:** Coordinó revisiones y validaciones, gestionando el backlog y supervisando el pipeline de despliegue por etapas. **Avance 2:** Se enfoco en el desarrollo de product backlog para las user stories.</li></ul>  | <ul> **Avance 1:** El equipo distribuyó el liderazgo de forma equitativa según la especialidad de cada integrante, logrando la integración exitosa del proyecto y asegurando calidad tanto en pruebas como en automatización. **TP:** Los capítulos de Testing/Validación y DevOps/Automatización resumen el esfuerzo del equipo en dos frentes complementarios: por un lado, se aseguraron la calidad y confiabilidad del sistema mediante pruebas unitarias, análisis estático, entrevistas de validación y evaluaciones heurísticas; y por otro, se implementaron prácticas de integración y despliegue continuo, pipelines de construcción y pruebas, automatización de entregas y monitoreo con alertas. **Avance 2:** El equipo distribuyó el capitulo VIII para el desarollo del experiment planing en esta entrega: por un lado se documento todos apartados del capitulo, por otro se realizaron las pruebas para obtener la informacion necesaria.</ul> |
+| Trabaja en equipo para proporcionar liderazgo en forma conjunta | - |- |
+| Crea un entorno colaborativo e inclusivo, establece metas, planifica tareas y cumple objetivos. | - | -|
 
 # Capitulo 1: Introducción
 
@@ -275,11 +193,14 @@ En el siguiente cuadro se describe las acciones realizadas y enunciados de concl
 
 ### 1.1.1 Descripción de la Startup
 
-Nuestra startup ofrece una plataforma SaaS de Inteligencia de Datos para optimizar la gestión y el mantenimiento de equipos de refrigeración en negocios que dependen de la cadena de frío. Nuestra plataforma se integra con los controladores y sistemas de monitoreo ya existentes en los negocios, transformando datos aislados en decisiones estratégicas.
-Las funcionalidades clave de la plataforma incluyen el monitoreo en tiempo real de temperatura, consumo energético y tiempo de uso. Además, ofrece alertas automáticas ante fallos, informes técnicos detallados, historiales de rendimiento y programación inteligente de mantenimientos. Estas herramientas permiten a empresas, técnicos y proveedores mejorar la eficiencia operativa, prevenir costosas pérdidas por fallos inesperados y mantener un registro completo del estado y uso de sus equipos.
+Nuestra startup ofrece una plataforma de Inteligencia de Datos orientada a optimizar la gestión, monitoreo y mantenimiento de equipos de refrigeración en negocios que dependen de la cadena de frío. La plataforma permite recopilar y centralizar información proveniente de sensores IoT instalados en los equipos, así como integrarse con los controladores y sistemas de monitoreo existentes en los negocios, transformando los datos obtenidos en información útil para la toma de decisiones.
 
-Misión: Queremos ofrecer una solución tecnológica inteligente que ayude a las empresas a proteger su inventario y a optimizar la gestión de sus equipos de refrigeración. Al mismo tiempo, proporcionamos herramientas especializadas para mejorar la eficiencia operativa de los técnicos y proveedores del sector.
-Visión: Ser la empresa líder en la gestión y el mantenimiento de equipos de refrigeración en el mercado peruano, comenzando por consolidar nuestra posición en Lima.
+Las funcionalidades clave de la plataforma incluyen el monitoreo en tiempo real de variables como temperatura, consumo energético y tiempo de funcionamiento de los equipos. Además, genera alertas automáticas ante anomalías o posibles fallos, ofrece informes técnicos detallados, historiales de rendimiento y permite gestionar y programar mantenimientos de manera inteligente. Estas herramientas permiten a empresas, técnicos y proveedores supervisar continuamente el estado de los equipos, mejorar la eficiencia operativa, prevenir pérdidas ocasionadas por fallos inesperados y mantener un registro completo de su funcionamiento y mantenimiento.
+
+**Misión:** Ofrecer una solución tecnológica inteligente que permita a las empresas proteger su inventario y optimizar la gestión, monitoreo y mantenimiento de sus equipos de refrigeración. Asimismo, proporcionar herramientas especializadas que faciliten el trabajo de técnicos y proveedores, mejorando su eficiencia y capacidad de respuesta.
+
+**Visión:** Ser la empresa líder en gestión, monitoreo y mantenimiento inteligente de equipos de refrigeración en el mercado peruano, comenzando por consolidar nuestra presencia y posicionamiento en Lima.
+
 
 ### 1.1.2 Perfiles de integrantes del equipo
 
@@ -289,7 +210,7 @@ Visión: Ser la empresa líder en la gestión y el mantenimiento de equipos de r
 | :------------------------ | :----------------------------------------------------------------------------- |
 | **Código del Estudiante** | u202219657                                   									            	   |
 | **Carrera**               | Ingeniería de Software                       									                 |
-| **Descripción**           | Mi nombre es Jeremy Alexander Quijada Magro, tengo 21 años y curso la carrera de Ingeniería de Software. Me considero una persona ordenada y responsable. En mis tiempos libres me gusta aprender cosas nuevas. En este proyecto apoyaré con todos los conocimientos que he adquirido en los cursos pasados con la meta de aprender a realizar pruebas de calidad sobre este proyecto  										                                                                            		|
+| **Descripción**           | Mi nombre es Jeremy Alexander Quijada Magro, tengo 21 años y curso la carrera de Ingeniería de Software. Me considero una persona ordenada y responsable. Me centro en conocmiento en C#, Kva y el uso del front con Vue, Angular y React. En este proyecto apoyaré con todos los conocimientos que he adquirido en los cursos pasados con la meta de aprender a realizar pruebas de calidad sobre este proyecto  										                                                                            		|
 | **Foto**                  | <img src="assets/chapter01/Jeremy.jpeg" alt="Jeremy" width="150" height="200"> |
 
 ---
@@ -312,30 +233,30 @@ Visión: Ser la empresa líder en la gestión y el mantenimiento de equipos de r
 
 ---
 
-| **Integrante**            | **Javier**                                  	                                       |
+| **Integrante**            | **-**                                  	                                       |
 | :------------------------ | :----------------------------------------------------------------------------------- |
-| **Código del Estudiante** | U202312966                                                                           |
+| **Código del Estudiante** | -                                                                          |
 | **Carrera**               | Ingeniería de Software                                                               |
-| **Descripción**           | Mi nombre es Javier Gonzales, soy estudiante de Ingeniería de Software de séptimo ciclo. Tengo conocimientos en diversos lenguajes de programación como C++, Python y JavaScript, entre otros. Además, he desarrollado proyectos de software utilizando distintos frameworks como Angular y Vue. Me considero una persona responsable, empática y analítica. Mi objetivo personal es desarrollar soluciones tecnológicas que contribuyan a mejorar la calidad de vida de las personas y aportar a la construcción de un mundo más innovador y conectado                                                                              |
-| **Foto**                  | <img src="assets/chapter01/fotoGonzales.jpeg" alt="Javier" width="200" height="200"> |
+| **Descripción**           | -                                                                            |
+| **Foto**                  |  -|
 
 ---
 
-| **Integrante**            | **Marcia Victoria Melgarejo Gomez**                                                  |
+| **Integrante**            | **-**                                                  |
 | :------------------------ | :----------------------------------------------------------------------------------- |
-| **Código del Estudiante** | U20231C505                                                                           |
+| **Código del Estudiante** | -                                                                          |
 | **Carrera**               | Ingeniería de Software                                                               |
-| **Descripción**           | Actualmente estoy cursando el séptimo ciclo de la carrera de Ingeniería de Software en la UPC. Opté por esta carrera debido a mi interés en el mundo de la tecnología y todo lo que este campo puede ofrecer a la sociedad. Me caracterizo por ser una persona curiosa, persistente y colaborativa. Tengo conocimientos en C++, HTML, CSS, JS, Pyhton             |
-| **Foto**                  | <img src="assets/chapter01/FotoMelgarejo.png" alt="Marcia" width="200" height="200"> |
+| **Descripción**           | -            |
+| **Foto**                  | - |
 
 ---
 
-| **Integrante**            | **Gabriel Fernando Gordon Salas**                                                    |
+| **Integrante**            | **-**                                                    |
 | :------------------------ | :----------------------------------------------------------------------------------- |
-| **Código del Estudiante** | U20221E229                                                                           |
-| **Carrera**               | Ingeniería de Software                                                               |
-| **Descripción**           | Me considero una persona responsable, me gusta ayudar a mis compañeros en los trabajos y sé organizarme bien al momento de realizar mis cosas. Con esto mi objetivo es poder dar lo mejor en un ambiente de cooperación entre todos para que el proyecto dé una muy buena presentación													                                                   |
-| **Foto**                  | <img src="assets/chapter01/foto-gabriel.png" alt="Gabriel" width="200" height="200"> |
+| **Código del Estudiante** | -                                                                          |
+| **Carrera**               | -                                                            |
+| **Descripción**           | -													                                                   |
+| **Foto**                  | - |
 
 </div>
 
@@ -357,148 +278,141 @@ Visión: Ser la empresa líder en la gestión y el mantenimiento de equipos de r
 
 #### 1.2.2.1 Lean UX Problem Statements
 
-En el sector de la refrigeración, las empresas se enfrentan a un desafío recurrente: la falta de una gestión inteligente para sus equipos. Los negocios que dependen de la cadena de frío operan con un alto riesgo de pérdidas económicas y desperdicio de energía, ya que su mantenimiento es reactivo. Aunque muchos ya cuentan con sensores y controladores, los datos permanecen aislados y son difíciles de interpretar para una toma de decisiones rápida.
+El estado actual del sector de la refrigeración comercial se caracteriza por una gestión principalmente reactiva de los equipos, especialmente en negocios que dependen de la cadena de frío, como restaurantes, supermercados y laboratorios, así como en técnicos especializados y proveedores de equipos que brindan servicios de mantenimiento. Estos actores enfrentan problemas relacionados con fallas inesperadas, pérdidas de inventario, consumo energético elevado, dificultad para realizar un seguimiento continuo del estado de los equipos y falta de información centralizada para gestionar los servicios de mantenimiento.
 
-Existe un vacío en el mercado que las soluciones actuales no han llenado: la falta de una capa de inteligencia que unifique los datos ya existentes. No hay una plataforma que centralice la información de distintos fabricantes y ofrezca una visibilidad completa. Esta ausencia de análisis predictivo y de un historial unificado dificulta la respuesta ante fallas y degrada la calidad del servicio técnico.
+Aunque algunos negocios cuentan con sensores, controladores o sistemas de monitoreo, la información suele encontrarse aislada entre diferentes equipos, fabricantes o herramientas, dificultando su interpretación y aprovechamiento para la toma de decisiones. Asimismo, los técnicos y proveedores requieren información histórica y herramientas que les permitan organizar sus actividades, diagnosticar problemas y brindar un servicio más eficiente.
 
-FrostShield ha sido creada para superar estos obstáculos. IceTrack establece una conexión digital entre los negocios y sus equipos, permitiendo un monitoreo constante de la temperatura y el consumo energético. Esto no solo previene fallas, sino que también optimiza el rendimiento y prolonga la vida útil de los equipos. Además, proporcionamos a los técnicos una herramienta centralizada para organizar sus tareas, acceder al historial de cada equipo y responder de manera más eficiente.
-Inicialmente, nos enfocamos en los negocios de Lima que buscan una solución confiable para sus sistemas de refrigeración, así como en los proveedores de servicio que desean modernizar sus operaciones. 
+Lo que las soluciones existentes no abordan completamente es la necesidad de contar con una plataforma especializada que centralice la información de los equipos de refrigeración y, al mismo tiempo, permita obtener datos directamente mediante sensores IoT, independientemente de los sistemas existentes en el negocio. Este vacío limita la capacidad de los usuarios para detectar anomalías oportunamente, anticiparse a posibles fallas, analizar el rendimiento de los equipos y mantener un historial unificado de su funcionamiento y mantenimiento.
 
-Sabremos que hemos tenido éxito cuando se reduzcan las fallas críticas, mejore la eficiencia energética y aumente en la satisfacción y lealtad de nuestros clientes, demostrando así el valor de la tecnología en el sector.
+Nuestro producto, IceTrack, abordará este vacío mediante una plataforma de Inteligencia de Datos especializada en equipos de refrigeración. La solución permitirá conectar sensores IoT para recopilar información en tiempo real, integrar datos provenientes de controladores y sistemas de monitoreo existentes, centralizar dicha información y transformarla en indicadores, alertas y recomendaciones útiles. Además, proporcionará herramientas para la gestión de mantenimientos, historial técnico, seguimiento de servicios y análisis del rendimiento de los equipos.
+
+Nuestro enfoque inicial estará dirigido a negocios de Lima que dependen de la cadena de frío y necesitan reducir los riesgos asociados a fallas en sus equipos, así como a técnicos y proveedores de servicios de refrigeración que buscan mejorar la gestión y eficiencia de sus operaciones.
+
+Sabremos que tendremos éxito cuando los negocios utilicen de manera recurrente el monitoreo de sus equipos, respondan oportunamente a las alertas generadas por la plataforma, reduzcan las fallas críticas y las pérdidas asociadas a problemas de refrigeración, y mejoren su eficiencia energética. Asimismo, consideraremos exitoso el producto cuando técnicos y proveedores utilicen la plataforma para gestionar sus servicios, reduzcan sus tiempos de atención y mantengan una mayor continuidad en sus relaciones con los clientes.
 
 #### 1.2.2.2 Lean UX Assumption
 
-# Business Outcomes
+##### Business Assumptions
 
--	**Reducir las pérdidas de inventario:** La plataforma de FrostShield previene fallas térmicas, minimizando el descarte de productos y aumentando la rentabilidad de los negocios.
-- **Aumentar la eficiencia operativa:** Los técnicos pueden gestionar sus tareas de forma más inteligente y atender a más clientes en menos tiempo, lo que se traduce en una mayor productividad.
-- **Mejorar la fidelización de clientes:** Un servicio proactivo y transparente fortalece la confianza con los clientes, lo que lleva a una mayor retención y a relaciones comerciales a largo plazo.
-- **Optimizar los costos de mantenimiento:** La plataforma permite pasar de un modelo de mantenimiento reactivo, costoso e impredecible, a uno predictivo, que reduce los gastos en reparaciones de emergencia.
-- **Posicionar el liderazgo en el mercado:** Al ofrecer una solución tecnológica innovadora, el proyecto permite a los proveedores de servicio diferenciarse de su competencia y captar nuevos clientes de manera más efectiva.
-- **Generar ingresos recurrentes:** El modelo de negocio, basado en suscripciones y servicios de valor añadido, asegura un flujo de ingresos constante y escalable para la empresa.
-- **Disminuir el consumo energético:** El monitoreo en tiempo real del consumo de energía permite identificar y corregir ineficiencias, lo que se traduce en ahorros significativos para los negocios.
-- **Facilitar la toma de decisiones:** Los dueños de negocios tienen acceso a datos precisos y en tiempo real sobre el rendimiento de sus equipos, lo que les permite tomar decisiones más informadas para optimizar su operación.
+- Creemos que existe una oportunidad de mercado para una solución especializada en la gestión y monitoreo inteligente de equipos de refrigeración.
+- Creemos que los negocios que dependen de la cadena de frío están dispuestos a invertir en una solución que permita reducir pérdidas y mejorar el control de sus equipos..
+- Creemos que la incorporación de sensores IoT como parte de la solución permitirá diferenciarnos de las plataformas genéricas de gestión de mantenimiento.
+- Creemos que establecer alianzas con proveedores y técnicos especializados facilitará la entrada de IceTrack al mercado.
+- Creemos que iniciar operaciones en Lima permitirá validar el modelo de negocio antes de ampliar la solución a otras regiones del Perú.
 
-# User Outcomes
+##### Business Outcome Assumptions
 
-## ¿Quién será nuestro usuario?
+- Creemos que la adopción de IceTrack permitirá reducir las pérdidas económicas ocasionadas por fallas en los sistemas de refrigeración.
+- Creemos que el monitoreo continuo permitirá disminuir la frecuencia y el impacto de fallas críticas.
+- Creemos que la identificación de ineficiencias permitirá reducir el consumo energético de los equipos monitoreados.
+- Creemos que la gestión centralizada permitirá reducir los costos asociados al mantenimiento correctivo y las reparaciones de emergencia.
+- Creemos que la mejora en la gestión de servicios permitirá incrementar la productividad de los técnicos y proveedores.
+- Creemos que una experiencia de servicio más transparente y proactiva permitirá aumentar la satisfacción y retención de los clientes.
 
-Nuestros usuarios clave son de tres tipos:
-- Negocios que dependen de la cadena de frío, como restaurantes, supermercados y laboratorios, para quienes una falla es una amenaza directa a su rentabilidad.
-- Técnicos especializados en refrigeración que necesitan herramientas para gestionar su trabajo de manera más eficiente.
-- Proveedores de equipos que buscan diferenciarse ofreciendo un servicio postventa de vanguardia.
+##### User Assumptions
 
-## ¿Dónde encaja nuestro producto en su vida?
+- Creemos que los negocios que dependen de la cadena de frío serán usuarios principales de la plataforma y utilizarán el sistema para supervisar el estado de sus equipos.
+- Creemos que los responsables de los negocios necesitarán visualizar información de temperatura, consumo energético, tiempo de funcionamiento y alertas.
+- Creemos que los técnicos especializados en refrigeración utilizarán la plataforma para gestionar servicios, consultar información de los equipos y revisar su historial técnico.
+- Creemos que los proveedores de equipos utilizarán la plataforma como una herramienta para mejorar y diferenciar sus servicios postventa.
+- Creemos que algunos usuarios tendrán conocimientos tecnológicos limitados, por lo que necesitarán una interfaz sencilla y procesos de configuración intuitivos.
+- Creemos que los usuarios requerirán acceso a la plataforma desde diferentes ubicaciones y dispositivos para supervisar equipos y gestionar servicios.
 
-La plataforma se integra como una herramienta esencial para la gestión diaria de nuestros usuarios. 
-- Para los negocios, es una capa de seguridad que les garantiza la continuidad operativa y previene pérdidas. 
-- Para los técnicos, se convierte en su asistente personal para organizar clientes y visitas. 
-- Sirve como un registro centralizado y accesible que facilita auditorías y la toma de decisiones.
+##### User Outcome and Benefit Assumptions
 
-## ¿Qué problemas tiene nuestro producto y cómo se pueden resolver?
+- Creemos que los negocios desean conocer en tiempo real el estado de sus equipos para detectar problemas antes de que ocasionen pérdidas.
+- Creemos que los negocios desean recibir alertas oportunas que les permitan actuar ante variaciones anormales de temperatura u otras condiciones críticas.
+- Creemos que los responsables de los negocios desean reducir sus costos operativos mediante un menor consumo energético y una mejor planificación del mantenimiento.
+- Creemos que los técnicos desean disponer de información histórica y actualizada de cada equipo para diagnosticar problemas y realizar servicios con mayor eficiencia.
+- Creemos que los técnicos desean organizar sus tareas, visitas y mantenimientos desde una única plataforma.
+- Creemos que los proveedores desean contar con información centralizada que les permita ofrecer un servicio postventa más rápido, transparente y eficiente.
+- Creemos que todos los usuarios desean contar con un historial confiable de los equipos para facilitar el seguimiento de su rendimiento y mantenimiento.
 
-- Un desafío crítico es la precisión de los datos. Si las lecturas no son confiables, la plataforma pierde su valor. 
-- Para resolverlo, implementaremos sensores certificados y algoritmos de validación de datos que corrijan lecturas erróneas. 
-- Otro problema es la resistencia inicial de usuarios no tecnológicos. 
-- Esto se abordará con una interfaz simple y un proceso de “onboarding” intuitivo, además de tutoriales en video para facilitar la adopción.
+##### Feature Assumptions
 
-## ¿Cómo y Cuándo es usado nuestro producto?
-
-- La plataforma es multiplataforma (web y móvil), lo que la hace accesible tanto desde una oficina como en el campo. 
-- Negocios la consultan para monitorear el estado de sus equipos
-- Los técnicos la utilizan para gestionar sus tareas.
-- También funciona de manera automática en segundo plano, enviando alertas inmediatas al detectar una anomalía, lo que permite una respuesta rápida incluso fuera del horario laboral.
-
-## ¿Qué características son importantes para la app?
-
-Las características clave incluyen: 
-- Monitoreo en tiempo real, alertas automatizadas y un historial técnico detallado. 
-- La plataforma también integra un calendario de mantenimiento y un módulo exclusivo para técnicos. 
-- Integración de IA para recomendaciones predictivas. 
-- Sistema de gestión de roles para múltiples usuarios y ubicaciones son esenciales.
-
-## ¿Cómo debe verse nuestro producto y cómo comportarse?
-
-- El diseño de la plataforma debe transmitir confianza y claridad. 
-- La interfaz será minimalista y centrada en la acción, mostrando la información más relevante de un vistazo. 
-- La experiencia de usuario debe ser fluida, con una navegación intuitiva y notificaciones inmediatas que no saturen al usuario, sino que lo mantengan siempre informado y en control.
-
-## ¿Qué valor busca el cliente?
-
-- El cliente busca simplificar la gestión de sus equipos y pasar de ser un gestor reactivo a uno proactivo. 
-- Los negocios desean seguridad operativa, saber que sus equipos están protegidos de fallas inesperadas y pérdidas. 
-- También buscan optimizar sus costos a través de la eficiencia energética y una mejor trazabilidad del rendimiento de sus sistemas.
-
-## ¿Qué beneficios adicionales obtendrá el cliente?
-
-- Obtendrán visibilidad total y remota de sus activos.
-- Soporte técnico más ágil gracias a la información centralizada
-- Reducción significativa de los costos operativos.
-- La plataforma proporcionará reportes personalizados que no podrían generar de forma manual.
-
-## ¿Cómo atraeremos usuarios?
-
-- Se implementará una estrategia de marketing de nicho que se dirija a la audiencia correcta a través de LinkedIn y correos.
-- Exploraremos alianzas estratégicas con proveedores de equipos para ofrecer la plataforma como un valor añadido en sus ventas. 
-- Prueba gratuita de 14 días para que los usuarios experimenten el valor del producto de primera mano, sin compromiso.
-
-## ¿Cómo generaremos ingresos?
-
-- Suscripción mensual, escalonada según el número de equipos y el nivel de funcionalidad. 
-- Modelo freemium para captar a usuarios más pequeños
-- Publicidad dirigida para marcas que deseen llegar a nuestra base de usuarios.
-
-## ¿Cuál es nuestra competencia y cómo la superamos?
-
-- Nuestra competencia son soluciones genéricas de gestión de mantenimiento y nuestra ventaja es la especialización. 
-- La plataforma está diseñada exclusivamente para la refrigeración, lo que nos permite ofrecer funciones avanzadas como la detección de anomalías en tiempo real y la automatización de acciones, que ninguna otra herramienta genérica puede igualar.
-
-## ¿Cuál es nuestro mayor riesgo?
-
-- Resistencia al cambio del personal tradicional.
-- Lentitud en la adopción inicial.
-- Desconfianza en la precisión de los datos.
-
-## ¿Cómo lo resolveremos?
-
-- Implementaremos algoritmos de validación robustos para asegurar la precisión de los datos.
-- Ofreceremos capacitación continua y soporte dedicado para facilitar la adopción.
-- comenzaremos con una estrategia de integración progresiva, enfocándonos en los equipos más comunes y trabajando con sensores certificados para generar una base de confianza sólida.
+- Creemos que la conexión de sensores IoT a los equipos permitirá recopilar automáticamente datos de temperatura y otras variables relevantes en tiempo real.
+- Creemos que la integración con controladores y sistemas de monitoreo existentes permitirá centralizar información sin depender exclusivamente de una única fuente de datos.
+- Creemos que un sistema de monitoreo en tiempo real permitirá a los usuarios visualizar el estado actual de sus equipos desde la plataforma.
+- Creemos que un sistema de alertas automáticas permitirá notificar oportunamente a los usuarios cuando se detecten valores anormales o condiciones que puedan indicar una falla.
+- Creemos que el historial técnico de cada equipo permitirá a los usuarios consultar su comportamiento, incidencias y mantenimientos anteriores para facilitar la toma de decisiones.
+- Creemos que un módulo de gestión y programación de mantenimientos permitirá a técnicos y proveedores organizar sus actividades y reducir mantenimientos reactivos.
+- Creemos que los informes de rendimiento permitirán identificar tendencias, anomalías e ineficiencias en los equipos.
+- Creemos que el análisis de consumo energético permitirá identificar oportunidades para reducir el uso innecesario de energía.
+- Creemos que una interfaz web y móvil permitirá a los usuarios consultar información y gestionar sus actividades tanto desde sus oficinas como desde el campo.
 
 #### 1.2.2.3 Lean UX Hypothesis Statements
 
-**Hipótesis 1: Adopción del Producto**
+**Hipótesis 1: Conexión mediante sensores IoT**
 
-Creemos que los negocios de alimentos y bebidas adoptarán nuestra plataforma para gestionar sus equipos de refrigeración, utilizándola regularmente para el monitoreo y la gestión de tareas.
-Sabremos que hemos tenido éxito cuando la mayoría de nuestros usuarios activos semanales utilicen tanto la función de monitoreo en tiempo real como la de gestión de servicios durante los primeros meses de suscripción.
+Creemos que lograremos aumentar la adopción y el valor percibido de IceTrack al proporcionar datos confiables y continuos sobre los equipos de refrigeración.
 
----
+Si los responsables de negocios que dependen de la cadena de frío y los técnicos especializados obtienen información automática y actualizada sobre el estado de los equipos con la conexión de sensores IoT que recopilen datos directamente desde los sistemas de refrigeración.
 
-**Hipótesis 2: Mitigación de Pérdidas**
+Sabremos que hemos tenido éxito cuando los usuarios mantengan sus equipos conectados y consulten regularmente los datos recopilados por los sensores para supervisar su funcionamiento.
 
-Creemos que, al proporcionar monitoreo en tiempo real y alertas tempranas, reduciremos significativamente las pérdidas de inventario de nuestros clientes relacionadas con fallos en la refrigeración.
-Sabremos que hemos tenido éxito cuando una gran parte de nuestros clientes que reporten pérdidas de inventario confirmen que la alerta de nuestra plataforma les permitió actuar a tiempo para mitigar el daño, reflejándose en una notable reducción de pérdidas en sus registros.
+**Hipótesis 2: Monitoreo en tiempo real**
 
----
+Creemos que lograremos reducir la ocurrencia e impacto de fallas críticas relacionadas con los equipos de refrigeración.
 
-**Hipótesis 3: Eficiencia del Servicio**
+Si los responsables de negocios que dependen de la cadena de frío pueden conocer en tiempo real el estado y las principales variables de funcionamiento de sus equipos con un módulo de monitoreo en tiempo real conectado a sensores IoT y otras fuentes de datos.
 
-Creemos que nuestra plataforma optimizará la cadena de servicio, reduciendo sustancialmente el tiempo promedio de respuesta y resolución de un problema de refrigeración.
-Sabremos que hemos tenido éxito cuando los técnicos de servicio registren que el tiempo desde la solicitud hasta la finalización de un servicio se ha acortado notablemente en comparación con sus procesos manuales, y esta mejora se refleje en los informes generados por nuestra plataforma.
+Sabremos que hemos tenido éxito cuando los usuarios consulten regularmente el estado de sus equipos y detecten anomalías antes de que generen una falla crítica o una pérdida de inventario.
 
----
+**Hipótesis 3: Alertas automáticas**
 
-**Hipótesis 4: Satisfacción del Cliente**
+Creemos que lograremos reducir las pérdidas ocasionadas por fallas o condiciones anormales de los equipos.
 
-Creemos que la centralización de la gestión y la transparencia del proceso de servicio mejorarán la satisfacción de los clientes con el mantenimiento de sus equipos.
-Sabremos que hemos tenido éxito cuando obtengamos una alta puntuación promedio en las encuestas de satisfacción del cliente relacionadas con la coordinación de servicios, y recibamos testimonios que resalten la facilidad y la claridad del proceso.
+Si los responsables de negocios y técnicos especializados pueden recibir una notificación oportuna ante una anomalía o condición crítica con un sistema de alertas automáticas basado en los datos recopilados por la plataforma.
 
----
+Sabremos que hemos tenido éxito cuando los usuarios reciban las alertas, actúen ante ellas y logren resolver o mitigar incidentes antes de que produzcan pérdidas significativas.
 
-**Hipótesis 5: Retención y Valor a Largo Plazo**
+**Hipótesis 4: Historial técnico**
 
-Creemos que la propuesta de valor de nuestra plataforma, centrada en la automatización y el ahorro, incentivará la retención a largo plazo de los clientes.
-Sabremos que hemos tenido éxito cuando la gran mayoría de nuestros clientes continúen utilizando la plataforma después de los primeros meses, y veamos que renuevan sus suscripciones de forma recurrente.
+Creemos que lograremos mejorar la eficiencia del diagnóstico y mantenimiento de los equipos.
+
+Si los técnicos y proveedores de servicios de refrigeración pueden consultar el comportamiento histórico, incidencias y mantenimientos realizados en cada equipo con un historial técnico centralizado y asociado a cada activo.
+
+Sabremos que hemos tenido éxito cuando los técnicos consulten el historial durante sus servicios y reduzcan el tiempo necesario para identificar las causas de los problemas.
+
+**Hipótesis 5: Gestión y programación de mantenimientos**
+
+Creemos que lograremos reducir los costos asociados al mantenimiento reactivo y mejorar la productividad de los técnicos.
+
+Si los técnicos y proveedores de servicios de refrigeración pueden planificar, organizar y realizar seguimiento de sus actividades de mantenimiento con un módulo de programación y gestión de mantenimientos.
+
+Sabremos que hemos tenido éxito cuando aumente el porcentaje de mantenimientos planificados y disminuya el tiempo promedio empleado en gestionar y atender servicios.
+
+**Hipótesis 6: Informes de rendimiento**
+
+Creemos que lograremos mejorar la toma de decisiones relacionada con el funcionamiento de los equipos.
+
+Si los responsables de negocios y proveedores pueden analizar el rendimiento de sus equipos mediante información histórica y reportes comprensibles con un módulo de generación de informes de rendimiento.
+
+Sabremos que hemos tenido éxito cuando los usuarios consulten los informes periódicamente y utilicen la información obtenida para realizar acciones de mantenimiento, optimización o reemplazo de equipos.
+
+**Hipótesis 7: Análisis del consumo energético**
+
+Creemos que lograremos disminuir los costos operativos asociados al consumo energético de los equipos de refrigeración.
+
+Si los responsables de negocios pueden identificar equipos con un consumo energético elevado o comportamientos ineficientes con un módulo de monitoreo y análisis del consumo energético.
+
+Sabremos que hemos tenido éxito cuando los usuarios identifiquen oportunidades de ahorro y se observe una reducción del consumo energético en los equipos intervenidos.
+
+**Hipótesis 8: Gestión de usuarios, roles y ubicaciones**
+
+Creemos que lograremos facilitar la administración de equipos en organizaciones con múltiples usuarios o establecimientos.
+
+Si los responsables de negocios y proveedores que gestionan múltiples usuarios, equipos o ubicaciones pueden controlar el acceso a la información según las responsabilidades de cada persona con un sistema de gestión de usuarios, roles y ubicaciones.
+
+Sabremos que hemos tenido éxito cuando las organizaciones puedan administrar diferentes usuarios y equipos desde una misma cuenta sin comprometer la seguridad ni la organización de la información.
+
+**Hipótesis 9: Plataforma multiplataforma**
+
+Creemos que lograremos aumentar la frecuencia de uso de IceTrack y facilitar la supervisión de los equipos fuera de las oficinas.
+
+Si los responsables de negocios y técnicos pueden consultar información y gestionar sus actividades desde diferentes ubicaciones con una plataforma disponible mediante interfaces web y móvil.
+
+Sabremos que hemos tenido éxito cuando los usuarios accedan a la plataforma tanto desde sus lugares de trabajo como durante sus actividades en campo.
 
 #### 1.2.2.4 Lean UX Canvas
 
@@ -516,7 +430,7 @@ Sabremos que hemos tenido éxito cuando la gran mayoría de nuestros clientes co
 **Segmento Objetivo 1: Negocios con equipos de refrigeración**
 
 **Aspectos demográficos:**
-- **Tipo de negocio:** Pequeñas y  medianas empresas.
+- **Tipo de negocio:** Medianas empresas.
 - **Rubro:** Alimentario, farmacéutico, restauración y comercio minorista.
 - **Nivel de necesidad:** Alta dependencia de sistemas de refrigeración.
 
@@ -535,7 +449,7 @@ Sabremos que hemos tenido éxito cuando la gran mayoría de nuestros clientes co
 **Segmento Objetivo 2: Técnicos y empresas de mantenimiento**
 
 **Aspectos demográficos:**
-- **Tipo de negocio:** Profesionales independientes y compañías de servicio técnico.
+- **Tipo de negocio:** Compañías de servicio técnico.
 - **Rubro:** Mantenimiento y reparación de equipos de refrigeración.
 - **Nivel de necesidad:** Alta demanda de organización y eficiencia en sus procesos.
 
