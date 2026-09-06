@@ -23,7 +23,7 @@
 |  Gordon Salas, Gabriel Fernando       |  U20221E229                           |
 |  Guillen Galindo, Julio Adolfo    	  |  U20241a352                           |
 |  Jiménez Guerra, Gianmarco Fabian     |  U202123843                           |
-|  -, -     |  -                           |
+|  Tenorio Medina, Piero Francesco      |  U202318731                           |
 |  Quijada Magro, Jeremy Alexander      |  U202219657                           |
 
 </div>
@@ -1106,12 +1106,38 @@ Para mantener el proyecto organizado, usamos la escala de Fibonacci (1, 2, 3, 5,
 | 16    | TS-04         | Registrar nuevo usuario a través de API RESTful               | Como desarrollador, quiero exponer un endpoint para registrar nuevos usuarios en la plataforma, validando datos como correo único y formato de contraseña, para permitir el acceso de nuevos usuarios.	            | 5            |
 | 17    | TS-05         | Consulta de estado de servicios por API                       | Como desarrollador, mi objetivo es crear un endpoint para que clientes y empresarios puedan consultar el estado de una solicitud de servicio en tiempo real.                                                   | 8            |
 
-# Capítulo IV: Product Design
 
-## 4.1. Style Guidelines
+# Capitulo IV: Solution Software Design
+
+## 4.1. Strategic-Level Domain-Driven Design
+### 4.1.1. Design-Level EventStorming
+#### 4.1.1.1. Candidate Context Discovery
+#### 4.1.1.2. Domain Message Flows Modeling
+#### 4.1.1.3. Bounded Context Canvases
+
+### 4.1.2. Context Mapping
+### 4.1.3. Software Architecture
+#### 4.1.3.1. Software Architecture System Landscape Diagram
+#### 4.1.3.2. Software Architecture Context Level Diagrams
+#### 4.1.3.3. Software Architecture Container Level Diagrams
+
+## 4.2. Tactical-Level Domain-Driven Design
+### 4.2.1. Bounded Context:
+#### 4.2.1.1. Domain Layer
+#### 4.2.1.2. Interface Layer
+#### 4.2.1.3. Application Layer
+#### 4.2.1.4. Infrastructure Layer
+#### 4.2.1.5. Bounded Context Software Architecture Component Level Diagrams
+#### 4.2.1.6. Bounded Context Software Architecture Code Level Diagrams
+#### 4.2.1.6.1. Bounded Context Domain Layer Class Diagrams
+#### 4.2.1.6.2. Bounded Context Database Design Diagram
+
+# Capítulo V: Product Design
+
+## 5.1. Style Guidelines
 El diseño del logo de IceTrack busca transmitir los conceptos de protección, tecnología y monitoreo constante. Se eligió como elemento central un escudo estilizado con un copo de nieve integrado, simbolizando la protección de la cadena de frío. El escudo representa confianza y seguridad, mientras que el copo de nieve refleja el enfoque en la refrigeración. De manera complementaria, las líneas suaves y geométricas refuerzan la idea de precisión, estabilidad y eficiencia tecnológica.
 
-### 4.1.1. General Style Guidelines
+### 5.1.1. General Style Guidelines
 - Branding:
 (En proceso...)
 
@@ -1158,7 +1184,7 @@ IceTrack transmite profesionalismo, confianza y proactividad, claves para un sis
   - Orientado a la acción, con instrucciones breves y fáciles de seguir.
   - Consistente en terminología técnica, garantizando coherencia en alertas, reportes y documentación.
 
-### 4.1.2. Web Style Guidelines
+### 5.1.2. Web Style Guidelines
 Elegimos la paleta basada en azules, rojo blanco y negro, porque queremos representar los valores de tecnología, confianza y alerta crítica. El azul oscuro transmite estabilidad y profesionalismo, siendo el color principal de fondos y tipografías. El azul claro simboliza frescura, innovación y eficiencia, usado en botones y elementos interactivos. El rojo se reserva para alertas y notificaciones, comunicando de manera inmediata fallas o eventos críticos en los equipos de refrigeración.
 
 El uso balanceado de estos tonos asegura que la información clave sea rápidamente perceptible sin perder sobriedad visual. Los contrastes se aplican estratégicamente para mantener un diseño ordenado, moderno y fácil de interpretar en cualquier dispositivo.
@@ -1210,9 +1236,9 @@ IceTrack está diseñado como una aplicación mobile-first, adaptándose fluidam
   - Uso consistente de colores: azul para acciones, rojo solo para alertas.
   - Estándar de espaciado basado en múltiplos de 8px para mantener ritmo visual.
 
-## 4.2. Information Architecture
+## 5.2. Information Architecture
 
-### 4.2.1. Organization Systems
+### 5.2.1. Organization Systems
 Se utilizaran diversos métodos para organizar la información según su relevancia, y su presentación visual se ha realizado de las siguientes maneras:
 
 - Organización Jerárquica: Se usara en el dashboard principal, donde se prioriza mostrar primero las alertas críticas, luego los indicadores de consumo energético, y en reportes históricos.
@@ -1221,7 +1247,7 @@ Se utilizaran diversos métodos para organizar la información según su relevan
 
 - Organización Matricial: Para la comparación de datos energéticos y desempeño de equipos en los sistemas.
 
-### 4.2.2. Labeling Systems
+### 5.2.2. Labeling Systems
 En IceTrack, el sistema de etiquetado ha sido diseñado para maximizar la claridad y reducir la carga cognitiva de los usuarios. Todas las etiquetas en la navegación, en los reportes o en la gestión de equipos, priorizan la simplicidad, la consistencia semántica y un lenguaje directo, profesional y fácil de comprender, sin sacrificar precisión técnica.
 
 - Principios clave del sistema de etiquetado:
@@ -1241,7 +1267,7 @@ En IceTrack, el sistema de etiquetado ha sido diseñado para maximizar la clarid
 
 - Asociaciones entre etiquetas: “Equipo crítico”, “Alerta preventiva”, “Reporte generado”
 
-### 4.2.3. SEO Tags and Meta Tags
+### 5.2.3. SEO Tags and Meta Tags
 - Landing Page
   - Title: Gestión inteligente de equipos de refrigeración.
   - Meta Description: Optimiza la gestión de tu cadena de frío con monitoreo en tiempo real, alertas automáticas y mantenimiento predictivo, protegiendo tu inventario y reduciendo pérdidas.
@@ -1254,7 +1280,7 @@ En IceTrack, el sistema de etiquetado ha sido diseñado para maximizar la clarid
   - Meta Keywords: monitoreo de refrigeración, gestión de equipos, alertas preventivas, mantenimiento en línea, reportes energéticos, técnicos de refrigeración
   - Meta Author: Frostshield 
 
-### 4.2.4. Searching Systems
+### 5.2.4. Searching Systems
 Las decisiones de búsqueda en IceTrack están orientadas a garantizar que los usuarios —empresarios, técnicos y proveedores— encuentren rápidamente la información crítica de sus equipos y servicios, sin sentirse abrumados por grandes volúmenes de datos.
 
 - Opciones de Búsqueda
@@ -1287,7 +1313,7 @@ Las decisiones de búsqueda en IceTrack están orientadas a garantizar que los u
   - Ordenación y filtros aplicados: El usuario puede ordenar por relevancia, estado del equipo, consumo energético. Los filtros activos se muestran claramente en la parte superior.
   - Revisiones y comentarios: Cada resultado puede incluir reseñas o comentarios de técnicos/clientes sobre el desempeño y la calidad del servicio.
 
-### 4.2.5. Navigation Systems
+### 5.2.5. Navigation Systems
 La estructura de navegación en IceTrack está diseñada para ofrecer una experiencia de usuario fluida, asegurando acceso rápido a funcionalidades críticas y manteniendo coherencia visual con la identidad de la marca.
 
 - Páginas principales
@@ -1312,9 +1338,9 @@ La estructura de navegación en IceTrack está diseñada para ofrecer una experi
  - El logo y nombre IceTrack estarán visibles en la esquina superior izquierda de todas las vistas, asegurando coherencia de marca.
  - Los colores y tipografía seguirán los lineamientos definidos en la guía de estilo, reforzando la identidad visual y la confianza del usuario.
 
-## 4.3. Landing Page UI Design
+## 5.3. Landing Page UI Design
 
-### 4.3.1. Landing Page Wireframe
+### 5.3.1. Landing Page Wireframe
 El wireframe del landing page de IceTrack se diseñó para guiar la creación de una interfaz clara e intuitiva. Este esquema visual, enfocado en la usabilidad y el flujo de información, define la estructura de cada sección:
 
 **Header:** Contiene el logo de IceTrack y una navegación simple que facilita el acceso a las diferentes secciones de la página.
@@ -1342,7 +1368,7 @@ El objetivo principal de este wireframe es asegurar que el diseño final sea ló
   </figcaption>
 </figure>
 
-### 4.3.2. Landing Page Mock-up
+### 5.3.2. Landing Page Mock-up
 
 Los mockups del landing page de IceTrack elevan la estructura del wireframe a un nivel visual y estético. Aquí, el enfoque ya no es solo la funcionalidad, sino también el diseño, los colores, la tipografía y las imágenes, con el objetivo de crear una experiencia de usuario atractiva y profesional.
 
@@ -1414,9 +1440,9 @@ Ofrece un formulario simple y directo con campos bien organizados para que los i
   </figcaption>
 </figure>
 
-## 4.4. Web Applications UX/UI Design
+## 5.4. Web Applications UX/UI Design
 
-### 4.4.1. Web Applications Wireframes
+### 5.4.1. Web Applications Wireframes
 
 Los wireframes de las aplicaciones web de IceTrack muestran cómo se estructuran las pantallas y dónde se ubican los elementos de navegación. Estos esquemas visuales, que se centran en la funcionalidad y la facilidad de uso, guían el diseño final. Su objetivo es asegurar que la aplicación sea intuitiva y que la interacción del usuario sea fluida y eficiente, lo que ayuda a diseñadores y desarrolladores a optimizar la disposición de cada componente.
 
@@ -1484,10 +1510,10 @@ Los wireframes de las aplicaciones web de IceTrack muestran cómo se estructuran
   </figcaption>
 </figure>
 
-### 4.4.2. Web Applications Wireflow Diagrams
+### 5.4.2. Web Applications Wireflow Diagrams
 <img width="2576" height="916" alt="Web Applications Wireflow Diagram" src="https://github.com/user-attachments/assets/4d5247bc-d766-4593-ba97-cc59d411e93e" />
 
-### 4.4.3. Web Applications Mock-ups
+### 5.4.3. Web Applications Mock-ups
 
 **Login**
 En esta sección, los usuarios pueden crear sus cuentas para acceder a la aplicación. Es el punto de entrada que les permite gestionar y monitorear sus equipos.
@@ -1562,11 +1588,15 @@ Al seleccionar un equipo en particular, se accede a esta sección. Aquí se pued
     <strong>Figura 1:</strong> Web Applications User Flow Diagram.
   </figcaption>
 
-## 4.5. Web Applications Prototyping
+## 5.5. Web Applications Prototyping
 
 La sección de Prototipado de Aplicaciones Web muestra un modelo interactivo y funcional de la aplicación IceTrack antes de su desarrollo final. Este proceso permite simular el flujo de usuario, la navegación y las interacciones principales, garantizando que el diseño sea intuitivo y que la experiencia de usuario sea la mejor posible. Es la fase donde las ideas se validan con un producto tangible.
 
 URL: https://www.figma.com/proto/ssl7G9KRip9XbC0tBXqUnc/Untitled?node-id=1-2&p=f&t=Kj4CziPHI6VX6P3M-1&scaling=contain&content-scaling=responsive&page-id=0%3A1
+
+---
+
+## 5.6. IoT Device Design
 
 ---
 
