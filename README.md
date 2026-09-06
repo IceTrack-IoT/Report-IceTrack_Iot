@@ -233,12 +233,12 @@ Las funcionalidades clave de la plataforma incluyen el monitoreo en tiempo real 
 
 ---
 
-| **Integrante**            | **-**                                  	                                       |
-| :------------------------ | :----------------------------------------------------------------------------------- |
-| **Código del Estudiante** | -                                                                          |
-| **Carrera**               | Ingeniería de Software                                                               |
-| **Descripción**           | -                                                                            |
-| **Foto**                  |  -|
+| **Integrante**            | **Piero Francesco Tenorio Medina**                                        	            |
+| :------------------------ | :-------------------------------------------------------------------------------------- |
+| **Código del Estudiante** | u202318731																	                                            |
+| **Carrera**               | Ingeniería de Software														                                      |
+| **Descripción**           | Estudiante de la carrera de Ingeniería de Software con conocimiento sobre desarrollo de aplicaciones web, especialmente en el entorno Backend. Tengo conocimientos sobre las tecnologías: Java,Vue, Angular y C#. Como integrante de un equipo, me gusta trabajar y comunicarme con los integrantes para poder cumplir los objetivos del proyecto. Estoy abierto a aprender nuevas herramientas que me permitan desempeñar mejor dentro de mi carrera.|
+| **Foto**                  | <img src="assets/chapter01/piero.png" alt="Piero" height="200">     |
 
 ---
 
@@ -1111,9 +1111,28 @@ Para mantener el proyecto organizado, usamos la escala de Fibonacci (1, 2, 3, 5,
 
 ## 4.1. Strategic-Level Domain-Driven Design
 ### 4.1.1. Design-Level EventStorming
+
+En esta sección se aplican las técnicas de EventStorming para poder identificar los distintos Bounded Context dentro del dominio de la aplicación, asi como las interacciones y dependencias entre ellos. Esto nos permite tener una visión clara de cómo se estructura los distintos componentes y cómo se comunican entre sí.
+
 #### 4.1.1.1. Candidate Context Discovery
+
+En esta sección aplicamos la técnica de Candidate Discovery para identificar y separar los posibles Bounded Context. Esto divide el trabajo en subramas donde se trabajan distintas funcionalidades por separado.
+
+Con esto, nos llevó a crear los siguientes Bounded Context:
+
+| Bounded Context| Descripcion | Eventos Clave|
+|:---:|:---:|:---:|
+
 #### 4.1.1.2. Domain Message Flows Modeling
+
+El Domain Message Flow Modeling es una técnica que nos permite representar cómo fluyen los mensajes de dominios (comandos, eventos y consultas) entre los distintos Bounded Context. Esto se hace con el objetivo de especificar dentro de el entorno las dependencias y responsabilidades de cada uno de los contextos.
+
 #### 4.1.1.3. Bounded Context Canvases
+
+El Bounded Context Canvas es una herramienta que se aplica dentro del marco del DDD (Domain-Drive-Design) que nos permite representar de manera clara los límites, las responsabilidades e interacciones de cada contexto dentro de un sistemas que pueda llegar a ser complejo.
+
+En esta sección se representan los Bounded Context correspondientes a los contextos indetificados dentro de la aplicación a trabajar:
+
 
 ### 4.1.2. Context Mapping
 ### 4.1.3. Software Architecture
