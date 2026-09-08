@@ -21,6 +21,7 @@
 | :-----------------------------------: | :-----------------------------------: |
 |  -  |  -                          |
 |  Gordon Salas, Gabriel Fernando       |  U20221E229                           |
+|  Cuentas Peña, Joaquin Alberto       |  U20201f788                           |
 |  Guillen Galindo, Julio Adolfo    	  |  U20241a352                           |
 |  Jiménez Guerra, Gianmarco Fabian     |  U202123843                           |
 |  Tenorio Medina, Piero Francesco      |  U202318731                           |
