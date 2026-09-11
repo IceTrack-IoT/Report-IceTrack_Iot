@@ -798,13 +798,13 @@ Este apartado expone los arquetipos de User Persona, elaborados a partir del an�
 
 ### 2.3.2. User Task Matrix
 
-En esta sección se presenta el User Task Matrix, construido a partir de los User Persona que representan a los dos segmentos clave identificados:
+En esta sección se presenta el User Task Matrix, realizado en base a los los User Persona que representan a los dos segmentos clave identificados:
 
 Segmento 1: Negocios con equipos de refrigeración (representado por Alicia Vargas).
 
 Segmento 2: Técnicos y empresas de mantenimiento (representado por Luis Paredes).
 
-Las tareas fueron identificadas a partir del análisis cualitativo de entrevistas, y cada una fue evaluada según su frecuencia y nivel de importancia para los respectivos perfiles.
+Las tareas se determinaron mediante el análisis cualitativo de las entrevistas, valorando luego su periodicidad e impacto crítico para cada perfil.
 
 <table>
   <tr>
@@ -901,9 +901,7 @@ Las tareas fueron identificadas a partir del análisis cualitativo de entrevista
 
 **Análisis:**
 
-A través del User Task Matrix, podemos identificar las frecuencias e importancias entre los diferentes segmentos que presentamos y usar esta información como guía.
-
-Las tareas clave con mayor frecuencia e importancia en ambos segmentos son verificar temperaturas de equipos, coordinar servicios de mantenimiento, revisar estado físico de los equipos y realizar mantenimiento preventivo o solicitarlo, lo que evidencia una necesidad común de control y prevención en la gestión de refrigeración. Sin embargo, Alicia Vargas prioriza el control del inventario y la operación del negocio, mientras que Luis Paredes se enfoca en aspectos técnicos, reportes y comunicación de incidencias. Ambos grupos coinciden en la necesidad de contar con una solución que les permita monitorear el estado de los equipos, prevenir fallas y mejorar la eficiencia operativa.
+El User Task Matrix permite contrastar la frecuencia y relevancia de las actividades en cada segmento analizado para orientar las decisiones de diseño. Las tareas prioritarias y recurrentes para ambos perfiles son el control térmico, la gestión del mantenimiento, la inspección física de las unidades y la ejecución o solicitud de revisiones preventivas, lo que confirma un interés mutuo en la prevención operativa. No obstante, las prioridades difieren según el rol: Alicia Vargas se enfoca en la continuidad del negocio y el control de existencias, mientras que Luis Paredes atiende los diagnósticos técnicos, los informes de servicio y el reporte de averías. A pesar de estas diferencias, ambos perfiles demandan una herramienta que facilite la supervisión de los activos, anticipe fallos y optimice sus procesos diarios.
 
 ### 2.3.3. User Journey Mapping
 
