@@ -586,33 +586,33 @@ TempGenius es un sistema de supervisión en tiempo real enfocado en el control d
 
 ### 2.1.2. Estrategias y tácticas frente a competidores
 
-Hemos identificado diversas estrategias y tácticas para diferenciarnos y competir efectivamente con otros actores del mercado de la gestión y monitoreo de sistemas de refrigeración. A continuación se detallan las principales:
+Con el fin de posicionarnos con ventaja en el sector de supervisión y administración de frío comercial, definimos acciones clave orientadas a superar las propuestas actuales del mercado:
 
 1. **Estrategias de Diferenciación:**
 
-**Solución Integral para Refrigeración comercial:** A diferencia de los competidores, IceTrack se especializa exclusivamente en la gestión de sistemas de refrigeración, ofreciendo monitoreo en tiempo real, alertas automáticas, mantenimiento preventivo y trazabilidad completa. Esto permite a los negocios reducir las incidencias por fallas inesperadas y gestionar sus equipos de refrigeración de manera proactiva.
+**Solución Integral para Refrigeración comercial:** Mientras que otras alternativas son genéricas, IceTrack se enfoca de lleno en la cadena de frío, combinando telemetría en vivo, notificaciones preventivas y registro operativo continuo. Este enfoque minimiza paradas imprevistas y facilita una administración preventiva de cada unidad de refrigeración.
 
-**Trazabilidad Completa de Equipos:** Ofrecemos una plataforma que proporciona un historial técnico detallado de cada equipo, algo que competidores como ServiceTitan no ofrecen de forma especializada para el sector de refrigeración. Esto garantiza un mayor control sobre los activos y la calidad del servicio.
+**Trazabilidad Completa de Equipos:** La plataforma registra la hoja de vida técnica de cada activo, una cualidad ausente en herramientas generales como ServiceTitan en lo relativo al frío comercial. Esto se traduce en una supervisión precisa de los activos y un estándar de servicio superior.
 
-**Interfaz Intuitiva y Fácil de Usar:** La plataforma prioriza una interfaz intuitiva y accesible para técnicos y negocios sin experiencia tecnológica.
+**Interfaz Intuitiva y Fácil de Usar:** El diseño del sistema prioriza la simplicidad operativa, permitiendo que tanto operarios de campo como administradores lo manejen con fluidez desde el primer día, sin requerir capacitaciones complejas.
 
 2. **Tácticas de Marketing:**
 
-**Marketing Digital y Demostraciones Gratuitas:** Lanzaremos campañas en redes sociales dirigidas a supermercados, laboratorios y restaurante, destacando nuestra capacidad para reducir fallas y ahorrar costos en operaciones. Esta táctica se diferencia de TempGenius, que aún no ha adoptado un enfoque digital tan agresivo.
+**Marketing Digital y Demostraciones Gratuitas:** Ejecutaremos pauta digital segmentada para el rubro gastronómico, cadenas de retail y centros de salud, evidenciando el ahorro operativo y el control de mermas. Esto contrasta con la presencia digital más tradicional y pasiva de competidores directos como TempGenius.
 
-**Fidelización de Usuarios a Largo Plazo:** Implementaremos programas de fidelización y un sistema de recompensas para los técnicos y negocios que continúen usando nuestra plataforma y colaboren con nosotros para mejorar el servicio. De esta forma, buscamos aumentar la lealtad, algo que muchos competidores no han logrado gestionar adecuadamente.
+**Fidelización de Usuarios a Largo Plazo:** Diseñaremos planes de incentivos y beneficios exclusivos para técnicos y empresas que mantengan su actividad en la plataforma y aporten retroalimentación, fortaleciendo la retención en un mercado donde la lealtad suele descuidarse.
 
 3. **Estrategias de Precios:**
 
-**Modelo Freemium:** Ofrecemos una versión gratuita para atraer a pequeños negocios y usuarios que no están seguros de pagar por un servicio premium de inmediato. Este modelo es más flexible que el de ServiceTitan, que depende de suscripciones pagadas desde el principio.
+**Modelo Freemium:** Brindamos un plan básico sin costo de entrada para captar a micro y pequeñas empresas antes de comprometer presupuesto, una propuesta más accesible frente a los planes cerrados y de pago obligatorio de ServiceTitan.
 
-**Comisiones Bajas por Reserva:** Para los negocios, aplicamos comisiones reducidas por cada cita reservada a través de nuestra plataforma, lo que facilita la adopción y reduce el riesgo financiero para los negocios. Esto nos diferencia de competidores con estructuras de costos más rígidas.
+**Comisiones Bajas por Reserva:** Manejamos una tarifa mínima por cada servicio coordinado mediante el software, reduciendo la barrera de entrada económica y ofreciendo una estructura mucho más flexible que las tarifas fijas convencionales.
 
 4. **Expansión y Adaptabilidad:**
 
-**Enfoque Regional Inicial y Expansión Nacional:** A diferencia de competidores como TempGenius, que tiene un enfoque global, IceTrack comenzará en Lima con planes de expansión a otras ciudades del Perú. Esto nos permite adaptarnos mejor a las necesidades locales antes de expandirnos a nivel internacional.
+**Enfoque Regional Inicial y Expansión Nacional:** A diferencia de la escala multinacional dispersa de soluciones como TempGenius, IceTrack consolidará su tracción inicial en Lima para luego escalar a provincias, garantizando un ajuste óptimo a la realidad operativa del país antes de mirar hacia el exterior.
 
-**Colaboraciones con Proveedores Locales:** Formaremos alianzas estratégicas con proveedores de equipos de refrigeración y servicios técnicos en Perú, lo que nos diferenciará de la competencia al contar con un sistema robusto y adaptado específicamente para el mercado peruano.
+**Colaboraciones con Proveedores Locales:** Estableceremos acuerdos comerciales con distribuidores de repuestos, talleres y técnicos especializados en el territorio nacional, construyendo una red de soporte local que difícilmente pueden igualar las plataformas extranjeras.
 
 ## 2.2. Entrevistas
 
