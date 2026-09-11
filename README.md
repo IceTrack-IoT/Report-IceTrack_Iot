@@ -618,7 +618,7 @@ Con el fin de posicionarnos con ventaja en el sector de supervisión y administr
 
 ### 2.2.1. Diseño de entrevistas
 
-En esta sección, se han planteado diversas preguntas dirigidas a nuestros segmentos objetivos con el objetivo de obtener información relevante, como opiniones o descripciones. Estos datos serán fundamentales para el desarrollo de nuestra solución.
+Este apartado reúne las preguntas diseñadas para nuestros segmentos objetivo con el fin de recopilar percepciones y experiencias clave. Los hallazgos obtenidos servirán como insumo esencial para guiar el diseño y perfeccionamiento de la propuesta.
 
 **Preguntas para el Segmento Objetivo 1 - Negocios con equipos de refrigeración:**
 
@@ -784,7 +784,7 @@ En esta sección, se han planteado diversas preguntas dirigidas a nuestros segme
 
 ### 2.3.1. User Personas
 
-En esta sección se presentan las fichas de User Personas construidas a partir de los datos recolectados del análisis de entrevistas a nuestros segmentos objetivos. Estas fichas permiten representar de forma clara y estratégica los perfiles de cada segmento objetivo, considerando sus metas, habilidades, motivaciones y dificultades. De esta manera se integra la perspectiva del usuario y tendencias del sector para identificar oportunidades en el mercado y ofrecer una solución alineada a lo que el usuario necesita.
+Este apartado expone los arquetipos de User Persona, elaborados a partir del análisis de las entrevistas realizadas a nuestros segmentos objetivo. Estas representaciones sintetizan de manera estratégica los objetivos, destrezas, motivaciones y principales puntos de dolor de los usuarios, integrando sus necesidades reales con las tendencias del sector para detectar oportunidades de mercado y construir una solución a su medida.
 
 **Segmento Objetivo 1: Negocios con equipos de refrigeración**
 
