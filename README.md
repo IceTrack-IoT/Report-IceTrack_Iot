@@ -470,17 +470,17 @@ Sabremos que hemos tenido éxito cuando los usuarios accedan a la plataforma tan
 ## 2.1. Competidores
 
 **Competidor 1: ServiceTitan**
-ServiceTitan es una plataforma de gestión de servicios basada en la nube que ofrece soluciones de software para empresas de servicios, incluidos técnicos de HVAC, fontaneros y electricistas. Proporciona funcionalidades de programación, gestión de trabajos, facturación y más. Esta plataforma es conocida por su facilidad de uso y por ayudar a las empresas a optimizar sus operaciones de servicio técnico en tiempo real.
+ServiceTitan es un software en la nube diseñado para negocios de servicios de campo, como climatización (HVAC), plomería y electricidad. Centraliza tareas clave como la asignación de citas, el seguimiento de proyectos y la facturación, destacando por una interfaz intuitiva que agiliza la operativa diaria del personal técnico en tiempo real.
 
 ---
 
 **Competidor 2: Sensefinity**
-Sensefinity es una plataforma tecnológica especializada en soluciones de IoT para la cadena de frío, que permite monitorear en tiempo real condiciones como temperatura, humedad y vibraciones en productos sensibles durante su transporte y almacenamiento. Además, ofrece alertas automáticas y reportes en la nube que ayudan a las empresas a reaccionar rápidamente ante cualquier falla. Esta plataforma es reconocida por facilitar la trazabilidad completa de los productos y por apoyar a sectores como supermercados, farmacéuticas y logística en la reducción de pérdidas y el cumplimiento de estándares de calidad.
+Sensefinity es una solución basada en IoT diseñada para supervisar la cadena de frío. La plataforma rastrea variables críticas como la temperatura, la humedad y las vibraciones tanto en tránsito como en bodega, emitiendo alertas inmediatas e informes en la nube ante cualquier anomalía. Esto permite a sectores como la industria farmacéutica, el comercio minorista y la logística garantizar una trazabilidad integral, cumplir con normativas estrictas y minimizar el desperdicio de productos sensibles.
 
 ---
 
 **Competidor 3: TempGenius**
-TempGenius es un software de monitoreo de temperatura y humedad en tiempo real para diversas industrias, incluida la de la refrigeración comercial. Permite a los usuarios realizar un seguimiento de sus equipos de refrigeración mediante sensores conectados a la nube, generar reportes y recibir alertas automáticas por variaciones en los niveles de temperatura. Su principal enfoque es mejorar la visibilidad y control de las operaciones de refrigeración para evitar pérdidas económicas.
+TempGenius es un sistema de supervisión en tiempo real enfocado en el control de temperatura y humedad para múltiples sectores, con especial énfasis en la refrigeración comercial. A través de sensores en la nube, la plataforma genera informes continuos y emite notificaciones inmediatas ante cualquier desvío térmico, brindando a las empresas mayor control operativo para prevenir pérdidas de producto e impactos económicos.
 
 ### 2.1.1. Análisis competitivo
 
