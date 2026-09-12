@@ -40,8 +40,6 @@
 
 <div align="center">
  
-<div align="center">
- 
 | Versión | Fecha      | Autor             | Descripción de modificación                          |
 | :-----: | :--------: | :---------------: | :----------------------------------------------------- |
 | 1.1     | 15/04/2026 | Jeremy Quijada    | Desarrollo del Capitulo I Enfocado en la solución IOT |
