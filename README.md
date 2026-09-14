@@ -44,6 +44,7 @@
 | :-----: | :--------: | :---------------: | :----------------------------------------------------- |
 | 1.1     | 15/04/2026 | Jeremy Quijada    | Desarrollo del Capitulo I Enfocado en la solución IOT |
 | 1.1     | 11/09/2026 | Walter Fajardo    | Desarrollo de las partes 2.3, 2.3.1, 2.3.2, 2.3.3      |
+|1.2|14/09/2026 | Piero Tenorio | Primera Versión del User Flow Diagram y el Bounded Context Canvas|
 
 </div>
 
@@ -1121,12 +1122,39 @@ En esta sección aplicamos la técnica de Candidate Discovery para identificar y
 
 Con esto, nos llevó a crear los siguientes Bounded Context:
 
-| Bounded Context| Descripcion | Eventos Clave|
-|:---:|:---:|:---:|
+| Bounded Context | Descripción | Eventos Clave |
+| :--- | :--- | :--- |
+| IAM | Contexto donde se maneja la autenticación de los usuarios (dueños de negocio y proveedores de mantenimiento), el registro de cuentas y la validación de credenciales mediante JWT. | Usuario Registrado, Sesión Iniciada |
+| Assets Management | Contexto donde se administran las sedes (Sites) de un dueño de negocio, permitiendo un control centralizado de las ubicaciones físicas donde se instalan los equipos. | Sitio Creado, Sitio Actualizado |
+| Monitoring | Contexto donde se gestiona el registro y estado administrativo de los equipos de refrigeración (modelo, estado operativo, conectividad) y el intervalo de recordatorio de mantenimiento preventivo. | Equipo Creado, Estado de Equipo Actualizado |
+| Service Requests | Contexto donde se gestiona el ciclo de vida completo de una solicitud de mantenimiento: creación, aceptación, asignación de técnico, finalización y registro de intervenciones en campo. | Solicitud Creada, Solicitud Completada |
+| Technicians | Contexto donde se administra el registro de técnicos pertenecientes a una empresa proveedora, incluyendo su especialidad y datos de contacto. | Técnico Creado, Técnico Actualizado |
+| Feedback | Contexto donde el cliente evalúa el servicio técnico recibido, calificando comunicación, eficiencia y profesionalidad del técnico. | Reseña Creada |
+| Notifications | Contexto donde se generan y gestionan notificaciones automáticas de mantenimiento vencido, calculadas a partir del intervalo de recordatorio del equipo. | Notificación Generada, Notificación Descartada |
+| Dashboard | Contexto donde cada usuario personaliza la disposición y visibilidad de las tarjetas (widgets) de su panel de control. | Configuración de Dashboard Creada, Tarjeta Actualizada |
 
 #### 4.1.1.2. Domain Message Flows Modeling
 
 El Domain Message Flow Modeling es una técnica que nos permite representar cómo fluyen los mensajes de dominios (comandos, eventos y consultas) entre los distintos Bounded Context. Esto se hace con el objetivo de especificar dentro de el entorno las dependencias y responsabilidades de cada uno de los contextos.
+
+**Escenario 01: Registro y la Creación de Dashboard**
+
+![Domain Message Flow - Escenario 1](assets/chapter04/userFlow/flow1.png)
+
+**Escenario 02: Crear/Registrar Equipo en el Sitio**
+![Domain Message Flow - Escenario 2](assets/chapter04/userFlow/flow2.png)
+
+**Escenario 03: Crear Solicitud de Servicio referenciando un Equipo**
+![Domain Message Flow - Escenario 3](assets/chapter04/userFlow/flow3.png)
+
+**Escenario 04: Asignar Técnico a una Solicitud**
+![Domain Message Flow - Escenario 4](assets/chapter04/userFlow/flow4.png)
+
+**Escenario 05: Consultar notificaciones activas**
+![Domain Message Flow - Escenario 5](assets/chapter04/userFlow/flow5.png)
+
+**Escenario 06: Dejar una reseña tras completar el servicio**
+![Domain Message Flow - Escenario 6](assets/chapter04/userFlow/flow6.png)
 
 #### 4.1.1.3. Bounded Context Canvases
 
@@ -1134,6 +1162,34 @@ El Bounded Context Canvas es una herramienta que se aplica dentro del marco del 
 
 En esta sección se representan los Bounded Context correspondientes a los contextos indetificados dentro de la aplicación a trabajar:
 
+
+#### - IAM (Identity and Access Management)
+![Bounded Context Canvas - IAM](assets/chapter04/canvas/canvas1.png)
+
+
+#### - Assests Management 
+![Bounded Context Canvas - Assests Managmente](assets/chapter04/canvas/canvas2.png)
+
+
+#### - Monitoring
+![Bounded Context Canvas - Monitoring](assets/chapter04/canvas/canvas3.png)
+
+
+#### - Services Request 
+![Bounded Context Canvas - Services Request](assets/chapter04/canvas/canvas4.png)
+
+
+#### - Technicians Management
+![Bounded Context Canvas - Technicians](assets/chapter04/canvas/canvas5.png)
+
+#### - Feedback
+![Bounded Context Canvas - Feedback](assets/chapter04/canvas/canvas6.png)
+
+#### - Notifications
+![Bounded Context Canvas - Notifications](assets/chapter04/canvas/canvas7.png)
+
+#### - Dashboard
+![Bounded Context Canvas - Dashboard](assets/chapter04/canvas/canvas8.png)
 
 ### 4.1.2. Context Mapping
 ### 4.1.3. Software Architecture
@@ -3553,3 +3609,7 @@ El seguimiento continuo se enfocará en:
   <br>
 - **Video About-The-Product:**
   - YouTube: https://youtu.be/hKL4tEhWjGE
+
+
+- **Enlace del Lucidchart:**
+https://lucid.app/lucidchart/817cb83d-3d5c-4aca-9dd8-25223ee29a7f/edit?viewport_loc=-1747%2C-10860%2C36858%2C19690%2C0_0&invitationId=inv_b7e0210c-55d8-452c-a5f7-617ffe06cfaa
