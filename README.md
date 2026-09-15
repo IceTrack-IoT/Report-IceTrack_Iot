@@ -926,7 +926,7 @@ En esta sección se presentan los Empathy Maps. Estos nos ayudarán a comprender
 
 <br>
 
-**Segmento Objetivo 1: Negocios con equipos de refrigeración**
+**Segmento Objetivo 1: Heladerías con equipos de refrigeración**
 
 ![UserJourneyMapping-Segmento1](assets/chapter02/EmpathyMap-Segmento1.png)
 
