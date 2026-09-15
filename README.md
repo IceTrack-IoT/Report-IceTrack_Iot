@@ -787,7 +787,7 @@ Este apartado reúne las preguntas diseñadas para nuestros segmentos objetivo c
 
 Este apartado expone los arquetipos de User Persona, elaborados a partir del análisis de las entrevistas realizadas a nuestros segmentos objetivo. Estas representaciones sintetizan de manera estratégica los objetivos, destrezas, motivaciones y principales puntos de dolor de los usuarios, integrando sus necesidades reales con las tendencias del sector para detectar oportunidades de mercado y construir una solución a su medida.
 
-**Segmento Objetivo 1: Negocios con equipos de refrigeración**
+**Segmento Objetivo 1: Heladerias con equipos de refrigeración**
 
 ![UserPersona-Segmento1](assets/chapter02/UserPersona-Segmento1.png)
 
@@ -799,9 +799,9 @@ Este apartado expone los arquetipos de User Persona, elaborados a partir del an�
 
 ### 2.3.2. User Task Matrix
 
-En esta sección se presenta el User Task Matrix, realizado en base a los los User Persona que representan a los dos segmentos clave identificados:
+En esta sección se presenta el User Task Matrix, realizado en base a los User Persona que representan a los dos segmentos clave identificados:
 
-Segmento 1: Negocios con equipos de refrigeración (representado por Alicia Vargas).
+Segmento 1: Heladerías con equipos de refrigeración (representado por Alicia Vargas).
 
 Segmento 2: Técnicos y empresas de mantenimiento (representado por Luis Paredes).
 
@@ -820,7 +820,7 @@ Las tareas se determinaron mediante el análisis cualitativo de las entrevistas,
     <th>Importancia</th>
   </tr>
   <tr>
-    <td>Verificar temperatura de equipos</td>
+    <td>Verificar temperatura de vitrinas y congeladoras</td>
     <td>Alta</td>
     <td>Alta</td>
     <td>Alta</td>
@@ -848,15 +848,15 @@ Las tareas se determinaron mediante el análisis cualitativo de las entrevistas,
     <td>Alta</td>
   </tr>
   <tr>
-    <td>Realizar mantenimiento preventivo o solicitarlo</td>
+    <td>Realizar o solicitar mantenimiento preventivo</td>
     <td>Media</td>
     <td>Alta</td>
     <td>Alta</td>
     <td>Alta</td>
   </tr>
   <tr>
-    <td>Revisar estado físico de los equipos</td>
-    <td>Media</td>
+    <td>Revisar estado físico y estético de los equipos</td>
+    <td>Alta</td>
     <td>Alta</td>
     <td>Alta</td>
     <td>Alta</td>
@@ -883,7 +883,7 @@ Las tareas se determinaron mediante el análisis cualitativo de las entrevistas,
     <td>Media</td>
   </tr>
   <tr>
-    <td>Controlar inventario de productos refrigerados</td>
+    <td>Controlar calidad y textura del inventario de helados</td>
     <td>Alta</td>
     <td>Alta</td>
     <td>-</td>
@@ -902,15 +902,15 @@ Las tareas se determinaron mediante el análisis cualitativo de las entrevistas,
 
 **Análisis:**
 
-El User Task Matrix permite contrastar la frecuencia y relevancia de las actividades en cada segmento analizado para orientar las decisiones de diseño. Las tareas prioritarias y recurrentes para ambos perfiles son el control térmico, la gestión del mantenimiento, la inspección física de las unidades y la ejecución o solicitud de revisiones preventivas, lo que confirma un interés mutuo en la prevención operativa. No obstante, las prioridades difieren según el rol: Alicia Vargas se enfoca en la continuidad del negocio y el control de existencias, mientras que Luis Paredes atiende los diagnósticos técnicos, los informes de servicio y el reporte de averías. A pesar de estas diferencias, ambos perfiles demandan una herramienta que facilite la supervisión de los activos, anticipe fallos y optimice sus procesos diarios.
+El User Task Matrix permite contrastar la frecuencia y relevancia de las actividades en cada segmento analizado para orientar las decisiones de diseño. Las tareas prioritarias y recurrentes para ambos perfiles son el control térmico, la gestión del mantenimiento, la inspección física de las unidades y la solicitud de revisiones preventivas, lo que confirma un interés mutuo en la prevención operativa. No obstante, las prioridades difieren según el rol: Alicia Vargas se enfoca críticamente en la conservación de la textura y calidad de sus helados, requiriendo un control estricto de las vitrinas exhibidoras y congeladoras para evitar mermas totales, especialmente por cortes de energía fuera del horario comercial. Por su parte, Luis Paredes atiende los diagnósticos técnicos, los informes de servicio y el reporte de averías. A pesar de estas diferencias, ambos perfiles demandan una herramienta que facilite la supervisión de los activos a distancia, anticipe fallos y optimice sus procesos diarios.
 
 ### 2.3.3. User Journey Mapping
 
-En esta sección se presentan los User Journey Maps de los dos segmentos objetivo: Alicia Vargas, propietaria de un mini-market, y Luis Paredes, técnico especializado en refrigeración. Cada mapa refleja el recorrido actual que estos usuarios realizan para cumplir sus objetivos sin contar aún con una solución tecnológica integrada, mostrando los puntos críticos, emociones, tareas clave y oportunidades de mejora. Estos recorridos nos permiten entender los desafíos que enfrentan los usuarios día a día.
+En esta sección se presentan los User Journey Maps de los dos segmentos objetivo: Alicia Vargas, propietaria de una heladería con equipos de refrigeración y Luis Paredes, técnico especializado en refrigeración. Cada mapa refleja el recorrido actual que estos usuarios realizan para cumplir sus objetivos sin contar aún con una solución tecnológica integrada, mostrando los puntos críticos, emociones, tareas clave y oportunidades de mejora. Estos recorridos nos permiten entender los desafíos que enfrentan los usuarios día a día.
 
 <br>
 
-**Segmento Objetivo 1: Negocios con equipos de refrigeración**
+**Segmento Objetivo 1: Heladerías con equipos de refrigeración**
 
 ![UserJourneyMapping-Segmento1](assets/chapter02/UserJourneyMapping-Segmento1.png)
 
