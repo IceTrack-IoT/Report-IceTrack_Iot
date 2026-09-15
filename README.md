@@ -938,9 +938,75 @@ En esta sección se presentan los Empathy Maps. Estos nos ayudarán a comprender
 
 ## 2.4. Big Picture Event Storming
 
-En esta sección se presenta el trabajo realizado durante la sesión de Big Picture Event Storming, enfocada en comprender el dominio general del negocio. Para ello se utilizaron post-its en LucidChart para mapear los eventos significativos que ocurren en el flujo operativo actual, desde la detección de fallas en los equipos de refrigeración hasta el seguimiento posterior al servicio técnico. Ello nos permitió identificar procesos clave, actores involucrados, relaciones entre eventos, y oportunidades de mejora para el desarrollo de nuestra solución.
+En esta sección se presenta el Big Picture Event Storming de IceTrack IoT. El análisis permitió identificar y delimitar los bounded contexts que componen la plataforma, así como los actores, comandos, eventos de negocio y políticas que intervienen en cada uno de ellos.
 
-![BigPictureEventStorming](assets/chapter02/BigPictureEventStorming-IceTrack.png)
+Los diagramas representan los principales cambios de estado del sistema: la gestión de usuarios, sitios y equipos; la atención de solicitudes de servicio; la administración de técnicos; las notificaciones de mantenimiento; la evaluación del servicio y la personalización del dashboard. Esta representación facilita la comprensión del dominio, la definición de responsabilidades y la identificación de dependencias entre los procesos del negocio.
+
+La siguiente leyenda se aplica a todos los diagramas: los bloques verdes representan bounded contexts, los celestes representan comandos, los naranjas representan eventos de dominio, los morados representan políticas o reglas de negocio y los amarillos identifican a los actores responsables de cada acción.
+
+### 2.4.1. Identity and Access Management
+
+Este bounded context gestiona el registro y la autenticación de usuarios. Incluye la validación de credenciales, la aplicación de políticas de contraseña, la asignación de roles y la emisión del token de acceso para utilizar la plataforma.
+
+![Big Picture Event Storming — Identity and Access Management](assets/chapter02/BigPictureEventStorming/iam.png)
+
+*Figura 2.4.1. Big Picture Event Storming del bounded context Identity and Access Management.*
+
+### 2.4.2. Asset Management
+
+Este bounded context administra los sitios o establecimientos asociados al Owner. Comprende el registro, actualización y eliminación lógica de sitios, aplicando reglas de unicidad para los datos de contacto y ubicación.
+
+![Big Picture Event Storming — Asset Management](assets/chapter02/BigPictureEventStorming/asset_management.png)
+
+*Figura 2.4.2. Big Picture Event Storming del bounded context Asset Management.*
+
+### 2.4.3. Monitoring
+
+Este bounded context permite gestionar los equipos de refrigeración asociados a cada sitio. Considera su registro, actualización, configuración del intervalo de mantenimiento y eliminación lógica.
+
+![Big Picture Event Storming — Monitoring](assets/chapter02/BigPictureEventStorming/Monitoring.png)
+
+*Figura 2.4.3. Big Picture Event Storming del bounded context Monitoring.*
+
+### 2.4.4. Service Request Management
+
+Este es el bounded context central de la solución. Modela el ciclo de vida de una solicitud de servicio: creación por parte del Owner, revisión y aceptación o rechazo por parte del Provider, asignación de un técnico, registro de intervenciones, completitud o cancelación de la solicitud.
+
+![Big Picture Event Storming — Service Request Management](assets/chapter02/BigPictureEventStorming/Service.png)
+
+*Figura 2.4.4. Big Picture Event Storming del bounded context Service Request Management.*
+
+### 2.4.5. Technician Management
+
+Este bounded context permite al Provider registrar, actualizar y eliminar lógicamente a los técnicos que podrán ser asignados a solicitudes de servicio.
+
+![Big Picture Event Storming — Technician Management](assets/chapter02/BigPictureEventStorming/technician.png)
+
+*Figura 2.4.5. Big Picture Event Storming del bounded context Technician Management.*
+
+### 2.4.6. Notifications
+
+Este bounded context administra las notificaciones vinculadas al mantenimiento de los equipos. Cuando se detecta que un equipo supera su intervalo configurado sin mantenimiento completado, el sistema genera una notificación que puede ser consultada y descartada por el Owner.
+
+![Big Picture Event Storming — Notifications](assets/chapter02/BigPictureEventStorming/Notification.png)
+
+*Figura 2.4.6. Big Picture Event Storming del bounded context Notifications.*
+
+### 2.4.7. Feedback
+
+Este bounded context permite al Owner registrar una evaluación después de la atención de una solicitud de servicio. La evaluación considera comunicación, eficiencia, profesionalidad y un comentario asociado al técnico y al servicio realizado.
+
+![Big Picture Event Storming — Feedback](assets/chapter02/BigPictureEventStorming/Feedback.png)
+
+*Figura 2.4.7. Big Picture Event Storming del bounded context Feedback.*
+
+### 2.4.8. Dashboard
+
+Este bounded context permite que cada usuario configure su dashboard, administre las tarjetas visibles y defina su orden de presentación. La configuración se asocia de manera individual a cada usuario.
+
+![Big Picture Event Storming — Dashboard](assets/chapter02/BigPictureEventStorming/Dashboard.png)
+
+*Figura 2.4.8. Big Picture Event Storming del bounded context Dashboard.*
 
 ## 2.5. Ubiquitous Language
 
