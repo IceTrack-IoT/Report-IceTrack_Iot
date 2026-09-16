@@ -1063,31 +1063,7 @@ Este bounded context permite que cada usuario configure su dashboard, administre
 
 # Capítulo III: Requirements Specification
 
-## 3.1. To-Be Scenario Mapping
-
-**Segmento objetivo #1: Negocios con equipos de refrigeración**
-
-<figure style="page-break-inside: avoid; text-align: center;">
-  <img src="assets/chapter01/To-Be-Scenario-segment-1.jpg"
-       alt="To Be Scenario Mapping Segmento 1: Negocios con equipos de refrigeración"
-       style="max-width: 95%; height: auto; display: block; margin: 0 auto;">
-  <figcaption style="font-size: 0.9em; color: #555;">
-    <strong>Figura 1:</strong> To Be Scenario Mapping: Negocios con equipos de refrigeración (Segmento 1).
-  </figcaption>
-</figure>
-
-**Segmento objetivo #2: Técnicos y empresas de mantenimiento**
-
-<figure style="page-break-inside: avoid; text-align: center;">
-  <img src="assets/chapter01/To-Be-Scenario-segment-2.jpg"
-       alt="To Be Scenario Mapping Segmento 2: Técnicos y empresas de mantenimiento"
-       style="max-width: 95%; height: auto; display: block; margin: 0 auto;">
-  <figcaption style="font-size: 0.9em; color: #555;">
-    <strong>Figura 2:</strong> To Be Scenario Mapping - Técnicos y empresas de mantenimiento (Segmento 2).
-  </figcaption>
-</figure>
-
-## 3.2. User Stories.
+## 3.1. User Stories.
 
 Las historias de usuario para este proyecto se crearon  enfocándose en las necesidades principales de dos tipos de usuarios: los clientes, que son dueños de equipos de refrigeración, y los proveedores de servicios y equipos.
 
@@ -1154,7 +1130,7 @@ Además, para facilitar la planificación, el seguimiento y la priorización de 
 | RNF-05 | **Resiliencia y Tolerancia a Fallos** | Los dispositivos de hardware (Arduino) deben contar con un mecanismo de almacenamiento local en búfer para reintentar el envío de datos de telemetría de forma automática ante cortes temporales de red. |
 | RNF-06 | **Usabilidad y Accesibilidad** | La interfaz web y móvil debe contar con un diseño responsivo (mobile-first) e intuitivo, asegurando que los usuarios puedan interpretar las alertas críticas de temperatura sin requerir capacitación técnica compleja. |
 
-## 3.3. Impact Mapping.
+## 3.2. Impact Mapping.
 El equipo desarrolló un Impact Mapping en colaboración utilizando la herramienta UXPressia. Este mapa se creó para conectar los objetivos de negocio directamente con los requisitos funcionales de la plataforma.
 
 <figure style="page-break-inside: avoid; text-align: center;">
@@ -1166,7 +1142,7 @@ El equipo desarrolló un Impact Mapping en colaboración utilizando la herramien
   </figcaption>
 </figure>
 
-## 3.4. Product Backlog.
+## 3.3. Product Backlog.
 Para el desarrollo de nuestra plataforma, hemos creado un Product Backlog que funciona como una lista completa de todas las funcionalidades, características e incluso tareas técnicas necesarias para avanzar en el proyecto.
 
 Para mantener el proyecto organizado, usamos la escala de Fibonacci (1, 2, 3, 5, 8, 13, 21) para estimar el esfuerzo de cada tarea. Esta escala de Story Points nos ayuda a priorizar y planificar de la siguiente manera:
