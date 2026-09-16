@@ -19,9 +19,8 @@
  
 | <div style="width:500px">Alumno</div> | <div style="width:200px">Código</div> |
 | :-----------------------------------: | :-----------------------------------: |
-|  -  |  -                              |
 |  Gordon Salas, Gabriel Fernando       |  U20221E229                           |
-|  Cuentas Peña, Joaquin Alberto       |  U20201f788                           |
+|  Cuentas Peña, Joaquin Alberto        |  U20201f788                           |
 |  Guillen Galindo, Julio Adolfo        |  U20241a352                           |
 |  Jiménez Guerra, Gianmarco Fabian     |  U202123843                           |
 |  Tenorio Medina, Piero Francesco      |  U202318731                           |
@@ -470,217 +469,231 @@ Sabremos que hemos tenido éxito cuando los usuarios accedan a la plataforma tan
 
 ## 2.1. Competidores
 
-**Competidor 1: ServiceTitan**
-ServiceTitan es un software en la nube diseñado para negocios de servicios de campo, como climatización (HVAC), plomería y electricidad. Centraliza tareas clave como la asignación de citas, el seguimiento de proyectos y la facturación, destacando por una interfaz intuitiva que agiliza la operativa diaria del personal técnico en tiempo real.
+
+**Competidor 1: Loratech** <br>
+Loratech es una empresa peruana especializada en soluciones de Internet de las Cosas (IoT) que ofrece sistemas de monitoreo para cámaras y equipos de refrigeración. Su solución permite supervisar variables como temperatura, humedad, apertura de puertas y consumo energético, generando alertas ante condiciones anormales. Asimismo, permite monitorear el funcionamiento del compresor y sus ciclos de trabajo para identificar comportamientos anómalos, facilitando la planificación del mantenimiento y la prevención de fallas que puedan ocasionar pérdidas de productos refrigerados.
 
 ---
 
-**Competidor 2: Sensefinity**
-Sensefinity es una solución basada en IoT diseñada para supervisar la cadena de frío. La plataforma rastrea variables críticas como la temperatura, la humedad y las vibraciones tanto en tránsito como en bodega, emitiendo alertas inmediatas e informes en la nube ante cualquier anomalía. Esto permite a sectores como la industria farmacéutica, el comercio minorista y la logística garantizar una trazabilidad integral, cumplir con normativas estrictas y minimizar el desperdicio de productos sensibles.
+**Competidor 2: JChip – iControl** <br>
+JChip es una empresa peruana que ofrece soluciones de telemetría e Internet de las Cosas mediante su plataforma iControl. Su tecnología permite recopilar y centralizar información proveniente de sensores y equipos para realizar el monitoreo remoto de variables operativas. Sus soluciones pueden aplicarse a sistemas de refrigeración y cadena de frío, permitiendo supervisar parámetros como temperatura y consumo energético, así como generar alertas y analizar el comportamiento de los equipos para facilitar la detección de anomalías y apoyar las actividades de mantenimiento.
 
 ---
 
-**Competidor 3: TempGenius**
-TempGenius es un sistema de supervisión en tiempo real enfocado en el control de temperatura y humedad para múltiples sectores, con especial énfasis en la refrigeración comercial. A través de sensores en la nube, la plataforma genera informes continuos y emite notificaciones inmediatas ante cualquier desvío térmico, brindando a las empresas mayor control operativo para prevenir pérdidas de producto e impactos económicos.
+**Competidor 3: SafeSense** <br>
+SafeSense es una plataforma peruana de monitoreo IoT desarrollada por SIMS Technology, orientada al control de temperatura en procesos que requieren mantener condiciones térmicas controladas. La solución utiliza sensores conectados a una plataforma web y móvil para visualizar información en tiempo real, configurar alertas automáticas y consultar historiales de mediciones. Asimismo, permite administrar múltiples sensores desde un dashboard centralizado y generar reportes, facilitando la detección temprana de desviaciones de temperatura y la prevención de pérdidas asociadas a fallas en la cadena de frío.
 
 ### 2.1.1. Análisis competitivo
 
-<table> 
+<table> <tr> <th colspan="6">Competitive Analysis Landscape</th> </tr>
+
+<tr>
+  <td colspan="2">¿Por qué llevar a cabo este análisis?</td>
+  <td colspan="4">Con el objetivo de evaluar y comparar las funcionalidades, tecnologías, modelos de negocio y estrategias de los principales competidores relacionados con el monitoreo de sistemas de refrigeración e IoT, con el propósito de identificar fortalezas y debilidades, detectar oportunidades de negocio y determinar aspectos que permitan diferenciar a IceTrack de las soluciones existentes en el mercado.</td>
+</tr>
   <tr>
-    <th colspan="7"> Competitive Analysis Landscape </th>
+  <td colspan="2"></td>
+  <td>IceTrack <br> <img src="assets/chapter02/icetrack-logo.png"></img></td>
+  <td>Loratech <br> <img src="assets/chapter02/lora-logo.jpg"></img></td>
+  <td>JChip - iControl <br> <img src="assets/chapter02/jchip-logo.jpg"></img></td>
+  <td>SafeSense <br> <img src="assets/chapter02/safesense-logo.jpg"></img></td>
   </tr>
-  <tr>
-    <td colspan="2" rowspan="2">¿Por qué llevar acabo este análisis? </td>
-    <td colspan="5"> Con el objetivo de evaluar y comparar funcionalidades, tecnología, precios y estrategias de marketing de los principales competidores para identificar nuestras fortalezas y debilidades, detectar oportunidades negocio y identificar puntos que nos hagan diferenciar de la competencia. </td>
-  </tr>
-  <tr>
-  </tr>
-  <tr>
-    <td colspan="2"> </td>
-    <td> IceTrack <br> <img src="assets/chapter02/icetrack-logo.png"></img> </td>
-    <td> ServiceTitan <br> <img src="assets/chapter02/servicetitan-logo.png"></img> </td>
-    <td> Sensefinity <br> <img src="assets/chapter02/sensefinity-logo.png"></img> </td>
-    <td> TempGenius <br> <img src="assets/chapter02/tempgenius-logo.png"></img> </td>
-  </tr>
-  <tr>
-    <td rowspan="2">Perfil</td>
-    <td>Overview</td>
-    <td> IceTrack es una plataforma integral de monitoreo y gestión para sistemas de refrigeración, que conecta negocios con técnicos especializados. Ofrece monitoreo en tiempo real, alertas automáticas, mantenimiento preventivo, y trazabilidad de cada equipo. </td>
-    <td> ServiceTitan es una plataforma de gestión de servicios basada en la nube que ofrece soluciones de software para empresas de servicios, incluidos técnicos de HVAC, fontaneros y electricistas. </td>
-    <td> Sensefinity es una solución IoT que combina sensores físicos con plataforma en la nube para monitoreo y trazabilidad de la cadena de frío. </td>
-    <td> TempGenius es un software de monitoreo de temperatura y humedad en tiempo real para diversas industrias, incluida la refrigeración comercial. Permite a los usuarios gestionar y recibir alertas automáticas sobre sus equipos. </td>
-  </tr>
-  <tr>
-    <td>Ventaja competitiva ¿Qué valor ofrece a los clientes?</td>
-    <td> Ofrece una solución automatizada y centralizada para negocios que necesitan monitorear y gestionar sus equipos de refrigeración. Permite a los técnicos optimizar sus visitas y el mantenimiento preventivo, mejorando la eficiencia operativa. </td>
-    <td> Ofrece una plataforma todo-en-uno para la gestión de servicios con características como la programación de citas, facturación y seguimiento en tiempo real de proyectos. </td>
-    <td> Ofrece soluciones con foco en logística y permite monitorear productos en tiempo real durante su transporte y almacenamiento. </td>
-    <td> Ofrece monitoreo preciso en tiempo real de la temperatura y humedad, con alertas automáticas, y un enfoque especial en la fiabilidad y precisión de los datos. </td>
-  </tr>
-  <tr>
-    <td rowspan="2">Perfil de Marketing</td>
-    <td> Mercado Objetivo </td>
-    <td> Negocios que dependen de sistemas de refrigeración, como supermercados, minimarkets, laboratorios, restaurantes, entre otros. También incluye técnicos de refrigeración y proveedores de equipos. </td>
-    <td> Empresas de servicios como HVAC, fontaneros, electricistas, y otros proveedores de servicios técnicos. </td>
-    <td> Supermercados, farmacéuticas, operadores logísticos y empresas de exportación internacional. </td>
-    <td> Usuarios de diversas industrias, especialmente en áreas que requieren monitoreo continuo de temperatura y humedad, como el sector alimentario y farmacéutico. </td>
-  </tr>
-  <tr>
-    <td> Estrategias de Marketing </td>
-    <td> Marketing digital, colaboraciones estratégicas con empresas del sector alimentario y farmacéutico, demostraciones gratuitas y promociones en redes sociales. </td>
-    <td> Marketing digital, colaboraciones con empresas de servicios y promoción en plataformas de negocio. </td>
-    <td> Marketing en ferias globales de logística y alianzas estratégicas con empresas de exportación. </td>
-    <td> Marketing en redes sociales, promociones para nuevos usuarios y colaboraciones con industrias reguladas como la farmacéutica y alimentaria. </td>
-  </tr>
-  <tr>
-    <td rowspan="3">Perfil de Producto</td>
-    <td> Productos & Servicios </td>
-    <td> Gestión de equipos de refrigeración en tiempo real, alertas automáticas, mantenimiento preventivo, reportes técnicos automáticos y trazabilidad de cada equipo. </td>
-    <td> Plataforma de gestión de servicios que incluye programación de citas, gestión de personal, facturación, y seguimiento de proyectos en tiempo real. </td>
-    <td> Plataforma de monitoreo y gestión de sistemas de refrigeración en la nube, con alertas preventivas e informes automáticos. Además ofrece sensores para monitorear temperatura, humedad, etc. </td>
-    <td> Plataforma de monitoreo de temperatura y humedad en tiempo real, con alertas automáticas, reportes detallados y gestión de datos históricos. </td>
-  </tr>
-  <tr>
-    <td> Precios & Costos </td>
-    <td> Modelo basado en comisiones bajas por cada reserva o cita pagada para negocios, con una versión gratuita para usuarios. </td>
-    <td> Suscripción mensual o anual, con tarifas adicionales por características avanzadas o soporte personalizado. </td>
-    <td> Basado en subscripciones por conectividad y por servicios utilizados. Posible coste de instalación de hardware. </td>
-    <td> Varía según la cantidad de equipos monitoreados y las características seleccionadas, con modelos de suscripción mensual o anual. </td>
-  </tr>
-  <tr> 
-    <td>Canales de distribución (Web y/o Móvil)</td>
-    <td> Plataforma en línea y aplicación móvil disponible para dispositivos iOS y Android. </td>
-    <td> Plataforma en línea y aplicación móvil disponible para dispositivos iOS y Android. </td>
-    <td> Plataforma en línea y aplicación móvil. </td>
-    <td> Aplicación móvil disponible en tiendas de aplicaciones y plataforma en línea. </td>
-  </tr>
-  <tr>
-    <td rowspan="4"> Análisis SWOT </td>
-    <td> Fortalezas </td>
-    <td> Monitoreo en tiempo real, alertas automáticas y mantenimiento preventivo para evitar fallas críticas. Función de trazabilidad completa de los equipos. </td>
-    <td> Amplia funcionalidad para gestión de servicios y seguimiento en tiempo real de proyectos. </td>
-    <td> Especialización en IoT y trazabilidad de la cadena de frío. Permite cumplir con normativas logísticas. Hardware propio optimizado para monitoreo en tiempo real.</td>
-    <td> Precisión en el monitoreo de temperatura y humedad, con alertas automáticas y un enfoque flexible en diferentes industrias. </td>
-  </tr>
-  <tr>
-    <td> Debilidades </td>
-    <td> Dependencia de la adopción inicial por parte de los usuarios, lo que podría afectar la expansión. </td>
-    <td> Puede ser más complejo de usar para pequeñas empresas sin experiencia en gestión de software. </td>
-    <td> Fuerte dependencia de hardware, tiene menos presencia en el Perú. </td>
-    <td> Puede resultar costoso para pequeñas empresas debido a las suscripciones y los costos adicionales por dispositivos. </td>
-  </tr>
-  <tr>
-    <td> Oportunidades </td>
-    <td> Expansión en el sector de la gestión de refrigeración, con foco en la eficiencia operativa y la reducción de costos. </td>
-    <td> Expansión a nuevos mercados, introducción de nuevos servicios, mejorar la experiencia del usuario. </td>
-    <td> Alianza con operadores logísticos. Aumento de regulaciones en farmaceúticas y alimentos. </td>
-    <td> Expansión a nuevos mercados, introducción de nuevas características y servicios, colaboraciones estratégicas con marcas de belleza. </td>
-  </tr>
-  <tr>
-    <td> Amenazas </td>
-    <td> Competencia de aplicaciones ya establecidas en la gestión de refrigeración y mantenimiento. </td>
-    <td> Competencia de otras plataformas de gestión de servicios que ofrecen características similares. </td>
-    <td> Competencia con soluciones más económicas. Restricciones de conectividad por IoT en ciertas regiones. </td>
-    <td> Competencia de otras plataformas de monitoreo de temperatura y humedad, con características similares y precios más bajos. </td>
-  </tr>
+
+<tr>
+  <td rowspan="2">Perfil</td>
+  <td>Overview</td>
+  <td>IceTrack es una plataforma de monitoreo y gestión orientada a equipos de refrigeración. Integra información obtenida mediante sensores IoT para supervisar el funcionamiento de los equipos y facilitar su mantenimiento, conectando las necesidades de los negocios con el trabajo de técnicos especializados.</td>
+  <td>Loratech es una empresa peruana especializada en soluciones IoT. Entre sus aplicaciones ofrece sistemas para el monitoreo de cámaras de frío mediante sensores y redes administrables en la nube, permitiendo supervisar variables ambientales y el funcionamiento de componentes como el compresor.</td>
+  <td>JChip ofrece soluciones de telemetría e IoT mediante herramientas orientadas al monitoreo remoto y centralización de información obtenida de dispositivos y sensores.</td>
+  <td>SafeSense es una solución peruana de SIMS Technology orientada al monitoreo IoT de temperatura y cadena de frío. Integra sensores, una plataforma web y una aplicación móvil para supervisar condiciones térmicas y generar alertas.</td>
+</tr>
+
+<tr>
+  <td>Ventaja competitiva ¿Qué valor ofrece a los clientes?</td>
+  <td>Busca integrar en una misma plataforma el monitoreo de equipos de refrigeración, alertas automáticas, análisis del consumo energético, historial técnico y gestión de mantenimientos, proporcionando herramientas tanto a los negocios como a los técnicos responsables de los equipos.</td>
+  <td>Combina monitoreo ambiental con información sobre el funcionamiento del equipo. Puede supervisar temperatura, humedad, apertura de puertas, consumo energético y ciclos de trabajo del compresor, permitiendo detectar patrones anómalos y apoyar el mantenimiento predictivo.</td>
+  <td>Permite utilizar tecnologías IoT y telemetría para obtener información de equipos de manera remota, reduciendo la dependencia de inspecciones exclusivamente presenciales.</td>
+  <td>Ofrece una solución IoT con hardware y software integrados, monitoreo continuo, alertas configurables, historial y reportes, además de soporte local en diferentes ciudades del Perú.</td>
+</tr>
+
+<tr>
+  <td rowspan="2">Perfil de Marketing</td>
+  <td>Mercado Objetivo</td> <td>Inicialmente, heladerías medianas ubicadas en Lima que dependen de equipos de refrigeración para conservar sus productos. También se dirige a técnicos y empresas dedicadas al mantenimiento y reparación de equipos de refrigeración.</td>
+  <td>Empresas peruanas que requieren soluciones IoT para monitorear procesos y activos. Su oferta para cámaras de frío puede ser utilizada por organizaciones que necesitan conservar productos bajo condiciones controladas.</td>
+  <td>Empresas que requieren soluciones de telemetría, automatización y monitoreo remoto mediante tecnologías IoT.</td>
+  <td>Principalmente empresas de agroindustria, laboratorios, almacenamiento y logística que necesitan monitorear temperatura y mantener trazabilidad de sus procesos de cadena de frío.</td>
+</tr>
+
+<tr> 
+  <td>Estrategias de Marketing</td>
+  <td>Marketing digital dirigido inicialmente a heladerías y empresas de mantenimiento de Lima, demostraciones de la plataforma, presencia en redes sociales y alianzas con técnicos y proveedores de equipos de refrigeración.</td>
+  <td>Marketing B2B mediante presencia digital y oferta de soluciones IoT personalizadas para diferentes sectores empresariales, destacando aplicaciones específicas como cámaras de frío e Industria 4.0.</td>
+  <td>Promoción de soluciones tecnológicas y servicios de telemetría orientados principalmente al mercado empresarial.</td>
+  <td>Marketing B2B mediante demostraciones empresariales, casos de uso por industria, presencia digital y contacto directo con empresas interesadas en implementar monitoreo IoT.</td>
+</tr>
+
+<tr>
+  <td rowspan="3">Perfil de Producto</td>
+  <td>Productos & Servicios</td>
+  <td>Monitoreo en tiempo real de equipos de refrigeración, sensores IoT, alertas automáticas, historial técnico, gestión y programación de mantenimientos, informes de rendimiento, análisis de consumo energético y administración de usuarios, equipos y ubicaciones.</td>
+  <td>Monitoreo IoT de cámaras de frío, temperatura, humedad, apertura de puertas, consumo energético y ciclos de funcionamiento del compresor. Incluye alertas y funcionalidades orientadas al mantenimiento predictivo.</td>
+  <td>Soluciones de telemetría e IoT para recopilar, transmitir y visualizar información proveniente de equipos y sensores.</td>
+  <td>Sensores IoT de temperatura, monitoreo en tiempo real, dashboard web, aplicación móvil, alertas automáticas, historial de mediciones y reportes exportables.</td>
+</tr>
+
+<tr>
+  <td>Precios & Costos</td>
+  <td>Modelo de precios aún por definir. Se contempla un esquema que considere el uso de la plataforma y los dispositivos IoT necesarios para conectar y monitorear los equipos.</td>
+  <td>Los precios de implementación y operación no se encuentran publicados de manera abierta y dependen de la solución IoT requerida por cada empresa.</td>
+  <td>Los precios no se encuentran disponibles públicamente y requieren cotización según las necesidades del proyecto.</td>
+  <td>Cuenta con un modelo de hardware más suscripción. Publica un precio referencial de S/ 200 + IGV por sensor y S/ 20 mensuales por sensor para el acceso a la plataforma.</td>
+</tr>
+
+<tr> 
+  <td>Canales de distribución (Web y/o Móvil)</td>
+  <td>Plataforma web y aplicación móvil.</td>
+  <td>Soluciones IoT administrables mediante plataformas en la nube.</td>
+  <td>Plataformas y soluciones digitales de monitoreo y telemetría.</td>
+  <td>Dashboard web y aplicación móvil para monitoreo y recepción de alertas.</td>
+</tr>
+
+<tr>
+  <td rowspan="4">Análisis SWOT</td>
+  <td>Fortalezas</td>
+  <td>Integra monitoreo IoT con funcionalidades orientadas específicamente a la gestión del mantenimiento. Considera tanto las necesidades de las heladerías como las de técnicos y empresas de mantenimiento.</td>
+  <td>Experiencia en soluciones IoT en Perú, monitoreo de múltiples variables, uso de tecnología LoRaWAN y capacidad para analizar el consumo energético y los ciclos del compresor para mantenimiento predictivo.</td>
+  <td>Experiencia en soluciones de telemetría y monitoreo remoto aplicables a diferentes contextos empresariales.</td>
+  <td>Solución desarrollada en Perú con sensores IoT, monitoreo en tiempo real, alertas, plataforma web, aplicación móvil, reportes y un modelo de precios públicamente disponible.</td>
+</tr>
+
+<tr> 
+  <td>Debilidades</td>
+  <td>Al ser una nueva solución, inicialmente carece de posicionamiento, cartera de clientes y datos históricos suficientes para validar el impacto de sus funcionalidades. Además, requiere la instalación e integración de sensores IoT en los equipos.</td>
+  <td>Su propuesta abarca numerosos sectores y aplicaciones IoT, por lo que no está enfocada exclusivamente en las necesidades operativas y de gestión de las heladerías ni en la administración integral del trabajo de técnicos de refrigeración.</td>
+  <td>La información pública disponible sobre funcionalidades específicas, precios y aplicaciones especializadas para refrigeración comercial es limitada.</td>
+  <td>Su enfoque actual está principalmente orientado al monitoreo de temperatura y trazabilidad en agroindustria, laboratorios y logística, y no a la gestión integral del mantenimiento de equipos de refrigeración comercial.</td>
+</tr>
+
+<tr> 
+  <td>Oportunidades</td>
+  <td>Especialización inicial en heladerías de Lima, incorporación progresiva de nuevas funciones de mantenimiento predictivo y posibilidad de expansión posterior hacia restaurantes, minimarkets, supermercados y otros negocios dependientes de refrigeración.</td>
+  <td>Expansión de soluciones IoT hacia más negocios que dependen de refrigeración comercial y crecimiento de aplicaciones de mantenimiento predictivo y eficiencia energética.</td>
+  <td>Crecimiento de la adopción de tecnologías IoT y telemetría en empresas que buscan digitalizar el monitoreo de sus equipos y procesos.</td>
+  <td>Expansión de su solución hacia nuevos sectores comerciales que requieren control térmico, así como incorporación de nuevos tipos de sensores y funcionalidades analíticas.</td>
+</tr>
+
+<tr> 
+  <td>Amenazas</td> 
+  <td>Ingreso o expansión de proveedores IoT ya establecidos hacia el segmento de refrigeración comercial, reducción de precios de soluciones competidoras y resistencia de pequeñas y medianas empresas a invertir inicialmente en sensores y suscripciones.</td>
+  <td>Aparición de proveedores IoT de menor costo y soluciones especializadas que ofrezcan funcionalidades similares específicamente para determinados nichos de mercado.</td>
+  <td>Competencia creciente de proveedores nacionales e internacionales de plataformas IoT y telemetría con soluciones especializadas.</td>
+  <td>Competencia de plataformas IoT con sensores de menor costo o con funcionalidades adicionales de mantenimiento predictivo y gestión técnica.</td> 
+</tr> 
 </table>
 
 ### 2.1.2. Estrategias y tácticas frente a competidores
 
-Con el fin de posicionarnos con ventaja en el sector de supervisión y administración de frío comercial, definimos acciones clave orientadas a superar las propuestas actuales del mercado:
+Con el fin de posicionar a IceTrack en el mercado de monitoreo y gestión de equipos de refrigeración comercial, se plantean estrategias orientadas a diferenciar la propuesta frente a las soluciones IoT existentes, considerando inicialmente las necesidades de las heladerías y empresas encargados del mantenimiento de sus equipos.
 
 1. **Estrategias de Diferenciación:**
 
-**Solución Integral para Refrigeración comercial:** Mientras que otras alternativas son genéricas, IceTrack se enfoca de lleno en la cadena de frío, combinando telemetría en vivo, notificaciones preventivas y registro operativo continuo. Este enfoque minimiza paradas imprevistas y facilita una administración preventiva de cada unidad de refrigeración.
+#### Solución integral para equipos de refrigeración comercial <br>
+La plataforma permitirá supervisar variables como temperatura, consumo energético y tiempo de funcionamiento, generar alertas ante anomalías y centralizar la información de los equipos. A diferencia de soluciones enfocadas principalmente en el monitoreo de variables mediante sensores.
 
-**Trazabilidad Completa de Equipos:** La plataforma registra la hoja de vida técnica de cada activo, una cualidad ausente en herramientas generales como ServiceTitan en lo relativo al frío comercial. Esto se traduce en una supervisión precisa de los activos y un estándar de servicio superior.
+####  Historial técnico centralizado por equipo <br>
+Cada equipo de refrigeración contará con un historial que reúna sus mediciones, incidencias y mantenimientos realizados. Esto permitirá que los técnicos dispongan de información previa antes de realizar una intervención y que los responsables de las heladerías puedan consultar el comportamiento y mantenimiento de sus equipos a lo largo del tiempo.
 
-**Interfaz Intuitiva y Fácil de Usar:** El diseño del sistema prioriza la simplicidad operativa, permitiendo que tanto operarios de campo como administradores lo manejen con fluidez desde el primer día, sin requerir capacitaciones complejas.
+#### Integración entre negocios y técnicos de mantenimiento <br>
+La información generada por los sensores podrá ser utilizada no solo para supervisar los equipos, sino también para facilitar el diagnóstico, planificación y seguimiento de las actividades de mantenimiento.
+
+#### Interfaz intuitiva y multiplataforma <br>
+La disponibilidad mediante interfaces web y móvil permitirá que administradores y técnicos accedan a la información tanto desde el establecimiento como durante sus actividades en campo.
 
 2. **Tácticas de Marketing:**
 
-**Marketing Digital y Demostraciones Gratuitas:** Ejecutaremos pauta digital segmentada para el rubro gastronómico, cadenas de retail y centros de salud, evidenciando el ahorro operativo y el control de mermas. Esto contrasta con la presencia digital más tradicional y pasiva de competidores directos como TempGenius.
+#### Marketing digital dirigido a heladerías <br>
+Durante la etapa inicial, las campañas digitales estarán orientadas principalmente a heladerías medianas de Lima. La comunicación se enfocará en problemas concretos del negocio, como la pérdida de productos por fallas de refrigeración, la detección tardía de variaciones de temperatura y los costos asociados al consumo energético y mantenimiento correctivo.
 
-**Fidelización de Usuarios a Largo Plazo:** Diseñaremos planes de incentivos y beneficios exclusivos para técnicos y empresas que mantengan su actividad en la plataforma y aporten retroalimentación, fortaleciendo la retención en un mercado donde la lealtad suele descuidarse.
+#### Demostraciones y pruebas piloto <br>
+Se buscará implementar pruebas piloto con heladerías seleccionadas para demostrar el funcionamiento de los sensores y de la plataforma en condiciones reales. Estas experiencias permitirán obtener retroalimentación de los usuarios, validar las funcionalidades propuestas y generar casos de uso que posteriormente puedan emplearse para promocionar IceTrack.
 
 3. **Estrategias de Precios:**
 
-**Modelo Freemium:** Brindamos un plan básico sin costo de entrada para captar a micro y pequeñas empresas antes de comprometer presupuesto, una propuesta más accesible frente a los planes cerrados y de pago obligatorio de ServiceTitan.
+#### Prueba inicial de la solución: <br>
+Se podrá ofrecer un periodo de implementación piloto que permita al negocio conocer el funcionamiento de IceTrack y evaluar los beneficios del monitoreo antes de contratar el servicio de manera permanente.
 
-**Comisiones Bajas por Reserva:** Manejamos una tarifa mínima por cada servicio coordinado mediante el software, reduciendo la barrera de entrada económica y ofreciendo una estructura mucho más flexible que las tarifas fijas convencionales.
+#### Transparencia en los costos <br>
+La propuesta comercial buscará presentar de manera clara los costos correspondientes al hardware IoT, instalación y uso de la plataforma, facilitando que los clientes puedan evaluar la inversión requerida y compararla con los posibles costos derivados de fallas, pérdidas de productos y mantenimientos correctivos.
 
 4. **Expansión y Adaptabilidad:**
 
-**Enfoque Regional Inicial y Expansión Nacional:** A diferencia de la escala multinacional dispersa de soluciones como TempGenius, IceTrack consolidará su tracción inicial en Lima para luego escalar a provincias, garantizando un ajuste óptimo a la realidad operativa del país antes de mirar hacia el exterior.
+#### Colaboraciones con proveedores locales <br>
+Se buscarán acuerdos con técnicos especializados, empresas de mantenimiento, distribuidores de equipos y proveedores de soluciones de refrigeración. Estas alianzas permitirán desarrollar una red local que facilite la instalación de sensores, soporte técnico y atención de los equipos conectados a IceTrack.
 
-**Colaboraciones con Proveedores Locales:** Estableceremos acuerdos comerciales con distribuidores de repuestos, talleres y técnicos especializados en el territorio nacional, construyendo una red de soporte local que difícilmente pueden igualar las plataformas extranjeras.
+#### Enfoque inicial en Lima y expansión progresiva <br>
+IceTrack concentrará inicialmente sus esfuerzos en heladerías ubicadas en Lima, permitiendo validar la propuesta en un segmento y territorio específicos. Una vez comprobado el funcionamiento del modelo, se podrá evaluar su expansión hacia otras ciudades del Perú que dependan de equipos de refrigeración comercial.
 
 ## 2.2. Entrevistas
 
 ### 2.2.1. Diseño de entrevistas
 
-Este apartado reúne las preguntas diseñadas para nuestros segmentos objetivo con el fin de recopilar percepciones y experiencias clave. Los hallazgos obtenidos servirán como insumo esencial para guiar el diseño y perfeccionamiento de la propuesta.
+Las entrevistas tienen como finalidad conocer cómo se realiza actualmente el monitoreo y mantenimiento de los equipos de refrigeración, identificar los principales problemas que enfrentan los usuarios y evaluar el interés en una solución digital que facilite la supervisión, prevención de fallas y gestión del mantenimiento.
 
-**Preguntas para el Segmento Objetivo 1 - Negocios con equipos de refrigeración:**
+Los resultados obtenidos permitirán validar las hipótesis planteadas y orientar el diseño de las funcionalidades de IceTrack de acuerdo con las necesidades reales de sus potenciales usuarios.
 
-1. ¿Cuál es su edad y en qué ciudad vive?
+**Preguntas para el Segmento Objetivo 1 - Heladerías con equipos de refrigeración:**
 
-2. ¿A qué se dedica principalmente su negocio?
+1. ¿Qué tipos de equipos de refrigeración utilizan actualmente? Por ejemplo, congeladoras, vitrinas refrigeradas o cámaras de frío.
 
-3. ¿Qué productos o insumos necesita mantener en frío?
+2. Aproximadamente, ¿cuántos equipos de refrigeración tienen en funcionamiento por local?
 
-4. ¿Cuántos equipos de refrigeración tiene actualmente en funcionamiento?
+3. ¿Cómo supervisan actualmente que los equipos estén funcionando correctamente y mantengan la temperatura adecuada?
 
-5. ¿Ha experimentado pérdidas debido a fallas en los equipos? ¿Cómo impactaron en su negocio?
+4. ¿Alguna vez han tenido una falla en un equipo de refrigeración que haya ocasionado pérdida de helados, insumos u otros productos? ¿Qué ocurrió y qué impacto tuvo para el negocio?
 
-6. Actualmente, ¿cómo supervisa el estado de sus equipos (temperatura, consumo eléctrico, posibles fallas)?
+5. Cuando un equipo presenta una falla, ¿cómo se enteran normalmente y cuánto tiempo suele pasar hasta que un técnico pueda revisarlo?
 
-7. ¿Con qué frecuencia realiza mantenimiento y quién se encarga?
+6. ¿Cómo llevan actualmente el registro de los mantenimientos, reparaciones o fallas anteriores de cada equipo?
 
-8. ¿Utiliza actualmente alguna herramienta digital para la gestión o monitoreo de estos equipos?
+7. ¿Supervisan actualmente el consumo eléctrico de sus equipos de refrigeración? ¿Han identificado alguna vez un aumento de consumo relacionado con un equipo funcionando de manera ineficiente?
 
-9. ¿Qué tan valioso le resultaría recibir alertas automáticas en caso de fallas o variaciones de temperatura?
+8. ¿Utilizan actualmente sensores, aplicaciones o algún sistema digital para monitorear sus equipos? En caso afirmativo, ¿qué utilizan y qué aspectos consideran que podrían mejorar?
 
-10. ¿Le interesaría contar con un historial técnico y reportes automáticos de cada equipo?
+9. Si pudiera recibir una alerta en su celular cuando un equipo presente una temperatura anormal o un posible problema de funcionamiento, ¿en qué situaciones considera que sería más útil?
 
-11. ¿Estaría dispuesto a pagar una suscripción si esta solución le ayuda a evitar pérdidas y mejorar la eficiencia?
+10. ¿Qué información le gustaría poder consultar sobre cada equipo desde una plataforma? Por ejemplo, temperatura actual, consumo energético, historial de fallas, mantenimientos realizados o próximas fechas de mantenimiento.
 
-12. En su opinión, ¿qué funcionalidades son indispensables para que usted use una herramienta de este tipo?
+11. ¿Qué factores serían importantes para que considere implementar una solución de monitoreo en sus equipos? Por ejemplo, precio, facilidad de instalación, precisión de las alertas, facilidad de uso o soporte técnico.
 
-13. ¿En que dispositivos le gustaría acceder a la herramienta?
+12. Si una solución de este tipo demostrara que puede ayudar a detectar problemas antes de que ocasionen pérdidas, ¿consideraría pagar una suscripción mensual? ¿Qué modalidad de pago le resultaría más conveniente?
 
-14. ¿Qué situaciones lo llevarían a dejar de usar una aplicación de este tipo?
+---
 
+**Preguntas para el Segmento Objetivo 2 - Técnicos y empresas de mantenimiento de refrigeración:**
 
-**Preguntas para el Segmento Objetivo 2 - Técnicos y empresas de mantenimiento:**
+1. ¿Qué tipos de equipos de refrigeración atiende con mayor frecuencia?
 
-1. ¿Cuál es su edad y en qué ciudad vive?
+2. ¿Trabaja actualmente con heladerías? En caso afirmativo, ¿qué problemas encuentra con mayor frecuencia en sus equipos?
 
-2. ¿A qué se dedica específicamente y hace cuánto tiempo?
+3. ¿Cómo recibe y organiza actualmente las solicitudes de mantenimiento de sus clientes?
 
-3. ¿Cuántos clientes o negocios atiende regularmente?
+4. ¿Cómo programa los mantenimientos preventivos y las visitas técnicas?
 
-4. ¿Cómo organiza actualmente sus visitas técnicas y mantenimientos?
+5. ¿Lleva un historial de las reparaciones y mantenimientos realizados a cada equipo? ¿Cómo registra actualmente esta información?
 
-5. ¿Lleva un historial técnico de los equipos que repara? ¿Cómo lo gestiona?
+6. ¿Cuáles son las principales dificultades que enfrenta al diagnosticar una falla en un equipo de refrigeración?
 
-6. ¿Cuáles son las principales dificultades que enfrenta al coordinar servicios técnicos con clientes?
+7. ¿Utiliza actualmente alguna aplicación, software o herramienta digital para gestionar clientes, equipos, mantenimientos o reportes? En caso afirmativo, ¿cuál y qué limitaciones encuentra?
 
-7. ¿Cómo planifica o coordina sus rutas de visitas? ¿Utiliza alguna herramienta digital o lo hace manualmente?
+8. ¿Considera que recibir alertas sobre posibles anomalías en los equipos de sus clientes podría ayudarle a realizar mantenimientos de manera más preventiva? ¿Por qué?
 
-8. ¿Qué tan valioso sería para usted contar con una aplicación donde pueda ver todos los equipos que atiende o provee a sus clientes?
+9. ¿Qué información debería contener el historial técnico de un equipo para que sea realmente útil durante un diagnóstico o mantenimiento?
 
-9. ¿Le interesaría recibir alertas en tiempo real sobre fallas en los equipos de sus clientes?
+10. ¿Qué tan útil sería generar automáticamente un reporte después de cada mantenimiento para compartirlo con el cliente?
 
-10. ¿Qué tanto valora la posibilidad de generar reportes automáticos y mantener trazabilidad de cada intervención?
+11. Si pudiera administrar desde una misma plataforma los equipos de diferentes clientes y establecimientos, ¿cómo podría beneficiar esto a su trabajo o empresa?
 
-11. ¿Estaría dispuesto a utilizar una plataforma que le ayude a organizarse mejor y escalar su servicio?
-
-12. ¿Ha probado anteriormente alguna plataforma similar? Si es afirmativo ¿Por qué la dejó de usar?
-
-13. ¿qué beneficios cree que podría aportar la implementación de una solución digital a su trabajo o empresa?
-
-14. ¿Qué características considera indispensables para que una plataforma de este tipo sea realmente útil para usted?
+12. ¿Qué funcionalidades considera indispensables en una plataforma de monitoreo y gestión de mantenimiento para que realmente la incorporara a su trabajo?
 
 ### 2.2.2. Registro de entrevistas
 ## Segmento objetivo #1: Negocios con equipos de refrigeración
