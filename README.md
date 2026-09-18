@@ -810,16 +810,22 @@ Los resultados obtenidos permitirán validar las hipótesis planteadas y orienta
 
 #### **Entrevista 1:**
 
-- **Nombres y apellidos:** Diego Ivan Cabrera Buitrón
-- **Edad:** 26
+- **Nombres y apellidos:** Carlo Gabriel Mimbela
+- **Edad:** 23
 - **Distrito:** Los Olivos
-- **Inicio:** 0:15 min
-- **Duración:** 5:01 min
-- **Url:** [`https://upcedupe-my.sharepoint.com/:v:/g/personal/u202215462_upc_edu_pe/EVNBPAe0oLJJt9Z25_ztjjwB-BcIJIUhWsD3XCvjQJsKDQ?e=YNt2wV&nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifX0%3D`](https://upcedupe-my.sharepoint.com/:v:/g/personal/u202215462_upc_edu_pe/EVNBPAe0oLJJt9Z25_ztjjwB-BcIJIUhWsD3XCvjQJsKDQ?e=YNt2wV&nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifX0%3D)
+- **Inicio:** XXXX min
+- **Duración:** XXXX min
+- **Url:** [`Url entrevista`](https//)
 
-![Entrevista1-Segmento2](assets/chapter02/Entrevista1-Segmento2.png)
+![Entrevista1-Segmento2](assets/chapter02/entrevista-segmento2-taller-gianmarco.png)
 
-- **Resumen:** Diego Cabrera es un técnico especializado en refrigeración con 2 años de experiencia en este rubro. Durante la entrevista, comentó que regularmente atiende negocios como supermercados, farmacias, etc. Generalmente, coordinar citas técnicas mediante llamadas y aplicaciones como Whatsapp. Para el registro e historial de sus visitas utiliza Excel y cuadernos para redactar el historial e informes técnicos. Actualmente, considera que una de las mayores dificultades que enfrenta es la complicada coordinación de visitas técnicas ya que lo clientes usualmente olvidan revisar sus equipos que derivan a fallas graves. Así mismo, menciona que no tener un historial técnico afecta negativamente en su rendimiento. Él considera valioso un historial técnico para tener un panorama más completo de la situación de los equipos. También destacó la posibilidad de generar reportes automáticos, recibir alertas sobre fallas y mejorar su planificación en una plataforma centralizada. En su opinión, considera que implementar una plataforma de este tipo sería ideal para mejorar su eficiencia, ahorrar tiempo y una mejor comunicación con sus clientes.
+- **Resumen:** Carlo Mimbela es un técnico especializado en refrigeración. Mencionó que ha trabajado con negocios de heladerías y sus distintos equipos de refrigeración, con los que ha detectado que los principales problemas son las obstrucciones del sistema de hielo o
+acumulaciones de hielo que afectan la temperatura. Asimismo, menciona que el taller tiene un método trabajoso para la gestión de visitas o solicitudes de mantenimiento, pues se utiliza como medio las llamadas telefónicas o WhatsApp.
+Carlo habla sobre que los mantenimientos preventivos se realizan mediante recordatorios utilizando un calendario semanal y que el historial de mantenimientos se almacena o registra de manera física con papel. Respecto a las dificultades para diagnosticar fallas, se habló de un acceso limitado a ciertos parámetros de operación en tiempo real como la temperatura, presión, consumo eléctrico, etc.
+Carlo comenta que se utilzia WhatsApp Business para gestionar los clientes, lo cual tiene limitaciones para generar reportes o hacer seguimiento de los equipos de los clientes. Adicionalmente, se mencionó que sería de gran utilidad contar con información básica de  equipos de refrigeración, los repuestos, atenciones. 
+Carlo sugiere que el taller aceptaría cualquier iniciativa que permita optimizar procesos y reducir tiempos de respuesta ante emergencia. 
+Finalmente, se menciona que estaría bueno contar con un historial digital accesible, paneles de control, reportes automáticos y programación de solicitudes automatizadas.
+
 
 ---
 
