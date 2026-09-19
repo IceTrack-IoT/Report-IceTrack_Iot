@@ -1461,7 +1461,7 @@ En el Bounded Context de IAM se manejan todas las funcionalidades relacionadas c
 #### 4.2.4.6. Bounded Context Software Architecture Code Level Diagrams.
 ##### 4.2.4.6.1. Bounded Context Domain Layer Class Diagrams.
 
-![IceTrack Bounded Context Domain Layer Class Diagram - Assets Management](assets/chapter04/diagrams/class/assetDiagramClass.png)
+![IceTrack Bounded Context Domain Layer Class Diagram - Assets Management](assets/chapter04/diagrams/class/assetManagementDiagramClass.png)
 
 ##### 4.2.4.6.2. Bounded Context Database Design Diagram.
 
@@ -1524,7 +1524,7 @@ En el Bounded Context de IAM se manejan todas las funcionalidades relacionadas c
 #### 4.2.7.6. Bounded Context Software Architecture Code Level Diagrams. 
 ##### 4.2.7.6.1. Bounded Context Domain Layer Class Diagrams.
 
-![IceTrack Bounded Context Domain Layer Class Diagram - Notification Management](assets/chapter04/diagrams/class/notificationDiagramClass.png)
+![IceTrack Bounded Context Domain Layer Class Diagram - Notification Management](assets/chapter04/diagrams/class/notificationManagementDiagramClass.png)
 
 ##### 4.2.7.6.2. Bounded Context Database Design Diagram. 
 
