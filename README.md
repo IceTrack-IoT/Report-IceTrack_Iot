@@ -1345,14 +1345,14 @@ En esta sección se representan los Bounded Context correspondientes a los conte
 #### - Devices Management
 ![Bounded Context Canvas - Devices Management](assets/chapter04/canvas/canva4.png)
 
-#### - Technicians Management
-![Bounded Context Canvas - Technicians Management](assets/chapter04/canvas/canva5.png)
+#### - Service Request Management
+![Bounded Context Canvas - Service Request Management](assets/chapter04/canvas/canva5.png)
 
 #### - Notification Management
 ![Bounded Context Canvas - Notification Management](assets/chapter04/canvas/canva6.png)
 
-#### - Reporting and Analysis Management
-![Bounded Context Canvas - Reporting and Analysis Management](assets/chapter04/canvas/canva7.png)
+#### - Reporting and Analytics Management
+![Bounded Context Canvas - Reporting and Analytics Management](assets/chapter04/canvas/canva7.png)
 
 #### - Monitoring and Alerting Management
 ![Bounded Context Canvas - Monitoring and Alerting Management](assets/chapter04/canvas/canva8.png)
