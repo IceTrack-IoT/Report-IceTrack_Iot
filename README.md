@@ -1250,7 +1250,12 @@ Para mantener el proyecto organizado, usamos la escala de Fibonacci (1, 2, 3, 5,
 
 # Capítulo IV: Solution Software Design
 
+En este capítulo presentamos el diseño de la solución de software de IceTrack. Primero aplicamos un enfoque estratégico de Domain-Driven Design, con el que identificamos los bounded contexts, sus relaciones y la arquitectura general del sistema. Luego bajamos al nivel táctico, donde detallamos las capas, los componentes y los modelos de cada contexto.
+
 ## 4.1. Strategic-Level Domain-Driven Design
+
+En esta sección aplicamos el DDD estratégico para dividir el dominio de IceTrack en contextos con responsabilidades claras. Con el EventStorming a nivel de diseño descubrimos los bounded contexts y los flujos de mensajes entre ellos, los documentamos en los Bounded Context Canvases y definimos sus relaciones mediante el Context Mapping. Finalmente, representamos la arquitectura del sistema con los diagramas de System Landscape, Context, Container y Deployment.
+
 ### 4.1.1. Design-Level EventStorming
 
 En esta sección se aplican las técnicas de EventStorming para poder identificar los distintos Bounded Context dentro del dominio de la aplicación, asi como las interacciones y dependencias entre ellos. Esto nos permite tener una visión clara de cómo se estructura los distintos componentes y cómo se comunican entre sí.
@@ -1370,25 +1375,230 @@ En esta sección se aplican las técnicas de DDD a nivel táctico para diseñar 
 En el Bounded Context de IAM se manejan todas las funcionalidades relacionadas con la gestión de identidades, autenticación y autorización de los usuarios dentro del sistema. Esto incluye el registro de usuarios, la asignación de roles y permisos, y la verificación de credenciales para el acceso a la aplicación. Es un contexto de soporte genérico, Upstream de Profiles.
 
 #### 4.2.1.1. Domain Layer.
+La Domain Layer del bounded context **IAM** concentra las reglas de negocio de identidad y acceso, y es independiente de frameworks, base de datos y servicios externos. Su modelo gira en torno a un único aggregate, **User**, que representa a la persona registrada en la plataforma (dueño de negocio o proveedor de mantenimiento).
 
-![IceTrack Bounded Context Component Level Diagram - IAM](assets/chapter04/c4/component/iamComponent.png)
+**Aggregate Root**
+
+| Clase | Categoría | Descripción |
+| :--- | :--- | :--- |
+| `User` | Aggregate Root / Entity | Representa a la persona registrada en el sistema. Es la única puerta de entrada para modificar el estado de una cuenta y garantiza sus invariantes. |
+
+Atributos de `User`:
+
+| Atributo | Tipo | Descripción |
+| :--- | :--- | :--- |
+| `id` | `UUID` | Identificador único de la cuenta. |
+| `username` | `String` | Nombre de usuario con el que la persona inicia sesión. |
+| `passwordHash` | `String` | Hash de la contraseña. Nunca se almacena la contraseña en texto plano. |
+| `role` | `String` | Rol asignado al usuario (`Owner` o `Provider`). |
+
+Métodos de `User`:
+
+| Método | Descripción |
+| :--- | :--- |
+| `authenticate(pass: String): boolean` | Verifica que la contraseña ingresada corresponda con el hash almacenado. Es la regla central para validar credenciales. |
+
+**Value Objects y enumeraciones**
+
+| Clase | Categoría | Descripción |
+| :--- | :--- | :--- |
+| `Role` | Enum / Value Object | Define los roles válidos dentro del contexto: `Owner` (dueño o cliente de los equipos de refrigeración) y `Provider` (empresa de mantenimiento). El rol se asigna una sola vez, en el registro. |
+
+**Comandos y consultas del dominio**
+
+| Clase | Categoría | Descripción |
+| :--- | :--- | :--- |
+| `SignUpCommand` | Command (record) | Solicita el registro de una cuenta nueva (username, contraseña y rol). |
+| `SignInCommand` | Command (record) | Solicita la autenticación con credenciales. |
+| `RefreshTokenCommand` | Command (record) | Solicita renovar el token de acceso. |
+| `AssignRoleCommand` | Command (record) | Asigna el rol al usuario en el momento del registro. |
+| `GetUserByIdQuery` | Query (record) | Consulta una cuenta por su identificador. |
+| `GetUserByUsernameQuery` | Query (record) | Consulta una cuenta por su nombre de usuario. |
+
+**Domain Events**
+
+| Evento | Descripción |
+| :--- | :--- |
+| `UserRegisteredEvent` | Se emite cuando una cuenta se crea correctamente. Lo consumen otros contextos, principalmente Profiles and Preferences Management, para crear el perfil asociado. |
+
+**Domain Services (interfaces)**
+
+| Interfaz | Descripción |
+| :--- | :--- |
+| `UserCommandService` | Contrato de las operaciones que cambian el estado: registro (`SignUpCommand`) e inicio de sesión (`SignInCommand`). |
+| `UserQueryService` | Contrato de las operaciones de lectura de cuentas (`GetUserByIdQuery`). |
+
+**Repositories (interfaces)**
+
+| Interfaz | Descripción |
+| :--- | :--- |
+| `UserRepository` | Abstracción de persistencia del aggregate `User`. El dominio solo conoce esta interfaz. Su implementación pertenece a la Infrastructure Layer. |
+
+**Reglas de negocio del dominio**
+
+- El `username` es único en todo el sistema.
+- El `role` se asigna una sola vez, al registrarse, y no puede cambiarse después.
+- La autorización es binaria: el acceso se concede o se deniega según la validez del JWT.
+- La contraseña se almacena únicamente como hash.
+
+**Factories:** no se requieren factories separadas. La creación del `User` se resuelve en el `UserCommandServiceImpl`, que aplica las reglas de registro antes de persistir el aggregate.
 
 #### 4.2.1.2. Interface Layer.
 
+La Interface Layer expone las capacidades del contexto IAM hacia el exterior. Recibe las solicitudes HTTP que el **API Gateway** enruta tras validar el JWT o la API key. Traduce los recursos REST a comandos y consultas del dominio, y devuelve las respuestas. Se organiza en cuatro subpaquetes: `controllers`, `resources`, `assemblers` y `acl`.
+
+**Controllers**
+
+| Clase | Descripción |
+| :--- | :--- |
+| `AuthenticationController` | Controlador REST de registro, inicio de sesión y renovación de token. Cubre las historias US-01 (Registro de usuario), US-02 (Inicio de sesión) y TS-04 (Registro de usuario vía API RESTful). Depende de `UserCommandService` y `UserQueryService`. |
+
+Métodos de `AuthenticationController`:
+
+| Método | Descripción |
+| :--- | :--- |
+| `signUp(res: SignUpResource): ResponseEntity<UserResource>` | Recibe los datos de registro, los convierte en un `SignUpCommand`, invoca al servicio de comandos y devuelve la cuenta creada. |
+| `signIn(res: SignInResource): ResponseEntity<TokenResource>` | Recibe las credenciales, las convierte en un `SignInCommand` y devuelve el token de acceso. |
+
+**Resources (records)**
+
+| Clase | Descripción |
+| :--- | :--- |
+| `SignUpResource` | Datos de entrada para el registro (username, contraseña y rol). |
+| `SignInResource` | Datos de entrada para el inicio de sesión (username y contraseña). |
+| `UserResource` | Representación de una cuenta en las respuestas. No expone el hash de la contraseña. |
+| `TokenResource` | Representación del token de acceso (JWT) devuelto tras autenticarse. |
+
+**Assemblers**
+
+| Clase | Método | Descripción |
+| :--- | :--- | :--- |
+| `AuthenticationAssembler` | `toCommandFromResource(resource: SignUpResource): SignUpCommand` | Transforma el recurso de registro en el comando del dominio. |
+| `AuthenticationAssembler` | `toCommandFromResource(resource: SignInResource): SignInCommand` | Transforma el recurso de inicio de sesión en el comando del dominio. |
+| `UserAssembler` | `toResourceFromEntity(entity: User): UserResource` | Convierte el aggregate `User` en el recurso de respuesta. |
+
+**ACL / Facade (inbound services)**
+
+| Clase | Descripción |
+| :--- | :--- |
+| `IamContextFacade` | Fachada que expone a los demás bounded contexts la consulta de cuentas y roles sin revelar el aggregate `User`. Depende de `UserQueryService`. |
+
+Método de `IamContextFacade`:
+
+| Método | Descripción |
+| :--- | :--- |
+| `fetchUserIdByUsername(username: String): Optional<UUID>` | Devuelve el identificador de un usuario a partir de su username, para que otros contextos referencien la cuenta sin acceder al modelo interno de IAM. |
+
+
 #### 4.2.1.3. Application Layer.
+
+La Application Layer orquesta los flujos del negocio del contexto IAM. Recibe los comandos y consultas de la Interface Layer, coordina al aggregate `User`, los repositorios y los servicios externos, y reacciona a eventos. No contiene reglas de negocio propias: las delega en el dominio. Implementa las capabilities del contexto: **registro de cuentas, autenticación con credenciales o Google OAuth 2.0, emisión de tokens y consulta de cuentas**.
+
+**Command Services**
+
+| Clase | Implementa | Descripción |
+| :--- | :--- | :--- |
+| `UserCommandServiceImpl` | `UserCommandService` | Ejecuta los procesos que modifican el estado de las cuentas. |
+
+Dependencias de `UserCommandServiceImpl`:
+
+| Dependencia | Uso |
+| :--- | :--- |
+| `UserRepository` | Persistir y consultar el aggregate `User`. |
+| `GoogleTokenService` | Validar el token de Google y obtener la identidad federada. |
+| `HashingService` | Generar y verificar el hash de las contraseñas. |
+
+Manejadores de comandos:
+
+| Método | Flujo |
+| :--- | :--- |
+| `handle(cmd: SignUpCommand): Optional<User>` | 1) Verifica que el username no exista. 2) Genera el hash de la contraseña con `HashingService`. 3) Asigna el rol (`AssignRoleCommand`). 4) Crea y persiste el `User`. 5) Publica `UserRegisteredEvent`. Si el registro es con Google, valida antes la identidad con `GoogleTokenService`. |
+| `handle(cmd: SignInCommand): Optional<TokenDTO>` | 1) Busca al usuario por username. 2) Valida las credenciales con `User.authenticate(pass)`, o el token de Google si el ingreso es federado. 3) Emite el JWT y lo devuelve en un `TokenDTO`. |
+| `handle(cmd: RefreshTokenCommand)` | Renueva el token de acceso a partir de una sesión vigente. |
+
+**Query Services**
+
+| Clase | Implementa | Descripción |
+| :--- | :--- | :--- |
+| `UserQueryServiceImpl` | `UserQueryService` | Resuelve las consultas de lectura sobre cuentas usando `UserRepository`. |
+
+Manejadores de consultas:
+
+| Método | Descripción |
+| :--- | :--- |
+| `handle(q: GetUserByIdQuery): Optional<User>` | Devuelve la cuenta que corresponde al identificador. |
+| `handle(q: GetUserByUsernameQuery): Optional<User>` | Devuelve la cuenta que corresponde al username. Es la consulta que usa `IamContextFacade`. |
+
+**Event Handlers**
+
+| Clase | Descripción |
+| :--- | :--- |
+| `UserRegisteredEventHandler` | Escucha `UserRegisteredEvent` (`on(event: UserRegisteredEvent): void`) y solicita al contexto **Profiles and Preferences Management** la creación del perfil y las preferencias iniciales del usuario. Así se cumple el flujo de registro y creación de dashboard, sin acoplar IAM al modelo de Profiles. |
+
+**Outbound Services (ACL)**
+
+| Clase | Descripción |
+| :--- | :--- |
+| `ProfilesExternalService` | Anti-Corruption Layer que solicita al contexto Profiles la creación del perfil una vez que la cuenta existe. |
+| `GoogleIdentityExternalService` | Anti-Corruption Layer que traduce los claims del token de Google OAuth 2.0 al modelo de identidad de la plataforma, sin filtrar detalles del proveedor al dominio. |
 
 #### 4.2.1.4. Infrastructure Layer.
 
+La Infrastructure Layer contiene las clases que acceden a recursos técnicos externos: la base de datos y los servicios de terceros. Implementa las abstracciones definidas en el dominio, de modo que el modelo no dependa de tecnologías concretas.
+
+**Persistencia (Repositories)**
+
+| Clase | Implementa | Descripción |
+| :--- | :--- | :--- |
+| `SpringDataJpaUserRepository` | `UserRepository` | Implementación con Spring Data JPA del repositorio del aggregate `User`. Opera sobre el esquema `iam` de la instancia PostgreSQL v18 (Platform Database), que mantiene un esquema por bounded context. |
+
+Responsabilidades de `SpringDataJpaUserRepository`:
+
+- Guardar, actualizar y consultar cuentas de usuario.
+- Buscar usuarios por identificador y por username.
+- Verificar la unicidad del username antes del registro.
+
+**Servicios de seguridad**
+
+| Clase | Descripción |
+| :--- | :--- |
+| `HashingService` (implementación) | Genera y verifica el hash de las contraseñas usando un algoritmo de hashing de Spring Security. Lo consume `UserCommandServiceImpl`. |
+| Servicio de tokens JWT | Firma y valida los JWT emitidos tras la autenticación. El API Gateway los valida en cada solicitud antes de enrutarla al controlador. |
+
+**Integraciones con servicios externos**
+
+| Clase | Descripción |
+| :--- | :--- |
+| `GoogleTokenService` (implementación) | Se comunica por HTTPS con **Google Identity Platform** para validar el token OAuth 2.0 y recuperar la identidad federada del usuario. Es el adaptador técnico que usa `GoogleIdentityExternalService`. |
+| Adaptador hacia Profiles | Implementa la comunicación con el contexto Profiles and Preferences Management, para la creación del perfil tras el registro. |
+
+**Resumen de dependencias externas**
+
+| Recurso externo | Tipo | Uso en IAM |
+| :--- | :--- | :--- |
+| PostgreSQL v18 (esquema `iam`) | Base de datos relacional | Persistencia de cuentas de usuario. |
+| Google Identity Platform | Proveedor de identidad OAuth 2.0 | Registro e inicio de sesión con cuenta de Google. |
+| Profiles and Preferences Management | Bounded context interno | Creación del perfil una vez registrada la cuenta. |
+
 #### 4.2.1.5. Bounded Context Software Architecture Component Level Diagrams.
+
+En el siguiente diagrama de componentes mostramos cómo organizamos internamente el bounded context Identity and Access Management. Se observa el Authentication Controller que recibe las solicitudes desde el API Gateway, los servicios de comandos y consultas de usuario, el aggregate User con su repositorio y la fachada que expone la información de cuentas y roles a los demás contextos. También se muestran las integraciones con Google Identity Platform y con Profiles and Preferences Management, ambas protegidas mediante capas anticorrupción, y el esquema `iam` de la base de datos.
 
 ![IceTrack Bounded Context Component Level Diagram - IAM](assets/chapter04/c4/component/iamComponent.png)
 
 #### 4.2.1.6. Bounded Context Software Architecture Code Level Diagrams.
+
+En esta sección presentamos los diagramas de nivel de código del bounded context Identity and Access Management. Estos diagramas bajan al detalle de implementación: el diagrama de clases de la capa de dominio y el diseño de la base de datos que respalda el modelo.
+
 ##### 4.2.1.6.1. Bounded Context Domain Layer Class Diagrams.
+
+El siguiente diagrama de clases representa la estructura del contexto IAM organizada por capas. En el dominio se encuentra el aggregate `User` con sus atributos y la regla de autenticación, junto con las interfaces de servicios y del repositorio. Sobre ellas se ubican los servicios de comandos y consultas y el manejador del evento de usuario registrado en la capa de aplicación, los controladores, assemblers, recursos y la fachada en la capa de interfaces, y la implementación JPA del repositorio en la capa de infraestructura.
 
 ![IceTrack Bounded Context Domain Layer Class Diagram - IAM](assets/chapter04/diagrams/class/iamDiagramClass.png)
 
 ##### 4.2.1.6.2. Bounded Context Database Design Diagram.
+
+El siguiente diagrama presenta el diseño de la base de datos del esquema `iam`, donde persistimos las cuentas de usuario junto con su nombre de usuario, el hash de la contraseña y el rol asignado.
 
 ![IceTrack Bounded Context Database Design Diagram - IAM](assets/chapter04/diagrams/database/iamDiagramDatabase.png)
 
@@ -1396,24 +1606,265 @@ En el Bounded Context de IAM se manejan todas las funcionalidades relacionadas c
 
 ### 4.2.2. Bounded Context: Profiles and Preferences Management
 
+En el bounded context Profiles and Preferences Management administramos los datos personales y profesionales de los dueños de negocio y de los técnicos, así como las preferencias de presentación de cada usuario: la disposición de las tarjetas del dashboard, el rango de temperatura preferido y el idioma de la interfaz. Es un contexto de soporte que recibe la información de la cuenta desde IAM, y que a su vez sirve datos de contacto y de disponibilidad de técnicos a Notification Management y a Service Request Management.
+
 #### 4.2.2.1. Domain Layer.
+La Domain Layer del bounded context **Profiles and Preferences Management** contiene el modelo de los datos personales y profesionales de dueños y técnicos, y el de las preferencias de presentación de cada usuario. Está organizada en dos aggregates independientes: **Profile**, con sus especializaciones `OwnerProfile` y `TechnicianProfile`, y **DashboardConfig**, que agrupa la configuración del panel de control y del idioma. Ambos se asocian al usuario de IAM mediante `userId`, sin depender del modelo interno de ese contexto.
+
+**Aggregate Roots**
+
+| Clase | Categoría | Descripción |
+| :--- | :--- | :--- |
+| `Profile` | Aggregate Root (clase abstracta) | Representa los datos descriptivos de una persona dentro de la plataforma. Es abstracta y se especializa según el rol asignado en IAM. |
+| `OwnerProfile` | Entity (especialización de `Profile`) | Perfil del dueño de negocio (cliente). Agrega el RUC del negocio. |
+| `TechnicianProfile` | Entity (especialización de `Profile`) | Perfil del técnico. Agrega su especialidad y su número de certificación, y se vincula al perfil del proveedor al que pertenece. |
+| `DashboardConfig` | Aggregate Root | Configuración de presentación de un usuario: tarjetas del dashboard con su orden y visibilidad, rango de temperatura preferido e idioma de la interfaz. Existe una configuración por usuario. |
+
+Atributos de `Profile`:
+
+| Atributo | Tipo | Descripción |
+| :--- | :--- | :--- |
+| `id` | `UUID` | Identificador único del perfil. |
+| `userId` | `UUID` | Referencia a la cuenta de usuario del contexto IAM. |
+| `fullName` | `String` | Nombre completo de la persona. |
+| `email` | `Email` (Value Object) | Correo de contacto. |
+| `phone` | `Phone` (Value Object) | Teléfono de contacto. |
+| `address` | `Address` (Value Object) | Dirección de la persona o del negocio. |
+
+Atributos específicos de las especializaciones:
+
+| Clase | Atributo | Descripción |
+| :--- | :--- | :--- |
+| `OwnerProfile` | `ruc` | Registro Único de Contribuyente del negocio del dueño. |
+| `TechnicianProfile` | `speciality` | Especialidad técnica del técnico (por ejemplo, refrigeración comercial). |
+| `TechnicianProfile` | `certificationNumber` | Número de certificación del técnico. |
+| `TechnicianProfile` | `providerProfileId` | Referencia al perfil del proveedor al que pertenece el técnico. |
+
+Atributos de `DashboardConfig`:
+
+| Atributo | Tipo | Descripción |
+| :--- | :--- | :--- |
+| `id` | `UUID` | Identificador único de la configuración. |
+| `userId` | `UUID` | Usuario propietario de la configuración. |
+| `layout` | `String` | Disposición de las tarjetas del dashboard (orden y visibilidad). |
+| `temperatureRange` | `TemperatureRange` | Rango de temperatura preferido por el usuario. |
+| `locale` | `Locale` | Idioma de la interfaz (ES o EN). |
+
+**Value Objects**
+
+| Clase | Descripción |
+| :--- | :--- |
+| `Email` | Correo electrónico validado. |
+| `Phone` | Número de teléfono de contacto. |
+| `Address` | Dirección postal o de ubicación. |
+| `TemperatureRange` | Rango de temperatura mínima y máxima preferido para visualizar los equipos. |
+| `Locale` | Idioma de la interfaz de usuario (US-23). |
+| `DashboardCard` | Tarjeta del panel, con su orden y su visibilidad dentro del layout. |
+
+**Commands y Queries del dominio**
+
+| Clase | Categoría | Descripción |
+| :--- | :--- | :--- |
+| `CreateProfileCommand` | Command (record) | Crea el perfil de un usuario recién registrado. |
+| `UpdateProfileInfoCommand` | Command (record) | Actualiza los datos descriptivos del perfil. |
+| `AddCardCommand` | Command (record) | Agrega una tarjeta al dashboard. |
+| `RemoveCardCommand` | Command (record) | Quita una tarjeta del dashboard. |
+| `ChangeVisibilityCommand` | Command (record) | Muestra u oculta una tarjeta. |
+| `UpdateDashboardLayoutCommand` | Command (record) | Actualiza la disposición y el orden de las tarjetas. |
+| `ChangeLocaleCommand` | Command (record) | Cambia el idioma de la interfaz. |
+| `GetProfileByUserIdQuery` | Query (record) | Obtiene el perfil asociado a un usuario. |
+| `GetProfileByIdQuery` | Query (record) | Obtiene un perfil por su identificador. |
+| `GetAvailableTechniciansBySpecialityQuery` | Query (record) | Lista los técnicos disponibles según su especialidad. |
+| `GetDashboardConfigByUserIdQuery` | Query (record) | Obtiene la configuración del dashboard de un usuario. |
+
+**Domain Services y Factories**
+
+| Clase | Categoría | Descripción |
+| :--- | :--- | :--- |
+| `UserProfileFactory` | Factory / Domain Service | Construye un `OwnerProfile` o un `TechnicianProfile` a partir de los datos de registro, según el rol asignado en IAM. Encapsula la decisión de qué especialización crear. |
+| `ProfileCommandService` | Domain Service (interfaz) | Contrato de las operaciones que crean y actualizan perfiles. |
+| `ProfileQueryService` | Domain Service (interfaz) | Contrato de las consultas de perfiles y de disponibilidad de técnicos. |
+| `DashboardConfigCommandService` | Domain Service (interfaz) | Contrato de las operaciones que modifican la configuración del dashboard y del idioma. |
+
+**Repositories (interfaces)**
+
+| Interfaz | Descripción |
+| :--- | :--- |
+| `ProfileRepository` | Abstracción de persistencia del aggregate `Profile` y sus especializaciones. |
+| `DashboardConfigRepository` | Abstracción de persistencia del aggregate `DashboardConfig`. |
+
+**Domain Events**
+
+| Evento | Descripción |
+| :--- | :--- |
+| `Perfil Creado` | Se emite cuando se crea el perfil de un usuario. |
+| `Perfil Actualizado` | Se emite cuando cambian los datos descriptivos del perfil. |
+| `Configuración de Dashboard Actualizada` | Se emite cuando el usuario modifica su dashboard o su idioma. |
+
+**Reglas de negocio del dominio**
+
+- Cada perfil pertenece a un único usuario de IAM (`userId`).
+- El tipo de perfil (`OwnerProfile` o `TechnicianProfile`) se define por el rol asignado en IAM al registrarse.
+- Un `OwnerProfile` requiere un RUC. Un `TechnicianProfile` requiere especialidad y número de certificación.
+- Cada usuario tiene una única configuración de dashboard, asociada de manera individual.
 
 #### 4.2.2.2. Interface Layer.
 
+La Interface Layer expone las capacidades del contexto hacia el exterior. Recibe las solicitudes HTTP que el **API Gateway** enruta después de validar el JWT, y publica una fachada para los demás bounded contexts. Se organiza en los subpaquetes `controllers`, `resources`, `assemblers` y `acl`.
+
+**Controllers**
+
+| Clase | Descripción |
+| :--- | :--- |
+| `ProfileController` | Controlador REST del *Profile Endpoint* (GET, POST, PUT). Gestiona la creación y actualización de perfiles y cubre las historias US-07 (registro y gestión de técnicos) y US-08 (consulta del perfil de un técnico). Depende de `ProfileCommandService` y `ProfileQueryService`. |
+| `PreferencesController` | Controlador REST del *Preferences Endpoint* (GET, POST, PUT). Gestiona la disposición del dashboard y el idioma de la interfaz, y cubre las historias US-23 (cambio de idioma) y US-25 (métricas del dashboard). Depende de los servicios de configuración del dashboard. |
+
+Métodos principales:
+
+| Clase | Método | Descripción |
+| :--- | :--- | :--- |
+| `ProfileController` | `createOwner(res: CreateOwnerProfileRequest): ResponseEntity<ProfileResponse>` | Recibe los datos del dueño, los convierte en un `CreateProfileCommand` y devuelve el perfil creado. |
+
+**Resources (records)**
+
+| Clase | Descripción |
+| :--- | :--- |
+| `CreateOwnerProfileRequest` | Datos de entrada para crear el perfil de un dueño. |
+| `ProfileResponse` | Representación del perfil en las respuestas de la API. |
+
+**Assemblers**
+
+| Clase | Método | Descripción |
+| :--- | :--- | :--- |
+| `ProfileAssembler` | `toResourceFromEntity(entity: Profile): ProfileResponse` | Convierte el aggregate `Profile` en el recurso de respuesta. |
+| `ProfileAssembler` | `toCommandFromResource(resource: CreateOwnerProfileRequest): CreateProfileCommand` | Transforma el recurso de creación en el comando del dominio. |
+
+**ACL / Facade (inbound services)**
+
+| Clase | Descripción |
+| :--- | :--- |
+| `ProfilesContextFacade` | Fachada que expone a otros bounded contexts la creación de perfiles, los datos de contacto y la disponibilidad de técnicos, sin revelar el modelo interno. Depende de `ProfileQueryService`. |
+
+Método de `ProfilesContextFacade`:
+
+| Método | Descripción |
+| :--- | :--- |
+| `isTechnicianAvailable(technicianId: UUID): boolean` | Indica si un técnico está disponible para ser asignado a una solicitud de servicio. |
+
+Consumidores de la fachada:
+
+| Contexto consumidor | Uso |
+| :--- | :--- |
+| Identity and Access Management | Solicita la creación del perfil cuando se registra una cuenta de usuario. |
+| Notification Management | Resuelve los datos de contacto y el idioma del destinatario de una notificación. |
+| Service Request Management | Consulta la especialidad y la disponibilidad de los técnicos al asignar una solicitud. |
+
 #### 4.2.2.3. Application Layer.
+
+La Application Layer orquesta los flujos del contexto. Recibe los comandos y consultas de la Interface Layer, coordina los aggregates y los repositorios, y delega en el dominio las reglas de negocio. Sus capabilities son **crear y actualizar perfiles, consultar perfiles y disponibilidad de técnicos, y administrar la configuración del dashboard y del idioma**.
+
+**Command Services**
+
+| Clase | Implementa | Descripción |
+| :--- | :--- | :--- |
+| `ProfileCommandServiceImpl` | `ProfileCommandService` | Ejecuta los procesos de creación y actualización de perfiles. Depende de `ProfileRepository`. |
+| `DashboardConfigCommandServiceImpl` | `DashboardConfigCommandService` | Ejecuta los procesos que modifican el dashboard y el idioma. Depende de `DashboardConfigRepository`. |
+
+Manejadores de comandos:
+
+| Clase | Método | Flujo |
+| :--- | :--- | :--- |
+| `ProfileCommandServiceImpl` | `handle(cmd: CreateProfileCommand): Optional<Profile>` | 1) Recibe los datos de registro y el rol del usuario. 2) Usa `UserProfileFactory` para construir el `OwnerProfile` o el `TechnicianProfile`. 3) Persiste el perfil. 4) Registra el evento `Perfil Creado`. |
+| `ProfileCommandServiceImpl` | `handle(cmd: UpdateProfileInfoCommand)` | Busca el perfil, actualiza sus datos y emite `Perfil Actualizado`. |
+| `DashboardConfigCommandServiceImpl` | `handle(cmd: UpdateDashboardLayoutCommand): void` | Actualiza la disposición y el orden de las tarjetas del usuario y emite `Configuración de Dashboard Actualizada`. |
+| `DashboardConfigCommandServiceImpl` | `handle(cmd: AddCardCommand / RemoveCardCommand / ChangeVisibilityCommand)` | Agrega, quita o cambia la visibilidad de una tarjeta del dashboard. |
+| `DashboardConfigCommandServiceImpl` | `handle(cmd: ChangeLocaleCommand)` | Cambia el idioma de la interfaz del usuario. |
+
+**Query Services**
+
+| Clase | Implementa | Descripción |
+| :--- | :--- | :--- |
+| `ProfileQueryServiceImpl` | `ProfileQueryService` | Resuelve las consultas de lectura de perfiles y de disponibilidad de técnicos. |
+| `DashboardConfigQueryService` | — | Resuelve la consulta de la configuración del dashboard de un usuario. |
+
+Manejadores de consultas:
+
+| Clase | Método | Descripción |
+| :--- | :--- | :--- |
+| `ProfileQueryServiceImpl` | `handle(q: GetProfileByIdQuery): Optional<Profile>` | Devuelve el perfil que corresponde al identificador. |
+| `ProfileQueryServiceImpl` | `handle(q: GetProfileByUserIdQuery)` | Devuelve el perfil asociado a un usuario de IAM. |
+| `ProfileQueryServiceImpl` | `handle(q: GetAvailableTechniciansBySpecialityQuery)` | Devuelve los técnicos disponibles de una especialidad. Lo usa Service Request Management para asignar técnicos. |
+| `DashboardConfigQueryService` | `handle(q: GetDashboardConfigByUserIdQuery)` | Devuelve la configuración del dashboard del usuario. |
+
+**Integración con otros contextos**
+
+| Flujo | Descripción |
+| :--- | :--- |
+| Registro de usuario → creación de perfil | Cuando IAM registra una cuenta, solicita mediante `ProfilesContextFacade` la creación del perfil. Este contexto lo crea con el tipo correspondiente al rol y deja lista la configuración inicial del dashboard. |
+| Notificaciones → datos del destinatario | Notification Management consulta la fachada para obtener los datos de contacto y el idioma del usuario que recibirá el mensaje. |
+| Solicitudes de servicio → técnicos | Service Request Management consulta la especialidad y la disponibilidad de los técnicos antes de asignarlos. |
 
 #### 4.2.2.4. Infrastructure Layer.
 
+La Infrastructure Layer contiene las clases que acceden a la base de datos. Implementa las abstracciones de repositorio definidas en el dominio, de modo que el modelo no dependa de una tecnología concreta.
+
+**Persistencia (Repositories)**
+
+| Clase | Implementa | Descripción |
+| :--- | :--- | :--- |
+| `SpringDataJpaProfileRepository` | `ProfileRepository` | Implementación con Spring Data JPA del repositorio de `Profile`, `OwnerProfile` y `TechnicianProfile`. |
+| `SpringDataJpaDashboardConfigRepository` | `DashboardConfigRepository` | Implementación con Spring Data JPA del repositorio de `DashboardConfig`. |
+
+Ambos repositorios operan sobre el esquema `profiles` de la instancia **PostgreSQL v18** (*Platform Database*), que mantiene un esquema por bounded context.
+
+Responsabilidades de los repositorios:
+
+- Guardar, actualizar y consultar perfiles por identificador y por `userId`.
+- Consultar técnicos por especialidad y disponibilidad.
+- Guardar y consultar la configuración del dashboard de cada usuario.
+
+**Modelo de tablas del esquema `profiles`**
+
+| Tabla | Columna | Tipo | Descripción |
+| :--- | :--- | :--- | :--- |
+| `Profile` | `profile_id` | `VARCHAR` (PK) | Identificador del perfil. |
+| `Profile` | `full_name` | `VARCHAR(25)` | Nombre completo. |
+| `Profile` | `email` | `VARCHAR(30)` | Correo de contacto. |
+| `Profile` | `phone` | `CHAR` | Teléfono de contacto. |
+| `Profile` | `user_id` | `VARCHAR` (FK) | Usuario de IAM asociado. |
+| `OwnerProfile` | `profiles_id` | `VARCHAR` (PK/FK) | Referencia al perfil base. |
+| `OwnerProfile` | `ruc` | `VARCHAR(10)` | RUC del negocio. |
+| `TechnicianProfile` | `profile_id` | `VARCHAR` (PK/FK) | Referencia al perfil base. |
+| `TechnicianProfile` | `speciality` | `VARCHAR(30)` | Especialidad del técnico. |
+| `TechnicianProfile` | `certification_number` | `VARCHAR(30)` | Número de certificación. |
+| `TechnicianProfile` | `provider_profiles_id` | `VARCHAR` | Perfil del proveedor al que pertenece. |
+
+**Resumen de dependencias externas**
+
+| Recurso | Tipo | Uso en Profiles and Preferences |
+| :--- | :--- | :--- |
+| PostgreSQL v18 (esquema `profiles`) | Base de datos relacional | Persistencia de perfiles y configuración de dashboard. |
+| Identity and Access Management | Bounded context interno (Upstream) | Origen del `userId` y del rol que determina el tipo de perfil. |
+
 #### 4.2.2.5. Bounded Context Software Architecture Component Level Diagrams.
+
+En el siguiente diagrama de componentes mostramos cómo organizamos el contexto Profiles and Preferences en dos subdominios: Profile y DashboardConfiguration. Cada uno cuenta con su controlador, sus servicios de comandos y consultas, su aggregate y su repositorio. Se incluye también la fábrica que construye el perfil según el rol asignado, la fachada que expone el contexto a IAM, Notification y Service Request, y el esquema `profiles` de la base de datos.
 
 ![IceTrack Bounded Context Component Level Diagram - Profiles and Preferences Management](assets/chapter04/c4/component/profilesComponent.png)
 
 #### 4.2.2.6. Bounded Context Software Architecture Code Level Diagrams.
+
+En esta sección presentamos los diagramas de nivel de código del bounded context Profiles and Preferences Management: el diagrama de clases de la capa de dominio y el diseño de la base de datos del esquema `profiles`.
+
 ##### 4.2.2.6.1. Bounded Context Domain Layer Class Diagrams.
+
+El siguiente diagrama de clases muestra el modelo de este contexto. El aggregate `Profile` es una clase abstracta que se especializa en `OwnerProfile` y `TechnicianProfile`, mientras que `DashboardConfig` agrupa la configuración del panel y del idioma de cada usuario. El diagrama incluye además los servicios de comandos y consultas, el controlador con su assembler y recursos, la fachada del contexto y los repositorios con su implementación JPA.
 
 ![IceTrack Bounded Context Domain Layer Class Diagram - Profiles and Preferences Management](assets/chapter04/diagrams/class/profileDiagramClass.png)
 
 ##### 4.2.2.6.2. Bounded Context Database Design Diagram.
+
+El siguiente diagrama presenta el diseño de la base de datos del esquema `profiles`. La tabla `Profile` guarda los datos comunes de cada persona, y las tablas `OwnerProfile` y `TechnicianProfile` almacenan los datos propios de cada tipo de perfil, como el RUC del negocio o la especialidad y la certificación del técnico.
 
 ![IceTrack Bounded Context Database Design Diagram - Profiles and Preferences Management](assets/chapter04/diagrams/database/profileDiagramDatabase.png)
 
@@ -1423,22 +1874,298 @@ En el Bounded Context de IAM se manejan todas las funcionalidades relacionadas c
 
 #### 4.2.3.1. Domain Layer.
 
+La Domain Layer del bounded context **Monitoring and Alerting** contiene el modelo del **Core Domain** de IceTrack. Su función es recibir la telemetría de los dispositivos IoT, conservar el histórico de lecturas de cada equipo y gestionar el ciclo de vida completo de una alerta, ya sea térmica o de conectividad. El modelo se organiza en dos subdominios: **SensorReading**, para las lecturas, y **Alert**, para las alertas y sus reglas de evaluación.
+
+**Aggregate Roots y Entities**
+
+| Clase | Categoría | Descripción |
+| :--- | :--- | :--- |
+| `Alert` | Aggregate Root | Representa una alerta sobre un equipo. Controla su ciclo de vida (`OPEN`, `ACKNOWLEDGED`, `RESOLVED`, `DISMISSED`) y garantiza las transiciones de estado válidas. |
+| `SensorReading` | Entity (inmutable) | Lectura agregada enviada por un dispositivo. Una vez registrada no se modifica. |
+| `AlertPolicy` | Entity | Política de evaluación configurada por equipo: define cuándo se abre o se cierra una alerta y cuándo se considera offline un dispositivo. |
+
+Atributos de `Alert`:
+
+| Atributo | Tipo | Descripción |
+| :--- | :--- | :--- |
+| `id` | `UUID` | Identificador único de la alerta. |
+| `equipmentId` | `UUID` | Equipo de refrigeración afectado (referencia al contexto Assets Management). |
+| `severity` | `String` | Nivel de severidad de la alerta. |
+| `status` | `String` | Estado actual: `OPEN`, `ACKNOWLEDGED`, `RESOLVED` o `DISMISSED`. |
+| `type` | `AlertType` | Tipo de alerta: excursión térmica o `DEVICE_OFFLINE`. |
+| `readingId` | `UUID` | Lectura que disparó la alerta. |
+| `peakTemperature` | `Double` | Temperatura máxima alcanzada durante la excursión. |
+| `excursionDuration` | `Integer` | Duración de la excursión, en minutos. |
+
+Atributos de `SensorReading`:
+
+| Atributo | Tipo | Descripción |
+| :--- | :--- | :--- |
+| `id` | `UUID` | Identificador de la lectura. Se usa para descartar duplicados. |
+| `equipmentId` | `UUID` | Equipo al que pertenece la lectura. |
+| `deviceId` | `UUID` | Dispositivo IoT que la envió. |
+| `temperature` | `Double` | Temperatura registrada. La lectura agregada incluye mínimo, máximo y promedio. |
+| `humidity` | `Double` | Humedad registrada. |
+| `sampleCount` | `Integer` | Cantidad de muestras agregadas en la lectura. |
+| `recordedAt` | `DateTime` | Momento en que el dispositivo tomó la lectura. |
+| `receivedAt` | `DateTime` | Momento en que la plataforma la recibió. |
+
+Atributos de `AlertPolicy`:
+
+| Atributo | Tipo | Descripción |
+| :--- | :--- | :--- |
+| `id` | `UUID` | Identificador de la política. |
+| `equipmentId` | `UUID` | Equipo al que aplica. |
+| `sustainedExcursionMinutes` | `Integer` | Minutos fuera de rango necesarios para abrir una alerta. |
+| `hysteresisMarginCelsius` | `Double` | Margen en °C para considerar que la temperatura volvió a rango. |
+| `missedSyncForOffline` | `Integer` | Ventanas de sincronización perdidas para declarar el dispositivo offline. |
+| `isActive` | `Boolean` | Indica si la política está vigente. |
+
+**Value Objects y enumeraciones**
+
+| Clase | Descripción |
+| :--- | :--- |
+| `AlertStatus` | Enum con los estados del ciclo de vida de una alerta. |
+| `AlertType` | Enum con el tipo de alerta (térmica o de conectividad). |
+| `Severity` | Nivel de severidad de una alerta. |
+| `TemperatureReading` | Conjunto de valores de temperatura (mínimo, máximo y promedio) de una lectura agregada. |
+
+**Commands y Queries del dominio**
+
+| Clase | Categoría | Descripción |
+| :--- | :--- | :--- |
+| `RecordReadingBatchCommand` | Command (record) | Registra un lote de lecturas agregadas enviadas por un dispositivo. |
+| `RaiseAlertCommand` | Command (record) | Genera una alerta. |
+| `AcknowledgeAlertCommand` | Command (record) | Marca una alerta como reconocida por un usuario. |
+| `ResolveAlertCommand` | Command (record) | Cierra una alerta cuando la condición se normaliza. |
+| `DismissAlertCommand` | Command (record) | Descarta una alerta. |
+| `GetLastReadingByEquipmentQuery` | Query (record) | Obtiene la última lectura de un equipo. |
+| `GetReadingsInRangeQuery` | Query (record) | Obtiene las lecturas de un equipo en un rango de fechas. |
+| `GetLiveReadingsQuery` | Query (record) | Obtiene las lecturas en vivo para el dashboard. |
+| `GetOpenAlertsByOwnerQuery` | Query (record) | Lista las alertas abiertas de un dueño de negocio. |
+| `GetAlertByIdQuery` | Query (record) | Obtiene el detalle de una alerta. |
+| `GetAlertsByEquipmentQuery` | Query (record) | Lista las alertas de un equipo. |
+
+**Domain Services**
+
+| Clase | Categoría | Descripción |
+| :--- | :--- | :--- |
+| `ThresholdEvaluationService` | Domain Service | Aplica la política de excursión sostenida con histéresis. Abre una alerta cuando la temperatura permanece fuera de rango durante 2 minutos y la cierra cuando vuelve a rango, con un margen de 0.5 °C, durante 2 minutos. |
+| `DeviceSilenceDetector` | Domain Service | Se ejecuta de forma programada. Marca un dispositivo como offline tras tres ventanas de sincronización perdidas y genera una alerta `DEVICE_OFFLINE`. |
+| `ReadingCommandService` | Interfaz | Contrato del registro de lecturas. |
+| `ReadingQueryService` | Interfaz | Contrato de las consultas de lecturas. |
+| `AlertCommandService` | Interfaz | Contrato de las operaciones del ciclo de vida de una alerta. |
+| `AlertQueryService` | Interfaz | Contrato de las consultas y filtros de alertas. |
+
+**Repositories (interfaces)**
+
+| Interfaz | Descripción |
+| :--- | :--- |
+| `ReadingRepository` | Abstracción de persistencia de las lecturas de sensores. |
+| `AlertRepository` | Abstracción de persistencia del aggregate `Alert`. |
+
+**Domain Events**
+
+| Evento | Descripción |
+| :--- | :--- |
+| `Lectura Registrada` | Se emite cuando una lectura es validada y almacenada. |
+| `Alerta Generada` | Se emite cuando se abre una alerta. |
+| `Alerta Resuelta` | Se emite cuando la condición se normaliza y la alerta se cierra. |
+
+**Reglas de negocio del dominio**
+
+- Las lecturas son inmutables y se identifican por un UUID. Una lectura ya registrada no se vuelve a procesar.
+- Una alerta térmica se abre cuando la temperatura permanece fuera del umbral del equipo durante el tiempo sostenido definido en la política.
+- Una alerta térmica se cierra solo cuando la temperatura vuelve al rango con el margen de histéresis durante el tiempo sostenido. Esto evita alertas intermitentes.
+- Un dispositivo se declara offline tras tres ventanas de sincronización perdidas, y se genera una alerta `DEVICE_OFFLINE`.
+- El ciclo de vida de una alerta sigue los estados `OPEN`, `ACKNOWLEDGED`, `RESOLVED` y `DISMISSED`.
+- El umbral de temperatura de cada equipo se obtiene de Assets Management y no se define en este contexto.
+
 #### 4.2.3.2. Interface Layer.
+
+La Interface Layer expone las capacidades del contexto. Recibe la telemetría de los dispositivos, transmite el estado en vivo hacia el dashboard y permite gestionar alertas. También publica una fachada para otros bounded contexts. Las solicitudes llegan a través del **API Gateway**, que valida el JWT en el tráfico de usuario y la API key en el tráfico de dispositivos.
+
+**Controllers**
+
+| Clase | Descripción |
+| :--- | :--- |
+| `TelemetryController` | Controlador REST del *Telemetry Endpoint* (POST). Recibe lecturas agregadas y eventos de alerta prioritarios desde el Edge, autenticados con la API key del dispositivo. Cubre la historia US-26. |
+| `TelemetryStreamController` | Endpoint de **Server-Sent Events** que envía al dashboard las lecturas en vivo y el estado de las alertas con una latencia menor a 3 segundos. Cubre US-19, US-27 y RNF-02. |
+| `AlertController` | Controlador REST del *Alert Endpoint* (GET, PUT). Permite listar alertas, ver su detalle y reconocerlas. Cubre US-28 y US-29. |
+
+Métodos principales:
+
+| Clase | Método | Descripción |
+| :--- | :--- | :--- |
+| `TelemetryController` | `ingest(req: TelemetryRequest): ResponseEntity<Void>` | Recibe el lote de lecturas, lo convierte en un `RecordReadingBatchCommand` y lo delega a `ReadingCommandService`. |
+| `AlertController` | `acknowledge(id: UUID): ResponseEntity<Void>` | Convierte la solicitud en un `AcknowledgeAlertCommand` y lo delega a `AlertCommandService`. |
+
+**Resources (records)**
+
+| Clase | Descripción |
+| :--- | :--- |
+| `TelemetryRequest` | Datos de entrada enviados por el dispositivo (identificador de lectura, valores de temperatura y humedad, cantidad de muestras y marca de tiempo). |
+| `AlertResponse` | Representación de una alerta en las respuestas de la API (severidad, estado, temperatura pico y duración). |
+
+**ACL / Facade (inbound services)**
+
+| Clase | Descripción |
+| :--- | :--- |
+| `MonitoringContextFacade` | Fachada que expone a otros contextos el detalle de alertas y el historial de lecturas, sin revelar el aggregate `Alert`. Depende de `AlertQueryService`. |
+
+Método de `MonitoringContextFacade`:
+
+| Método | Descripción |
+| :--- | :--- |
+| `getAlertStatus(id: UUID): String` | Devuelve el estado actual de una alerta a partir de su identificador. |
+
+Consumidores de la fachada:
+
+| Contexto consumidor | Uso |
+| :--- | :--- |
+| Service Request Management | Recupera el contexto de la alerta para generar una orden de trabajo correctiva. |
+| Reporting and Analytics | Lee el historial de telemetría y los registros de alertas para calcular indicadores. |
 
 #### 4.2.3.3. Application Layer.
 
+La Application Layer orquesta los flujos del contexto. Recibe los comandos y consultas de la Interface Layer, coordina los aggregates, los repositorios y los servicios externos, y delega las reglas de negocio en el dominio. Sus capabilities son **ingerir telemetría, evaluar umbrales, detectar dispositivos sin señal, gestionar el ciclo de vida de las alertas y notificar a otros contextos**.
+
+**Command Services**
+
+| Clase | Implementa | Descripción |
+| :--- | :--- | :--- |
+| `ReadingCommandServiceImpl` | `ReadingCommandService` | Valida, deduplica y almacena las lecturas, y dispara la evaluación de umbrales. Depende de `ReadingRepository` y `AlertCommandService`. |
+| `AlertCommandServiceImpl` | `AlertCommandService` | Gestiona el ciclo de vida de las alertas y notifica a los contextos interesados. Depende de `AlertRepository` y del servicio externo de notificaciones. |
+
+Manejadores de comandos:
+
+| Clase | Método | Flujo |
+| :--- | :--- | :--- |
+| `ReadingCommandServiceImpl` | `handle(cmd: RecordReadingBatchCommand): void` | 1) Verifica la API key del dispositivo y obtiene su equipo emparejado mediante Device Management. 2) Descarta lecturas duplicadas por UUID. 3) Obtiene el umbral del equipo desde Assets Management. 4) Persiste las lecturas y registra `Lectura Registrada`. 5) Solicita la evaluación de excursión sostenida a `ThresholdEvaluationService`. |
+| `AlertCommandServiceImpl` | `handle(cmd: RaiseAlertCommand): Optional<Alert>` | 1) Crea el aggregate `Alert` en estado `OPEN`, con severidad, tipo, lectura disparadora y temperatura pico. 2) Lo persiste. 3) Solicita la notificación mediante Notification Management. 4) Envía el nuevo estado al dashboard por el flujo SSE. 5) Registra `Alerta Generada`. |
+| `AlertCommandServiceImpl` | `handle(cmd: AcknowledgeAlertCommand)` | Cambia la alerta a `ACKNOWLEDGED`. |
+| `AlertCommandServiceImpl` | `handle(cmd: ResolveAlertCommand)` | Cambia la alerta a `RESOLVED`, notifica y registra `Alerta Resuelta`. |
+| `AlertCommandServiceImpl` | `handle(cmd: DismissAlertCommand)` | Cambia la alerta a `DISMISSED`. |
+
+**Query Services**
+
+| Clase | Implementa | Descripción |
+| :--- | :--- | :--- |
+| `ReadingQueryServiceImpl` | `ReadingQueryService` | Resuelve las consultas de lecturas históricas y en vivo. Depende de `ReadingRepository`. |
+| `AlertQueryServiceImpl` | `AlertQueryService` | Resuelve las consultas y filtros de alertas. Depende de `AlertRepository`. |
+
+Manejadores de consultas:
+
+| Clase | Método | Descripción |
+| :--- | :--- | :--- |
+| `ReadingQueryServiceImpl` | `handle(q: GetLastReadingByEquipmentQuery)` | Devuelve la última lectura de un equipo. |
+| `ReadingQueryServiceImpl` | `handle(q: GetReadingsInRangeQuery)` | Devuelve el historial de lecturas de un equipo en un rango. |
+| `ReadingQueryServiceImpl` | `handle(q: GetLiveReadingsQuery)` | Devuelve las lecturas en vivo para el dashboard. |
+| `AlertQueryServiceImpl` | `handle(q: GetOpenAlertsByOwnerQuery)` | Devuelve las alertas abiertas de un dueño. |
+| `AlertQueryServiceImpl` | `handle(q: GetAlertByIdQuery)` | Devuelve el detalle de una alerta. |
+| `AlertQueryServiceImpl` | `handle(q: GetAlertsByEquipmentQuery)` | Devuelve las alertas de un equipo. |
+
+**Flujos automáticos y eventos**
+
+| Flujo | Descripción |
+| :--- | :--- |
+| Excursión térmica | Tras registrar una lectura, `ThresholdEvaluationService` aplica la política. Si la temperatura lleva 2 minutos fuera de rango, se emite un `RaiseAlertCommand`. Si vuelve a rango con el margen de histéresis durante 2 minutos, se emite un `ResolveAlertCommand`. |
+| Dispositivo sin señal | `DeviceSilenceDetector` revisa periódicamente los dispositivos. Si detecta tres ventanas de sincronización perdidas, emite un `RaiseAlertCommand` de tipo `DEVICE_OFFLINE`. |
+| Alerta generada o resuelta | Los eventos `Alerta Generada` y `Alerta Resuelta` se propagan a Notification Management y al dashboard mediante el flujo SSE. |
+| Lectura registrada | El evento `Lectura Registrada` alimenta la evaluación de umbrales y el historial que consumen Reporting and Analytics y Service Request Management. |
+
+**Outbound Services (ACL)**
+
+| Clase | Contexto destino | Descripción |
+| :--- | :--- | :--- |
+| `DeviceManagementExternalService` | Device Management | ACL que verifica la API key del dispositivo y resuelve a qué equipo está emparejado. |
+| `AssetManagementExternalService` | Assets Management | ACL que obtiene la identidad del equipo y su umbral de temperatura configurado. |
+| `NotificationExternalService` | Notification Management | ACL que solicita el envío de notificaciones cuando una alerta se genera o se resuelve. |
+
 #### 4.2.3.4. Infrastructure Layer.
 
+La Infrastructure Layer contiene las clases que acceden a la base de datos y a los demás contextos. Implementa los repositorios definidos en el dominio y los adaptadores técnicos de los servicios externos.
+
+**Persistencia (Repositories)**
+
+| Clase | Implementa | Descripción |
+| :--- | :--- | :--- |
+| `SpringDataJpaReadingRepository` | `ReadingRepository` | Implementación con Spring Data JPA del repositorio de lecturas de sensores. |
+| `SpringDataJpaAlertRepository` | `AlertRepository` | Implementación con Spring Data JPA del repositorio del aggregate `Alert`. |
+
+Ambos repositorios operan sobre el esquema `monitoring` de la instancia **PostgreSQL v18** (*Platform Database*), que mantiene un esquema por bounded context.
+
+Responsabilidades de los repositorios:
+
+- Guardar lecturas y verificar si una lectura ya fue registrada por su UUID.
+- Consultar la última lectura y el historial de un equipo por rango de fechas.
+- Guardar y actualizar alertas, y consultarlas por dueño, por equipo o por identificador.
+- Persistir y consultar la política de alertas de cada equipo.
+
+**Modelo de tablas del esquema `monitoring`**
+
+| Tabla | Columna | Tipo | Descripción |
+| :--- | :--- | :--- | :--- |
+| `SensorReadings` | `read_id` | `VARCHAR` (PK) | Identificador de la lectura. |
+| `SensorReadings` | `temperature` | `DOUBLE` | Temperatura registrada. |
+| `SensorReadings` | `humidity` | `DOUBLE` | Humedad registrada. |
+| `SensorReadings` | `recorded_at` | `DATETIME` | Momento de la medición en el dispositivo. |
+| `SensorReadings` | `received_at` | `DATETIME` | Momento de recepción en la plataforma. |
+| `SensorReadings` | `equipment_id` | `VARCHAR` (FK) | Equipo asociado. |
+| `SensorReadings` | `device_id` | `VARCHAR` (FK) | Dispositivo emisor. |
+| `Alert` | `alert_id` | `VARCHAR` (PK) | Identificador de la alerta. |
+| `Alert` | `severity` | `VARCHAR(30)` | Severidad. |
+| `Alert` | `status` | `VARCHAR(30)` | Estado del ciclo de vida. |
+| `Alert` | `peak_temperature` | `DOUBLE` | Temperatura pico de la excursión. |
+| `Alert` | `excursion_duration` | `INTEGER` | Duración de la excursión. |
+| `Alert` | `equipment_id` | `VARCHAR` (FK) | Equipo afectado. |
+| `Alert` | `read_id` | `VARCHAR` (FK) | Lectura que disparó la alerta. |
+| `AlertPolicy` | `policy_id` | `VARCHAR` (PK) | Identificador de la política. |
+| `AlertPolicy` | `sustained_excursion_minutes` | `INTEGER` | Minutos de excursión sostenida. |
+| `AlertPolicy` | `hysteresis_margin_celsius` | `DOUBLE` | Margen de histéresis en °C. |
+| `AlertPolicy` | `missed_sync_for_offline` | `INTEGER` | Ventanas perdidas para declarar offline. |
+| `AlertPolicy` | `is_active` | `BOOLEAN` | Indica si la política está activa. |
+| `AlertPolicy` | `equipment_id` | `VARCHAR` (FK) | Equipo al que aplica. |
+
+**Adaptadores hacia otros contextos**
+
+| Clase | Descripción |
+| :--- | :--- |
+| Adaptador de `DeviceManagementExternalService` | Comunicación con Device Management para verificar la API key y resolver el equipo emparejado. |
+| Adaptador de `AssetManagementExternalService` | Comunicación con Assets Management para obtener el umbral de temperatura del equipo. |
+| Adaptador de `NotificationExternalService` | Comunicación con Notification Management para solicitar el envío de notificaciones. |
+| Programador de tareas del `DeviceSilenceDetector` | Ejecuta de forma periódica la detección de dispositivos sin señal. |
+
+**Resumen de dependencias externas**
+
+| Recurso | Tipo | Uso en Monitoring and Alerting |
+| :--- | :--- | :--- |
+| PostgreSQL v18 (esquema `monitoring`) | Base de datos relacional | Persistencia de lecturas, alertas y políticas. |
+| Device Management | Bounded context interno | Verificación de API key y emparejamiento dispositivo–equipo. |
+| Assets Management | Bounded context interno | Identidad del equipo y umbral de temperatura. |
+| Notification Management | Bounded context interno | Envío de notificaciones de alertas. |
+
 #### 4.2.3.5. Bounded Context Software Architecture Component Level Diagrams.
+
+En el siguiente diagrama de componentes mostramos la organización del contexto Monitoring and Alerting, que es el núcleo del negocio de IceTrack. Se distinguen los subdominios SensorReading y Alert. El primero recibe la telemetría mediante el Telemetry Controller, la almacena y la transmite al dashboard en tiempo real con el Telemetry Stream Controller. El segundo evalúa los umbrales, detecta dispositivos sin señal y gestiona el ciclo de vida de las alertas. También se muestran las capas anticorrupción hacia Device Management, Assets Management y Notification Management, la fachada que consumen otros contextos y el esquema `monitoring` de la base de datos.
+
 
 ![IceTrack Bounded Context Component Level Diagram - Monitoring and Alerting](assets/chapter04/c4/component/monitoringComponent.png)
 
 #### 4.2.3.6. Bounded Context Software Architecture Code Level Diagrams.
+
+En esta sección presentamos los diagramas de nivel de código del bounded context Monitoring and Alerting: el diagrama de clases de la capa de dominio y el diseño de la base de datos del esquema `monitoring`.
+
 ##### 4.2.3.6.1. Bounded Context Domain Layer Class Diagrams.
+
+El siguiente diagrama de clases representa la estructura del contexto organizada por capas. En el dominio se encuentra el aggregate `Alert` y las interfaces de los servicios de lecturas y alertas. En la capa de aplicación se ubican los servicios que registran lecturas y gestionan alertas, en la capa de interfaces los controladores de telemetría y de alertas junto con la fachada del contexto, y en infraestructura los repositorios JPA de lecturas y alertas.
+
 
 ![IceTrack Bounded Context Domain Layer Class Diagram - Monitoring and Alerting](assets/chapter04/diagrams/class/monitoringDiagramClass.png)
 
 ##### 4.2.3.6.2. Bounded Context Database Design Diagram.
+
+El siguiente diagrama presenta el diseño de la base de datos del esquema `monitoring`. La tabla `SensorReadings` conserva el histórico de lecturas de cada equipo y dispositivo, la tabla `Alert` registra las alertas generadas con su severidad, estado y duración de la excursión, y la tabla `AlertPolicy` guarda las reglas de evaluación configuradas para cada equipo.
 
 ![IceTrack Bounded Context Database Design Diagram - Monitoring and Alerting](assets/chapter04/diagrams/database/monitoringDiagramDatabase.png)
 
@@ -1446,24 +2173,273 @@ En el Bounded Context de IAM se manejan todas las funcionalidades relacionadas c
 
 ### 4.2.4. Bounded Context: Assets Management
 
+En el bounded context Assets Management administramos las sedes de cada dueño de negocio y el catálogo de equipos de refrigeración instalados en ellas, incluyendo el umbral de temperatura y el intervalo de mantenimiento preventivo de cada equipo. Es la base física del dominio IoT: los contextos de Device Management, Monitoring and Alerting y Service Request Management se apoyan en este contexto para identificar y validar los equipos.
+
 #### 4.2.4.1. Domain Layer.
+
+La Domain Layer del bounded context **Assets Management** contiene el modelo de la base física del negocio: las sedes donde opera cada dueño y los equipos de refrigeración instalados en ellas. Es el contexto que define la identidad, la pertenencia y el umbral de temperatura de cada equipo, por lo que los demás contextos lo consultan para identificar y validar los activos. Su modelo está organizado en dos aggregates: **Site**, que representa una sede, y **Equipment**, que representa un equipo de refrigeración. Ambos se asocian al dueño mediante su perfil, sin depender del modelo interno de otros contextos.
+
+**Aggregate Roots**
+
+| Clase | Categoría | Descripción |
+| :--- | :--- | :--- |
+| `Site` | Aggregate Root | Representa una sede o establecimiento del dueño. Guarda su nombre, su dirección y sus datos de contacto. |
+| `Equipment` | Aggregate Root | Representa un equipo de refrigeración instalado en una sede. Controla su identidad, su tipo, su estado, su umbral de temperatura y su intervalo de mantenimiento preventivo. |
+
+Atributos de `Site`:
+
+| Atributo | Tipo | Descripción |
+| :--- | :--- | :--- |
+| `id` | `UUID` | Identificador único de la sede. |
+| `ownerId` | `UUID` | Perfil del dueño al que pertenece la sede (referencia a Profiles). |
+| `name` | `String` | Nombre de la sede. |
+| `address` | `Address` (Value Object) | Dirección de la sede. |
+| `contactName` | `String` | Nombre de la persona de contacto de la sede. |
+| `phone` | `Phone` (Value Object) | Teléfono de contacto de la sede. |
+
+Atributos de `Equipment`:
+
+| Atributo | Tipo | Descripción |
+| :--- | :--- | :--- |
+| `id` | `UUID` | Identificador único del equipo. |
+| `siteId` | `UUID` | Sede donde está instalado el equipo. |
+| `uid` | `String` | Identificador propio del equipo. |
+| `name` | `String` | Nombre asignado al equipo. |
+| `equipmentType` | `EquipmentType` | Tipo de equipo (por ejemplo, congeladora, vitrina o cámara). |
+| `status` | `StatusEquipment` | Estado operativo actual del equipo. |
+| `online` | `Boolean` | Indica si el equipo está conectado. |
+| `temperatureThreshold` | `TemperatureThreshold` | Umbral de temperatura mínima y máxima permitido para el equipo. |
+| `reminderIntervalDays` | `Integer` | Intervalo, en días, del mantenimiento preventivo. |
+| `lastReadingAt` | `DateTime` | Fecha y hora de la última lectura recibida del equipo. |
+| `lastKnownTemperature` | `Double` | Última temperatura conocida del equipo. |
+
+**Value Objects y enumeraciones**
+
+| Clase | Descripción |
+| :--- | :--- |
+| `TemperatureThreshold` | Value Object que agrupa la temperatura mínima y máxima permitidas. Garantiza que el mínimo sea menor que el máximo. |
+| `EquipmentType` | Enum con el tipo de equipo de refrigeración. |
+| `StatusEquipment` | Enum con los estados operativos del equipo. |
+| `Address` | Dirección de la sede. |
+| `Phone` | Teléfono de contacto de la sede. |
+
+**Commands y Queries del dominio**
+
+| Clase | Categoría | Descripción |
+| :--- | :--- | :--- |
+| `RegisterSiteCommand` | Command (record) | Registra una nueva sede. |
+| `UpdateSiteInfoCommand` | Command (record) | Actualiza los datos de una sede. |
+| `RegisterEquipmentCommand` | Command (record) | Registra un equipo en una sede. |
+| `UpdateEquipmentCommand` | Command (record) | Actualiza los datos de un equipo. |
+| `ChangeThresholdCommand` | Command (record) | Cambia el umbral de temperatura de un equipo. |
+| `ChangeStatusCommand` | Command (record) | Cambia el estado de un equipo. |
+| `GetSitesByOwnerQuery` | Query (record) | Lista las sedes de un dueño. |
+| `GetSiteByIdQuery` | Query (record) | Obtiene una sede por su identificador. |
+| `GetEquipmentByIdQuery` | Query (record) | Obtiene un equipo por su identificador. |
+| `GetEquipmentBySiteQuery` | Query (record) | Lista los equipos de una sede. |
+| `GetEquipmentByOwnerQuery` | Query (record) | Lista los equipos de un dueño. |
+
+**Domain Services (interfaces)**
+
+| Interfaz | Descripción |
+| :--- | :--- |
+| `SiteCommandService` | Contrato de las operaciones que registran y actualizan sedes. |
+| `SiteQueryService` | Contrato de las consultas de sedes. |
+| `EquipmentCommandService` | Contrato de las operaciones que registran equipos, cambian su umbral y sus estados. |
+| `EquipmentQueryService` | Contrato de las consultas y filtros de equipos. |
+
+**Repositories (interfaces)**
+
+| Interfaz | Descripción |
+| :--- | :--- |
+| `SiteRepository` | Abstracción de persistencia del aggregate `Site`. |
+| `EquipmentRepository` | Abstracción de persistencia del aggregate `Equipment`. |
+
+**Domain Events**
+
+| Evento | Descripción |
+| :--- | :--- |
+| `Sitio Creado` | Se emite cuando se registra una nueva sede. |
+| `Equipo Registrado` | Se emite cuando se registra un equipo en una sede. |
+| `Umbral de Temperatura Actualizado` | Se emite cuando cambia el umbral de temperatura de un equipo. |
+
+**Reglas de negocio del dominio**
+
+- Cada sede pertenece a un único dueño, identificado por su perfil.
+- Cada equipo pertenece a una sola sede y, por lo tanto, a un único dueño.
+- El umbral de temperatura de un equipo debe tener un mínimo menor que el máximo.
+- Cada equipo define su propio intervalo de mantenimiento preventivo.
+- El umbral de cada equipo se define y se modifica solo en este contexto. Monitoring and Alerting lo consulta para evaluar las alertas.
 
 #### 4.2.4.2. Interface Layer.
 
+La Interface Layer expone las capacidades del contexto hacia el exterior. Recibe las solicitudes HTTP que el **API Gateway** enruta después de validar el JWT y publica una fachada para que otros contextos consulten la identidad, la pertenencia y el umbral de temperatura de los equipos. Se organiza en los subpaquetes `controllers`, `resources`, `assemblers` y `acl`.
+
+**Controllers**
+
+| Clase | Descripción |
+| :--- | :--- |
+| `SiteController` | Controlador REST del *Site Endpoint* (GET, POST, PUT). Gestiona el registro y el listado de sedes. Cubre la historia US-20 (registrar nuevos sitios). Depende de los servicios de comandos y consultas de sedes. |
+| `EquipmentController` | Controlador REST del *Equipment Endpoint* (GET, POST, PUT). Gestiona el registro, la actualización, la configuración de umbrales y el listado de equipos. Cubre las historias US-03 (gestión de equipos), US-11 (equipos asignados a clientes) y US-18 (consulta de equipos registrados). Depende de `EquipmentCommandService` y `EquipmentQueryService`. |
+
+Método principal:
+
+| Clase | Método | Descripción |
+| :--- | :--- | :--- |
+| `EquipmentController` | `register(req: RegisterEquipmentRequest): ResponseEntity<EquipmentResponse>` | Recibe los datos del equipo, los convierte en un `RegisterEquipmentCommand`, invoca al servicio de comandos y devuelve el equipo registrado. |
+
+**Resources (records)**
+
+| Clase | Descripción |
+| :--- | :--- |
+| `RegisterEquipmentRequest` | Datos de entrada para registrar un equipo (sede, nombre, tipo, umbral e intervalo de mantenimiento). |
+| `EquipmentResponse` | Representación del equipo en las respuestas de la API. |
+
+**Assemblers**
+
+| Clase | Método | Descripción |
+| :--- | :--- | :--- |
+| `EquipmentAssembler` | `toResource(entity: Equipment): EquipmentResponse` | Convierte el aggregate `Equipment` en el recurso de respuesta. |
+| `EquipmentAssembler` | `toCommand(req: RegisterEquipmentRequest): RegisterEquipmentCommand` | Transforma el recurso de registro en el comando del dominio. |
+
+**ACL / Facade (inbound services)**
+
+| Clase | Descripción |
+| :--- | :--- |
+| `AssetContextFacade` | Fachada que expone a otros contextos la identidad del equipo, su pertenencia y su umbral de temperatura, sin revelar los aggregates internos. Depende de `EquipmentQueryService`. |
+
+Método de `AssetContextFacade`:
+
+| Método | Descripción |
+| :--- | :--- |
+| `getEquipmentThreshold(id: UUID): Optional<Double>` | Devuelve el umbral de temperatura configurado para el equipo indicado. |
+
+Consumidores de la fachada:
+
+| Contexto consumidor | Uso |
+| :--- | :--- |
+| Monitoring and Alerting | Recupera la identidad del equipo y su umbral de temperatura para evaluar las lecturas y generar alertas. |
+| Device Management | Verifica que el equipo exista y pertenezca al dueño solicitante antes de emparejarlo con un dispositivo. |
+
 #### 4.2.4.3. Application Layer.
+
+La Application Layer orquesta los flujos del contexto. Recibe los comandos y consultas de la Interface Layer, coordina los aggregates y los repositorios, y delega las reglas de negocio en el dominio. Sus capabilities son **registrar y actualizar sedes, registrar y actualizar equipos, configurar el umbral de temperatura y el estado de cada equipo, y consultar sedes y equipos por dueño o por sede**.
+
+**Command Services**
+
+| Clase | Implementa | Descripción |
+| :--- | :--- | :--- |
+| `SiteCommandServiceImpl` | `SiteCommandService` | Ejecuta los procesos que registran y actualizan sedes. Depende de `SiteRepository`. |
+| `EquipmentCommandServiceImpl` | `EquipmentCommandService` | Ejecuta los procesos que registran equipos y modifican su umbral y su estado. Depende de `EquipmentRepository`. |
+
+Manejadores de comandos:
+
+| Clase | Método | Flujo |
+| :--- | :--- | :--- |
+| `SiteCommandServiceImpl` | `handle(cmd: RegisterSiteCommand): Optional<Site>` | Crea el aggregate `Site` asociado al perfil del dueño, lo persiste y registra `Sitio Creado`. |
+| `SiteCommandServiceImpl` | `handle(cmd: UpdateSiteInfoCommand)` | Busca la sede, actualiza sus datos de ubicación y contacto, y persiste el cambio. |
+| `EquipmentCommandServiceImpl` | `handle(cmd: RegisterEquipmentCommand): Optional<Equipment>` | Crea el aggregate `Equipment` en la sede indicada, con su tipo, su umbral y su intervalo de mantenimiento. Lo persiste y registra `Equipo Registrado`. |
+| `EquipmentCommandServiceImpl` | `handle(cmd: UpdateEquipmentCommand)` | Busca el equipo, actualiza sus datos y persiste el cambio. |
+| `EquipmentCommandServiceImpl` | `handle(cmd: ChangeThresholdCommand)` | Cambia el umbral de temperatura del equipo y registra `Umbral de Temperatura Actualizado`. |
+| `EquipmentCommandServiceImpl` | `handle(cmd: ChangeStatusCommand)` | Cambia el estado del equipo mediante las transiciones permitidas por el dominio. |
+
+**Query Services**
+
+| Clase | Implementa | Descripción |
+| :--- | :--- | :--- |
+| `SiteQueryServiceImpl` | `SiteQueryService` | Resuelve las consultas de sedes usando `SiteRepository`. |
+| `EquipmentQueryServiceImpl` | `EquipmentQueryService` | Resuelve las consultas y filtros de equipos usando `EquipmentRepository`. |
+
+Manejadores de consultas:
+
+| Clase | Método | Descripción |
+| :--- | :--- | :--- |
+| `SiteQueryServiceImpl` | `handle(q: GetSitesByOwnerQuery)` | Devuelve las sedes de un dueño. |
+| `SiteQueryServiceImpl` | `handle(q: GetSiteByIdQuery)` | Devuelve la sede que corresponde al identificador. |
+| `EquipmentQueryServiceImpl` | `handle(q: GetEquipmentByIdQuery): Optional<Equipment>` | Devuelve el equipo que corresponde al identificador. |
+| `EquipmentQueryServiceImpl` | `handle(q: GetEquipmentBySiteQuery)` | Devuelve los equipos de una sede. |
+| `EquipmentQueryServiceImpl` | `handle(q: GetEquipmentByOwnerQuery)` | Devuelve los equipos de un dueño. |
+
+**Flujos de integración**
+
+| Flujo | Descripción |
+| :--- | :--- |
+| Registrar un equipo en un sitio | El dueño registra una sede y luego un equipo dentro de ella, con su tipo, umbral e intervalo de mantenimiento. Corresponde al Escenario 02 del Domain Message Flow. |
+| Emparejamiento de dispositivo | Antes de emparejar una placa IoT, Device Management consulta la fachada para verificar que el equipo exista y pertenezca al dueño. |
+| Evaluación de lecturas | Cuando Monitoring and Alerting recibe telemetría, consulta la fachada para obtener la identidad del equipo y su umbral de temperatura. |
+
+Este contexto es Upstream de los demás. No depende de servicios externos de otros contextos para su operación.
 
 #### 4.2.4.4. Infrastructure Layer.
 
+La Infrastructure Layer contiene las clases que acceden a la base de datos. Implementa las abstracciones de repositorio definidas en el dominio, de modo que el modelo no dependa de una tecnología concreta.
+
+**Persistencia (Repositories)**
+
+| Clase | Implementa | Descripción |
+| :--- | :--- | :--- |
+| `SpringDataJpaSiteRepository` | `SiteRepository` | Implementación con Spring Data JPA del repositorio del aggregate `Site`. |
+| `SpringDataJpaEquipmentRepository` | `EquipmentRepository` | Implementación con Spring Data JPA del repositorio del aggregate `Equipment`. |
+
+Ambos repositorios operan sobre el esquema `assets` de la instancia **PostgreSQL v18** (*Platform Database*), que mantiene un esquema por bounded context.
+
+Responsabilidades de los repositorios:
+
+- Guardar, actualizar y consultar sedes por identificador y por dueño.
+- Guardar, actualizar y consultar equipos por identificador, por sede y por dueño.
+- Persistir el umbral de temperatura, el estado y el intervalo de mantenimiento de cada equipo.
+
+**Modelo de tablas del esquema `assets`**
+
+| Tabla | Columna | Tipo | Descripción |
+| :--- | :--- | :--- | :--- |
+| `Site` | `site_id` | `VARCHAR` (PK) | Identificador de la sede. |
+| `Site` | `name` | `VARCHAR(30)` | Nombre de la sede. |
+| `Site` | `address` | `VARCHAR(50)` | Dirección de la sede. |
+| `Site` | `contact_name` | `VARCHAR(30)` | Persona de contacto. |
+| `Site` | `phone` | `CHAR` | Teléfono de contacto. |
+| `Site` | `owner_profiles_id` | `VARCHAR` (FK) | Perfil del dueño de la sede. |
+| `Equipment` | `equipment_id` | `VARCHAR` (PK) | Identificador del equipo. |
+| `Equipment` | `equipment_uid` | `VARCHAR(30)` | Identificador propio del equipo. |
+| `Equipment` | `name` | `VARCHAR(30)` | Nombre del equipo. |
+| `Equipment` | `status` | `VARCHAR(50)` | Estado operativo. |
+| `Equipment` | `equipment_type` | `VARCHAR(35)` | Tipo de equipo. |
+| `Equipment` | `online` | `BOOLEAN` | Indica si el equipo está conectado. |
+| `Equipment` | `reminder_interval_days` | `INTEGER` | Intervalo de mantenimiento preventivo, en días. |
+| `Equipment` | `threshold_min_celsius` | `DOUBLE` | Temperatura mínima permitida. |
+| `Equipment` | `threshold_max_celsius` | `DOUBLE` | Temperatura máxima permitida. |
+| `Equipment` | `last_reading_at` | `DATETIME` | Fecha de la última lectura recibida. |
+| `Equipment` | `last_known_temperature` | `DATETIME` | Última temperatura conocida. |
+| `Equipment` | `site_id` | `VARCHAR` (FK) | Sede donde está instalado el equipo. |
+
+**Resumen de dependencias externas**
+
+| Recurso | Tipo | Uso en Assets Management |
+| :--- | :--- | :--- |
+| PostgreSQL v18 (esquema `assets`) | Base de datos relacional | Persistencia de sedes y equipos. |
+| Profiles and Preferences Management | Bounded context interno (Upstream) | Origen del perfil del dueño al que pertenecen las sedes. |
+| Monitoring and Alerting | Bounded context interno (consumidor) | Consulta la identidad y el umbral de temperatura de los equipos. |
+| Device Management | Bounded context interno (consumidor) | Verifica la existencia y la pertenencia del equipo antes del emparejamiento. |
+
 #### 4.2.4.5. Bounded Context Software Architecture Component Level Diagrams.
+
+En el siguiente diagrama de componentes mostramos cómo organizamos el contexto Assets Management. Se observan el controlador que recibe las solicitudes desde el API Gateway, los servicios de comandos y consultas de sedes y equipos, sus aggregates y repositorios, y la fachada que expone los datos de los equipos a los demás contextos. También se muestra la relación con el esquema `assets` de la base de datos.
 
 ![IceTrack Bounded Context Component Level Diagram - Assets Management](assets/chapter04/c4/component/assetComponent.png)
 
 #### 4.2.4.6. Bounded Context Software Architecture Code Level Diagrams.
+
+En esta sección presentamos los diagramas de nivel de código del bounded context Assets Management: el diagrama de clases de la capa de dominio y el diseño de la base de datos del esquema `assets`.
+
 ##### 4.2.4.6.1. Bounded Context Domain Layer Class Diagrams.
+
+El siguiente diagrama de clases representa el modelo de este contexto y su distribución en capas. Incluye los aggregates de sedes y equipos con sus reglas de negocio, las interfaces de servicios y repositorios del dominio, los servicios de la capa de aplicación, los controladores y la fachada de la capa de interfaces, y los repositorios JPA de la capa de infraestructura.
 
 ![IceTrack Bounded Context Domain Layer Class Diagram - Assets Management](assets/chapter04/diagrams/class/assetManagementDiagramClass.png)
 
 ##### 4.2.4.6.2. Bounded Context Database Design Diagram.
+
+El siguiente diagrama presenta el diseño de la base de datos del esquema `assets`. Las sedes se asocian al perfil del dueño con sus datos de ubicación y contacto, y los equipos se vinculan a una sede y almacenan su umbral de temperatura y su intervalo de mantenimiento.
 
 ![IceTrack Bounded Context Database Design Diagram - Assets Management](assets/chapter04/diagrams/database/assetDiagramDatabase.png)
 
@@ -1471,21 +2447,241 @@ En el Bounded Context de IAM se manejan todas las funcionalidades relacionadas c
 
 ### 4.2.5. Bounded Context: Device Management
 
+En el bounded context Device Management administramos el ciclo de vida del hardware físico de monitoreo, es decir, las placas IoT ESP32. Esto comprende su registro, su emparejamiento con un equipo de refrigeración, la rotación de sus credenciales de acceso y su baja. Otros contextos, en especial Monitoring and Alerting, consultan este contexto para verificar la API key de cada dispositivo antes de aceptar su telemetría.
 
-#### 4.2.5.1. Domain Layer. 
-#### 4.2.5.2. Interface Layer. 
-#### 4.2.5.3. Application Layer. 
-#### 4.2.5.4. Infrastructure Layer. 
-#### 4.2.5.5. Bounded Context Software Architecture Component Level Diagrams. 
+#### 4.2.5.1. Domain Layer.
+
+La Domain Layer del bounded context **Device Management** contiene el modelo del hardware físico de monitoreo (las placas IoT ESP32). Gestiona su ciclo de vida: registro, emparejamiento con un equipo de refrigeración, rotación de credenciales de acceso y baja. Su modelo gira en torno a un único aggregate, **Device**, que garantiza que cada dispositivo tenga una identidad, una credencial segura y, como máximo, un equipo asociado.
+
+**Aggregate Root**
+
+| Clase | Categoría | Descripción |
+| :--- | :--- | :--- |
+| `Device` | Aggregate Root / Entity | Representa una placa IoT física. Controla su emparejamiento, su API key y sus transiciones de estado, y es la única vía para modificar esos datos. |
+
+Atributos de `Device`:
+
+| Atributo | Tipo | Descripción |
+| :--- | :--- | :--- |
+| `id` | `UUID` | Identificador único del dispositivo dentro de la plataforma. |
+| `serialNumber` (`device_uid`) | `String` | Identificador físico del dispositivo, grabado en la placa. |
+| `boardModel` | `String` | Modelo de la placa (por ejemplo, ESP32). |
+| `firmwareVersion` | `String` | Versión del firmware instalado en el dispositivo. |
+| `apiKeyHash` | `String` | Hash de la API key con la que el dispositivo se autentica. La clave nunca se almacena en texto plano. |
+| `status` | `DeviceStatus` | Estado operativo actual del dispositivo. |
+| `lastRead` | `DateTime` | Fecha y hora de la última lectura recibida del dispositivo. |
+| `pairedEquipmentId` | `UUID` | Equipo de refrigeración con el que está emparejado (referencia al contexto Assets Management). |
+
+**Value Objects y enumeraciones**
+
+| Clase | Descripción |
+| :--- | :--- |
+| `DeviceStatus` | Enum con los estados del ciclo de vida del dispositivo. |
+| `ApiKey` | Credencial de acceso del dispositivo. Se entrega una sola vez, en texto plano, en el momento de emitirla o rotarla, y después solo se conserva su hash. |
+| `EquipmentId` | Referencia tipada al equipo con el que se empareja el dispositivo. |
+
+**Commands y Queries del dominio**
+
+| Clase | Categoría | Descripción |
+| :--- | :--- | :--- |
+| `PairDeviceCommand` | Command (record) | Empareja un dispositivo con un equipo de refrigeración. |
+| `UnpairDeviceCommand` | Command (record) | Desvincula un dispositivo de su equipo. |
+| `RotateApiKeyCommand` | Command (record) | Emite una nueva API key e invalida la anterior. |
+| `ChangeDeviceStatusCommand` | Command (record) | Cambia el estado del dispositivo, incluida su baja. |
+| `GetDeviceByIdQuery` | Query (record) | Obtiene un dispositivo por su identificador. |
+| `GetDeviceByApiKeyQuery` | Query (record) | Obtiene el dispositivo que corresponde a una API key. |
+| `GetDevicesByEquipmentQuery` | Query (record) | Lista los dispositivos emparejados con un equipo. |
+
+**Domain Services (interfaces)**
+
+| Interfaz | Descripción |
+| :--- | :--- |
+| `DeviceCommandService` | Contrato de las operaciones que cambian el estado: emparejar, desemparejar, rotar credencial y cambiar estado. |
+| `DeviceQueryService` | Contrato de las consultas de dispositivos y de verificación de credenciales. |
+
+**Repositories (interfaces)**
+
+| Interfaz | Descripción |
+| :--- | :--- |
+| `DeviceRepository` | Abstracción de persistencia del aggregate `Device`. El dominio solo conoce esta interfaz. Su implementación pertenece a la Infrastructure Layer. |
+
+**Domain Events**
+
+| Evento | Descripción |
+| :--- | :--- |
+| `Dispositivo Registrado` | Se emite cuando un dispositivo se da de alta en la plataforma. |
+| `Dispositivo Emparejado` | Se emite cuando un dispositivo queda vinculado a un equipo. |
+| `Dispositivo Dado de Baja` | Se emite cuando un dispositivo se retira de la plataforma. |
+
+**Reglas de negocio del dominio**
+
+- Cada dispositivo se autentica con una API key, y de ella se guarda únicamente el hash.
+- Un dispositivo se empareja con un equipo. Antes de emparejarlo, el equipo debe existir y pertenecer al dueño que lo solicita.
+- Al rotar la API key, la credencial anterior deja de ser válida.
+- Un dispositivo dado de baja no puede autenticarse ni enviar telemetría.
+
+#### 4.2.5.2. Interface Layer.
+
+La Interface Layer expone las capacidades del contexto. Recibe las solicitudes HTTP que el **API Gateway** enruta hacia el *Device Endpoint* (GET, POST, PUT) y publica una fachada para que otros contextos verifiquen credenciales de dispositivos. Se organiza en los subpaquetes `controllers`, `resources`, `assemblers` y `acl`.
+
+**Controllers**
+
+| Clase | Descripción |
+| :--- | :--- |
+| `DeviceController` | Controlador REST para el emparejamiento y desemparejamiento de dispositivos y la rotación de su API key. Cubre las historias US-03 (gestión de equipos con su identificador de dispositivo) y US-26 (programación del ESP32 para enviar telemetría). Depende de `DeviceCommandService` y `DeviceQueryService`. |
+
+Método principal:
+
+| Método | Descripción |
+| :--- | :--- |
+| `pair(req: PairDeviceRequest): ResponseEntity<DeviceResponse>` | Recibe la solicitud de emparejamiento, la convierte en un `PairDeviceCommand`, la delega al servicio de comandos y devuelve el dispositivo emparejado. |
+
+**Resources (records)**
+
+| Clase | Descripción |
+| :--- | :--- |
+| `PairDeviceRequest` | Datos de entrada para emparejar un dispositivo con un equipo. |
+| `DeviceResponse` | Representación del dispositivo en las respuestas de la API. No expone el hash de la API key. |
+
+**Assemblers**
+
+| Clase | Método | Descripción |
+| :--- | :--- | :--- |
+| `DeviceAssembler` | `toResource(d: Device): DeviceResponse` | Convierte el aggregate `Device` en el recurso de respuesta. |
+| `DeviceAssembler` | `toCommand(r: PairDeviceRequest): PairDeviceCommand` | Transforma el recurso de emparejamiento en el comando del dominio. |
+
+**ACL / Facade (inbound services)**
+
+| Clase | Descripción |
+| :--- | :--- |
+| `DeviceContextFacade` | Fachada que expone a otros contextos la verificación de la API key y la resolución del dispositivo hacia su equipo, sin revelar el aggregate `Device`. Depende de `DeviceQueryService`. |
+
+Método de `DeviceContextFacade`:
+
+| Método | Descripción |
+| :--- | :--- |
+| `verifyApiKey(key: String): Optional<UUID>` | Verifica la API key recibida y devuelve el identificador asociado. Si la clave no es válida, devuelve un resultado vacío. |
+
+Consumidor de la fachada:
+
+| Contexto consumidor | Uso |
+| :--- | :--- |
+| Monitoring and Alerting | Verifica la API key del dispositivo y resuelve el equipo emparejado antes de aceptar la telemetría. |
+
+#### 4.2.5.3. Application Layer.
+
+La Application Layer orquesta los flujos del contexto. Recibe los comandos y consultas de la Interface Layer, coordina el aggregate `Device`, el repositorio y los servicios externos, y delega las reglas de negocio en el dominio. Sus capabilities son **registrar y emparejar dispositivos, rotar credenciales, cambiar el estado o dar de baja un dispositivo, y verificar credenciales**.
+
+**Command Services**
+
+| Clase | Implementa | Descripción |
+| :--- | :--- | :--- |
+| `DeviceCommandServiceImpl` | `DeviceCommandService` | Ejecuta los procesos que modifican el estado de los dispositivos. Depende de `DeviceRepository` y del servicio externo de activos. |
+
+Manejadores de comandos:
+
+| Método | Flujo |
+| :--- | :--- |
+| `handle(cmd: PairDeviceCommand): Optional<Device>` | 1) Consulta a Assets Management, mediante el ACL, que el equipo exista y pertenezca al dueño solicitante. 2) Emite la API key del dispositivo y guarda su hash. 3) Asocia el `pairedEquipmentId` al aggregate `Device`. 4) Persiste el dispositivo. 5) Registra el evento `Dispositivo Emparejado`. |
+| `handle(cmd: UnpairDeviceCommand)` | Desvincula el dispositivo de su equipo y persiste el cambio. |
+| `handle(cmd: RotateApiKeyCommand)` | Genera una nueva API key, reemplaza el hash almacenado e invalida la credencial anterior. |
+| `handle(cmd: ChangeDeviceStatusCommand)` | Cambia el estado del dispositivo. Si se trata de una baja, registra `Dispositivo Dado de Baja`. |
+
+**Query Services**
+
+| Clase | Implementa | Descripción |
+| :--- | :--- | :--- |
+| `DeviceQueryServiceImpl` | `DeviceQueryService` | Resuelve las consultas de lectura sobre dispositivos usando `DeviceRepository`. |
+
+Manejadores de consultas:
+
+| Método | Descripción |
+| :--- | :--- |
+| `handle(q: GetDeviceByIdQuery)` | Devuelve el dispositivo que corresponde al identificador. |
+| `handle(q: GetDeviceByApiKeyQuery): Optional<Device>` | Devuelve el dispositivo cuya API key coincide con la recibida. Es la consulta que usa `DeviceContextFacade`. |
+| `handle(q: GetDevicesByEquipmentQuery)` | Devuelve los dispositivos emparejados con un equipo. |
+
+**Outbound Services (ACL)**
+
+| Clase | Contexto destino | Descripción |
+| :--- | :--- | :--- |
+| `ExternalAssetServiceFromDevice` | Assets Management | Anti-Corruption Layer que verifica que el equipo exista y pertenezca al dueño solicitante antes del emparejamiento. |
+
+**Método del ACL:**
+
+| Método | Descripción |
+| :--- | :--- |
+| `checkEquipment(id: UUID): boolean` | Indica si el equipo existe y puede emparejarse con el dispositivo. |
+
+**Flujo de integración**
+
+| Flujo | Descripción |
+| :--- | :--- |
+| Emparejar dispositivo IoT a un equipo | El dueño solicita el emparejamiento. Device Management consulta a Assets Management si el equipo es válido, genera la credencial del dispositivo y registra el vínculo. Corresponde al Escenario 05 del Domain Message Flow. |
+| Verificación de telemetría | Cuando el dispositivo envía lecturas, Monitoring and Alerting consulta la fachada de este contexto para validar la API key y resolver el equipo antes de procesar los datos. |
+
+#### 4.2.5.4. Infrastructure Layer.
+
+La Infrastructure Layer contiene las clases que acceden a la base de datos. Implementa la abstracción de repositorio definida en el dominio, de modo que el modelo no dependa de una tecnología concreta.
+
+**Persistencia (Repositories)**
+
+| Clase | Implementa | Descripción |
+| :--- | :--- | :--- |
+| `SpringDataJpaDeviceRepository` | `DeviceRepository` | Implementación con Spring Data JPA del repositorio del aggregate `Device`. Opera sobre el esquema `devices` de la instancia **PostgreSQL v18** (*Platform Database*), que mantiene un esquema por bounded context. |
+
+Responsabilidades del repositorio:
+
+- Guardar, actualizar y consultar dispositivos.
+- Buscar un dispositivo por identificador y por hash de API key.
+- Listar los dispositivos emparejados con un equipo.
+
+**Modelo de tabla del esquema `devices`**
+
+| Tabla | Columna | Tipo | Descripción |
+| :--- | :--- | :--- | :--- |
+| `Device` | `device_id` | `VARCHAR` (PK) | Identificador del dispositivo. |
+| `Device` | `device_uid` | `VARCHAR(10)` | Identificador físico grabado en la placa. |
+| `Device` | `board_model` | `VARCHAR(30)` | Modelo de la placa. |
+| `Device` | `firmware_version` | `VARCHAR(30)` | Versión del firmware. |
+| `Device` | `api_hash` | `VARCHAR(30)` | Hash de la API key. |
+| `Device` | `status` | `VARCHAR(35)` | Estado del dispositivo. |
+| `Device` | `last_read` | `VARCHAR(25)` | Fecha de la última lectura recibida. |
+| `Device` | `equipment_id` | `VARCHAR` (FK) | Equipo con el que está emparejado. |
+
+**Adaptador hacia otro contexto**
+
+| Clase | Descripción |
+| :--- | :--- |
+| Adaptador de `ExternalAssetServiceFromDevice` | Comunicación con Assets Management para verificar la existencia y la pertenencia del equipo antes de emparejar. |
+
+**Resumen de dependencias externas**
+
+| Recurso | Tipo | Uso en Device Management |
+| :--- | :--- | :--- |
+| PostgreSQL v18 (esquema `devices`) | Base de datos relacional | Persistencia de los dispositivos. |
+| Assets Management | Bounded context interno | Verificación del equipo antes del emparejamiento. |
+| Monitoring and Alerting | Bounded context interno (consumidor) | Verifica la API key y resuelve el equipo de cada dispositivo. |
+
+#### 4.2.5.5. Bounded Context Software Architecture Component Level Diagrams.
+
+En el siguiente diagrama de componentes mostramos cómo organizamos el contexto Device Management. Se observan el Device Controller que atiende el emparejamiento, el desemparejamiento y la rotación de la API key, los servicios de comandos y consultas, el aggregate `Device` con su repositorio y la fachada que usa Monitoring and Alerting para verificar credenciales. También se muestra la capa anticorrupción hacia Assets Management, que valida el equipo antes de emparejarlo, y el esquema `devices` de la base de datos.
 
 ![IceTrack Bounded Context Component Level Diagram - Device Management](assets/chapter04/c4/component/deviceComponent.png)
 
 #### 4.2.5.6. Bounded Context Software Architecture Code Level Diagrams.
+
+En esta sección presentamos los diagramas de nivel de código del bounded context Device Management: el diagrama de clases de la capa de dominio y el diseño de la base de datos del esquema `devices`.
+
 ##### 4.2.5.6.1. Bounded Context Domain Layer Class Diagrams.
+
+El siguiente diagrama de clases representa la estructura del contexto organizada por capas. En el dominio se encuentra el aggregate `Device` junto con las interfaces de servicios, y en la capa de aplicación los servicios de comandos y consultas y el servicio externo hacia Assets Management. En la capa de interfaces se ubican el controlador, el assembler, los recursos y la fachada, y en infraestructura la implementación JPA del repositorio.
 
 ![IceTrack Bounded Context Domain Layer Class Diagram - Device Management](assets/chapter04/diagrams/class/deviceManagementDiagramClass.png)
 
 ##### 4.2.5.6.2. Bounded Context Database Design Diagram.
+
+El siguiente diagrama presenta el diseño de la base de datos del esquema `devices`. La tabla `Device` almacena la identificación física de cada placa, su modelo, la versión de firmware, el hash de su API key, su estado, la fecha de la última lectura y el equipo con el que está emparejada.
 
 ![IceTrack Bounded Context Database Design Diagram - Device Management](assets/chapter04/diagrams/database/deviceManagementDiagramDatabase.png)
 
@@ -1493,79 +2689,781 @@ En el Bounded Context de IAM se manejan todas las funcionalidades relacionadas c
 
 ### 4.2.6. Bounded Context: Service Request Management
 
-#### 4.2.6.1. Domain Layer. 
-#### 4.2.6.2. Interface Layer. 
-#### 4.2.6.3. Application Layer. 
-#### 4.2.6.4. Infrastructure Layer. 
-#### 4.2.6.5. Bounded Context Software Architecture Component Level Diagrams. 
+En el bounded context Service Request Management gestionamos el ciclo de vida completo de una solicitud de mantenimiento: su creación por el dueño, su aceptación o rechazo por el proveedor, la asignación de un técnico, el registro de las intervenciones en campo y su finalización. También incluye la evaluación que el dueño realiza del servicio recibido. Junto con Monitoring and Alerting, es uno de los dos núcleos operativos de IceTrack.
+
+#### 4.2.6.1. Domain Layer.
+
+La Domain Layer del bounded context **Service Request Management** contiene el modelo del segundo núcleo operativo de IceTrack: el ciclo de vida de una solicitud de mantenimiento y la calificación del servicio recibido. El dueño crea la solicitud, el proveedor la acepta o rechaza, se asigna un técnico, el técnico registra sus intervenciones en campo y la solicitud se completa. Luego el dueño evalúa el servicio. El modelo se organiza en tres subdominios, cada uno con su propio aggregate: **ServiceRequest**, **Intervention** y **Review**.
+
+**Aggregate Roots**
+
+| Clase | Categoría | Descripción |
+| :--- | :--- | :--- |
+| `ServiceRequest` | Aggregate Root | Representa una solicitud de mantenimiento o reparación sobre un equipo. Controla su máquina de estados, el técnico asignado y el historial de estados. |
+| `Intervention` | Aggregate Root | Representa una intervención técnica realizada en campo para atender una solicitud. Registra el técnico, el periodo de ejecución y el resumen de hallazgos. |
+| `Review` | Aggregate Root | Representa la evaluación que el dueño hace de un servicio completado. Solo puede editarse durante una ventana de tiempo limitada. |
+
+Atributos de `ServiceRequest`:
+
+| Atributo | Tipo | Descripción |
+| :--- | :--- | :--- |
+| `id` | `UUID` | Identificador único de la solicitud. |
+| `equipmentId` | `UUID` | Equipo sobre el que se solicita el servicio (referencia a Assets Management). |
+| `ownerId` | `UUID` | Perfil del dueño que crea la solicitud (referencia a Profiles). |
+| `siteId` | `UUID` | Sede donde se encuentra el equipo. |
+| `technicianId` | `UUID` | Técnico asignado. Es nulo hasta que el proveedor lo asigna. |
+| `origin` | `String` | Origen de la solicitud. |
+| `type` | `ServiceType` | Tipo de servicio (mantenimiento preventivo o reparación correctiva). |
+| `priority` | `ServicePriority` | Prioridad de la solicitud. |
+| `description` | `String` | Detalle del problema o del servicio requerido. |
+| `status` | `ServiceRequestStatus` | Estado actual dentro de la máquina de estados. |
+| `completedAt` | `DateTime` | Fecha de finalización. |
+| `canceledAt` | `DateTime` | Fecha de cancelación. |
+
+Atributos de `Intervention`:
+
+| Atributo | Tipo | Descripción |
+| :--- | :--- | :--- |
+| `id` | `UUID` | Identificador de la intervención. |
+| `requestId` | `UUID` | Solicitud que atiende. |
+| `technicianId` | `UUID` | Técnico que realiza la intervención. |
+| `status` | `InterventionStatus` | Estado de la intervención. |
+| `summary` | `String` | Resumen de hallazgos y acciones realizadas. |
+| `startTime` | `DateTime` | Inicio de la intervención. |
+| `endTime` | `DateTime` | Fin de la intervención. |
+
+Atributos de `Review`:
+
+| Atributo | Tipo | Descripción |
+| :--- | :--- | :--- |
+| `id` | `UUID` | Identificador de la evaluación. |
+| `requestId` | `UUID` | Solicitud evaluada. |
+| `ownerId` | `UUID` | Dueño que evalúa. |
+| `technicianId` | `UUID` | Técnico evaluado. |
+| `rating` | `ReviewRating` | Calificación en comunicación, eficacia y desempeño. |
+| `comment` | `String` | Comentario libre del dueño. |
+| `editableUntil` | `DateTime` | Fecha límite para editar la evaluación (48 horas). |
+
+**Value Objects y enumeraciones**
+
+| Clase | Descripción |
+| :--- | :--- |
+| `ServiceRequestStatus` | Enum con la máquina de estados de la solicitud: `PENDING`, `ACCEPTED`, `REJECTED`, `IN_PROGRESS`, `CANCELED` y `COMPLETED`. |
+| `ServiceType` | Tipo de servicio solicitado (preventivo o correctivo). |
+| `ServicePriority` | Prioridad de atención de la solicitud. |
+| `InterventionStatus` | Estado de una intervención técnica. |
+| `ReviewRating` | Value Object que agrupa las calificaciones de comunicación, eficacia y desempeño. |
+
+**Commands y Queries del dominio**
+
+| Clase | Categoría | Descripción |
+| :--- | :--- | :--- |
+| `CreateRequestCommand` | Command (record) | Crea una solicitud de servicio. |
+| `AcceptRequestCommand` | Command (record) | El proveedor acepta la solicitud. |
+| `RejectRequestCommand` | Command (record) | El proveedor rechaza la solicitud. |
+| `CancelRequestCommand` | Command (record) | Cancela la solicitud. |
+| `AssignTechnicianCommand` | Command (record) | Asigna un técnico a la solicitud. |
+| `StartInterventionCommand` | Command (record) | Registra el inicio de una intervención. |
+| `CompleteInterventionCommand` | Command (record) | Registra la finalización de una intervención y cierra la solicitud. |
+| `SubmitReviewCommand` | Command (record) | Envía la evaluación de un servicio completado. |
+| `UpdateReviewCommand` | Command (record) | Edita una evaluación dentro de su ventana de edición. |
+| `GetRequestByIdQuery` | Query (record) | Obtiene una solicitud por su identificador. |
+| `GetRequestsByOwnerQuery` | Query (record) | Lista las solicitudes de un dueño. |
+| `GetRequestsByTechnicianQuery` | Query (record) | Lista las solicitudes asignadas a un técnico. |
+| `GetRequestsByStatusQuery` | Query (record) | Lista las solicitudes según su estado. |
+| `GetInterventionsByRequestQuery` | Query (record) | Lista las intervenciones de una solicitud. |
+| `GetInterventionsByTechnicianQuery` | Query (record) | Lista las intervenciones de un técnico. |
+| `GetReviewByRequestQuery` | Query (record) | Obtiene la evaluación de una solicitud. |
+| `GetAverageRatingByTechnicianQuery` | Query (record) | Calcula el promedio de calificaciones de un técnico. |
+
+**Domain Services (interfaces)**
+
+| Interfaz | Descripción |
+| :--- | :--- |
+| `TechnicianAssignmentService` | Domain Service que resuelve los técnicos candidatos para una solicitud según su especialidad y disponibilidad. |
+| `ServiceRequestCommandService` | Contrato de las operaciones que modifican el ciclo de vida de una solicitud. |
+| `ServiceRequestQueryService` | Contrato de las consultas, el seguimiento y el filtrado de solicitudes. |
+| `InterventionCommandService` | Contrato del registro de intervenciones y del cierre de la solicitud padre. |
+| `InterventionQueryService` | Contrato de las consultas de intervenciones. |
+| `ReviewCommandService` | Contrato del envío y la edición de evaluaciones. |
+| `ReviewQueryService` | Contrato de las consultas de evaluaciones y promedios de calificación. |
+
+**Repositories (interfaces)**
+
+| Interfaz | Descripción |
+| :--- | :--- |
+| `ServiceRequestRepository` | Abstracción de persistencia del aggregate `ServiceRequest`. |
+| `InterventionRepository` | Abstracción de persistencia del aggregate `Intervention`. |
+| `ReviewRepository` | Abstracción de persistencia del aggregate `Review`. |
+
+**Domain Events**
+
+| Evento | Descripción |
+| :--- | :--- |
+| `Solicitud Creada` | Se emite cuando se registra una nueva solicitud de servicio. |
+| `Solicitud Completada` | Se emite cuando la solicitud finaliza tras completarse la intervención. |
+| `Reseña Creada` | Se emite cuando el dueño envía la evaluación del servicio. |
+
+**Reglas de negocio del dominio**
+
+- La solicitud sigue una máquina de estados: `PENDING`, `ACCEPTED`, `REJECTED`, `IN_PROGRESS`, `CANCELED` y `COMPLETED`. No se permiten transiciones fuera de ese flujo.
+- El dueño crea la solicitud y el proveedor la acepta o la rechaza. Solo una solicitud aceptada puede tener un técnico asignado.
+- El técnico se asigna según su especialidad y disponibilidad.
+- Al completarse la intervención, la solicitud padre pasa a `COMPLETED`.
+- El dueño solo puede evaluar un servicio ya completado, y solo puede editar su evaluación durante las 48 horas posteriores a enviarla.
+
+#### 4.2.6.2. Interface Layer.
+
+La Interface Layer expone las capacidades del contexto hacia el exterior. Recibe las solicitudes HTTP que el **API Gateway** enruta después de validar el JWT, y publica una fachada para que otros contextos lean solicitudes, intervenciones y evaluaciones. Cada subdominio tiene su propio controlador.
+
+**Controllers**
+
+| Clase | Descripción |
+| :--- | :--- |
+| `ServiceRequestController` | Controlador REST del *Service Request Endpoint* (GET, POST, PUT). Gestiona la creación, el seguimiento, la aceptación, el rechazo, la cancelación y la asignación de técnico. Cubre US-04, US-05, US-21, TS-01 y TS-05. Depende de `ServiceRequestCommandService` y `ServiceRequestQueryService`. |
+| `InterventionController` | Controlador REST del *Intervention Endpoint* (GET, POST). Gestiona el inicio y la finalización de intervenciones técnicas. Cubre TS-02. |
+| `ReviewController` | Controlador REST del *Review Endpoint* (GET, POST, PUT). Gestiona el envío y la edición de evaluaciones. Cubre US-12 y TS-03. |
+
+**Método principal:**
+
+| Clase | Método | Descripción |
+| :--- | :--- | :--- |
+| `ServiceRequestController` | `create(req: CreateRequestResource): ResponseEntity<ServiceResponse>` | Recibe los datos de la solicitud, los convierte en un `CreateRequestCommand`, invoca al servicio de comandos y devuelve la solicitud creada. |
+
+**Resources (records)**
+
+| Clase | Descripción |
+| :--- | :--- |
+| `CreateRequestResource` | Datos de entrada para crear una solicitud de servicio (equipo, tipo, prioridad y descripción). |
+| `ServiceResponse` | Representación de una solicitud en las respuestas de la API. |
+
+**ACL / Facade (inbound services)**
+
+| Clase | Descripción |
+| :--- | :--- |
+| `ServiceRequestContextFacade` | Fachada que expone a otros contextos los datos de solicitudes, intervenciones y evaluaciones, sin revelar los aggregates internos. Depende de `ServiceRequestQueryService`. |
+
+**Consumidor de la fachada:**
+
+| Contexto consumidor | Uso |
+| :--- | :--- |
+| Reporting and Analytics | Lee solicitudes, intervenciones y evaluaciones para calcular el cumplimiento de mantenimiento y el desempeño de los técnicos. |
+
+#### 4.2.6.3. Application Layer.
+La Application Layer orquesta los flujos del contexto. Recibe los comandos y consultas de la Interface Layer, coordina los aggregates, los repositorios y los servicios externos, y delega las reglas de negocio en el dominio. Sus capabilities son **crear y gestionar solicitudes, asignar técnicos, registrar intervenciones en campo, completar el servicio, y recibir y consultar evaluaciones**.
+
+**Command Services**
+
+| Clase | Implementa | Descripción |
+| :--- | :--- | :--- |
+| `ServiceRequestCommandServiceImpl` | `ServiceRequestCommandService` | Gestiona el ciclo de vida de la solicitud y sus transiciones de estado. Depende de `ServiceRequestRepository`, `TechnicianAssignmentService` y los servicios externos. |
+| `InterventionCommandServiceImpl` | `InterventionCommandService` | Registra las intervenciones y cierra la solicitud padre al completarlas. Depende de `InterventionRepository`. |
+| `ReviewCommandServiceImpl` | `ReviewCommandService` | Gestiona el envío de evaluaciones y su edición dentro de la ventana permitida. Depende de `ReviewRepository`. |
+
+**Manejadores de comandos:**
+
+| Clase | Método | Flujo |
+| :--- | :--- | :--- |
+| `ServiceRequestCommandServiceImpl` | `handle(cmd: CreateRequestCommand): Optional<ServiceRequest>` | 1) Crea el aggregate `ServiceRequest` en estado `PENDING`. 2) Lo persiste. 3) Registra `Solicitud Creada`. 4) Solicita la notificación mediante Notification Management. Si la solicitud es correctiva, puede precargarse con el contexto de la alerta desde Monitoring and Alerting (US-29). |
+| `ServiceRequestCommandServiceImpl` | `handle(cmd: AcceptRequestCommand / RejectRequestCommand)` | El proveedor acepta o rechaza la solicitud y el aggregate cambia de estado. |
+| `ServiceRequestCommandServiceImpl` | `handle(cmd: AssignTechnicianCommand)` | Resuelve los candidatos con `TechnicianAssignmentService`, asigna el técnico, persiste el cambio y notifica la asignación. |
+| `ServiceRequestCommandServiceImpl` | `handle(cmd: CancelRequestCommand)` | Cancela la solicitud y registra la fecha de cancelación. |
+| `InterventionCommandServiceImpl` | `handle(cmd: StartInterventionCommand)` | Crea la intervención, registra la hora de inicio y pasa la solicitud a `IN_PROGRESS`. |
+| `InterventionCommandServiceImpl` | `handle(cmd: CompleteInterventionCommand): void` | Registra el fin, el resumen de hallazgos y el estado de la intervención, y cierra la solicitud padre como `COMPLETED`. Registra `Solicitud Completada` y solicita la notificación. |
+| `ReviewCommandServiceImpl` | `handle(cmd: SubmitReviewCommand)` | Verifica que la solicitud esté completada, crea la evaluación con su fecha límite de edición y registra `Reseña Creada`. |
+| `ReviewCommandServiceImpl` | `handle(cmd: UpdateReviewCommand)` | Permite editar la evaluación solo si sigue dentro de las 48 horas. |
+
+**Query Services**
+
+| Clase | Implementa | Descripción |
+| :--- | :--- | :--- |
+| `ServiceRequestQueryServiceImpl` | `ServiceRequestQueryService` | Resuelve las consultas, el seguimiento y el filtrado de solicitudes. |
+| `InterventionQueryServiceImpl` | `InterventionQueryService` | Resuelve las consultas de intervenciones por solicitud o por técnico. |
+| `ReviewQueryServiceImpl` | `ReviewQueryService` | Resuelve las consultas de evaluaciones y el promedio de calificación de un técnico. |
+
+**Manejadores de consultas:**
+
+| Clase | Método | Descripción |
+| :--- | :--- | :--- |
+| `ServiceRequestQueryServiceImpl` | `handle(q: GetRequestByIdQuery)` | Devuelve la solicitud que corresponde al identificador. |
+| `ServiceRequestQueryServiceImpl` | `handle(q: GetRequestsByOwnerQuery / GetRequestsByTechnicianQuery / GetRequestsByStatusQuery)` | Devuelve las solicitudes de un dueño, de un técnico o en un estado determinado. |
+| `InterventionQueryServiceImpl` | `handle(q: GetInterventionsByRequestQuery / GetInterventionsByTechnicianQuery)` | Devuelve las intervenciones de una solicitud o de un técnico. |
+| `ReviewQueryServiceImpl` | `handle(q: GetReviewByRequestQuery)` | Devuelve la evaluación de una solicitud. |
+| `ReviewQueryServiceImpl` | `handle(q: GetAverageRatingByTechnicianQuery)` | Devuelve el promedio de calificaciones de un técnico. |
+
+**Outbound Services (ACL)**
+
+| Clase | Contexto destino | Descripción |
+| :--- | :--- | :--- |
+| `MonitoringExternalService` | Monitoring and Alerting | ACL que recupera el contexto de la alerta y del equipo para precargar una orden de trabajo correctiva (US-29). |
+| `ProfilesExternalService` | Profiles and Preferences Management | ACL que consulta la especialidad y la disponibilidad de los técnicos para la asignación. |
+| `NotificationExternalService` | Notification Management | ACL que solicita el envío de notificaciones cuando una solicitud se crea, se asigna o se completa. |
+
+**Flujos de integración**
+
+| Flujo | Descripción |
+| :--- | :--- |
+| Crear solicitud referenciando un equipo | El dueño crea la solicitud sobre un equipo. El contexto la registra en estado `PENDING` y notifica al proveedor. Corresponde al Escenario 03 del Domain Message Flow. |
+| Asignación de técnico | Al asignar, el contexto consulta a Profiles por especialidad y disponibilidad, y notifica al técnico. |
+| Cierre del servicio | Al completarse la intervención, la solicitud pasa a `COMPLETED`, se notifica al dueño y queda habilitada la evaluación. |
+| Indicadores de desempeño | Reporting and Analytics consulta las solicitudes, intervenciones y evaluaciones mediante la fachada. |
+
+#### 4.2.6.4. Infrastructure Layer.
+
+La Infrastructure Layer contiene las clases que acceden a la base de datos. Implementa los repositorios definidos en el dominio, de modo que el modelo no dependa de una tecnología concreta.
+
+**Persistencia (Repositories)**
+
+| Clase | Implementa | Descripción |
+| :--- | :--- | :--- |
+| `SpringDataJpaServiceRequestRepository` | `ServiceRequestRepository` | Implementación con Spring Data JPA del repositorio del aggregate `ServiceRequest`. |
+| `SpringDataJpaInterventionRepository` | `InterventionRepository` | Implementación con Spring Data JPA del repositorio del aggregate `Intervention`. |
+| `SpringDataJpaReviewRepository` | `ReviewRepository` | Implementación con Spring Data JPA del repositorio del aggregate `Review`. |
+
+Los tres repositorios operan sobre el esquema `services` de la instancia **PostgreSQL v18** (*Platform Database*), que mantiene un esquema por bounded context.
+
+Responsabilidades de los repositorios:
+
+- Guardar, actualizar y consultar solicitudes por identificador, dueño, técnico y estado.
+- Guardar intervenciones y consultarlas por solicitud o por técnico.
+- Guardar evaluaciones y consultarlas por solicitud, además de calcular el promedio de calificación por técnico.
+
+**Modelo de tablas del esquema `services`**
+
+| Tabla | Columna | Tipo | Descripción |
+| :--- | :--- | :--- | :--- |
+| `ServiceRequest` | `request_id` | `VARCHAR` (PK) | Identificador de la solicitud. |
+| `ServiceRequest` | `origin` | `VARCHAR(25)` | Origen de la solicitud. |
+| `ServiceRequest` | `type` | `VARCHAR(35)` | Tipo de servicio. |
+| `ServiceRequest` | `priority` | `VARCHAR(35)` | Prioridad. |
+| `ServiceRequest` | `description` | `VARCHAR(50)` | Descripción del problema. |
+| `ServiceRequest` | `status` | `VARCHAR(40)` | Estado de la solicitud. |
+| `ServiceRequest` | `completed_at` | `DATETIME` | Fecha de finalización. |
+| `ServiceRequest` | `canceled_at` | `DATETIME` | Fecha de cancelación. |
+| `ServiceRequest` | `owner_profiles_id` | `VARCHAR` (FK) | Perfil del dueño. |
+| `ServiceRequest` | `user_id` | `VARCHAR` (FK) | Usuario asociado. |
+| `ServiceRequest` | `site_id` | `VARCHAR` (FK) | Sede del equipo. |
+| `ServiceRequest` | `equipment_id` | `VARCHAR` (FK) | Equipo del servicio. |
+| `ServiceRequest` | `user_profiles_id` | `VARCHAR` (FK) | Perfil asociado al servicio. |
+| `Intervention` | `intervention_id` | `VARCHAR` (PK) | Identificador de la intervención. |
+| `Intervention` | `status` | `VARCHAR(30)` | Estado de la intervención. |
+| `Intervention` | `summary` | `VARCHAR(50)` | Resumen de hallazgos. |
+| `Intervention` | `start_time` | `DATETIME` | Inicio. |
+| `Intervention` | `end_time` | `DATETIME` | Fin. |
+| `Intervention` | `request_id` | `VARCHAR` (FK) | Solicitud atendida. |
+| `Intervention` | `technician_profiles_id` | `VARCHAR` (FK) | Técnico que interviene. |
+| `Review` | `review_id` | `VARCHAR` (PK) | Identificador de la evaluación. |
+| `Review` | `rating_comunication` | `INTEGER` | Calificación de comunicación. |
+| `Review` | `rating_eficacy` | `INTEGER` | Calificación de eficacia. |
+| `Review` | `performance` | `VARCHAR(40)` | Calificación de desempeño. |
+| `Review` | `comment` | `VARCHAR(50)` | Comentario del dueño. |
+| `Review` | `request_id` | `VARCHAR` (FK) | Solicitud evaluada. |
+| `Review` | `owner_profiles_id` | `VARCHAR` (FK) | Dueño que evalúa. |
+| `Review` | `technician_profiles_id` | `VARCHAR` (FK) | Técnico evaluado. |
+
+**Adaptadores hacia otros contextos**
+
+| Clase | Descripción |
+| :--- | :--- |
+| Adaptador de `MonitoringExternalService` | Comunicación con Monitoring and Alerting para obtener el contexto de la alerta. |
+| Adaptador de `ProfilesExternalService` | Comunicación con Profiles para consultar la especialidad y la disponibilidad de los técnicos. |
+| Adaptador de `NotificationExternalService` | Comunicación con Notification Management para solicitar el envío de notificaciones. |
+
+**Resumen de dependencias externas**
+
+| Recurso | Tipo | Uso en Service Request Management |
+| :--- | :--- | :--- |
+| PostgreSQL v18 (esquema `services`) | Base de datos relacional | Persistencia de solicitudes, intervenciones y evaluaciones. |
+| Monitoring and Alerting | Bounded context interno | Contexto de la alerta para precargar solicitudes correctivas. |
+| Profiles and Preferences Management | Bounded context interno | Especialidad y disponibilidad de los técnicos. |
+| Notification Management | Bounded context interno | Notificaciones de creación, asignación y finalización. |
+| Reporting and Analytics | Bounded context interno (consumidor) | Lectura de solicitudes, intervenciones y evaluaciones. |
+
+#### 4.2.6.5. Bounded Context Software Architecture Component Level Diagrams.
+
+En el siguiente diagrama de componentes mostramos cómo organizamos el contexto en tres subdominios: ServiceRequest, Intervention y Review. Cada uno cuenta con su controlador, sus servicios de comandos y consultas, su aggregate y su repositorio. Se incluye el servicio de dominio que resuelve los técnicos candidatos a una asignación, la fachada que consume Reporting and Analytics, las capas anticorrupción hacia Monitoring, Profiles y Notification, y el esquema `services` de la base de datos.
 
 ![IceTrack Bounded Context Component Level Diagram - Service Request Management](assets/chapter04/c4/component/serviceComponent.png)
 
-#### 4.2.6.6. Bounded Context Software Architecture Code Level Diagrams. 
+#### 4.2.6.6. Bounded Context Software Architecture Code Level Diagrams.
+
+En esta sección presentamos los diagramas de nivel de código del bounded context Service Request Management: el diagrama de clases de la capa de dominio y el diseño de la base de datos del esquema `services`.
+
 ##### 4.2.6.6.1. Bounded Context Domain Layer Class Diagrams.
+
+El siguiente diagrama de clases representa la estructura del contexto organizada por capas. Incluye el aggregate de la solicitud de servicio, las interfaces de los servicios de solicitudes e intervenciones, el servicio de asignación de técnicos, los servicios de comandos de la capa de aplicación, el controlador, los recursos y la fachada de la capa de interfaces, y los repositorios JPA de la capa de infraestructura.
 
 ![IceTrack Bounded Context Domain Layer Class Diagram - Service Request Management](assets/chapter04/diagrams/class/serviceDiagramClass.png)
 
-##### 4.2.6.6.2. Bounded Context Database Design Diagram. 
+##### 4.2.6.6.2. Bounded Context Database Design Diagram.
+
+El siguiente diagrama presenta el diseño de la base de datos del esquema `services`. La tabla `ServiceRequest` guarda las solicitudes con su tipo, prioridad, estado y fechas, la tabla `Intervention` registra las intervenciones realizadas por los técnicos, y la tabla `Review` almacena las evaluaciones de los dueños sobre cada servicio.
 
 ![IceTrack Bounded Context Database Design Diagram - Service Request Management](assets/chapter04/diagrams/database/serviceDiagramDatabase.png)
 
 ---
 
 ### 4.2.7. Bounded Context: Notification Management
-#### 4.2.7.1. Domain Layer. 
-#### 4.2.7.2. Interface Layer. 
-#### 4.2.7.3. Application Layer. 
-#### 4.2.7.4. Infrastructure Layer. 
-#### 4.2.7.5. Bounded Context Software Architecture Component Level Diagrams. 
+
+En el bounded context Notification Management generamos y gestionamos las notificaciones dirigidas a cada usuario, ya sea por un mantenimiento vencido, una alerta de monitoreo o una actualización de una solicitud de servicio. Es un contexto genérico de soporte: no decide cuándo notificar, sino que actúa cuando otro contexto se lo solicita mediante su fachada, resolviendo quién debe recibir el mensaje y en qué idioma.
+
+#### 4.2.7.1. Domain Layer.
+
+La Domain Layer del bounded context **Notification Management** contiene el modelo de las notificaciones que la plataforma envía a sus usuarios. Es un contexto genérico de soporte: convierte los eventos que ocurren en otros contextos (alertas de monitoreo, cambios en solicitudes de servicio, mantenimientos vencidos) en mensajes dirigidos a un destinatario concreto, con un canal y un estado de entrega. Su modelo se centra en un único aggregate, **Notification**, y en un domain service que determina a quién debe notificarse cada evento.
+
+**Aggregate Root**
+
+| Clase | Categoría | Descripción |
+| :--- | :--- | :--- |
+| `Notification` | Aggregate Root / Entity | Representa un mensaje dirigido a un usuario. Controla su estado de lectura, su descarte y su estado de entrega. |
+
+Atributos de `Notification`:
+
+| Atributo | Tipo | Descripción |
+| :--- | :--- | :--- |
+| `id` | `UUID` | Identificador único de la notificación. |
+| `userId` | `UUID` | Destinatario de la notificación (referencia al usuario de IAM). |
+| `message` | `String` | Mensaje localizado que se muestra al destinatario. |
+| `type` | `NotificationType` | Tipo de notificación (mantenimiento vencido, alerta de monitoreo o actualización de una solicitud). |
+| `severity` | `NotificationSeverity` | Nivel de severidad de la notificación. |
+| `channel` | `String` | Canal por el que se entrega la notificación. |
+| `deliveryStatus` | `String` | Estado de entrega de la notificación. |
+| `isRead` | `Boolean` | Indica si el destinatario ya la leyó. |
+| `dismissedAt` | `DateTime` | Fecha y hora en que el destinatario la descartó. |
+| `equipmentId` | `UUID` | Equipo relacionado con el evento que originó la notificación. |
+| `deviceId` | `UUID` | Dispositivo relacionado, cuando el evento proviene de telemetría. |
+| `alertId` | `UUID` | Alerta relacionada, cuando la notificación se origina en Monitoring and Alerting. |
+
+**Value Objects y enumeraciones**
+
+| Clase | Descripción |
+| :--- | :--- |
+| `NotificationType` | Enum con el tipo de notificación: mantenimiento vencido, alerta de monitoreo o actualización de solicitud de servicio. |
+| `NotificationSeverity` | Enum con el nivel de severidad de la notificación. |
+| `Recipient` | Value Object que identifica al destinatario, con sus datos de contacto y su idioma. |
+
+**Commands y Queries del dominio**
+
+| Clase | Categoría | Descripción |
+| :--- | :--- | :--- |
+| `CreateNotificationCommand` | Command (record) | Solicita la creación de una notificación a partir de un evento de otro contexto. |
+| `MarkAsReadCommand` | Command (record) | Marca una notificación como leída. |
+| `DismissCommand` | Command (record) | Descarta una notificación. |
+| `GetUserNotificationsQuery` | Query (record) | Lista las notificaciones de un usuario. |
+| `GetUnreadCountQuery` | Query (record) | Obtiene la cantidad de notificaciones no leídas de un usuario. |
+
+**Domain Services**
+
+| Clase | Categoría | Descripción |
+| :--- | :--- | :--- |
+| `RecipientResolver` | Domain Service | Determina quién debe ser notificado ante un evento dado: el dueño del equipo, el técnico asignado o ambos. |
+| `NotificationCommandService` | Interfaz | Contrato de las operaciones que crean y modifican notificaciones. |
+| `NotificationQueryService` | Interfaz | Contrato de las consultas de notificaciones y del contador de no leídas. |
+
+**Repositories (interfaces)**
+
+| Interfaz | Descripción |
+| :--- | :--- |
+| `NotificationRepository` | Abstracción de persistencia del aggregate `Notification`. El dominio solo conoce esta interfaz. Su implementación pertenece a la Infrastructure Layer. |
+
+**Domain Events**
+
+| Evento | Descripción |
+| :--- | :--- |
+| `Notificación Generada` | Se emite cuando se crea una notificación para un destinatario. |
+| `Notificación Leída` | Se emite cuando el destinatario marca la notificación como leída. |
+| `Notificación Descartada` | Se emite cuando el destinatario descarta la notificación. |
+
+**Reglas de negocio del dominio**
+
+- Una notificación pertenece a un único destinatario.
+- Los destinatarios de un evento los determina `RecipientResolver`: el dueño del equipo, el técnico asignado o ambos, según el evento.
+- El mensaje se construye en el idioma del destinatario, con base en las preferencias de su perfil.
+- Una notificación puede leerse y descartarse por el destinatario, y guarda la fecha de descarte.
+- Este contexto no decide cuándo se debe notificar. Solo actúa cuando otro contexto se lo solicita.
+
+#### 4.2.7.2. Interface Layer.
+
+La Interface Layer expone las capacidades del contexto hacia el exterior. Recibe las solicitudes HTTP que el **API Gateway** enruta hacia el *Notification Endpoint* (GET, PUT) y publica una fachada para que los demás contextos soliciten notificaciones sin conocer los detalles del canal ni de la entrega.
+
+**Controllers**
+
+| Clase | Descripción |
+| :--- | :--- |
+| `NotificationController` | Controlador REST que permite al usuario listar sus notificaciones, marcarlas como leídas y descartarlas. Depende de `NotificationCommandService` y `NotificationQueryService`. |
+
+**Método principal:**
+
+| Método | Descripción |
+| :--- | :--- |
+| `markAsRead(id: UUID): ResponseEntity<Void>` | Convierte la solicitud en un `MarkAsReadCommand` y lo delega al servicio de comandos. |
+
+**Resources (records)**
+
+| Clase | Descripción |
+| :--- | :--- |
+| `NotificationResponse` | Representación de una notificación en las respuestas de la API (mensaje, tipo, severidad, estado de lectura). |
+
+**ACL / Facade (inbound services)**
+
+| Clase | Descripción |
+| :--- | :--- |
+| `NotificationContextFacade` | Fachada que expone a los demás contextos la creación de notificaciones, ocultando el canal y los detalles de entrega. Depende de `NotificationCommandService`. |
+
+Método de `NotificationContextFacade`:
+
+| Método | Descripción |
+| :--- | :--- |
+| `dispatch(userId: UUID, msg: String): void` | Solicita el envío de una notificación al usuario indicado. |
+
+**Consumidores de la fachada:**
+
+| Contexto consumidor | Evento que origina la notificación |
+| :--- | :--- |
+| Monitoring and Alerting | Excursión térmica o dispositivo sin señal. |
+| Service Request Management | Solicitud creada, técnico asignado o servicio completado. |
+| Reporting and Analytics | Reporte listo para el usuario que lo solicitó. |
+
+#### 4.2.7.3. Application Layer.
+
+La Application Layer orquesta los flujos del contexto. Recibe los comandos y consultas de la Interface Layer y de la fachada, coordina el aggregate `Notification`, el repositorio y los servicios externos, y delega las reglas de negocio en el dominio. Sus capabilities son **crear notificaciones a partir de eventos de otros contextos, resolver a sus destinatarios, y permitir su consulta, lectura y descarte**.
+
+**Command Services**
+
+| Clase | Implementa | Descripción |
+| :--- | :--- | :--- |
+| `NotificationCommandServiceImpl` | `NotificationCommandService` | Construye el mensaje localizado, resuelve los destinatarios y registra el resultado de la entrega. Depende de `NotificationRepository`. |
+
+Manejadores de comandos:
+
+| Método | Flujo |
+| :--- | :--- |
+| `handle(cmd: CreateNotificationCommand): void` | 1) Recibe el evento de otro contexto a través de la fachada. 2) Usa `RecipientResolver` para determinar los destinatarios. 3) Consulta a Profiles los datos de contacto y el idioma de cada destinatario. 4) Construye el mensaje localizado. 5) Crea y persiste una `Notification` por destinatario. 6) Registra `Notificación Generada` y el resultado de la entrega. |
+| `handle(cmd: MarkAsReadCommand): void` | Busca la notificación, la marca como leída, persiste el cambio y registra `Notificación Leída`. |
+| `handle(cmd: DismissCommand)` | Descarta la notificación, registra la fecha de descarte y emite `Notificación Descartada`. |
+
+**Query Services**
+
+| Clase | Implementa | Descripción |
+| :--- | :--- | :--- |
+| `NotificationQueryServiceImpl` | `NotificationQueryService` | Resuelve las consultas de notificaciones usando `NotificationRepository`. |
+
+Manejadores de consultas:
+
+| Método | Descripción |
+| :--- | :--- |
+| `handle(q: GetUserNotificationsQuery): List<Notification>` | Devuelve las notificaciones de un usuario. |
+| `handle(q: GetUnreadCountQuery)` | Devuelve la cantidad de notificaciones no leídas de un usuario, útil para el indicador del dashboard. |
+
+**Outbound Services (ACL)**
+
+| Clase | Contexto destino | Descripción |
+| :--- | :--- | :--- |
+| `ProfilesExternalService` | Profiles and Preferences Management | ACL que resuelve los datos de contacto y el idioma de cada destinatario. |
+
+**Flujos de integración**
+
+| Flujo | Descripción |
+| :--- | :--- |
+| Alerta de monitoreo | Cuando Monitoring and Alerting detecta una excursión térmica o un dispositivo sin señal, solicita la notificación mediante la fachada. Este contexto resuelve los destinatarios y la crea. |
+| Actualización de solicitud de servicio | Cuando una solicitud se crea, se asigna a un técnico o se completa, Service Request Management solicita la notificación al dueño, al técnico o a ambos. |
+| Reporte listo | Cuando Reporting and Analytics termina un reporte, solicita notificar al usuario que lo pidió. |
+| Mantenimiento vencido | Cuando un equipo supera su intervalo de mantenimiento configurado, se genera una notificación que el dueño puede consultar y descartar. |
+
+#### 4.2.7.4. Infrastructure Layer.
+
+La Infrastructure Layer contiene las clases que acceden a la base de datos y a otros contextos. Implementa la abstracción de repositorio definida en el dominio, de modo que el modelo no dependa de una tecnología concreta.
+
+**Persistencia (Repositories)**
+
+| Clase | Implementa | Descripción |
+| :--- | :--- | :--- |
+| `SpringDataJpaNotificationRepository` | `NotificationRepository` | Implementación con Spring Data JPA del repositorio del aggregate `Notification`. Opera sobre el esquema `notifications` de la instancia **PostgreSQL v18** (*Platform Database*), que mantiene un esquema por bounded context. |
+
+Responsabilidades del repositorio:
+
+- Guardar y actualizar notificaciones.
+- Consultar las notificaciones de un usuario.
+- Contar las notificaciones no leídas de un usuario.
+
+**Modelo de tabla del esquema `notifications`**
+
+| Tabla | Columna | Tipo | Descripción |
+| :--- | :--- | :--- | :--- |
+| `Notification` | `notification_id` | `VARCHAR` (PK) | Identificador de la notificación. |
+| `Notification` | `message` | `VARCHAR(50)` | Mensaje mostrado al destinatario. |
+| `Notification` | `type` | `VARCHAR(40)` | Tipo de notificación. |
+| `Notification` | `severity` | `VARCHAR(40)` | Severidad. |
+| `Notification` | `is_read` | `BOOLEAN` | Indica si fue leída. |
+| `Notification` | `dismissed_at` | `DATETIME` | Fecha de descarte. |
+| `Notification` | `user_id` | `VARCHAR` (FK) | Destinatario. |
+| `Notification` | `equipment_id` | `VARCHAR` (FK) | Equipo relacionado. |
+| `Notification` | `device_id` | `VARCHAR` (FK) | Dispositivo relacionado. |
+| `Notification` | `alert_id` | `VARCHAR` (FK) | Alerta relacionada. |
+
+**Adaptador hacia otro contexto**
+
+| Clase | Descripción |
+| :--- | :--- |
+| Adaptador de `ProfilesExternalService` | Comunicación con Profiles para obtener los datos de contacto y el idioma del destinatario. |
+
+**Resumen de dependencias externas**
+
+| Recurso | Tipo | Uso en Notification Management |
+| :--- | :--- | :--- |
+| PostgreSQL v18 (esquema `notifications`) | Base de datos relacional | Persistencia de las notificaciones. |
+| Profiles and Preferences Management | Bounded context interno | Datos de contacto e idioma de los destinatarios. |
+| Monitoring and Alerting, Service Request Management y Reporting and Analytics | Bounded contexts internos (consumidores) | Solicitan la creación de notificaciones mediante la fachada. |
+
+#### 4.2.7.5. Bounded Context Software Architecture Component Level Diagrams.
+
+En el siguiente diagrama de componentes mostramos cómo organizamos el contexto Notification Management. Se observan el Notification Controller que permite consultar, leer y descartar notificaciones, la fachada que reciben Monitoring, Service Request y Reporting, los servicios de comandos y consultas, el aggregate `Notification` con su repositorio y el servicio de dominio que resuelve a los destinatarios. También se muestra la capa anticorrupción hacia Profiles and Preferences y el esquema `notifications` de la base de datos.
 
 ![IceTrack Bounded Context Component Level Diagram - Notification Management](assets/chapter04/c4/component/notificationComponent.png)
 
-#### 4.2.7.6. Bounded Context Software Architecture Code Level Diagrams. 
+#### 4.2.7.6. Bounded Context Software Architecture Code Level Diagrams.
+
+En esta sección presentamos los diagramas de nivel de código del bounded context Notification Management: el diagrama de clases de la capa de dominio y el diseño de la base de datos del esquema `notifications`.
+
 ##### 4.2.7.6.1. Bounded Context Domain Layer Class Diagrams.
+
+El siguiente diagrama de clases representa la estructura del contexto organizada por capas. En el dominio se encuentra el aggregate `Notification` y las interfaces de los servicios de comandos y consultas. En la capa de aplicación se ubican sus implementaciones, en la capa de interfaces el controlador, el recurso de respuesta y la fachada del contexto, y en infraestructura la implementación JPA del repositorio.
 
 ![IceTrack Bounded Context Domain Layer Class Diagram - Notification Management](assets/chapter04/diagrams/class/notificationManagementDiagramClass.png)
 
-##### 4.2.7.6.2. Bounded Context Database Design Diagram. 
+##### 4.2.7.6.2. Bounded Context Database Design Diagram.
+
+El siguiente diagrama presenta el diseño de la base de datos del esquema `notifications`. La tabla `Notification` almacena el mensaje, su tipo y severidad, su estado de lectura y de descarte, y las referencias al usuario destinatario y al equipo, dispositivo o alerta que originó la notificación.
 
 ![IceTrack Bounded Context Database Design Diagram - Notification Management](assets/chapter04/diagrams/database/notificationDiagramDatabase.png)
 
 ---
 
 ### 4.2.8. Bounded Context: Reporting and Analytics
-#### 4.2.8.1. Domain Layer. 
-#### 4.2.8.2. Interface Layer. 
-#### 4.2.8.3. Application Layer. 
-#### 4.2.8.4. Infrastructure Layer. 
-#### 4.2.8.5. Bounded Context Software Architecture Component Level Diagrams. 
+
+En el bounded context Reporting and Analytics calculamos indicadores de negocio a partir de la información de otros contextos: el cumplimiento del mantenimiento, el tiempo de actividad de los equipos, las excursiones de temperatura y el desempeño de los técnicos. Es un contexto de consumo, ya que no es dueño de los datos operativos, sino que los lee de Monitoring and Alerting y de Service Request Management para generar reportes de forma asíncrona.
+
+#### 4.2.8.1. Domain Layer.
+
+La Domain Layer del bounded context **Reporting and Analytics** contiene el modelo de los reportes que la plataforma genera para sus usuarios. Es un contexto de soporte y consumo: no es dueño de los datos operativos, sino que calcula indicadores de negocio a partir de la información de otros contextos (cumplimiento de mantenimiento, tiempo de actividad de los equipos y desempeño de los técnicos). Su modelo gira en torno a un único aggregate, **Report**, y a dos domain services: uno que elige la estrategia de generación según el tipo de reporte y otro que calcula los indicadores cuantitativos de la cadena de frío.
+
+**Aggregate Root**
+
+| Clase | Categoría | Descripción |
+| :--- | :--- | :--- |
+| `Report` | Aggregate Root | Representa una solicitud de reporte y su resultado. Controla su máquina de estados y la referencia al archivo generado. |
+
+Atributos de `Report`:
+
+| Atributo | Tipo | Descripción |
+| :--- | :--- | :--- |
+| `id` | `UUID` | Identificador único del reporte. |
+| `type` | `ReportType` | Tipo de reporte solicitado. |
+| `format` | `ReportFormat` | Formato de salida del reporte. |
+| `filters` | `ReportFilters` | Filtros aplicados a la generación (equipo, sede, rango de fechas, entre otros). |
+| `status` | `ReportStatus` | Estado actual dentro de la máquina de estados. |
+| `url` | `String` | Referencia al archivo generado, disponible cuando el reporte se completa. |
+
+**Value Objects y enumeraciones**
+
+| Clase | Descripción |
+| :--- | :--- |
+| `ReportType` | Enum con los tipos de reporte: `MaintenanceCompliance`, `EquipmentUptime`, `TechnicianPerformance` y `TemperatureExcursion`. |
+| `ReportFormat` | Formato de salida del reporte. |
+| `ReportFilters` | Value Object que agrupa los criterios con los que se genera el reporte. |
+| `ReportStatus` | Enum con los estados del reporte: `PENDING`, `GENERATING`, `COMPLETED` y `FAILED`. |
+
+**Commands y Queries del dominio**
+
+| Clase | Categoría | Descripción |
+| :--- | :--- | :--- |
+| `RequestReportCommand` | Command (record) | Solicita la generación de un reporte. |
+| `MarkAsGeneratingCommand` | Command (record) | Marca el reporte como en proceso de generación. |
+| `MarkAsCompletedCommand` | Command (record) | Marca el reporte como completado y registra la referencia al archivo generado. |
+| `MarkAsFailedCommand` | Command (record) | Marca el reporte como fallido. |
+| `GetReportByIdQuery` | Query (record) | Obtiene un reporte por su identificador. |
+| `SearchReportsByFiltersQuery` | Query (record) | Busca reportes por nombre, tipo o estado. |
+| `GetRecentReportsQuery` | Query (record) | Lista los reportes generados más recientemente. |
+
+**Domain Services**
+
+| Clase | Categoría | Descripción |
+| :--- | :--- | :--- |
+| `ReportGenerationStrategy` | Domain Service (interfaz, patrón Strategy) | Define cómo se genera cada tipo de reporte. Hay una estrategia por cada `ReportType`: `MaintenanceCompliance`, `EquipmentUptime`, `TechnicianPerformance` y `TemperatureExcursion`. |
+| `ReportGenerationStrategyRegistry` | Domain Service | Selecciona la estrategia correspondiente al tipo de reporte solicitado. |
+| `ColdChainMetricsCalculator` | Domain Service | Calcula los indicadores cuantitativos de la cadena de frío: temperatura cinética media (ponderada con Arrhenius), grados-minuto de excursión, porcentaje de tiempo de actividad, desviación estándar de la temperatura, tiempo medio de reparación (MTTR) y calificación promedio. |
+| `ReportCommandService` | Interfaz | Contrato de las operaciones que solicitan y actualizan el estado de un reporte. |
+| `ReportQueryService` | Interfaz | Contrato de las consultas, la búsqueda y la descarga de reportes. |
+
+**Repositories (interfaces)**
+
+| Interfaz | Descripción |
+| :--- | :--- |
+| `ReportRepository` | Abstracción de persistencia del aggregate `Report`. El dominio solo conoce esta interfaz. Su implementación pertenece a la Infrastructure Layer. |
+
+**Domain Events**
+
+| Evento | Descripción |
+| :--- | :--- |
+| `Reporte Generado` | Se emite cuando un reporte termina su generación y queda disponible para el usuario que lo solicitó. |
+
+**Reglas de negocio del dominio**
+
+- La generación de un reporte es asíncrona. El reporte recorre los estados `PENDING`, `GENERATING` y `COMPLETED`, o `FAILED` si la generación no puede completarse.
+- La estrategia de generación se elige según el tipo de reporte solicitado.
+- Los indicadores se calculan con datos provenientes de otros contextos, y este contexto no modifica esa información.
+- Un reporte solo puede descargarse cuando su estado es `COMPLETED`.
+
+#### 4.2.8.2. Interface Layer.
+
+La Interface Layer expone las capacidades del contexto hacia el exterior. Recibe las solicitudes HTTP que el **API Gateway** enruta hacia el *Report Endpoint* (GET, POST) después de validar el JWT. Este contexto solo consume información de otros contextos, por lo que no publica fachada de entrada.
+
+**Controllers**
+
+| Clase | Descripción |
+| :--- | :--- |
+| `ReportController` | Controlador REST para solicitar reportes, buscarlos por nombre, tipo y estado, y descargarlos. Cubre las historias US-22 (buscar reportes por filtros) y US-24 (ver reporte de servicio realizado). Depende de `ReportCommandService` y `ReportQueryService`. |
+
+Método principal:
+
+| Método | Descripción |
+| :--- | :--- |
+| `generate(req: RequestReportResource): ResponseEntity<ReportResponse>` | Recibe la solicitud de reporte, la convierte en un `RequestReportCommand`, la delega al servicio de comandos y devuelve el reporte creado. |
+
+**Resources (records)**
+
+| Clase | Descripción |
+| :--- | :--- |
+| `RequestReportResource` | Datos de entrada para solicitar un reporte (tipo, formato y filtros). |
+| `ReportResponse` | Representación del reporte en las respuestas de la API (tipo, estado y enlace de descarga). |
+
+#### 4.2.8.3. Application Layer.
+
+La Application Layer orquesta los flujos del contexto. Recibe los comandos y consultas de la Interface Layer, coordina el aggregate `Report`, el repositorio, las estrategias de generación y los servicios externos, y delega las reglas de negocio en el dominio. Sus capabilities son **solicitar y generar reportes de forma asíncrona, calcular indicadores de la cadena de frío, buscar y descargar reportes, y avisar al usuario cuando su reporte está listo**.
+
+**Command Services**
+
+| Clase | Implementa | Descripción |
+| :--- | :--- | :--- |
+| `ReportCommandServiceImpl` | `ReportCommandService` | Conduce la generación asíncrona del reporte a través de su máquina de estados. Depende de `ReportRepository` y de `ReportGenerationStrategyRegistry`. |
+
+Manejadores de comandos:
+
+| Método | Flujo |
+| :--- | :--- |
+| `handle(cmd: RequestReportCommand): Optional<Report>` | 1) Crea el aggregate `Report` en estado `PENDING` y lo persiste. 2) Selecciona la estrategia correspondiente al tipo mediante `ReportGenerationStrategyRegistry`. 3) Marca el reporte como `GENERATING`. 4) La estrategia solicita los datos a los contextos de origen y `ColdChainMetricsCalculator` calcula los indicadores. 5) Al terminar, marca el reporte como `COMPLETED` con la referencia al archivo generado, o como `FAILED` si ocurre un error. 6) Registra `Reporte Generado` y solicita la notificación al usuario. |
+| `handle(cmd: MarkAsGeneratingCommand)` | Cambia el estado del reporte a `GENERATING`. |
+| `handle(cmd: MarkAsCompletedCommand)` | Cambia el estado a `COMPLETED` y guarda la referencia al archivo generado. |
+| `handle(cmd: MarkAsFailedCommand)` | Cambia el estado a `FAILED`. |
+
+**Query Services**
+
+| Clase | Implementa | Descripción |
+| :--- | :--- | :--- |
+| `ReportQueryServiceImpl` | `ReportQueryService` | Resuelve las consultas de reportes usando `ReportRepository`. |
+
+Manejadores de consultas:
+
+| Método | Descripción |
+| :--- | :--- |
+| `handle(q: GetReportByIdQuery): Optional<Report>` | Devuelve el reporte que corresponde al identificador. |
+| `handle(q: SearchReportsByFiltersQuery)` | Busca reportes por nombre, tipo o estado. |
+| `handle(q: GetRecentReportsQuery)` | Devuelve los reportes generados más recientemente. |
+
+**Estrategias de generación**
+
+| Tipo de reporte | Contexto de origen de los datos | Indicadores que calcula |
+| :--- | :--- | :--- |
+| `MaintenanceCompliance` | Service Request Management | Cumplimiento del mantenimiento programado. |
+| `EquipmentUptime` | Monitoring and Alerting | Porcentaje de tiempo de actividad de los equipos. |
+| `TechnicianPerformance` | Service Request Management | Tiempo medio de reparación (MTTR) y calificación promedio de los técnicos. |
+| `TemperatureExcursion` | Monitoring and Alerting | Temperatura cinética media, grados-minuto de excursión y desviación estándar de la temperatura. |
+
+**Outbound Services (ACL)**
+
+| Clase | Contexto destino | Descripción |
+| :--- | :--- | :--- |
+| `ServiceRequestExternalService` | Service Request Management | ACL que lee solicitudes, intervenciones y evaluaciones, que alimentan los reportes de cumplimiento y de desempeño de técnicos. |
+| `MonitoringExternalService` | Monitoring and Alerting | ACL que lee el historial de telemetría y los registros de alertas, que alimentan los reportes de temperatura y de tiempo de actividad. |
+| `NotificationExternalService` | Notification Management | ACL que anuncia que el reporte está listo para el usuario que lo solicitó. |
+
+**Flujo de integración**
+
+| Flujo | Descripción |
+| :--- | :--- |
+| Generar reporte de cumplimiento | El usuario solicita un reporte. El contexto lo registra, elige la estrategia según el tipo, lee los datos de los contextos de origen, calcula los indicadores y guarda el resultado. Al finalizar, notifica al usuario. Corresponde al Escenario 04 del Domain Message Flow. |
+
+#### 4.2.8.4. Infrastructure Layer.
+
+La Infrastructure Layer contiene las clases que acceden a la base de datos y a los demás contextos. Implementa la abstracción de repositorio definida en el dominio, de modo que el modelo no dependa de una tecnología concreta.
+
+**Persistencia (Repositories)**
+
+| Clase | Implementa | Descripción |
+| :--- | :--- | :--- |
+| `SpringDataJpaReportRepository` | `ReportRepository` | Implementación con Spring Data JPA del repositorio del aggregate `Report`. Opera sobre el esquema `reporting` de la instancia **PostgreSQL v18** (*Platform Database*), que mantiene un esquema por bounded context. |
+
+Responsabilidades del repositorio:
+
+- Guardar y actualizar reportes, incluido su estado y la referencia al archivo generado.
+- Consultar reportes por identificador.
+- Buscar reportes por nombre, tipo y estado.
+- Listar los reportes más recientes.
+
+**Adaptadores hacia otros contextos**
+
+| Clase | Descripción |
+| :--- | :--- |
+| Adaptador de `ServiceRequestExternalService` | Comunicación con Service Request Management para leer solicitudes, intervenciones y evaluaciones. |
+| Adaptador de `MonitoringExternalService` | Comunicación con Monitoring and Alerting para leer el historial de telemetría y las alertas. |
+| Adaptador de `NotificationExternalService` | Comunicación con Notification Management para solicitar el aviso de reporte listo. |
+
+**Resumen de dependencias externas**
+
+| Recurso | Tipo | Uso en Reporting and Analytics |
+| :--- | :--- | :--- |
+| PostgreSQL v18 (esquema `reporting`) | Base de datos relacional | Persistencia de los reportes. |
+| Service Request Management | Bounded context interno (Upstream) | Solicitudes, intervenciones y evaluaciones. |
+| Monitoring and Alerting | Bounded context interno (Upstream) | Historial de telemetría y alertas. |
+| Notification Management | Bounded context interno | Aviso de reporte listo. |
+
+#### 4.2.8.5. Bounded Context Software Architecture Component Level Diagrams.
+
+En el siguiente diagrama de componentes mostramos cómo organizamos el contexto Reporting and Analytics. Se observan el Report Controller que atiende la solicitud, búsqueda y descarga de reportes, los servicios de comandos y consultas, el aggregate `Report` con su repositorio, la estrategia de generación seleccionada según el tipo de reporte y el calculador de indicadores de la cadena de frío. También se muestran las capas anticorrupción hacia Service Request, Monitoring y Notification, y el esquema `reporting` de la base de datos.
 
 ![IceTrack Bounded Context Component Level Diagram - Reporting and Analytics](assets/chapter04/c4/component/reportingComponent.png)
 
 #### 4.2.8.6. Bounded Context Software Architecture Code Level Diagrams.
+
+En esta sección presentamos los diagramas de nivel de código del bounded context Reporting and Analytics: el diagrama de clases de la capa de dominio y el diseño de la base de datos del esquema `reporting`.
+
 ##### 4.2.8.6.1. Bounded Context Domain Layer Class Diagrams.
+
+El siguiente diagrama de clases representa la estructura del contexto organizada por capas. En el dominio se encuentra el aggregate `Report` y las interfaces de los servicios de comandos y consultas. En la capa de aplicación se ubican sus implementaciones junto con el registro de estrategias de generación, en la capa de interfaces el controlador y los recursos de solicitud y respuesta, y en infraestructura la implementación JPA del repositorio.
 
 ![IceTrack Bounded Context Domain Layer Class Diagram - Reporting and Analytics](assets/chapter04/diagrams/class/reportingDiagramClass.png)
 
-##### 4.2.8.6.2. Bounded Context Database Design Diagram. 
+##### 4.2.8.6.2. Bounded Context Database Design Diagram.
+
+El siguiente diagrama presenta el diseño de la base de datos del esquema `reporting`, donde persistimos los reportes solicitados por los usuarios junto con su tipo, su estado de generación y la referencia al archivo resultante.
 
 ![IceTrack Bounded Context Database Design Diagram - Reporting and Analytics](assets/chapter04/diagrams/database/reportingDiagramDatabase.png)
-
----
 
 # Conclusiones
 
 ## Conclusiones y Recomendaciones
 
-* La implementación de una suite de pruebas integral, que abarca pruebas unitarias (xUnit, MSTest), pruebas de integración (Postman, Swagger), pruebas BDD (Cucumber) y pruebas de sistema (Selenium), permitió validar tanto la lógica de negocio del backend en C# como el comportamiento de la interfaz en Vue.js. Esto asegura que la plataforma IceTrack funcione de manera estable y cumpla con los requisitos del usuario final.
+**Conclusiones**
 
-* La adopción de herramientas de análisis estático de código, como SonarQube Cloud para el backend y ESLint para el frontend, resultó fundamental para detectar vulnerabilidades de forma temprana, controlar la complejidad ciclomática y mantener estándares de codificación Microsoft y Vue.js. Esto eleva significativamente la mantenibilidad y seguridad del software.
+-  En los capítulos I y II confirmamos que los negocios con cadena de frío en Lima operan con mantenimiento reactivo y datos aislados en controladores. Esto genera pérdidas de inventario, sobreconsumo eléctrico y fallas inesperadas. Las entrevistas a heladerías y a técnicos, junto con los User Personas, el User Task Matrix y los Journey Maps, nos mostraron que ambos segmentos comparten la necesidad de controlar la temperatura y prevenir fallas.
 
-* Las entrevistas de validación y la evaluación de heurísticas UX demostraron que IceTrack posee una arquitectura de información sólida y un diseño limpio que ayuda a los técnicos a no sobrecargarse cognitivamente.
+- En el capítulo III convertimos las necesidades en épicas, historias de usuario y historias técnicas con criterios de aceptación en Gherkin. También definimos requisitos no funcionales concretos, como una latencia menor a 3 segundos en el dashboard, almacenamiento en búfer en el ESP32 ante cortes de red y comunicaciones cifradas. 
 
-* El monitoreo continuo mediante Jira y la trazabilidad de repositorios en GitHub facilitaron enormemente la asignación de roles, la gestión de incidencias y la rápida corrección de "bugs" detectados durante la ejecución de pruebas automatizadas, fomentando un entorno de trabajo ágil y colaborativo.
+- En el capítulo IV dividimos la solución en ocho bounded contexts, con Monitoring and Alerting como Core Domain y Service Request Management como segundo núcleo operativo. Definimos sus relaciones con Context Mapping y protegimos la integración entre contextos con capas anticorrupción. Documentamos la arquitectura con los diagramas C4 y detallamos cada contexto en sus capas de dominio, interfaz, aplicación e infraestructura, con sus diagramas de componentes, de clases y de base de datos. Esta separación permite que cada integrante del equipo trabaje un contexto de forma independiente y que el sistema evolucione sin afectar a los demás.
 
-* Para asegurar la calidad sostenida a lo largo del tiempo, se recomienda incrementar y mantener la cobertura de pruebas unitarias por encima del umbral del 80%. Además, se sugiere integrar las pruebas automatizadas de interfaz (Selenium) de forma directa en el pipeline de GitHub Actions para bloquear automáticamente un *Pull Request* si se rompe la interfaz visual.
+**Recomendación**
 
+- Recomendamos construir primero un flujo completo y mínimo del Core Domain, que va desde el envío de la telemetría por el ESP32 hasta la generación de una alerta y su visualización en el dashboard, e implementarlo con las historias de mayor prioridad del backlog. Una vez funcionando, conviene validarlo con una prueba piloto en una o dos heladerías de Lima antes de desarrollar los contextos de soporte, como Reporting and Analytics. Esto permitirá confirmar con usuarios reales las hipótesis sobre alertas y umbrales, y ajustar las reglas de evaluación con datos reales de operación. Así reducimos el riesgo de invertir esfuerzo en funciones que los usuarios no necesiten.
 
 # Bibliografía
 
@@ -1614,21 +3512,6 @@ En el Bounded Context de IAM se manejan todas las funcionalidades relacionadas c
 - **URL del repositorio del Backend:** 
   https://github.com/1ASI0730-2520-7452-G1-FrostShield/IceTrack-Platform
   <br>
-- **URL del Landing Page desplegado:** 
-  https://1asi0730-2520-7452-g1-frostshield.github.io/IceTrack---Landing-Page/
-  <br>
-- **URL del Frontend desplegado:** 
-  https://ice-track-frontend.vercel.app/
-  <br>
-- **URL del Backend desplegado:** 
-  https://icetrack-platform.onrender.com
-  <br>
-- **Video About-The-Team:** 
-  - YouTube: https://www.youtube.com/watch?v=Au_UI13KXkM
-  <br>
-- **Video About-The-Product:**
-  - YouTube: https://youtu.be/hKL4tEhWjGE
-
 
 - **Enlace del Lucidchart:**
 https://lucid.app/lucidchart/817cb83d-3d5c-4aca-9dd8-25223ee29a7f/edit?viewport_loc=-1747%2C-10860%2C36858%2C19690%2C0_0&invitationId=inv_b7e0210c-55d8-452c-a5f7-617ffe06cfaa
