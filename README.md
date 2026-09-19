@@ -39,11 +39,12 @@
 
 <div align="center">
  
-| Versión | Fecha      | Autor             | Descripción de modificación                          |
-| :-----: | :--------: | :---------------: | :----------------------------------------------------- |
-| 1.1     | 15/04/2026 | Jeremy Quijada    | Desarrollo del Capitulo I Enfocado en la solución IOT |
-| 1.1     | 11/09/2026 | Walter Fajardo    | Desarrollo de las partes 2.3, 2.3.1, 2.3.2, 2.3.3      |
-|1.2|14/09/2026 | Piero Tenorio | Primera Versión del User Flow Diagram y el Bounded Context Canvas|
+| Versión | Fecha      | Autor             | Descripción de modificación                                      |
+| :-----: | :--------: | :---------------: | :-----------------------------------------------------           |
+| 1.1     | 15/04/2026 | Jeremy Quijada    | Desarrollo del Capitulo I Enfocado en la solución IOT            |
+| 1.1     | 11/09/2026 | Walter Fajardo    | Desarrollo de las partes 2.3, 2.3.1, 2.3.2, 2.3.3                |
+| 1.2     | 14/09/2026 | Piero Tenorio     | Primera Versión del User Flow Diagram y el Bounded Context Canvas|
+| 1.3     | 19/09/2026 | Piero Tenorio     | Versión Actualizada del Bounded Context Canvas y User Flow       |
 
 </div>
 
@@ -250,8 +251,8 @@ En el siguiente cuadro se describe las acciones realizadas y enunciados de concl
 
 | Criterio específico | Acciones realizadas | Conclusiones |
 | :------------------ | :------------------ | :----------- |
-| Trabaja en equipo para proporcionar liderazgo en forma conjunta | - |- |
-| Crea un entorno colaborativo e inclusivo, establece metas, planifica tareas y cumple objetivos. | - | -|
+| Trabaja en equipo para proporcionar liderazgo en forma conjunta | **Piero Francesco Tenorio Medina** <br> **AV1**: Dentro de esta entrega se desarrolló la refactorización del curso en términos de la solución implementada. Se informó a cada integrante sobre posibles mejoras a los diagramas como tambien de los servicios que se implementarán dentro del proyecto. |- |
+| Crea un entorno colaborativo e inclusivo, establece metas, planifica tareas y cumple objetivos. | **Piero Francesco Tenorio Medina** <br> **AV1**: Dentro de esta entrega se estableció metas para algunos de los integrantes del grupo que se vean implicados en ciertos puntos del trabajo en los que me veía implicado.  | -|
 
 # Capitulo 1: Introducción
 
@@ -1296,14 +1297,14 @@ Con esto, nos llevó a crear los siguientes Bounded Context:
 
 | Bounded Context | Descripción | Eventos Clave |
 | :--- | :--- | :--- |
-| IAM | Contexto donde se maneja la autenticación de los usuarios (dueños de negocio y proveedores de mantenimiento), el registro de cuentas y la validación de credenciales mediante JWT. | Usuario Registrado, Sesión Iniciada |
-| Assets Management | Contexto donde se administran las sedes (Sites) de un dueño de negocio, permitiendo un control centralizado de las ubicaciones físicas donde se instalan los equipos. | Sitio Creado, Sitio Actualizado |
-| Monitoring | Contexto donde se gestiona el registro y estado administrativo de los equipos de refrigeración (modelo, estado operativo, conectividad) y el intervalo de recordatorio de mantenimiento preventivo. | Equipo Creado, Estado de Equipo Actualizado |
-| Service Requests | Contexto donde se gestiona el ciclo de vida completo de una solicitud de mantenimiento: creación, aceptación, asignación de técnico, finalización y registro de intervenciones en campo. | Solicitud Creada, Solicitud Completada |
-| Technicians | Contexto donde se administra el registro de técnicos pertenecientes a una empresa proveedora, incluyendo su especialidad y datos de contacto. | Técnico Creado, Técnico Actualizado |
-| Feedback | Contexto donde el cliente evalúa el servicio técnico recibido, calificando comunicación, eficiencia y profesionalidad del técnico. | Reseña Creada |
-| Notifications | Contexto donde se generan y gestionan notificaciones automáticas de mantenimiento vencido, calculadas a partir del intervalo de recordatorio del equipo. | Notificación Generada, Notificación Descartada |
-| Dashboard | Contexto donde cada usuario personaliza la disposición y visibilidad de las tarjetas (widgets) de su panel de control. | Configuración de Dashboard Creada, Tarjeta Actualizada |
+| IAM | Contexto donde se maneja la autenticación de los usuarios (dueños de negocio, proveedores de mantenimiento y técnicos), el registro de cuentas y la validación de credenciales mediante JWT. | Usuario Registrado, Sesión Iniciada |
+| Profiles and Preferences Management | Contexto donde se administran los datos personales y profesionales de dueños y técnicos (nombre, contacto, especialidad), así como las preferencias de presentación de cada usuario: disposición y visibilidad de las tarjetas de su panel de control, rango de temperatura preferido e idioma de la interfaz. | Perfil Creado, Perfil Actualizado, Configuración de Dashboard Actualizada |
+| Asset Management | Contexto donde se administran las sedes (Sites) de un dueño de negocio y el catálogo de equipos de refrigeración instalados en ellas, incluyendo el umbral de temperatura de cada equipo y su intervalo de mantenimiento preventivo. | Sitio Creado, Equipo Registrado, Umbral de Temperatura Actualizado |
+| Monitoring and Alerting | Contexto núcleo del negocio. Ingiere la telemetría agregada enviada por los dispositivos IoT, mantiene el histórico de lecturas de cada equipo y gestiona el ciclo de vida completo de una alerta —térmica o de conectividad— desde que se detecta hasta que se resuelve. | Lectura Registrada, Alerta Generada, Alerta Resuelta |
+| Device Management | Contexto donde se administra el ciclo de vida del hardware físico (placas IoT): registro, emparejamiento con un equipo, rotación de credenciales de acceso y baja del dispositivo. | Dispositivo Registrado, Dispositivo Emparejado, Dispositivo Dado de Baja |
+| Server Request and Feedback Management | Contexto donde se gestiona el ciclo de vida completo de una solicitud de mantenimiento —creación, aceptación, asignación de técnico, registro de intervenciones en campo y finalización—, así como la calificación que el cliente otorga al servicio recibido una vez completado. | Solicitud Creada, Solicitud Completada, Reseña Creada |
+| Notifications | Contexto donde se generan y gestionan las notificaciones dirigidas a cada usuario, ya sea por mantenimiento vencido, alertas de monitoreo o actualizaciones de una solicitud de servicio. | Notificación Generada, Notificación Leída, Notificación Descartada |
+| Reporting & Análisis | Contexto donde se calculan indicadores de negocio a partir de la información de los demás contextos: cumplimiento de mantenimiento, tiempo de actividad de los equipos y desempeño de los técnicos. | Reporte Generado |
 
 #### 4.1.1.2. Domain Message Flows Modeling
 
@@ -1311,7 +1312,7 @@ El Domain Message Flow Modeling es una técnica que nos permite representar cóm
 
 **Escenario 01: Registro y la Creación de Dashboard**
 
-![Domain Message Flow - Escenario 1](assets/chapter04/userFlow/flow1.png)
+![Domain Message Flow - Escenario 1](assets/chapter04/userFlow/flow.png)
 
 **Escenario 02: Crear/Registrar Equipo en el Sitio**
 ![Domain Message Flow - Escenario 2](assets/chapter04/userFlow/flow2.png)
@@ -1319,14 +1320,11 @@ El Domain Message Flow Modeling es una técnica que nos permite representar cóm
 **Escenario 03: Crear Solicitud de Servicio referenciando un Equipo**
 ![Domain Message Flow - Escenario 3](assets/chapter04/userFlow/flow3.png)
 
-**Escenario 04: Asignar Técnico a una Solicitud**
+**Escenario 04: Generar Reporte de cumplimiento**
 ![Domain Message Flow - Escenario 4](assets/chapter04/userFlow/flow4.png)
 
-**Escenario 05: Consultar notificaciones activas**
+**Escenario 05: Emparejar dispositivo IoT a un Equipo**
 ![Domain Message Flow - Escenario 5](assets/chapter04/userFlow/flow5.png)
-
-**Escenario 06: Dejar una reseña tras completar el servicio**
-![Domain Message Flow - Escenario 6](assets/chapter04/userFlow/flow6.png)
 
 #### 4.1.1.3. Bounded Context Canvases
 
@@ -1336,32 +1334,37 @@ En esta sección se representan los Bounded Context correspondientes a los conte
 
 
 #### - IAM (Identity and Access Management)
-![Bounded Context Canvas - IAM](assets/chapter04/canvas/canvas1.png)
+![Bounded Context Canvas - IAM](assets/chapter04/canvas/canva1.png)
 
 
+<<<<<<< HEAD
 #### - Assets Management 
 ![Bounded Context Canvas - Assets Management](assets/chapter04/canvas/canvas2.png)
+=======
+#### - Profiles and Preferences Management 
+![Bounded Context Canvas - Profiles and Preferences Management](assets/chapter04/canvas/canva2.png)
+>>>>>>> e4807a1229d096b4de722d8309d6ce596ab6e028
 
 
-#### - Monitoring
-![Bounded Context Canvas - Monitoring](assets/chapter04/canvas/canvas3.png)
+#### - Assets Management
+![Bounded Context Canvas - Assets Management](assets/chapter04/canvas/canva3.png)
 
 
-#### - Services Request 
-![Bounded Context Canvas - Services Request](assets/chapter04/canvas/canvas4.png)
+#### - Devices Management
+![Bounded Context Canvas - Devices Management](assets/chapter04/canvas/canva4.png)
 
 
 #### - Technicians Management
-![Bounded Context Canvas - Technicians](assets/chapter04/canvas/canvas5.png)
+![Bounded Context Canvas - Technicians Management](assets/chapter04/canvas/canva5.png)
 
-#### - Feedback
-![Bounded Context Canvas - Feedback](assets/chapter04/canvas/canvas6.png)
+#### - Notification Management
+![Bounded Context Canvas - Notification Management](assets/chapter04/canvas/canva6.png)
 
-#### - Notifications
-![Bounded Context Canvas - Notifications](assets/chapter04/canvas/canvas7.png)
+#### - Reporting and Analysis Management
+![Bounded Context Canvas - Reporting and Analysis Management](assets/chapter04/canvas/canva7.png)
 
-#### - Dashboard
-![Bounded Context Canvas - Dashboard](assets/chapter04/canvas/canvas8.png)
+#### - Monitoring and Alerting Management
+![Bounded Context Canvas - Monitoring and Alerting Management](assets/chapter04/canvas/canva8.png)
 
 ### 4.1.2. Context Mapping
 
@@ -2102,7 +2105,7 @@ URL: https://www.figma.com/proto/ssl7G9KRip9XbC0tBXqUnc/Untitled?node-id=1-2&p=f
 
 ## 4.7. Software Object-Oriented Design
 ### 4.7.1. Class Diagrams
-<img width="2669" height="1621" alt="Diagrama de Clases" src="https://github.com/user-attachments/assets/96c0cbb8-7cf3-4527-98c7-6384ad68307e" />
+<img width="2669" height="1621" alt="Diagrama de Clases" src="assets/chapter04/diagrams/classDiagram.png" />
 <figcaption style="font-size: 0.9em; color: #555;">
     <strong>Figura 1:</strong> Class Diagram.
 </figcaption>
@@ -2143,7 +2146,7 @@ La entidad **WorkOrder** representa las órdenes de trabajo generadas para atend
 
 ## 4.8. Database Design
 ### 4.8.1. Relational Non-Relational Database Diagram
-<img width="1800" height="850" alt="base de datos diseño" src="assets/chapter04/Database diagram.png" />
+<img width="1800" height="850" alt="base de datos diseño" src="assets/chapter04/diagrams/dataBase.png" />
 <figcaption style="font-size: 0.9em; color: #555;">
     <strong>Figura 1:</strong> Database Diagram.
 </figcaption>
