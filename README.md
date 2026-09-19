@@ -1330,17 +1330,17 @@ El Domain Message Flow Modeling es una técnica que nos permite representar cóm
 
 #### 4.1.1.3. Bounded Context Canvases
 
-El Bounded Context Canvas es una herramienta que se aplica dentro del marco del DDD (Domain-Drive-Design) que nos permite representar de manera clara los límites, las responsabilidades e interacciones de cada contexto dentro de un sistemas que pueda llegar a ser complejo.
+El Bounded Context Canvas es una herramienta que se aplica dentro del marco del DDD (Domain-Driven Design) que nos permite representar de manera clara los límites, las responsabilidades e interacciones de cada contexto dentro de un sistema que pueda llegar a ser complejo.
 
-En esta sección se representan los Bounded Context correspondientes a los contextos indetificados dentro de la aplicación a trabajar:
+En esta sección se representan los Bounded Context correspondientes a los contextos identificados dentro de la aplicación a trabajar:
 
 
 #### - IAM (Identity and Access Management)
 ![Bounded Context Canvas - IAM](assets/chapter04/canvas/canvas1.png)
 
 
-#### - Assests Management 
-![Bounded Context Canvas - Assests Managmente](assets/chapter04/canvas/canvas2.png)
+#### - Assets Management 
+![Bounded Context Canvas - Assets Management](assets/chapter04/canvas/canvas2.png)
 
 
 #### - Monitoring
@@ -1364,96 +1364,227 @@ En esta sección se representan los Bounded Context correspondientes a los conte
 ![Bounded Context Canvas - Dashboard](assets/chapter04/canvas/canvas8.png)
 
 ### 4.1.2. Context Mapping
+
+El Context Mapping es la técnica de DDD estratégico que permite visualizar las relaciones e integraciones entre los Bounded Context identificados, así como con sistemas externos. Define quién es Upstream (U: proveedor del modelo/datos) y quién es Downstream (D: consumidor), y qué patrón de integración se aplica: Conformist (CF), Anticorruption Layer (ACL), Open Host Service (OHS) y Published Language (PL).
+
+![Context Map de IceTrack - Relaciones entre Bounded Context](assets/chapter04/diagrams/contextMapping/ContextMapping.png)
+
+En conjunto, el mapa muestra una arquitectura fuertemente centrada en **Monitoring como Core Domain**, con **Service como segundo núcleo operativo**, y con **Notification y Reporting como contextos de soporte o consumo** que dependen de casi todos los demás. **IAM y Google** actúan como contextos genéricos de soporte a la entrada del sistema, mientras **Asset y Device** forman la base física IoT. La elección homogénea de Conformist con ACL es coherente para un equipo único y una plataforma centralizada: simplifica la integración al imponer el modelo Upstream, pero delega en cada Downstream la responsabilidad de traducir y protegerse mediante ACL, lo que facilita la evolución independiente de cada Bounded Context.
+
 ### 4.1.3. Software Architecture
+
+En esta sección se presentan los diagramas de arquitectura de software que representan la estructura y organización del sistema, incluyendo los componentes principales, sus relaciones y la forma en que interactúan entre sí.
+
 #### 4.1.3.1. Software Architecture System Landscape Diagram
+
+El System Landscape Diagram presenta una vista de alcance del sistema IceTrack y su entorno, delimitando lo que pertenece a la solución y lo que es externo a ella. 
+
+![IceTrack System Landscape Diagram](assets/chapter04/diagrams/systemLandscape/IceTrackSystemLandscape.png)
+
+En conjunto, el landscape justifica el alcance del MVP: adquisición propia con hardware ESP32 y DS18B20/DHT22, procesamiento Edge con resiliencia offline, plataforma Cloud para telemetría, alertas y servicios, Landing pública para adquisición y delegación de identidad a Google, dejando la integración con controladores legacy como roadmap.
+
 #### 4.1.3.2. Software Architecture Context Level Diagrams
+
+El Context Level Diagram muestra la relación entre el sistema IceTrack y los actores externos que interactúan con él, incluyendo usuarios, sistemas de terceros y dispositivos IoT.
+
+![IceTrack Context Level Diagram](assets/chapter04/c4/context/IceTrackSystemContext.png)
+
 #### 4.1.3.3. Software Architecture Container Level Diagrams
 
-## 4.2. Tactical-Level Domain-Driven Design 
-### 4.2.1. Bounded Context: IAM
-#### 4.2.1.1. Domain Layer. 
-#### 4.2.1.2. Interface Layer. 
-#### 4.2.1.3. Application Layer. 
-#### 4.2.1.4. Infrastructure Layer. 
-#### 4.2.1.5. Bounded Context Software Architecture Component Level Diagrams. 
-#### 4.2.1.6. Bounded Context Software Architecture Code Level Diagrams. 
-##### 4.2.1.6.1. Bounded Context Domain Layer Class Diagrams. 
-##### 4.2.1.6.2. Bounded Context Database Design Diagram. 
+El Container Level Diagram muestra los contenedores de software que componen el sistema IceTrack, incluyendo aplicaciones web, servicios backend, bases de datos y otros componentes relevantes.
 
-### 4.2.2. Bounded Context: Profile Management
-#### 4.2.2.1. Domain Layer. 
-#### 4.2.2.2. Interface Layer. 
-#### 4.2.2.3. Application Layer. 
-#### 4.2.2.4. Infrastructure Layer. 
-#### 4.2.2.5. Bounded Context Software Architecture Component Level Diagrams. 
-#### 4.2.2.6. Bounded Context Software Architecture Code Level Diagrams. 
-##### 4.2.2.6.1. Bounded Context Domain Layer Class Diagrams. 
-##### 4.2.2.6.2. Bounded Context Database Design Diagram. 
+![IceTrack Container Level Diagram](assets/chapter04/c4/container/IceTrackContainer.png)
 
+## 4.2. Tactical-Level Domain-Driven Design
 
-### 4.2.3. Bounded Context: Notifications Management
-#### 4.2.3.1. Domain Layer. 
-#### 4.2.3.2. Interface Layer. 
-#### 4.2.3.3. Application Layer. 
-#### 4.2.3.4. Infrastructure Layer. 
-#### 4.2.3.5. Bounded Context Software Architecture Component Level Diagrams. 
-#### 4.2.3.6. Bounded Context Software Architecture Code Level Diagrams. 
-##### 4.2.3.6.1. Bounded Context Domain Layer Class Diagrams. 
-##### 4.2.3.6.2. Bounded Context Database Design Diagram. 
+En esta sección se aplican las técnicas de DDD a nivel táctico para diseñar la arquitectura de software de cada uno de los Bounded Context identificados en la sección anterior. Esto incluye la definición de las capas de cada contexto, los componentes que lo conforman y cómo interactúan entre sí. También se incluyen diagramas de componentes y diagramas de código para cada contexto, lo que permite una mayor claridad en la implementación de cada uno de los contextos y su integración con el resto del sistema.
 
+Como estándar de ingeniería, todos los Bounded Context comparten el mismo estilo arquitectónico, visible en los diagramas de componentes C4 (`assets/chapter04/c4/component/*.png`) y de código (`assets/chapter04/diagrams/code/*.png`): API Gateway como único punto de entrada (Spring Boot v4.1 / Java v21, valida JWT de usuario y API Key de Edge), capa Interface con REST Controllers + Facade de entrada (`inboundservices`), capa Application con CQRS (Command Service / Query Service + Commands y Queries como Records), capa Domain con Agregados + Repositorios (interfaces Spring Data JPA) + Domain Services, capa Infrastructure con una única Platform Database PostgreSQL v18 multi-schema (un schema por BC: `iam, profiles, assets, devices, monitoring, services, notifications, reporting`) y ACLs de salida (`outboundservices`) hacia otros BCs o Google. Los diagramas de clases (`assets/chapter04/diagrams/class/*.png`) fijan los Agregados, Value Objects y Enums de cada BC.
 
-### 4.2.4. Bounded Context: Dashboard Management
-#### 4.2.4.1. Domain Layer. 
-#### 4.2.4.2. Interface Layer. 
-#### 4.2.4.3. Application Layer. 
-#### 4.2.4.4. Infrastructure Layer. 
-#### 4.2.4.5. Bounded Context Software Architecture Component Level Diagrams. 
-#### 4.2.4.6. Bounded Context Software Architecture Code Level Diagrams. 
-##### 4.2.4.6.1. Bounded Context Domain Layer Class Diagrams. 
-##### 4.2.4.6.2. Bounded Context Database Design Diagram. 
+### 4.2.1. Bounded Context: Identity and Access Management
 
+En el Bounded Context de IAM se manejan todas las funcionalidades relacionadas con la gestión de identidades, autenticación y autorización de los usuarios dentro del sistema. Esto incluye el registro de usuarios, la asignación de roles y permisos, y la verificación de credenciales para el acceso a la aplicación. Es un contexto de soporte genérico, Upstream de Profiles.
 
-### 4.2.5. Bounded Context: Reporting & Analysis Management
-#### 4.2.5.1. Domain Layer. 
-#### 4.2.5.2. Interface Layer. 
-#### 4.2.5.3. Application Layer. 
-#### 4.2.5.4. Infrastructure Layer. 
-#### 4.2.5.5. Bounded Context Software Architecture Component Level Diagrams. 
-#### 4.2.5.6. Bounded Context Software Architecture Code Level Diagrams. 
-##### 4.2.5.6.1. Bounded Context Domain Layer Class Diagrams. 
-##### 4.2.5.6.2. Bounded Context Database Design Diagram. 
+#### 4.2.1.1. Domain Layer.
 
+Esta capa es el corazón del contexto de IAM. Contiene el Agregado Raíz `User` (`userId, username, password, role, provider, externalId` según `iamDiagramClass.png`), que encapsula la identidad del usuario con métodos `changePassword(), assignRole(), registerWithGoogle()`. Se usan Enums `Roles (OWNER_ROLE, TECHNICIAN_ROLE)` y `AuthProvider (LOCAL, GOOGLE)` en lugar de Value Objects complejos, garantizando roles cerrados y proveedor federado tipado. Define la interfaz `UserRepository` (dueña del schema `iam`).
+#### 4.2.1.2. Interface Layer.
+Actúa como puerta de entrada vía API REST a través del API Gateway. Incluye el `AuthenticationController` (sign-up, sign-in y refresh `US-01, US-02, TS-04`) y el `IAM Context Facade` (`inboundservices`) que expone `fetchUserIdByUsername` y lookup de cuenta/rol a otros BCs sin filtrar el agregado. Usa Resources (DTOs) `SignUpResource, SignInResource, UserResource, TokenResource` y Assemblers `UserAssembler, AuthenticationAssembler` para la transformación bidireccional dominio <-> externo, visible en `iamDiagramCode.png`.
+#### 4.2.1.3. Application Layer.
+Orquesta los casos de uso con CQRS. Command Services (`UserCommandServiceImpl`: `SignUpCommand, SignInCommand, RefreshTokenCommand, AssignRoleCommand`, emisión de JWT, evento `UserRegisteredEvent` + `UserRegisteredEventHandler` que dispara creación de perfil) y Query Services (`UserQueryServiceImpl`: `GetUserByIdQuery, GetUserByUsernameQuery`). No contiene reglas de negocio, solo coordina carga de agregados y delegación al dominio.
+#### 4.2.1.4. Infrastructure Layer.
+Provee implementaciones técnicas: `SpringDataJpaUserRepository` sobre PostgreSQL (`iam` schema, transacciones SQL), hashing de passwords, validación de JWT y `Google Identity External Service` (ACL que traduce claims OAuth 2.0 a identidad local) + `Profiles External Service` (ACL que solicita creación de perfil una vez que la cuenta existe).
+#### 4.2.1.5. Bounded Context Software Architecture Component Level Diagrams.
+El diagrama muestra el flujo `API Gateway -> AuthenticationController -> User Command/Query Service -> User Aggregate / User Repository -> Platform Database`, con salidas a Google y Profiles y entrada lateral desde `IAM Context Facade` para otros BCs. Confirma el patrón estándar C4 de todos los contextos. 
 
-### 4.2.6. Bounded Context: Server Request and Feedback Management
+![IceTrack Bounded Context Component Level Diagram - IAM](assets/chapter04/c4/component/iamComponent.png)
+
+#### 4.2.1.6. Bounded Context Software Architecture Code Level Diagrams.
+El diagrama de código (`iamDiagramCode.png`) detalla los paquetes `interfaces.rest (acl, controllers, assemblers, resources)`, `iam.domain.model (aggregates.User, repositories, services)`, `application.internal (queryservices, commandservices, eventhandlers)` e `infrastructure.persistence.jpa`. Muestra cómo el Controller no expone entidades internas sino Resources, y cómo la infraestructura implementa el repositorio de dominio.
+
+##### 4.2.1.6.1. Bounded Context Domain Layer Class Diagrams.
+Ver `iamDiagramClass.png`: clase `User` + enums `Roles` y `AuthProvider` descritos arriba. Es el modelo mínimo necesario para federar LOCAL + GOOGLE y tipar OWNER vs TECHNICIAN en todo el sistema.
+
+##### 4.2.1.6.2. Bounded Context Database Design Diagram.
+No existe diagrama por BC separado; el diseño es un único PostgreSQL multi-schema. IAM persiste en el schema `iam` (tabla `users`: id, username, password_hash, role, provider, external_id). Ver diagrama global en `assets/chapter04/Database diagram.png`.
+
+---
+
+### 4.2.2. Bounded Context: Profiles and Preferences Management
+Gestiona el perfil descriptivo/profesional de owners y técnicos, más las preferencias de dashboard e idioma. Es Downstream de IAM (requiere cuenta) y Upstream de Service, Notification y Device (provee datos de contacto, disponibilidad y locale vía Facade).
+#### 4.2.2.1. Domain Layer.
+Dos agregados (`profileDiagramClass.png`): `Profile` (raíz con `userProfileId, userId, fullname, email:Email, phone:Phone, address:Address`; VOs `Email, Phone, Address, UserId`) especializado en `OwnerProfile (ruc, registerEquipment())` y `TechnicianProfile (speciality, certificationNumber, isAvailableFor())` con Enum `Speciality (REFRIGERATION, ELECTRICAL, GENERAL)`; y `DashboardConfig` (`dashboardConfigId, userId, defaultSiteId:SiteId, defaultTemperatureRange, cards:List<DashboardCard>`) con `DashboardCard (cardType:CardType, order, isVisible, changeVisibility())` y Enum `CardType (MONITORED_EQUIPMENT, OPEN_ALERTS, ACTIVE_ORDERS, EQUIPMENT_STATUS)`. Domain Service `UserProfileFactory` (+ `Owner/TechnicianProfileFactory`) construye el subtipo según rol. Repositorios `ProfileRepository` + `DashboardRepository` (schema `profiles`).
+#### 4.2.2.2. Interface Layer.
+`ProfileController` (creación/actualización US-07, US-08) y `PreferencesController` (layout dashboard e idioma US-23, US-25), más `Profiles Context Facade` (`inboundservices`) que expone creación, contacto y disponibilidad de técnicos a Service/Notification sin filtrar el agregado.
+#### 4.2.2.3. Application Layer.
+CQRS doble: `Profile Command Service (CreateProfileCommand, UpdateProfileInfoCommand)` / `Profile Query Service (GetProfileByUserIdQuery, GetAvailableTechniciansBySpecialityQuery)` y `Dashboard Command Service (AddCardCommand, RemoveCardCommand, ChangeVisibilityCommand, ChangeLocaleCommand)` / `Dashboard Query Service (GetDashboardConfigByUserQuery)`.
+#### 4.2.2.4. Infrastructure Layer.
+Persistencia JPA en schema `profiles`; consume evento de cuenta creada desde IAM como disparador.
+#### 4.2.2.5. Bounded Context Software Architecture Component Level Diagrams.
+Ver `profilesComponent.png`: `API Gateway -> Profile/Preferences Controllers -> Profile/Dashboard Command/Query Services -> Profile Aggregate / DashboardConfiguration Aggregate -> Platform Database`, con enlaces a IAM y Notification/Service. 
+
+![IceTrack Bounded Context Component Level Diagram - Profiles and Preferences Management](assets/chapter04/c4/component/profilesComponent.png)
+
+#### 4.2.2.6. Bounded Context Software Architecture Code Level Diagrams.
+Paquetes `interfaces.rest (ProfileController, PreferencesController, assemblers, resources)`, `domain.model (Profile, DashboardConfig, factories)`, `application.internal (command/query services)`, `infrastructure.persistence.jpa`. Ver `profileDiagramCode.png`.
+
+##### 4.2.2.6.1. Bounded Context Domain Layer Class Diagrams.
+Ver `profileDiagramClass.png` descrito en 4.2.2.1: jerarquía Profile Owner/Technician + DashboardConfig/cards.
+
+##### 4.2.2.6.2. Bounded Context Database Design Diagram.
+Sin diagrama por BC; schema `profiles` (tablas `profiles, dashboard_configs, dashboard_cards`). Ver diagrama global en `assets/chapter04/Database diagram.png`.
+
+---
+
+### 4.2.3. Bounded Context: Asset Management
+Administra sedes (Sites) y equipos de refrigeración con sus umbrales. Es base física del dominio: Upstream de Device y Monitoring (identidad, ownership y threshold vía Facade).
+#### 4.2.3.1. Domain Layer.
+Dos agregados (`assetDiagramClass.png`): `Site (siteId, ownerId:OwnerId, name, address, contactName, phone, equipmentCount; registerEquipment(), updateInfo())` y `Equipment` (raíz principal: `equipmentId, ownerId, equipmentCodeUUID, name, equipmentType, status, siteId, online, reminderIntervalDays, temperatureThreshold:TemperatureThreshold(min/maxCelsius), lastReadingAt, lastKnownTemperature; registerReading(), isOutRange(), changeStatus()`). Enums `EquipmentType (FREEZER, COLD_ROM, REFRIGERATOR)` y `StatusEquipment (ACTIVE, DESACTIVATE, MAINTENANCE, REPAIR)`. Repositorios `SiteRepository` + `EquipmentRepository` (schema `assets`).
+#### 4.2.3.2. Interface Layer.
+`SiteController` (registro/listado US-20) y `EquipmentController` (registro, update, threshold, listado US-03, US-11, US-18), más `Asset Management Context Facade` que expone identidad, ownership y threshold a Device/Monitoring.
+#### 4.2.3.3. Application Layer.
+`Site Command Service (RegisterSiteCommand, UpdateSiteInfoCommand)` / `Site Query Service (GetSitesByOwnerQuery, GetSiteByIdQuery)` y `Equipment Command Service (RegisterEquipmentCommand, UpdateEquipmentCommand, ChangeThresholdCommand, ChangeStatusCommand)` / `Equipment Query Service (GetEquipmentByIdQuery, GetEquipmentBySiteQuery, GetEquipmentByOwnerQuery)`.
+#### 4.2.3.4. Infrastructure Layer.
+JPA en schema `assets`; verifica ownership contra Profiles vía ACL de lectura.
+#### 4.2.3.5. Bounded Context Software Architecture Component Level Diagrams.
+Ver `assetComponent.png`: `API Gateway -> Site/Equipment Controllers -> Site/Equipment Command/Query Services -> Site/Equipment Aggregates -> Platform Database`, con consultas desde Monitoring (`Retrieve equipment and threshold`) y Device (`Verify equipment exists and belongs to owner`).
+#### 4.2.3.6. Bounded Context Software Architecture Code Level Diagrams.
+Ver `assetManagementDiagramCode.png` (misma estructura interfaces/domain/application/infrastructure por agregado Site y Equipment).
+##### 4.2.3.6.1. Bounded Context Domain Layer Class Diagrams.
+Ver `assetDiagramClass.png` descrito en 4.2.3.1.
+##### 4.2.3.6.2. Bounded Context Database Design Diagram.
+Sin diagrama por BC; schema `assets` (tablas `sites, equipments`). Ver global `assets/chapter04/Database diagram.png`.
+
+---
+
+### 4.2.4. Bounded Context: Device Management
+Gestiona el ciclo de vida del hardware de monitoreo (placa ESP32) y su pareo con equipos: credenciales API Key, estados y verificación para ingesta. Downstream de Asset, Upstream de Monitoring.
+#### 4.2.4.1. Domain Layer.
+Agregado `Device` (`deviceManagementDiagramClass.png`: `deviceId, equipmentId:EquipmentId, boardModel, firmwareVersion, apiKeyHash, status:DeviceStatus, lastRead; pairTo(), unpair(), recordRead(), changeApiKey()`), Enum `DeviceStatus (UNPAIRED, PAIRED, ONLINE, OFFLINE)` y VO `EquipmentId`. Repositorio `DeviceRepository` (schema `devices`).
+#### 4.2.4.2. Interface Layer.
+`DeviceController` (pareo/despareo y rotación de API Key US-03, US-26) + `Device Management Context Facade` que expone verificación de API Key y resolución device->equipment a Monitoring.
+#### 4.2.4.3. Application Layer.
+`Device Command Service (PairDeviceCommand, UnpairDeviceCommand, RotateApiKeyCommand, ChangeDeviceStatusCommand)` / `Device Query Service (GetDeviceByIdQuery, GetDevicesByApiKeyQuery, GetDevicesByEquipmentQuery)`.
+#### 4.2.4.4. Infrastructure Layer.
+JPA schema `devices`; ACL `Asset Management External Service` que verifica que el equipo existe y pertenece al owner antes del pareo.
+#### 4.2.4.5. Bounded Context Software Architecture Component Level Diagrams.
+Ver `deviceComponent.png`: `API Gateway -> Device Controller -> Device Command/Query Services -> Device Aggregate -> Platform Database`, con salida a Asset y entrada desde Monitoring (`Verify device API key and resolve paired equipment`).
+#### 4.2.4.6. Bounded Context Software Architecture Code Level Diagrams.
+Ver `deviceManagementDiagramCode.png`.
+##### 4.2.4.6.1. Bounded Context Domain Layer Class Diagrams.
+Ver `deviceManagementDiagramClass.png` descrito en 4.2.4.1.
+##### 4.2.4.6.2. Bounded Context Database Design Diagram.
+Sin diagrama por BC; schema `devices` (tabla `devices`). Ver global `assets/chapter04/Database diagram.png`.
+
+---
+
+### 4.2.5. Bounded Context: Monitoring and Alerting
+Core del dominio IoT: ingiere telemetría agregada del Edge, almacena historial de lecturas y gestiona el ciclo de vida de alertas térmicas y de desconexión. Upstream de Service, Notification y Reporting.
 #### 4.2.6.1. Domain Layer. 
 #### 4.2.6.2. Interface Layer. 
 #### 4.2.6.3. Application Layer. 
 #### 4.2.6.4. Infrastructure Layer. 
 #### 4.2.6.5. Bounded Context Software Architecture Component Level Diagrams. 
+
+![IceTrack Bounded Context Component Level Diagram - Monitoring and Alerting](assets/chapter04/c4/component/monitoringComponent.png)
+
 #### 4.2.6.6. Bounded Context Software Architecture Code Level Diagrams. 
-##### 4.2.6.6.1. Bounded Context Domain Layer Class Diagrams. 
+
+![IceTrack Bounded Context Code Level Diagram - Monitoring and Alerting](assets/chapter04/diagrams/code/monitoringDiagramCode.png)
+
+##### 4.2.6.6.1. Bounded Context Domain Layer Class Diagrams.
+
+![IceTrack Bounded Context Domain Layer Class Diagram - Monitoring and Alerting](assets/chapter04/diagrams/class/monitoringDiagramClass.png)
+
 ##### 4.2.6.6.2. Bounded Context Database Design Diagram. 
 
+![IceTrack Bounded Context Database Design Diagram - Monitoring and Alerting](assets/chapter04/diagrams/database/monitoringDiagramDatabase.png)
 
-### 4.2.7. Bounded Context: Asset and Monitoring Management
+---
+
+### 4.2.7. Bounded Context: Service Request Management
 #### 4.2.7.1. Domain Layer. 
 #### 4.2.7.2. Interface Layer. 
 #### 4.2.7.3. Application Layer. 
 #### 4.2.7.4. Infrastructure Layer. 
 #### 4.2.7.5. Bounded Context Software Architecture Component Level Diagrams. 
+
+![IceTrack Bounded Context Component Level Diagram - Service Request Management](assets/chapter04/c4/component/serviceComponent.png)
+
 #### 4.2.7.6. Bounded Context Software Architecture Code Level Diagrams. 
-##### 4.2.7.6.1. Bounded Context Domain Layer Class Diagrams. 
+
+![IceTrack Bounded Context Code Level Diagram - Service Request Management](assets/chapter04/diagrams/code/serviceDiagramCode.png)
+
+##### 4.2.7.6.1. Bounded Context Domain Layer Class Diagrams.
+
+![IceTrack Bounded Context Domain Layer Class Diagram - Service Request Management](assets/chapter04/diagrams/class/serviceDiagramClass.png)
+
 ##### 4.2.7.6.2. Bounded Context Database Design Diagram. 
 
-### 4.2.8. Bounded Context: Device Management
+![IceTrack Bounded Context Database Design Diagram - Service Request Management](assets/chapter04/diagrams/database/serviceDiagramDatabase.png)
+
+---
+
+### 4.2.8. Bounded Context: Notification Management
 #### 4.2.8.1. Domain Layer. 
 #### 4.2.8.2. Interface Layer. 
 #### 4.2.8.3. Application Layer. 
 #### 4.2.8.4. Infrastructure Layer. 
 #### 4.2.8.5. Bounded Context Software Architecture Component Level Diagrams. 
+
+![IceTrack Bounded Context Component Level Diagram - Notification Management](assets/chapter04/c4/component/notificationComponent.png)
+
 #### 4.2.8.6. Bounded Context Software Architecture Code Level Diagrams. 
-##### 4.2.8.6.1. Bounded Context Domain Layer Class Diagrams. 
+
+![IceTrack Bounded Context Code Level Diagram - Notification Management](assets/chapter04/diagrams/code/notificationManagementDiagramCode.png)
+
+##### 4.2.8.6.1. Bounded Context Domain Layer Class Diagrams.
+
+![IceTrack Bounded Context Domain Layer Class Diagram - Notification Management](assets/chapter04/diagrams/class/notificationDiagramClass.png)
+
 ##### 4.2.8.6.2. Bounded Context Database Design Diagram. 
+
+![IceTrack Bounded Context Database Design Diagram - Notification Management](assets/chapter04/diagrams/database/notificationDiagramDatabase.png)
+
+---
+
+### 4.2.9. Bounded Context: Reporting and Analytics
+#### 4.2.9.1. Domain Layer. 
+#### 4.2.9.2. Interface Layer. 
+#### 4.2.9.3. Application Layer. 
+#### 4.2.9.4. Infrastructure Layer. 
+#### 4.2.9.5. Bounded Context Software Architecture Component Level Diagrams. 
+
+![IceTrack Bounded Context Component Level Diagram - Reporting and Analytics](assets/chapter04/c4/component/reportingComponent.png)
+
+#### 4.2.9.6. Bounded Context Software Architecture Code Level Diagrams. 
+
+![IceTrack Bounded Context Code Level Diagram - Reporting and Analytics](assets/chapter04/diagrams/code/reportingDiagramCode.png)
+
+##### 4.2.9.6.1. Bounded Context Domain Layer Class Diagrams. 
+##### 4.2.9.6.2. Bounded Context Database Design Diagram. 
+
+![IceTrack Bounded Context Database Design Diagram - Reporting and Analytics](assets/chapter04/diagrams/database/reportingDiagramDatabase.png)
 
 # Capítulo V: Product Design
 
