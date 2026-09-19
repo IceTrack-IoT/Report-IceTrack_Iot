@@ -19,7 +19,7 @@
  
 | <div style="width:500px">Alumno</div> | <div style="width:200px">Código</div> |
 | :-----------------------------------: | :-----------------------------------: |
-|  Gordon Salas, Gabriel Fernando       |  U20221E229                           |
+|  Arostegui Alzamora, Cesar Augusto    |  U202114548                           |
 |  Cuentas Peña, Joaquin Alberto        |  U20201f788                           |
 |  Guillen Galindo, Julio Adolfo        |  U20241a352                           |
 |  Jiménez Guerra, Gianmarco Fabian     |  U202123843                           |
@@ -309,12 +309,12 @@ Las funcionalidades clave de la plataforma incluyen el monitoreo en tiempo real 
 
 ---
 
-| **Integrante**            | **-**                                                  |
+| **Integrante**            | **Cesar Augusto Arostegui Alzamora**                                  |
 | :------------------------ | :----------------------------------------------------------------------------------- |
-| **Código del Estudiante** | -                                                                          |
+| **Código del Estudiante** | u202114548                                                                           |
 | **Carrera**               | Ingeniería de Software                                                               |
-| **Descripción**           | -            |
-| **Foto**                  | - |
+| **Descripción**           | - Estudiante de la carrera de Ingeniería de Software, actualmente tengo 22 años. Mi lenguaje de programación más utilizado y favorito es TypeScript. Actualmente me encuentro desarrollando habilidades en áreas como DevOps y frameworks de desarrollo móvil. También me interesan las tecnologías de inteligencia artificial y su aplicación en soluciones empresariales.                                                            |
+| **Foto**                  | <img src="assets/chapter01/cesar.png" alt="Cesar" height="200">                      |
 
 ---
 
