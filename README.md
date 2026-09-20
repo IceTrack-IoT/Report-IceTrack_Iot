@@ -45,7 +45,8 @@
 | 1.1     | 11/09/2026 | Walter Fajardo    | Desarrollo de las partes 2.3, 2.3.1, 2.3.2, 2.3.3                |
 | 1.2     | 14/09/2026 | Piero Tenorio     | Primera Versión del User Flow Diagram y el Bounded Context Canvas|
 | 1.3     | 19/09/2026 | Piero Tenorio     | Versión Actualizada del Bounded Context Canvas y User Flow       |
-
+| 1.4     | 19/09/2026 | Gianmarco Jiménez     | Versión Actualizada del Big Picture Event Storming con todos los Bounded Contexts       |
+| 1.5     | 19/09/2026 | Gianmarco Jiménez     | Versión Actualizada del Ubiquitous Language       |
 </div>
 
 ## Project Report Collaboration Insights
@@ -217,8 +218,8 @@ En el siguiente cuadro se describe las acciones realizadas y enunciados de concl
 
 | Criterio específico | Acciones realizadas | Conclusiones |
 | :------------------ | :------------------ | :----------- |
-| Trabaja en equipo para proporcionar liderazgo en forma conjunta | **Piero Francesco Tenorio Medina** <br> **AV1**: Dentro de esta entrega se desarrolló la refactorización del curso en términos de la solución implementada. Se informó a cada integrante sobre posibles mejoras a los diagramas como tambien de los servicios que se implementarán dentro del proyecto. |- |
-| Crea un entorno colaborativo e inclusivo, establece metas, planifica tareas y cumple objetivos. | **Piero Francesco Tenorio Medina** <br> **AV1**: Dentro de esta entrega se estableció metas para algunos de los integrantes del grupo que se vean implicados en ciertos puntos del trabajo en los que me veía implicado.  | -|
+| Trabaja en equipo para proporcionar liderazgo en forma conjunta | **Piero Francesco Tenorio Medina** <br> **AV1**: Dentro de esta entrega se desarrolló la refactorización del curso en términos de la solución implementada. Se informó a cada integrante sobre posibles mejoras a los diagramas como tambien de los servicios que se implementarán dentro del proyecto.<br>**Gianmarco Fabian Jiménez Guerra** <br> **AV1**: Dentro de esta entrega pude contribuir en el trabajo en equipo definiendo mejor los bounded contexts y creando el Big Picture Event Storming de cada uno. Adicionalmente, como grupo, nos pudimos dividir la asignación de entrevistas. |- |
+| Crea un entorno colaborativo e inclusivo, establece metas, planifica tareas y cumple objetivos. | **Piero Francesco Tenorio Medina** <br> **AV1**: Dentro de esta entrega se estableció metas para algunos de los integrantes del grupo que se vean implicados en ciertos puntos del trabajo en los que me veía implicado. <br> **Gianmarco Fabian Jiméenz Guerra** <br> **AV1**: Para esta entrega cada integrante del grupo contó con una tarea y una fecha de entrega. En mi caso, mi tarea era la de crear el Big Picture Event Storming basado en la lógica del prorgama y los flujos y tenía que conseguir una entrevista para el segmento objetivo número 2. Todo este aporte dentro del plazo establecido.  | -|
 
 # Capítulo I: Introducción
 
