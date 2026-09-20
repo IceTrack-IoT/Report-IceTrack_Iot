@@ -732,7 +732,7 @@ Los resultados obtenidos permitirán validar las hipótesis planteadas y orienta
 
 ## Segmento objetivo #1: Heladerías con equipos de refrigeración
 
-### Entrevista 1:
+#### Entrevistas:
 
 - **Nombres y apellidos:** Sonia De la Torre
 - **Edad:** 59
@@ -1004,109 +1004,133 @@ Los diagramas representan los principales cambios de estado del sistema: la gest
 
 La siguiente leyenda se aplica a todos los diagramas: los bloques verdes representan bounded contexts, los celestes representan comandos, los naranjas representan eventos de dominio, los morados representan políticas o reglas de negocio y los amarillos identifican a los actores responsables de cada acción.
 
-### 2.4.1. Identity and Access Management
+## 1. IAM
 
-Este bounded context gestiona el registro y la autenticación de usuarios. Incluye la validación de credenciales, la aplicación de políticas de contraseña, la asignación de roles y la emisión del token de acceso para utilizar la plataforma.
+El bounded context de Identity and Access Management gestiona el acceso de los usuarios a la plataforma. Incluye el registro de nuevas cuentas, la validación del nombre de usuario y la contraseña, así como el inicio de sesión.
 
-![Big Picture Event Storming — Identity and Access Management](assets/chapter02/BigPictureEventStorming/iam.png)
+El proceso puede finalizar con una autenticación exitosa o fallida.
 
-*Figura 2.4.1. Big Picture Event Storming del bounded context Identity and Access Management.*
+![IAM](assets/chapter02/BigPictureEventStorming/iam.png)
 
-### 2.4.2. Asset Management
+## 2. Profiles and Preferences
 
-Este bounded context administra los sitios o establecimientos asociados al Owner. Comprende el registro, actualización y eliminación lógica de sitios, aplicando reglas de unicidad para los datos de contacto y ubicación.
+Este bounded context administra la información de perfil y las preferencias de los usuarios. Permite crear perfiles para Owners y Technicians, actualizar la información personal y consultar el dashboard actual.
 
-![Big Picture Event Storming — Asset Management](assets/chapter02/BigPictureEventStorming/asset_management.png)
+También permite añadir y eliminar tarjetas de información del dashboard según las preferencias del usuario.
 
-*Figura 2.4.2. Big Picture Event Storming del bounded context Asset Management.*
+![Profiles and Preferences](assets/chapter02/BigPictureEventStorming/profile_preferences.png)
 
-### 2.4.3. Monitoring
+## 3. Assets Management
 
-Este bounded context permite gestionar los equipos de refrigeración asociados a cada sitio. Considera su registro, actualización, configuración del intervalo de mantenimiento y eliminación lógica.
+El bounded context de Assets Management gestiona los sitios pertenecientes a un Owner. Incluye el registro, edición y eliminación de sitios.
 
-![Big Picture Event Storming — Monitoring](assets/chapter02/BigPictureEventStorming/Monitoring.png)
+Antes de registrar un sitio, el sistema valida la información proporcionada, como el nombre, la dirección, el responsable y el número telefónico. Si la información no es válida, el registro puede fallar.
 
-*Figura 2.4.3. Big Picture Event Storming del bounded context Monitoring.*
+Además, desde este contexto se inicia el proceso de incorporación de equipos a un sitio, generando los eventos correspondientes al registro y actualización de la información del equipo.
 
-### 2.4.4. Service Request Management
+![Assets Management](assets/chapter02/BigPictureEventStorming/asset_management.png)
 
-Este es el bounded context central de la solución. Modela el ciclo de vida de una solicitud de servicio: creación por parte del Owner, revisión y aceptación o rechazo por parte del Provider, asignación de un técnico, registro de intervenciones, completitud o cancelación de la solicitud.
+## 4. Device Management
 
-![Big Picture Event Storming — Service Request Management](assets/chapter02/BigPictureEventStorming/Service.png)
+Device Management controla la relación entre los dispositivos y el sistema. Sus operaciones principales son consultar la información de un dispositivo, asociarlo y desvincularlo.
 
-*Figura 2.4.4. Big Picture Event Storming del bounded context Service Request Management.*
+El Owner puede emparejar un dispositivo con la plataforma o retirarlo cuando ya no debe formar parte del sistema.
 
-### 2.4.5. Technician Management
+![Device Management](assets/chapter02/BigPictureEventStorming/device_management.png)
 
-Este bounded context permite al Provider registrar, actualizar y eliminar lógicamente a los técnicos que podrán ser asignados a solicitudes de servicio.
+## 5. Service Request and Feedback Management
 
-![Big Picture Event Storming — Technician Management](assets/chapter02/BigPictureEventStorming/technician.png)
+Este bounded context representa el flujo principal de atención de servicios técnicos.
 
-*Figura 2.4.5. Big Picture Event Storming del bounded context Technician Management.*
+El Owner inicia una solicitud cuando necesita asistencia para un equipo. Posteriormente, el Provider revisa la solicitud y puede aceptarla o rechazarla. Si la solicitud es aceptada, el Provider asigna un técnico, quien registra la intervención realizada.
 
-### 2.4.6. Notifications
+Finalmente, el Owner puede calificar el servicio recibido. Por ello, este contexto integra tanto la gestión de solicitudes como la evaluación del servicio técnico.
 
-Este bounded context administra las notificaciones vinculadas al mantenimiento de los equipos. Cuando se detecta que un equipo supera su intervalo configurado sin mantenimiento completado, el sistema genera una notificación que puede ser consultada y descartada por el Owner.
+![Service Request and Feedback Management](assets/chapter02/BigPictureEventStorming/service_feedback.png)
 
-![Big Picture Event Storming — Notifications](assets/chapter02/BigPictureEventStorming/Notification.png)
+## 6. Notifications Management
 
-*Figura 2.4.6. Big Picture Event Storming del bounded context Notifications.*
+El bounded context de Notifications Management gestiona las notificaciones generadas por el sistema.
 
-### 2.4.7. Feedback
+Cuando ocurre un evento relevante, como la contratación o creación de un servicio, el sistema puede generar una notificación para el Owner. Posteriormente, el usuario puede descartar o eliminar la notificación.
 
-Este bounded context permite al Owner registrar una evaluación después de la atención de una solicitud de servicio. La evaluación considera comunicación, eficiencia, profesionalidad y un comentario asociado al técnico y al servicio realizado.
+![Notifications Management](assets/chapter02/BigPictureEventStorming/notifications.png)
 
-![Big Picture Event Storming — Feedback](assets/chapter02/BigPictureEventStorming/Feedback.png)
+## 7. Reporting and Analysis Management
 
-*Figura 2.4.7. Big Picture Event Storming del bounded context Feedback.*
+Reporting and Analysis Management permite al usuario generar reportes y consultar indicadores relevantes de la plataforma.
 
-### 2.4.8. Dashboard
+El usuario puede crear un reporte, aplicar filtros sobre la información disponible y consultar los principales KPIs del sistema. Este contexto facilita el análisis del estado de los sitios, dispositivos y servicios registrados.
 
-Este bounded context permite que cada usuario configure su dashboard, administre las tarjetas visibles y defina su orden de presentación. La configuración se asocia de manera individual a cada usuario.
+![Reporting and Analysis Management](assets/chapter02/BigPictureEventStorming/reporting.png)
 
-![Big Picture Event Storming — Dashboard](assets/chapter02/BigPictureEventStorming/Dashboard.png)
+## 8. Monitoring and Alerting Management
 
-*Figura 2.4.8. Big Picture Event Storming del bounded context Dashboard.*
+Este bounded context administra el monitoreo de los equipos y la gestión de alertas.
+
+Permite registrar, editar y eliminar equipos, además de gestionar las alertas asociadas a su funcionamiento. El Owner puede descartar una alerta cuando deja de ser relevante o resolverla cuando la situación reportada ha sido atendida.
+
+![Monitoring and Alerting Management](assets/chapter02/BigPictureEventStorming/monitoring_alerting.png)
+
+
 
 ## 2.5. Ubiquitous Language
 
-1. **User Profile (Perfil de Usuario):** Perfil del usuario dentro de la plataforma.
+1. **User Profile (Perfil de Usuario):** Información asociada a un usuario de la plataforma, incluyendo su identidad, rol y datos personales.
 
-2. **Smart Dashboard (Panel Inteligente):** Interfaz central donde los usuarios monitorean el estado de sus equipos, reciben alertas y gestionan sus servicios.
+2. **Owner (Propietario):** Usuario responsable de administrar sitios, equipos, solicitudes de servicio y preferencias de la plataforma.
 
-3. **Performance Report (Reporte de Rendimiento):** Informe técnico con historial de uso, consumo energético, temperatura y fallas de cada equipo.
+3. **Provider (Proveedor):** Usuario encargado de gestionar solicitudes de servicio y asignar técnicos para su atención.
 
-4. **Maintenance Schedule (Agenda de Mantenimientos):** Calendario inteligente para programar mantenimientos preventivos o correctivos.
+4. **Technician (Técnico):** Persona encargada de ejecutar y registrar las intervenciones técnicas solicitadas por un Provider.
 
-5. **Failure Alert (Alerta de Falla):** Notificación automática ante anomalías críticas como sobrecalentamiento o cortes de energía.
+5. **Smart Dashboard (Panel Inteligente):** Interfaz central donde el usuario consulta indicadores, reportes, alertas y tarjetas configurables.
 
-6. **Equipment Inventory (Inventario de Equipos):** Registro de todos los equipos de congelación con sus datos técnicos y ubicación.
+6. **Dashboard Card (Tarjeta del Panel):** Elemento configurable del dashboard que presenta información resumida, como equipos monitoreados, alertas o reportes.
 
-7. **Service Provider (Proveedor de Servicio):** Técnico o empresa que brinda mantenimiento, instalación o reparación de equipos de refrigeración.
+7. **Report (Reporte):** Representación organizada de información operativa para analizar el estado de los equipos, servicios y actividades registradas.
 
-8. **Technical History (Historial Técnico):** Registro detallado de todas las intervenciones realizadas a un equipo.
+8. **KPI (Indicador Clave de Rendimiento):** Métrica utilizada para resumir y analizar información relevante del sistema.
 
-9. **Work Order (Orden de Trabajo):** Documento digital con las tareas asignadas a un técnico para una visita de servicio.
+9. **Site (Sitio):** Establecimiento o ubicación física donde se encuentran instalados los equipos administrados por un Owner.
 
-10. **Service Coordination (Coordinación de Servicio):** Proceso de conexión entre clientes y proveedores según disponibilidad, ubicación y necesidad.
+10. **Asset (Activo):** Recurso físico registrado en la plataforma, principalmente sitios y equipos asociados.
 
-11. **Automatic Report Generation (Generación Automática de Reportes):** Función que crea informes técnicos sin intervención manual.
+11. **Equipment (Equipo):** Unidad de refrigeración registrada en un sitio, con información como nombre, modelo, tipo, serie, estado y conectividad.
 
-12. **Real-Time Monitoring (Monitoreo en Tiempo Real):** Supervisión constante del estado operativo del equipo (temperatura, consumo, uso).
+12. **Equipment Status (Estado del Equipo):** Condición operativa actual de un equipo, por ejemplo encendido, apagado, disponible o fuera de línea.
 
-13. **Service Zone (Zona de Servicio):** Área donde un proveedor puede atender equipos con rapidez y eficiencia.
+13. **Device Pairing (Asociación de Dispositivo):** Proceso mediante el cual un dispositivo se vincula con la plataforma o con un equipo registrado.
 
-14. **Client Portfolio (Cartera de Clientes):** Lista de negocios atendidos por un proveedor, con sus datos y equipos registrados.
+14. **Device Unpairing (Desvinculación de Dispositivo):** Proceso mediante el cual se elimina la asociación entre un dispositivo y la plataforma.
 
-15. **Cold Equipment (Equipo de Congelación):** Unidad de refrigeración usada para conservar productos, como congeladoras, cámaras o vitrinas.
+15. **Service Request (Solicitud de Servicio):** Petición creada por un Owner para solicitar atención técnica sobre un equipo.
 
-16. **Energy Consumption (Consumo Energético):** Registro del uso eléctrico de los equipos para detectar anomalías y optimizar recursos.
+16. **Service Request Status (Estado de la Solicitud):** Situación actual de una solicitud, como pendiente, aceptada, rechazada, en progreso, completada o cancelada.
 
-17. **Preventive Maintenance (Mantenimiento Preventivo):** Servicio planificado para evitar fallas y extender la vida útil del equipo.
+17. **Service Request Type (Tipo de Solicitud):** Clasificación de la atención solicitada, por ejemplo mantenimiento preventivo o correctivo.
 
-18. **Corrective Maintenance (Mantenimiento Correctivo):** Servicio realizado para solucionar una falla existente en un equipo.
+18. **Intervention (Intervención):** Trabajo técnico realizado sobre un equipo dentro del contexto de una solicitud de servicio.
 
-19. **Notification (Notificación):** Mensajes enviados automáticamente para informar sobre mantenimientos, fallas o cambios importantes.
+19. **Maintenance History (Historial de Mantenimiento):** Registro de solicitudes e intervenciones asociadas a un equipo.
+
+20. **Service Feedback (Evaluación del Servicio):** Valoración realizada por el Owner sobre la atención recibida, considerando comunicación, eficiencia y profesionalidad.
+
+21. **Maintenance Reminder Interval (Intervalo de Recordatorio de Mantenimiento):** Número de días configurado para determinar cuándo debe generarse un recordatorio de mantenimiento.
+
+22. **Equipment Alert (Alerta del Equipo):** Aviso relacionado con una situación que requiere revisión o atención sobre un equipo.
+
+23. **Alert Resolution (Resolución de Alerta):** Acción mediante la cual el Owner indica que una alerta fue atendida o dejó de ser relevante.
+
+24. **Notification (Notificación):** Mensaje generado por el sistema para informar sobre eventos relevantes, como recordatorios de mantenimiento.
+
+25. **Report Filter (Filtro de Reporte):** Criterio utilizado para limitar o seleccionar la información mostrada en un reporte.
+
+26. **Authentication (Autenticación):** Proceso mediante el cual el sistema valida las credenciales de un usuario.
+
+27. **Access Token (Token de Acceso):** Credencial generada después de una autenticación exitosa para permitir el acceso a las funcionalidades autorizadas.
+
+
 
 # Capítulo III: Requirements Specification
 
@@ -1285,8 +1309,8 @@ Con esto, nos llevó a crear los siguientes Bounded Context:
 | Monitoring and Alerting | Contexto núcleo del negocio. Ingiere la telemetría agregada enviada por los dispositivos IoT, mantiene el histórico de lecturas de cada equipo y gestiona el ciclo de vida completo de una alerta —térmica o de conectividad— desde que se detecta hasta que se resuelve. | Lectura Registrada, Alerta Generada, Alerta Resuelta |
 | Device Management | Contexto donde se administra el ciclo de vida del hardware físico (placas IoT): registro, emparejamiento con un equipo, rotación de credenciales de acceso y baja del dispositivo. | Dispositivo Registrado, Dispositivo Emparejado, Dispositivo Dado de Baja |
 | Service Request Management | Contexto donde se gestiona el ciclo de vida completo de una solicitud de mantenimiento —creación, aceptación, asignación de técnico, registro de intervenciones en campo y finalización—, así como la calificación que el cliente otorga al servicio recibido una vez completado. | Solicitud Creada, Solicitud Completada, Reseña Creada |
-| Notification Management | Contexto donde se generan y gestionan las notificaciones dirigidas a cada usuario, ya sea por mantenimiento vencido, alertas de monitoreo o actualizaciones de una solicitud de servicio. | Notificación Generada, Notificación Leída, Notificación Descartada |
-| Reporting and Analytics | Contexto donde se calculan indicadores de negocio a partir de la información de los demás contextos: cumplimiento de mantenimiento, tiempo de actividad de los equipos y desempeño de los técnicos. | Reporte Generado |
+| Notifications | Contexto donde se generan y gestionan las notificaciones dirigidas a cada usuario, ya sea por mantenimiento vencido, alertas de monitoreo o actualizaciones de una solicitud de servicio. | Notificación Generada, Notificación Leída, Notificación Descartada |
+| Reporting & Analytics | Contexto donde se calculan indicadores de negocio a partir de la información de los demás contextos: cumplimiento de mantenimiento, tiempo de actividad de los equipos y desempeño de los técnicos. | Reporte Generado |
 
 #### 4.1.1.2. Domain Message Flows Modeling
 
@@ -1328,7 +1352,7 @@ En esta sección se representan los Bounded Context correspondientes a los conte
 ![Bounded Context Canvas - Devices Management](assets/chapter04/canvas/canva4.png)
 
 **Service Request Management**
-![Bounded Context Canvas - Technicians Management](assets/chapter04/canvas/canva5.png)
+![Bounded Context Canvas - Service Request Management](assets/chapter04/canvas/canva5.png)
 
 **Notification Management**
 ![Bounded Context Canvas - Notification Management](assets/chapter04/canvas/canva6.png)
