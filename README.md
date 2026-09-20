@@ -1360,15 +1360,11 @@ El Container Level Diagram muestra los contenedores de software que componen el 
 
 ![IceTrack Container Level Diagram](assets/chapter04/c4/container/IceTrackContainer.png)
 
-Components:
-![IceTrack Deployment Diagram](assets/chapter04/c4/diagrams/EdgeApiComponents.png)
-![IceTrack Deployment Diagram](assets/chapter04/c4/diagrams/DeviceManagementComponents.png)
-
 #### 4.1.3.4. Software Architecture Deployment Diagrams
 
 El Deployment Diagram muestra la infraestructura de despliegue del sistema IceTrack, incluyendo nodos cloud, dispositivos IoT Edge (ESP32), base de datos y servicios externos como Google OAuth 2.0.
 
-![IceTrack Deployment Diagram](assets/chapter04/c4/diagrams/DeploymentEdgeClients.png)
+![IceTrack Deplyment Level Diagram](assets/chapter04/c4/Deployment.png)
 
 ## 4.2. Tactical-Level Domain-Driven Design
 
