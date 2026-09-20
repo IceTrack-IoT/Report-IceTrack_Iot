@@ -48,6 +48,8 @@
 | 1.4     | 19/09/2026 | Gianmarco Jiménez     | Versión Actualizada del Big Picture Event Storming con todos los Bounded Contexts |
 | 1.5     | 19/09/2026 | Gianmarco Jiménez     | Versión Actualizada del Ubiquitous Language                                       |
 | 1.6     | 20/09/2026 | Cesar Arostegui       | Desarrollo del Software Architecture y Tactical-Level Domain-Driven Design        |
+| 1.7     | 20/09/2026 | Joaquin Cuentas       | Desarrollo del Software Architecture y C4 diagrams       |
+
 
 </div>
 
