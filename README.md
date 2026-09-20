@@ -769,7 +769,7 @@ Los resultados obtenidos permitirán validar las hipótesis planteadas y orienta
 - **Edad:** 22 años
 - **Distrito:** San Isidro
 
-![Entrevista-3-segmento1.png](assets/chapter02/Entrevista3-Segmento1.png)
+![Entrevista-3-segmento1.png](assets/chapter02/entrevista3-segmento1.png)
 
 - **Inicio:** 14:31 min
 - **Duración:** 07:09 min
@@ -803,7 +803,7 @@ Los resultados obtenidos permitirán validar las hipótesis planteadas y orienta
 - **Edad:** 22
 - **Distrito:** Jesus Maria
 
-![Entrevista-2-segmento2.png](assets/chapter02/Entrevista2-Segmento2.png)
+![Entrevista-2-segmento2.png](assets/chapter02/entrevista2-segmento2.png)
 
 - **Inicio:** 32:40 min
 - **Duración:** 08:35 min
@@ -817,7 +817,7 @@ Los resultados obtenidos permitirán validar las hipótesis planteadas y orienta
 - **Edad:** 24
 - **Distrito:** Los Olivos
 
-![Entrevista-3-segmento2.png](assets/chapter02/Entrevista3-Segmento2.png)
+![Entrevista-3-segmento2.png](assets/chapter02/entrevista3-segmento2.png)
 
 - **Inicio:** 32:40 min
 - **Duración:** 07:25 min
