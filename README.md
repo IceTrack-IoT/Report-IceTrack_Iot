@@ -287,12 +287,14 @@ Las funcionalidades clave de la plataforma incluyen el monitoreo en tiempo real 
 
 ---
 
-| **Integrante**            | **-**                                                    |
+| **Integrante**            | **Joaquin Alberto Cuentas Peña**                                                    |
 | :------------------------ | :----------------------------------------------------------------------------------- |
-| **Código del Estudiante** | -                                                                          |
-| **Carrera**               | -                                                            |
-| **Descripción**           | -													                                                   |
-| **Foto**                  | - |
+| **Código del Estudiante** | u20201f788                                                                          |
+| **Carrera**               | Ingeniería de Software                                                            |
+| **Descripción**           | Soy estudiante de la carrera de ingeniería de software con afición orientada al apartado backend y microcontroladores. Cuento con experiencia desarrollando aplicaciones web, móviles y automatizaciones. Espero ampliar mis conocimientos para añadir los microservicios a mi abanico de conocimientos.
+
+													                                                   |
+| **Foto**                  | <img src="assets/chapter01/fotojoaquin." alt="Joaquin.jpg" height="200">  |
 
 </div>
 
