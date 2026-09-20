@@ -829,14 +829,12 @@ Los resultados obtenidos permitirán validar las hipótesis planteadas y orienta
 
 ## Segmento objetivo #1: Negocios con equipos de refrigeración
 
-#### Entrevista 3:
 **Análisis:** Las entrevistas realizadas muestran que uno de los principales problemas de las heladerías es la dependencia de sus equipos de refrigeración para conservar adecuadamente sus productos. Una falla inesperada puede ocasionar pérdidas de mercadería y generar gastos adicionales por reparaciones. Actualmente, los entrevistados realizan revisiones periódicas de sus congeladoras y coordinan mantenimientos preventivos; sin embargo, gran parte de este control continúa realizándose de manera manual, lo que dificulta detectar problemas con anticipación.
 
 De manera general, los entrevistados mostraron interés en contar con alertas automáticas que les permitan conocer rápidamente cualquier anomalía en sus equipos sin necesidad de supervisarlos constantemente. Asimismo, consideran importante disponer de un historial técnico por equipo y reportes de los mantenimientos realizados, ya que esto facilitaría el seguimiento de las fallas y reparaciones anteriores. También existe disposición a pagar por una solución como IceTrack siempre que contribuya a reducir las pérdidas económicas y sea confiable y sencilla de utilizar. Por ello, para este segmento, las funcionalidades más relevantes serían el monitoreo del estado de los equipos, las alertas automáticas, el historial de mantenimiento y la generación de reportes.
 
 ## Segmento Objetivo 2 - Técnicos y empresas de mantenimiento:
 
-#### Entrevista 3:
 **Análisis:** En este segmento se identificó que las principales dificultades están relacionadas con la organización y gestión de los servicios técnicos. Los entrevistados utilizan herramientas como WhatsApp, llamadas, Excel, calendarios digitales, fotografías y anotaciones manuales para coordinar visitas y registrar los trabajos realizados. Al encontrarse la información distribuida en diferentes medios, pueden generarse problemas como pérdida de información, dificultad para consultar intervenciones anteriores, cambios de horarios y mayor tiempo destinado a la elaboración de reportes.
 
 Los entrevistados consideran favorable contar con una plataforma centralizada que permita consultar el historial de cada equipo, organizar las visitas técnicas y registrar directamente en campo las actividades realizadas. También valoran la posibilidad de adjuntar fotografías, recibir alertas sobre posibles fallas y generar reportes técnicos automáticamente. Además, la facilidad de uso aparece como un factor importante para la adopción de la solución, especialmente para los técnicos que necesitan acceder rápidamente a la información mientras realizan una atención. En conjunto, las entrevistas muestran que IceTrack podría contribuir a reducir tareas manuales, mejorar la planificación de los servicios y facilitar la comunicación entre los técnicos y las heladerías atendidas.
