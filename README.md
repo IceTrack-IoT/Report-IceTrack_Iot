@@ -244,57 +244,66 @@ Las funcionalidades clave de la plataforma incluyen el monitoreo en tiempo real 
 
 <div align="center">
 
-| **Integrante**            | **Quijada Magro Jeremy Alexander**        									                   |
-| :------------------------ | :----------------------------------------------------------------------------- |
-| **Código del Estudiante** | u202219657                                   									            	   |
-| **Carrera**               | Ingeniería de Software                       									                 |
-| **Descripción**           | Mi nombre es Jeremy Alexander Quijada Magro, tengo 21 años y curso la carrera de Ingeniería de Software. Me considero una persona ordenada y responsable. Me centro en conocmiento en C#, Kva y el uso del front con Vue, Angular y React. En este proyecto apoyaré con todos los conocimientos que he adquirido en los cursos pasados con la meta de aprender a realizar pruebas de calidad sobre este proyecto  										                                                                            		|
-| **Foto**                  | <img src="assets/chapter01/Jeremy.jpeg" alt="Jeremy" width="150" height="200"> |
+| **Integrante**            | **Quijada Magro Jeremy Alexander**                                                                             |
+| :------------------------ | :------------------------------------------------------------------------------------------------------------- |
+| **Código del Estudiante** | u202219657                                                                                                     |
+| **Carrera**               | Ingeniería de Software                                                                                         |
+| **Descripción**           | Mi nombre es Jeremy Alexander Quijada Magro, tengo 21 años y curso la carrera de Ingeniería de Software. Me considero una persona ordenada y responsable. Me centro en conocmiento en C#, Kva y el uso del front con Vue, Angular y React. En este proyecto apoyaré con todos los conocimientos que he adquirido en los cursos pasados con la meta de aprender a realizar pruebas de calidad sobre este proyecto                                                                                                |
+| **Foto**                  | <img src="assets/chapter01/Jeremy.jpeg" alt="Jeremy" width="150" height="200">                                 |
 
 ---
 
-| **Integrante**            | **Guillen Galindo Julio Adolfo**                                     						 |
-| :------------------------ | :------------------------------------------------------------------------------- |
-| **Código del Estudiante** | u20241a352                       						                      				  	   |
-| **Carrera**               | Ingeniería de Software                                                           |
+| **Integrante**            | **Guillen Galindo Julio Adolfo**                                                                               |
+| :------------------------ | :------------------------------------------------------------------------------------------------------------- |
+| **Código del Estudiante** | u20241a352                                                                                                     |
+| **Carrera**               | Ingeniería de Software                                                                                         |
 | **Descripción**           | Actualmente curso la carrera de Ingeniería de Software en la UPC. Me considero una persona discreta, pero responsable y enfocada en cumplir los proyectos dentro de los plazos establecidos. Poseo conocimientos en C++ y Python; disfruto trabajar en equipo cuando existe colaboración y apoyo mutuo. Además, me motiva aplicar lo aprendido para afrontar los desafíos que puedan surgir en los próximos ciclos.                                                                          |
-| **Foto**                  | <img src="assets/chapter01/julio_logo.jpg" alt="Julio" width="200" height="200"> |
+| **Foto**                  | <img src="assets/chapter01/julio_logo.jpg" alt="Julio" width="200" height="200">                               |
 
 ---
 
-| **Integrante**            | **Gianmarco Fabian Jiménez Guerra**                                        	            |
-| :------------------------ | :-------------------------------------------------------------------------------------- |
-| **Código del Estudiante** | u202123843																	                                            |
-| **Carrera**               | Ingeniería de Software														                                      |
-| **Descripción**           | Estudiante de Ingeniería de Software con conocimiento sobre desarrollo de aplicaciones web y análisis de datos. Estoy motivado por aprender nuevos temas relacionados a Software y por trabajar en equipo. Considero que mi conocimiento sobre las tecnologías: Java, Python, Angular y C# me permitirá desempeñarme de manera correcta para apoyar en este proyecto.|
-| **Foto**                  | <img src="assets/chapter01/gianmarco.png" alt="Gianmarco" width="200" height="200">     |
+| **Integrante**            | **Gianmarco Fabian Jiménez Guerra**                                                                            |
+| :------------------------ | :------------------------------------------------------------------------------------------------------------- |
+| **Código del Estudiante** | u202123843                                                                                                     |
+| **Carrera**               | Ingeniería de Software                                                                                         |
+| **Descripción**           | Estudiante de Ingeniería de Software con conocimiento sobre desarrollo de aplicaciones web y análisis de datos. Estoy motivado por aprender nuevos temas relacionados a Software y por trabajar en equipo. Considero que mi conocimiento sobre las tecnologías: Java, Python, Angular y C# me permitirá desempeñarme de manera correcta para apoyar en este proyecto. |
+| **Foto**                  | <img src="assets/chapter01/gianmarco.png" alt="Gianmarco" width="200" height="200">                            |
 
 ---
 
-| **Integrante**            | **Piero Francesco Tenorio Medina**                                        	            |
-| :------------------------ | :-------------------------------------------------------------------------------------- |
-| **Código del Estudiante** | u202318731																	                                            |
-| **Carrera**               | Ingeniería de Software														                                      |
-| **Descripción**           | Estudiante de la carrera de Ingeniería de Software con conocimiento sobre desarrollo de aplicaciones web, especialmente en el entorno Backend. Tengo conocimientos sobre las tecnologías: Java,Vue, Angular y C#. Como integrante de un equipo, me gusta trabajar y comunicarme con los integrantes para poder cumplir los objetivos del proyecto. Estoy abierto a aprender nuevas herramientas que me permitan desempeñar mejor dentro de mi carrera.|
-| **Foto**                  | <img src="assets/chapter01/piero.png" alt="Piero" height="200">     |
+| **Integrante**            | **Piero Francesco Tenorio Medina**                                                                             |
+| :------------------------ | :------------------------------------------------------------------------------------------------------------- |
+| **Código del Estudiante** | u202318731                                                                                                     |
+| **Carrera**               | Ingeniería de Software                                                                                         |
+| **Descripción**           | Estudiante de la carrera de Ingeniería de Software con conocimiento sobre desarrollo de aplicaciones web, especialmente en el entorno Backend. Tengo conocimientos sobre las tecnologías: Java,Vue, Angular y C#. Como integrante de un equipo, me gusta trabajar y comunicarme con los integrantes para poder cumplir los objetivos del proyecto. Estoy abierto a aprender nuevas herramientas que me permitan desempeñar mejor dentro de mi carrera. |
+| **Foto**                  | <img src="assets/chapter01/piero.png" alt="Piero" height="200">                                                |
 
 ---
 
-| **Integrante**            | **Cesar Augusto Arostegui Alzamora**                                  |
-| :------------------------ | :----------------------------------------------------------------------------------- |
-| **Código del Estudiante** | u202114548                                                                           |
-| **Carrera**               | Ingeniería de Software                                                               |
-| **Descripción**           | - Estudiante de la carrera de Ingeniería de Software, actualmente tengo 22 años. Mi lenguaje de programación más utilizado y favorito es TypeScript. Actualmente me encuentro desarrollando habilidades en áreas como DevOps y frameworks de desarrollo móvil. También me interesan las tecnologías de inteligencia artificial y su aplicación en soluciones empresariales.                                                            |
-| **Foto**                  | <img src="assets/chapter01/cesar.png" alt="Cesar" height="200">                      |
+| **Integrante**            | **Cesar Augusto Arostegui Alzamora**                                                                           |
+| :------------------------ | :------------------------------------------------------------------------------------------------------------- |
+| **Código del Estudiante** | u202114548                                                                                                     |
+| **Carrera**               | Ingeniería de Software                                                                                         |
+| **Descripción**           | - Estudiante de la carrera de Ingeniería de Software, actualmente tengo 22 años. Mi lenguaje de programación más utilizado y favorito es TypeScript. Actualmente me encuentro desarrollando habilidades en áreas como DevOps y frameworks de desarrollo móvil. También me interesan las tecnologías de inteligencia artificial y su aplicación en soluciones empresariales.                                                                                                |
+| **Foto**                  | <img src="assets/chapter01/cesar.png" alt="Cesar" height="200">                                                |
 
 ---
 
-| **Integrante**            | **Joaquin Alberto Cuentas Peña**                                                    |
-| :------------------------ | :----------------------------------------------------------------------------------- |
-| **Código del Estudiante** | u20201f788                                                                          |
-| **Carrera**               | Ingeniería de Software                                                            |
-| **Descripción**           | Soy estudiante de la carrera de ingeniería de software con afición orientada al apartado backend y microcontroladores. Cuento con experiencia desarrollando aplicaciones web, móviles y automatizaciones. Espero ampliar mis conocimientos para añadir los microservicios a mi abanico de conocimientos.
-| **Foto**                  | <img src="assets/chapter01/fotojoaquin.jpg" alt="Joaquin" height="200">  |
+| **Integrante**            | **Joaquin Alberto Cuentas Peña**                                                                               |
+| :------------------------ | :------------------------------------------------------------------------------------------------------------- |
+| **Código del Estudiante** | u20201f788                                                                                                     |
+| **Carrera**               | Ingeniería de Software                                                                                         |
+| **Descripción**           | Soy estudiante de la carrera de ingeniería de software con afición orientada al apartado backend y microcontroladores. Cuento con experiencia desarrollando aplicaciones web, móviles y automatizaciones. Espero ampliar mis conocimientos para añadir los microservicios a mi abanico de conocimientos. |
+| **Foto**                  | <img src="assets/chapter01/fotojoaquin.jpg" alt="Joaquin" height="200">                                        |
+
+---
+
+| **Integrante**            | **Fajardo Monrroy, Walter Luis**                                                                               |
+| :------------------------ | :------------------------------------------------------------------------------------------------------------- |
+| **Código del Estudiante** | u202221632                                                                                                     |
+| **Carrera**               | Ingeniería de Software                                                                                         |
+| **Descripción**           | Soy estudiante de la carrera de Ingeniería de Software. Me considero una persona proactiva, responsable y orientada a la resolución de problemas. En este proyecto busco aportar mis conocimientos técnicos y trabajar de forma colaborativa para lograr los objetivos del equipo. |
+| **Foto**                  | <img src="assets/chapter01/Walter.jpg" alt="Walter" height="200">                                              |
 
 </div>
 
