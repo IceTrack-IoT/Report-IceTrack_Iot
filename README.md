@@ -727,109 +727,119 @@ Los resultados obtenidos permitirán validar las hipótesis planteadas y orienta
 12. ¿Qué funcionalidades considera indispensables en una plataforma de monitoreo y gestión de mantenimiento para que realmente la incorporara a su trabajo?
 
 ### 2.2.2. Registro de entrevistas
-## Segmento objetivo #1: Negocios con equipos de refrigeración
+
+## Segmento objetivo #1: Heladerías con equipos de refrigeración
 
 ### Entrevista 1:
 
-- **Nombres y apellidos:** Sonia Rocio
+- **Nombres y apellidos:** Sonia De la Torre
 - **Edad:** 59
 - **Distrito:** Lima
 
-![Interview-1-segment-1.png](assets/chapter02/entrevista-1-segmento-1.png)
+![Interview-1-segment-1.png](assets/chapter02/entrevista1-segmento1.png)
 
-- **Inicio:** 0:00
-- **Duración:** 3:48 min
-- **URL:** [`https://upcedupe-my.sharepoint.com/:v:/g/personal/u20241a352_upc_edu_pe/ETKJctLbRiVHtT6Ar-dPgXoBGK4k22YajjNwWnianXrDiw?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJPbmVEcml2ZUZvckJ1c2luZXNzIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXciLCJyZWZlcnJhbFZpZXciOiJNeUZpbGVzTGlua0NvcHkifX0&e=44iERI`](https://upcedupe-my.sharepoint.com/:v:/g/personal/u20241a352_upc_edu_pe/ETKJctLbRiVHtT6Ar-dPgXoBGK4k22YajjNwWnianXrDiw?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJPbmVEcml2ZUZvckJ1c2luZXNzIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXciLCJyZWZlcnJhbFZpZXciOiJNeUZpbGVzTGlua0NvcHkifX0&e=44iERI)
-- **Resumen:** Sonia es una emprendedora que dirige un minimarket en Lima. Su negocio depende en gran medida del buen estado de sus equipos de refrigeración, ya que conserva productos perecibles como embutidos, lácteos y bebidas. Durante la entrevista comentó que ha sufrido pérdidas económicas por fallas imprevistas en sus congeladoras y señaló que no cuenta con herramientas digitales que le permitan anticipar estos problemas. Actualmente controla la temperatura de forma manual y realiza mantenimientos cada cierto tiempo, una rutina que considera necesaria pero vulnerable a errores humanos. Mostró gran interés en disponer de una solución tecnológica que le avise automáticamente de posibles fallas, le genere un historial técnico completo y le entregue reportes de cada servicio. Sonia afirmó que estaría dispuesta a pagar por este servicio si le garantiza una reducción significativa de sus pérdidas operativas. Para ella, una herramienta como IceTrack sería una opción innovadora que le permitiría profesionalizar la gestión de su negocio, asi esta entrevista evidencia la urgencia de digitalizar los procesos de mantenimiento en los pequeños empresarios.
+- **Inicio:** 00:00 min
+- **Duración:** 06:03 min
+- **URL:** [`https://upcedupe-my.sharepoint.com/:v:/g/personal/u20241a352_upc_edu_pe/IQDtPmZWk-kPSL7Hk4eeGOo3AVHl5d9OkXV4RKNw_Aqf10U?e=aDtP0g&nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifSwicGxheWJhY2tPcHRpb25zIjp7fX0%3D`](https://upcedupe-my.sharepoint.com/:v:/g/personal/u20241a352_upc_edu_pe/IQDtPmZWk-kPSL7Hk4eeGOo3AVHl5d9OkXV4RKNw_Aqf10U?e=aDtP0g&nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifSwicGxheWJhY2tPcHRpb25zIjp7fX0%3D)
+
+- **Resumen:** La entrevistada es propietaria de una heladería ubicada en Lima, donde utiliza congeladoras para conservar los diferentes sabores y presentaciones de helados que ofrece a sus clientes. Durante la entrevista comentó que ha tenido inconvenientes con sus equipos de refrigeración, llegando a perder parte de sus productos cuando se presentaron fallas inesperadas. Actualmente, revisa manualmente la temperatura de las congeladoras y coordina mantenimientos cada cierto tiempo para prevenir problemas. Sin embargo, considera que este proceso podría mejorar mediante el uso de tecnología. La entrevistada mostró interés en recibir notificaciones automáticas cuando un equipo presente alguna anomalía, así como disponer de un registro de los mantenimientos y reparaciones realizadas. También señaló que estaría dispuesta a pagar por IceTrack si la aplicación le ayuda a detectar problemas con anticipación, proteger sus productos y disminuir las pérdidas ocasionadas por fallas en las congeladoras.
 
 ---
 
 #### Entrevista 2:
 
-- **Nombres y apellidos:** Mauricio Mego
+- **Nombres y apellidos:** Diego Avalos
 - **Edad:** 21
-- **Distrito:** Lima
+- **Distrito:** Callao
 
-![Entrevista-2-segmento1.png](assets/chapter02/entrevista-2-segmento1.png)
+![Entrevista-2-segmento1.png](assets/chapter02/Entrevista2-Segmento1.png)
 
-- **Inicio:** 0:00
-- **Duración:** 3:44 min
-- **URL:** [`https://upcedupe-my.sharepoint.com/:v:/g/personal/u20241a352_upc_edu_pe/EceJ9blY8XxCtV5UevVH-7sBMvCyM6BVY5_L9s-novpIcA?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJPbmVEcml2ZUZvckJ1c2luZXNzIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXciLCJyZWZlcnJhbFZpZXciOiJNeUZpbGVzTGlua0NvcHkifX0&e=Wwa7i3`](https://upcedupe-my.sharepoint.com/:v:/g/personal/u20241a352_upc_edu_pe/EceJ9blY8XxCtV5UevVH-7sBMvCyM6BVY5_L9s-novpIcA?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJPbmVEcml2ZUZvckJ1c2luZXNzIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXciLCJyZWZlcnJhbFZpZXciOiJNeUZpbGVzTGlua0NvcHkifX0&e=Wwa7i3)
-- **Resumen:** Mauricio administra un negocio que almacena carnes, pescados y alimentos que requieren refrigeración. Necesita que sus equipos de refrigeración estén en buen estado para así poder generar ganancias. En la entrevista, él comentó que una vez sufrió una perdida considerable ya que sus equipos de refrigeración fallaron por falta de mantenimiento. También nos comenta que cada semana tiene que estar verificando que sus equipos estén en buen estado y tiene que llamar a un tercero para que arregle los errores, si es que hay. Menciona que sería de suma importancia recibir alertas automáticas ya que no estaría tan preocupado por revisar sus equipos, le daría confianza a la aplicación. En conclusión, Mauricio estaría dispuesto a adquirir una aplicación como IceTrack, ya que satisface las necesidades que tiene y le ayudaría a poder mantener sus equipos de refrigeración sin preocupaciones.
+- **Inicio:** 06:04 min
+- **Duración:** 08:26 min
+- **URL:** [`https://upcedupe-my.sharepoint.com/:v:/g/personal/u20241a352_upc_edu_pe/IQDtPmZWk-kPSL7Hk4eeGOo3AVHl5d9OkXV4RKNw_Aqf10U?e=qe5Asn&nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifSwicGxheWJhY2tPcHRpb25zIjp7InN0YXJ0VGltZUluU2Vjb25kcyI6MzY0LjM4fX0%3D`](https://upcedupe-my.sharepoint.com/:v:/g/personal/u20241a352_upc_edu_pe/IQDtPmZWk-kPSL7Hk4eeGOo3AVHl5d9OkXV4RKNw_Aqf10U?e=qe5Asn&nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifSwicGxheWJhY2tPcHRpb25zIjp7InN0YXJ0VGltZUluU2Vjb25kcyI6MzY0LjM4fX0%3D)
+
+- **Resumen:** El entrevistado llego a perder parte de sus productos cuando se presentaron fallas inesperadas. Actualmente, revisa manualmente la temperatura de las congeladoras y coordina mantenimientos cada cierto tiempo para prevenir problemas. Sin embargo, considera que este proceso podría mejorar mediante el uso de tecnología. El entrevistado mostró interés en recibir notificaciones automáticas cuando un equipo presente alguna anomalía, así como disponer de un registro de los mantenimientos y reparaciones realizadas. También señaló que estaría dispuesta a pagar por IceTrack si la aplicación le ayuda a detectar problemas con anticipación, proteger sus productos y disminuir las pérdidas ocasionadas por fallas en las congeladoras.
+
 
 ---
 
 #### Entrevista 3:
 
-- **Nombre:** Henrry
-- **Edad:** 28 años
-- **Distrito:** Lima
+- **Nombre:** Gabrielle Coronel
+- **Edad:** 22 años
+- **Distrito:** San Isidro
 
-<img width="1047" height="529" alt="image" src="https://github.com/user-attachments/assets/944f8fb6-079e-4da2-95eb-69eba767011c" />
+![Entrevista-3-segmento1.png](assets/chapter02/Entrevista3-Segmento1.png)
 
-- **Inicio:** 0:00
-- **Duración:** 6:14 min
-- **URL:** [`https://upcedupe-my.sharepoint.com/:v:/g/personal/u202113432_upc_edu_pe/EUpgnK1QktxBuAwnwQ0w84YBz2dqNPvYY2qZF9vHKmjtUg?e=jXqqPX&nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifX0%3D`](https://upcedupe-my.sharepoint.com/:v:/g/personal/u202113432_upc_edu_pe/EUpgnK1QktxBuAwnwQ0w84YBz2dqNPvYY2qZF9vHKmjtUg?e=jXqqPX&nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifX0%3D)
-- **Resumen:** Henry, de 28 años y residente en Lima, dirige un negocio de producción y distribución de yogures y helados que depende de equipos de refrigeración. Ha sufrido pérdidas por fallas en la cadena de frío, realiza supervisión semanal y mantenimiento mensual, y ya usa herramientas digitales para monitorear temperatura por lote. Valora altamente recibir alertas automáticas ante anomalías, desea historial técnico y reportes por equipo, prefiere acceder desde tablet/PC, y consideraría pagar (idealmente pago único) si la solución reduce pérdidas; dejaría de usarla ante fallas recurrentes, mal soporte o costos injustificados.
+- **Inicio:** 14:31 min
+- **Duración:** 07:09 min
+- **URL:** [`https://upcedupe-my.sharepoint.com/:v:/g/personal/u20241a352_upc_edu_pe/IQDtPmZWk-kPSL7Hk4eeGOo3AVHl5d9OkXV4RKNw_Aqf10U?e=A3pSiG&nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifSwicGxheWJhY2tPcHRpb25zIjp7InN0YXJ0VGltZUluU2Vjb25kcyI6ODcxLjAyfX0%3D`](https://upcedupe-my.sharepoint.com/:v:/g/personal/u20241a352_upc_edu_pe/IQDtPmZWk-kPSL7Hk4eeGOo3AVHl5d9OkXV4RKNw_Aqf10U?e=A3pSiG&nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifSwicGxheWJhY2tPcHRpb25zIjp7InN0YXJ0VGltZUluU2Vjb25kcyI6ODcxLjAyfX0%3D)
+
+- **Resumen:** La entrevistada mencionó que anteriormente ha sufrido pérdidas debido a problemas en la cadena de frío, situación que afectó parte de los helados almacenados. Para prevenir estos inconvenientes, realiza revisiones semanales y programa el mantenimiento de sus equipos mensualmente. Además, ya utiliza algunas herramientas digitales para controlar la temperatura. La entrevistada considera muy útil recibir alertas automáticas cuando se detecte alguna anomalía, además de contar con un historial técnico y reportes específicos de cada congeladora. Indicó que preferiría acceder a esta información desde una computadora o tablet y que estaría dispuesto a pagar por IceTrack, de preferencia mediante un pago único, siempre que la aplicación contribuya a disminuir las pérdidas de su heladería. Sin embargo, dejaría de utilizarla si presenta fallas frecuentes, un soporte técnico deficiente o costos que no se justifiquen.
 
 ---
 
-## Segmento Objetivo 2 - Técnicos y empresas de mantenimiento:
+## Segmento Objetivo 2 - Técnicos y empresas de mantenimiento de refrigeración:
 
 **Entrevista 1:**
 
-- **Nombres y apellidos:** Carlo Gabriel Mimbela
-- **Edad:** 23
+- **Nombres y apellidos:** Pablo Ramos
+- **Edad:** 22
 - **Distrito:** Los Olivos
-- **Inicio:** XXXX min
-- **Duración:** XXXX min
-- **Url:** [`Url entrevista`](https//)
 
-![Entrevista1-Segmento2](assets/chapter02/entrevista-segmento2-taller-gianmarco.png)
+![Entrevista-1-segmento2.png](assets/chapter02/Entrevista1-Segmento2.png)
 
-- **Resumen:** Carlo Mimbela es un técnico especializado en refrigeración. Mencionó que ha trabajado con negocios de heladerías y sus distintos equipos de refrigeración, con los que ha detectado que los principales problemas son las obstrucciones del sistema de hielo o
-acumulaciones de hielo que afectan la temperatura. Asimismo, menciona que el taller tiene un método trabajoso para la gestión de visitas o solicitudes de mantenimiento, pues se utiliza como medio las llamadas telefónicas o WhatsApp.
-Carlo habla sobre que los mantenimientos preventivos se realizan mediante recordatorios utilizando un calendario semanal y que el historial de mantenimientos se almacena o registra de manera física con papel. Respecto a las dificultades para diagnosticar fallas, se habló de un acceso limitado a ciertos parámetros de operación en tiempo real como la temperatura, presión, consumo eléctrico, etc.
-Carlo comenta que se utilzia WhatsApp Business para gestionar los clientes, lo cual tiene limitaciones para generar reportes o hacer seguimiento de los equipos de los clientes. Adicionalmente, se mencionó que sería de gran utilidad contar con información básica de  equipos de refrigeración, los repuestos, atenciones. 
-Carlo sugiere que el taller aceptaría cualquier iniciativa que permita optimizar procesos y reducir tiempos de respuesta ante emergencia. 
-Finalmente, se menciona que estaría bueno contar con un historial digital accesible, paneles de control, reportes automáticos y programación de solicitudes automatizadas.
+- **Inicio:** 21:41 min
+- **Duración:** 10:40 min
+- **Url:** [`https://upcedupe-my.sharepoint.com/:v:/g/personal/u20241a352_upc_edu_pe/IQDtPmZWk-kPSL7Hk4eeGOo3AVHl5d9OkXV4RKNw_Aqf10U?e=5g3ck8&nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifSwicGxheWJhY2tPcHRpb25zIjp7InN0YXJ0VGltZUluU2Vjb25kcyI6MTMwMS42Mn19`](https://upcedupe-my.sharepoint.com/:v:/g/personal/u20241a352_upc_edu_pe/IQDtPmZWk-kPSL7Hk4eeGOo3AVHl5d9OkXV4RKNw_Aqf10U?e=5g3ck8&nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifSwicGxheWJhY2tPcHRpb25zIjp7InN0YXJ0VGltZUluU2Vjb25kcyI6MTMwMS42Mn19)
 
+- **Resumen:** El entrevistado comenta una de las principales dificultades que identifica es la organización de los mantenimientos, debido a que algunos clientes olvidan realizar revisiones periódicas de sus congeladoras y equipos de refrigeración, lo que puede ocasionar fallas más graves con el tiempo. Asimismo, señaló que no disponer de un historial técnico organizado dificulta conocer rápidamente los problemas y reparaciones anteriores de cada equipo. El entrevistado considera útil contar con una plataforma centralizada que almacene esta información, permita generar reportes de manera automática y envíe alertas sobre mantenimientos o posibles fallas. Desde su perspectiva, una herramienta como IceTrack podría ayudarlo a organizar mejor sus visitas, reducir el tiempo dedicado a tareas administrativas y mantener una comunicación más eficiente con las heladerías que atiende.
 
 ---
 
 **Entrevista 2:**
 
-- **Nombres y apellidos:** Jackeline Bravo
-- **Edad:** 36
-- **Distrito:** Comas
-- **Duración:** 5:35 min
-- **Resumen:** Jackeline, profesional con 13 años de trayectoria en el sector de mantenimiento y servicios de refrigeración, se desempeña en el área administrativa. Su labor actual incluye la gestión de reportes técnicos a través de hojas de cálculo de Excel y la planificación de rutas operativas mediante métodos manuales y aplicaciones móviles. La entrevistada considera que una plataforma representaría un avance significativo, ya que facilitaría la centralización de datos sobre los equipos atendidos y ofrecería una visualización en tiempo real de su estado. Subraya la conveniencia de una función de ingreso de datos en campo, lo cual optimizaría el flujo de información y minimizaría errores. Además, resalta la utilidad de las alertas automáticas para una respuesta proactiva. En conclusión, el testimonio de Jackeline valida la necesidad de que la industria adopte soluciones tecnológicas para optimizar sus procesos y elevar el estándar de sus servicios, reafirmando la importancia de la profesionalización digital.
-- **Url:**
+- **Nombres y apellidos:** Alessandro Castillo
+- **Edad:** 22
+- **Distrito:** Jesus Maria
+
+![Entrevista-2-segmento2.png](assets/chapter02/Entrevista2-Segmento2.png)
+
+- **Inicio:** 32:40 min
+- **Duración:** 08:35 min
+- **Url:** [`https://upcedupe-my.sharepoint.com/:v:/g/personal/u20241a352_upc_edu_pe/IQDtPmZWk-kPSL7Hk4eeGOo3AVHl5d9OkXV4RKNw_Aqf10U?e=rxoLfr&nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifSwicGxheWJhY2tPcHRpb25zIjp7InN0YXJ0VGltZUluU2Vjb25kcyI6MTk0Mi4zMn19`](https://upcedupe-my.sharepoint.com/:v:/g/personal/u20241a352_upc_edu_pe/IQDtPmZWk-kPSL7Hk4eeGOo3AVHl5d9OkXV4RKNw_Aqf10U?e=rxoLfr&nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifSwicGxheWJhY2tPcHRpb25zIjp7InN0YXJ0VGltZUluU2Vjb25kcyI6MTk0Mi4zMn19)
+
+- **Resumen:** El entrevistado se encuentran la organización de los reportes de mantenimiento mediante Excel y la coordinación de las rutas y visitas que deben realizar los técnicos. Actualmente, gran parte de estas actividades se gestionan de forma manual y con apoyo de aplicaciones móviles, lo que puede dificultar el seguimiento de la información. Durante la entrevista señaló que una plataforma como IceTrack podría facilitar la organización de los servicios al reunir en un mismo lugar los datos de las congeladoras y otros equipos atendidos. También considera importante que los técnicos puedan registrar directamente desde el lugar de atención los trabajos realizados, reduciendo errores y agilizando la actualización de la información. Asimismo, destacó la utilidad de recibir alertas automáticas para anticipar mantenimientos y responder con mayor rapidez ante posibles inconvenientes. Para el entrevistado, implementar una herramienta de este tipo permitiría organizar mejor las operaciones y mejorar la calidad del servicio brindado a las heladerías.
 
 #### Entrevista 3:
 
-- **Nombre:** Raúl Mendoza
-- **Edad:** 38 años
-- **Distrito:** Lima
+- **Nombre:** Gabriel Mimbela
+- **Edad:** 24
+- **Distrito:** Los Olivos
 
-<img width="792" height="527" alt="image" src="https://github.com/user-attachments/assets/56e48241-209b-4d9c-bdb3-523886fd77dd" />
+![Entrevista-3-segmento2.png](assets/chapter02/Entrevista3-Segmento2.png)
 
-- **Inicio:** 0:00
-- **Duración:** 4:39 min
-- **URL:** [`https://upcedupe-my.sharepoint.com/:v:/g/personal/u202113432_upc_edu_pe/EUqpD1FJnrVBl_2lPPv7VxABpUfMZLpoH4j3E9gqqiWldg?e=s0QAJN&nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifX0%3D`](https://upcedupe-my.sharepoint.com/:v:/g/personal/u202113432_upc_edu_pe/EUqpD1FJnrVBl_2lPPv7VxABpUfMZLpoH4j3E9gqqiWldg?e=s0QAJN&nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifX0%3D)
-- **Resumen:** Raúl Mendoza, técnico con 12 años de experiencia en aire acondicionado y refrigeración comercial en Lima, atiende 25–30 clientes al mes. Organiza visitas con Google Calendar/WhatsApp y lleva historiales en Excel y fotos, lo que le genera desorden y reprocesos (cambios de horario, falta de info previa, planificación manual de rutas). Considera muy útil una app móvil, simple y en español para ver equipos por cliente, recibir alertas en tiempo real, capturar fotos, registrar intervenciones y generar reportes automáticos; abandonó antes una plataforma por compleja, en otro idioma y costosa.
+- **Inicio:** 32:40 min
+- **Duración:** 07:25 min
+- **Url:** [`https://upcedupe-my.sharepoint.com/:v:/g/personal/u20241a352_upc_edu_pe/IQDtPmZWk-kPSL7Hk4eeGOo3AVHl5d9OkXV4RKNw_Aqf10U?e=WiACqp&nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifSwicGxheWJhY2tPcHRpb25zIjp7InN0YXJ0VGltZUluU2Vjb25kcyI6MjQ3NS43M319`](https://upcedupe-my.sharepoint.com/:v:/g/personal/u20241a352_upc_edu_pe/IQDtPmZWk-kPSL7Hk4eeGOo3AVHl5d9OkXV4RKNw_Aqf10U?e=WiACqp&nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifSwicGxheWJhY2tPcHRpb25zIjp7InN0YXJ0VGltZUluU2Vjb25kcyI6MjQ3NS43M319)
+
+- **Resumen:** El entrevistado comentó que trabajar con información distribuida en diferentes medios suele generar desorden y tareas repetitivas, especialmente cuando existen cambios de horario, no dispone de información previa sobre una congeladora o debe organizar manualmente las rutas de atención. El entrevistado considera que una aplicación móvil sencilla y disponible en español facilitaría considerablemente su trabajo. Entre las funciones que considera más importantes se encuentran consultar los equipos de cada heladería, recibir alertas ante posibles fallas, tomar fotografías durante las visitas, registrar los trabajos realizados y generar reportes técnicos automáticamente. Asimismo, mencionó que anteriormente dejó de utilizar una plataforma debido a que era complicada, estaba disponible en otro idioma y tenía un costo elevado. Por ello, considera importante que IceTrack sea una solución práctica, accesible y fácil de utilizar durante sus servicios técnicos.
 
 ### 2.2.3. Análisis de entrevistas
 
 ## Segmento objetivo #1: Negocios con equipos de refrigeración
 
 #### Entrevista 3:
-**Análisis:** El caso de Henry evidencia una necesidad crítica de mitigación de riesgo: productos altamente sensibles a temperatura hacen que el valor percibido se concentre en monitoreo continuo, umbrales configurables y notificaciones inmediatas. El historial por equipo y reportes automáticos aportan trazabilidad para auditorías internas y decisiones de mantenimiento. Para un MVP orientado a propietarios, conviene priorizar un dashboard de estado (temperatura/alertas/lotes afectados), políticas de alertas (SMS/WhatsApp/email) y resiliencia ante caídas de red (buffer local y reintentos). La disposición a pago puede explorarse con precio único por instalación + add-on de monitoreo; la métrica de éxito es reducción de pérdidas por lote.
+**Análisis:** Las entrevistas realizadas muestran que uno de los principales problemas de las heladerías es la dependencia de sus equipos de refrigeración para conservar adecuadamente sus productos. Una falla inesperada puede ocasionar pérdidas de mercadería y generar gastos adicionales por reparaciones. Actualmente, los entrevistados realizan revisiones periódicas de sus congeladoras y coordinan mantenimientos preventivos; sin embargo, gran parte de este control continúa realizándose de manera manual, lo que dificulta detectar problemas con anticipación.
+
+De manera general, los entrevistados mostraron interés en contar con alertas automáticas que les permitan conocer rápidamente cualquier anomalía en sus equipos sin necesidad de supervisarlos constantemente. Asimismo, consideran importante disponer de un historial técnico por equipo y reportes de los mantenimientos realizados, ya que esto facilitaría el seguimiento de las fallas y reparaciones anteriores. También existe disposición a pagar por una solución como IceTrack siempre que contribuya a reducir las pérdidas económicas y sea confiable y sencilla de utilizar. Por ello, para este segmento, las funcionalidades más relevantes serían el monitoreo del estado de los equipos, las alertas automáticas, el historial de mantenimiento y la generación de reportes.
 
 ## Segmento Objetivo 2 - Técnicos y empresas de mantenimiento:
 
 #### Entrevista 3:
-**Análisis:** En técnicos de campo, el dolor principal es operativo y de productividad: agenda fragmentada, registros dispersos y reportes manuales. El encaje de valor está en una solución mobile-first que centralice inventario de equipos por cliente, permita checklist/fotos in situ y genere reportes en un clic; además, integrar notificaciones desde sensores del cliente habilita servicio proactivo. Requisitos clave de adopción: simplicidad, localización al español, y compatibilidad con herramientas existentes (Calendar/Maps/WhatsApp). Para el MVP, priorizar agenda con recordatorios, historial por equipo, captura de evidencia y exporte de reportes; luego evaluar ruteo automático y modelos de suscripción por técnico con prueba gratuita.
+**Análisis:** En este segmento se identificó que las principales dificultades están relacionadas con la organización y gestión de los servicios técnicos. Los entrevistados utilizan herramientas como WhatsApp, llamadas, Excel, calendarios digitales, fotografías y anotaciones manuales para coordinar visitas y registrar los trabajos realizados. Al encontrarse la información distribuida en diferentes medios, pueden generarse problemas como pérdida de información, dificultad para consultar intervenciones anteriores, cambios de horarios y mayor tiempo destinado a la elaboración de reportes.
+
+Los entrevistados consideran favorable contar con una plataforma centralizada que permita consultar el historial de cada equipo, organizar las visitas técnicas y registrar directamente en campo las actividades realizadas. También valoran la posibilidad de adjuntar fotografías, recibir alertas sobre posibles fallas y generar reportes técnicos automáticamente. Además, la facilidad de uso aparece como un factor importante para la adopción de la solución, especialmente para los técnicos que necesitan acceder rápidamente a la información mientras realizan una atención. En conjunto, las entrevistas muestran que IceTrack podría contribuir a reducir tareas manuales, mejorar la planificación de los servicios y facilitar la comunicación entre los técnicos y las heladerías atendidas.
 
 ## 2.3. Needfinding
 
