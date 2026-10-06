@@ -3649,7 +3649,8 @@ Figura 3: Wireframe Sitios y equipos.
 
 ---
 
-
+Figura 4: Wireframe Detalle del equipo.
+![Wireframe4](assets/chapter04/WebWireframe4.png)
 
 ---
 
