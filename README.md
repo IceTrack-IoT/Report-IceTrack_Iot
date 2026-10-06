@@ -3659,9 +3659,8 @@ Figura 5: Wireframe Alertas.
 
 --- 
 
-
-
-
+Figura 6: Wireframe Órdenes.
+![Wireframe5](assets/chapter04/WebWireframe6.png)
 
 
 ### 5.4.2. Applications Wireflow Diagrams
