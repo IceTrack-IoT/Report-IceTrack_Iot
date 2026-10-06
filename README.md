@@ -3632,9 +3632,21 @@ El siguiente diagrama presenta el diseño de la base de datos del esquema `repor
 
 Los wireframes de las aplicaciones web de IceTrack ilustran la organización de las pantallas y la ubicación de los menús de navegación. Al priorizar la usabilidad y la función, estos esquemas sirven como mapa para el diseño definitivo. Su propósito es garantizar una experiencia intuitiva y una interacción eficiente, permitiendo que el equipo de diseño y desarrollo perfeccione la distribución de todos los elementos.
 
-![Wireframe1](assets/chapter04/WebWireframe1.png)
+---
 
 Figura 1: Wireframe Registro de Usuario.
+![Wireframe1](assets/chapter04/WebWireframe1.png)
+
+---
+
+Figura 2: Wireframe Dashboard.
+![Wireframe2](assets/chapter04/WebWireframe2.png)
+
+--- 
+
+
+
+
 
 ### 5.4.2. Applications Wireflow Diagrams
 
