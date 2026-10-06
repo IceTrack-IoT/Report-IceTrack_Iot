@@ -3634,6 +3634,8 @@ Los wireframes de las aplicaciones web de IceTrack ilustran la organización de 
 
 ---
 
+**Vista de Dueños**
+
 Figura 1: Wireframe Registro de Usuario.
 ![Wireframe1](assets/chapter04/WebWireframe1.png)
 
@@ -3662,6 +3664,9 @@ Figura 5: Wireframe Alertas.
 Figura 6: Wireframe Órdenes.
 ![Wireframe5](assets/chapter04/WebWireframe6.png)
 
+--- 
+
+**Vista de Técnicos**
 
 ### 5.4.2. Applications Wireflow Diagrams
 
