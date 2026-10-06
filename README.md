@@ -3644,6 +3644,16 @@ Figura 2: Wireframe Dashboard.
 
 --- 
 
+Figura 3: Wireframe Sitios y equipos.
+![Wireframe3](assets/chapter04/WebWireframe3.png)
+
+---
+
+
+
+---
+
+
 
 
 
