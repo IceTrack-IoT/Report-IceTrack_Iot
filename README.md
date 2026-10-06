@@ -3654,6 +3654,11 @@ Figura 4: Wireframe Detalle del equipo.
 
 ---
 
+Figura 5: Wireframe Alertas.
+![Wireframe5](assets/chapter04/WebWireframe5.png)
+
+--- 
+
 
 
 
