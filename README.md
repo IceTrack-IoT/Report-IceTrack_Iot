@@ -3699,6 +3699,7 @@ Para los usuarios del sistema, este diagrama describe el flujo de navegación in
 
 Los Mock-ups de las aplicaciones web de IceTrack ilustran la organización de las pantallas y la ubicación de los menús de navegación. Al priorizar la usabilidad y la función, estos esquemas sirven como mapa para el diseño definitivo. Su propósito es garantizar una experiencia intuitiva y una interacción eficiente, permitiendo que el equipo de diseño y desarrollo perfeccione la distribución de todos los elementos.
 
+**Aplicación web**
 
 Figura 1: Registro de Cuenta y Rol Operativo
 ![Wireframe5](assets/chapter05/Fase11.png)
