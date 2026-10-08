@@ -3701,50 +3701,108 @@ Los Mock-ups de las aplicaciones web de IceTrack ilustran la organización de la
 
 **Aplicación web**
 
-Figura 1: Registro de Cuenta y Rol Operativo
-![Wireframe5](assets/chapter05/Fase11.png)
+<div align="center">
+  <img src="assets/chapter05/Fase11.png" alt="Figura 1: Registro de Cuenta y Rol Operativo" style="width: 100%; max-width: 900px; aspect-ratio: 16/9; object-fit: cover; border-radius: 8px; border: 1px solid #d0d7de; box-shadow: 0 4px 12px rgba(0,0,0,0.08);" />
+  <p><em><b>Figura 1:</b> Registro de Cuenta y Rol Operativo</em></p>
+</div>
 
-Figura 2: Autenticación e Inicio de Sesión
-![Wireframe5](assets/chapter05/Fase12.png)
+---
 
-Figura 3: Preferencias de Idioma, Región y Formato de Telemetría
-![Wireframe5](assets/chapter05/Fase13.png)
+<div align="center">
+  <img src="assets/chapter05/Fase12.png" alt="Figura 2: Autenticación e Inicio de Sesión" style="width: 100%; max-width: 900px; aspect-ratio: 16/9; object-fit: cover; border-radius: 8px; border: 1px solid #d0d7de; box-shadow: 0 4px 12px rgba(0,0,0,0.08);" />
+  <p><em><b>Figura 2:</b> Autenticación e Inicio de Sesión</em></p>
+</div>
 
-Figura 4: Inventario Global de Sedes y Equipos
-![Wireframe5](assets/chapter05/Fase21.png)
+---
 
-Figura 5: Ficha Técnica del Activo, Parámetros Térmicos y Sensores IoT
-![Wireframe5](assets/chapter05/Fase22.png)
+<div align="center">
+  <img src="assets/chapter05/Fase13.png" alt="Figura 3: Preferencias de Idioma, Región y Formato de Telemetría" style="width: 100%; max-width: 900px; aspect-ratio: 16/9; object-fit: cover; border-radius: 8px; border: 1px solid #d0d7de; box-shadow: 0 4px 12px rgba(0,0,0,0.08);" />
+  <p><em><b>Figura 3:</b> Preferencias de Idioma, Región y Formato de Telemetría</em></p>
+</div>
 
-Figura 6: Dashboard Ejecutivo y Monitoreo Multizona en Tiempo Real
-![Wireframe5](assets/chapter05/Fase23.png)
+---
 
-Figura 7: Centro de Notificaciones y Reglas de Despacho
-![Wireframe5](assets/chapter05/Fase31.png)
+<div align="center">
+  <img src="assets/chapter05/Fase21.png" alt="Figura 4: Inventario Global de Sedes y Equipos" style="width: 100%; max-width: 900px; aspect-ratio: 16/9; object-fit: cover; border-radius: 8px; border: 1px solid #d0d7de; box-shadow: 0 4px 12px rgba(0,0,0,0.08);" />
+  <p><em><b>Figura 4:</b> Inventario Global de Sedes y Equipos</em></p>
+</div>
 
-Figura 8: Monitor y Gestión Global de Órdenes de Servicio
-![Wireframe5](assets/chapter05/Fase32.png)
+---
 
-Figura 9: Alta y Emisión de Solicitud de Servicio Técnico
-![Wireframe5](assets/chapter05/Fase33.png)
+<div align="center">
+  <img src="assets/chapter05/Fase22.png" alt="Figura 5: Ficha Técnica del Activo, Parámetros Térmicos y Sensores IoT" style="width: 100%; max-width: 900px; aspect-ratio: 16/9; object-fit: cover; border-radius: 8px; border: 1px solid #d0d7de; box-shadow: 0 4px 12px rgba(0,0,0,0.08);" />
+  <p><em><b>Figura 5:</b> Ficha Técnica del Activo, Parámetros Térmicos y Sensores IoT</em></p>
+</div>
 
-Figura 10: Despacho y Asignación Pericial de Técnico Especialista
-![Wireframe5](assets/chapter05/Fase34.png)
+---
 
-Figura 11: Seguimiento en Vivo de la Intervención Técnica en Campo
-![Wireframe5](assets/chapter05/Fase41.png)
+<div align="center">
+  <img src="assets/chapter05/Fase23.png" alt="Figura 6: Dashboard Ejecutivo y Monitoreo Multizona en Tiempo Real" style="width: 100%; max-width: 900px; aspect-ratio: 16/9; object-fit: cover; border-radius: 8px; border: 1px solid #d0d7de; box-shadow: 0 4px 12px rgba(0,0,0,0.08);" />
+  <p><em><b>Figura 6:</b> Dashboard Ejecutivo y Monitoreo Multizona en Tiempo Real</em></p>
+</div>
 
-Figura 12: Justificación Oficial y Dictamen de Descarte de Incidencia
-![Wireframe5](assets/chapter05/Fase42.png)
+---
 
-Figura 13: Directorio de Especialistas y Evaluación de Calidad de Servicio
-![Wireframe5](assets/chapter05/Fase43.png)
+<div align="center">
+  <img src="assets/chapter05/Fase31.png" alt="Figura 7: Centro de Notificaciones y Reglas de Despacho" style="width: 100%; max-width: 900px; aspect-ratio: 16/9; object-fit: cover; border-radius: 8px; border: 1px solid #d0d7de; box-shadow: 0 4px 12px rgba(0,0,0,0.08);" />
+  <p><em><b>Figura 7:</b> Centro de Notificaciones y Reglas de Despacho</em></p>
+</div>
 
-Figura 14: Bitácora Histórica de Intervenciones y Mantenimientos del Activo
-![Wireframe5](assets/chapter05/Fase44.png)
+---
 
-Figura 15: Centro de Auditoría Regulatoria y Certificación de Cadena de Frío
-![Wireframe5](assets/chapter05/Fase45.png)
+<div align="center">
+  <img src="assets/chapter05/Fase32.png" alt="Figura 8: Monitor y Gestión Global de Órdenes de Servicio" style="width: 100%; max-width: 900px; aspect-ratio: 16/9; object-fit: cover; border-radius: 8px; border: 1px solid #d0d7de; box-shadow: 0 4px 12px rgba(0,0,0,0.08);" />
+  <p><em><b>Figura 8:</b> Monitor y Gestión Global de Órdenes de Servicio</em></p>
+</div>
+
+---
+
+<div align="center">
+  <img src="assets/chapter05/Fase33.png" alt="Figura 9: Alta y Emisión de Solicitud de Servicio Técnico" style="width: 100%; max-width: 900px; aspect-ratio: 16/9; object-fit: cover; border-radius: 8px; border: 1px solid #d0d7de; box-shadow: 0 4px 12px rgba(0,0,0,0.08);" />
+  <p><em><b>Figura 9:</b> Alta y Emisión de Solicitud de Servicio Técnico</em></p>
+</div>
+
+---
+
+<div align="center">
+  <img src="assets/chapter05/Fase34.png" alt="Figura 10: Despacho y Asignación Pericial de Técnico Especialista" style="width: 100%; max-width: 900px; aspect-ratio: 16/9; object-fit: cover; border-radius: 8px; border: 1px solid #d0d7de; box-shadow: 0 4px 12px rgba(0,0,0,0.08);" />
+  <p><em><b>Figura 10:</b> Despacho y Asignación Pericial de Técnico Especialista</em></p>
+</div>
+
+---
+
+<div align="center">
+  <img src="assets/chapter05/Fase41.png" alt="Figura 11: Seguimiento en Vivo de la Intervención Técnica en Campo" style="width: 100%; max-width: 900px; aspect-ratio: 16/9; object-fit: cover; border-radius: 8px; border: 1px solid #d0d7de; box-shadow: 0 4px 12px rgba(0,0,0,0.08);" />
+  <p><em><b>Figura 11:</b> Seguimiento en Vivo de la Intervención Técnica en Campo</em></p>
+</div>
+
+---
+
+<div align="center">
+  <img src="assets/chapter05/Fase42.png" alt="Figura 12: Justificación Oficial y Dictamen de Descarte de Incidencia" style="width: 100%; max-width: 900px; aspect-ratio: 16/9; object-fit: cover; border-radius: 8px; border: 1px solid #d0d7de; box-shadow: 0 4px 12px rgba(0,0,0,0.08);" />
+  <p><em><b>Figura 12:</b> Justificación Oficial y Dictamen de Descarte de Incidencia</em></p>
+</div>
+
+---
+
+<div align="center">
+  <img src="assets/chapter05/Fase43.png" alt="Figura 13: Directorio de Especialistas y Evaluación de Calidad de Servicio" style="width: 100%; max-width: 900px; aspect-ratio: 16/9; object-fit: cover; border-radius: 8px; border: 1px solid #d0d7de; box-shadow: 0 4px 12px rgba(0,0,0,0.08);" />
+  <p><em><b>Figura 13:</b> Directorio de Especialistas y Evaluación de Calidad de Servicio</em></p>
+</div>
+
+---
+
+<div align="center">
+  <img src="assets/chapter05/Fase44.png" alt="Figura 14: Bitácora Histórica de Intervenciones y Mantenimientos del Activo" style="width: 100%; max-width: 900px; aspect-ratio: 16/9; object-fit: cover; border-radius: 8px; border: 1px solid #d0d7de; box-shadow: 0 4px 12px rgba(0,0,0,0.08);" />
+  <p><em><b>Figura 14:</b> Bitácora Histórica de Intervenciones y Mantenimientos del Activo</em></p>
+</div>
+
+---
+
+<div align="center">
+  <img src="assets/chapter05/Fase45.png" alt="Figura 15: Centro de Auditoría Regulatoria y Certificación de Cadena de Frío" style="width: 100%; max-width: 900px; aspect-ratio: 16/9; object-fit: cover; border-radius: 8px; border: 1px solid #d0d7de; box-shadow: 0 4px 12px rgba(0,0,0,0.08);" />
+  <p><em><b>Figura 15:</b> Centro de Auditoría Regulatoria y Certificación de Cadena de Frío</em></p>
+</div>
 
 
 
