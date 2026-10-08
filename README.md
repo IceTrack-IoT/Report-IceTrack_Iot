@@ -4049,6 +4049,278 @@ En este apartado se mostrarán los flujos de actividades a realizar para que el 
 
 ## 5.6. IoT Device Design
 
+La propuesta de diseño de los dispoitivos IoT de Icetrack está fundamentada en 3 criterios principales: garantía del funcionamiento de la cadena de frío mediante supervisión en la cámara de congelación, detección preventiva de fugas térmicas por puerta abierta, y comunicación de baja latencia con el centro de control mediante el protocolo MQTT. Los dispositivos actúan como una primera capa de captura de telemetría ambiental e industrial en los puntos de venta y almacén. Estos datos obtenidos permitirán alimentar el dashboard de supervisión ocn información objetiva para prevenir la pérdida de producto.
+
+El dispositivo está construido sobre el microcontrolador ESP32 DevKit-C-v4, que ofrece conectividad Wi-Fi integrada, procesamiento dual-core adecuado para el firmware embebido en C++ y una gestión precisa del protocolo OneWire y señales de tiempo para sensores ambientales. El protocolo MQTT 3.1.1 sobre TLS1.2 servirá para tener la conexión con el backend, publicando eventos al broker AWS IoT Core.
+
+| Decisión técnica | Valor |
+|---|---|
+| Microcontrolador | ESP32 DevKit-C-v4 (38 pines) |
+| Protocolo de comunicación | MQTT 3.1.1 sobre TLS 1.2 |
+| Broker | AWS IoT Core |
+| Calidad de servicio | QoS 1 (entrega garantizada) |
+| Autenticación | Certificados X.509 por dispositivo |
+| Firmware | C++ (Framework Arduino) |
+| Simulador | Wokwi |
+
+## Aplicación del Framework IoT System Design Steps
+
+Para fundamentar la selección de cada dispositivo y sus componentes, se aplicó el framework de Iot System Desgin Steps, que consiste en 12 pasos en los cuales no aseguraremos que cada elemento responda a un requisito específico de la cadena de frío.
+
+
+### Paso 1: Definición de los requisitos del sistema
+
+A partir del análisis de entrevistas y requerimientos operativos, se definieron los siguientes requisitos funcionales:
+
+- **RF-01**: Monitorear continuamente la temperatura interna del congelador mediante sonda sumergible (DS18B20).
+- **RF-02**: Medir la temperatura y humedad relativa del entorno/tienda donde opera la congeladora (DHT22).
+- **RF-03**: Detectar aperturas prolongadas o no autorizadas de la puerta del congelador mediante nivel de iluminación interna (LDR).
+- **RF-04**: Emitir alertas visuales (LEDs) y sonoras (Buzzer) locales cuando alguna variable supere los umbrales críticos.
+- **RF-05**: Desplegar el estado del sistema y lecturas de sensores en una pantalla LCD 16×2 en el punto de venta.
+- **RF-06**: Transmitir la telemetría en formato JSON estructurado hacia el broker central en la nube.
+
+Requisitos no funcionales clave: latencia de alerta local menor a 100 ms, alta estabilidad en lecturas bajo cero y tolerancia al ambiente húmedo.
+
+### Paso 2: Selección de la tipología del sistema IoT
+
+Se optó por una arquitectura de **Nodo Fijo de Monitoreo de Cadena de Frío (Stationary Cold-Chain Node)** instalado directamente en cada congeladora comercial. Se conecta a la red Wi-Fi del establecimiento y se alimenta mediante la red eléctrica principal de 5 V DC, asegurando operación continua 24/7.
+
+### Paso 3: Definición de los requisitos de la capa física
+
+El entorno comercial e industrial de heladería impone las siguientes condiciones:
+
+| Requisito | Especificación |
+|---|---|
+| Rango de temperatura operativa del sensor interno | –55 °C a +125 °C (Sonda DS18B20) |
+| Rango de temperatura operativa del nodo exterior | 0 °C a +50 °C |
+| Humedad relativa ambiental | 10 % a 90 % sin condensación |
+| Alimentación del nodo | Red eléctrica 5 V DC (Adaptador USB-C / Jack DC) |
+| Estanqueidad de la sonda | Cable de acero inoxidable sumergible con IP67 |
+
+### Paso 4: Definición de los requisitos de la capa de intercambio
+
+La capa de transporte implementa MQTT sobre Wi-Fi con las siguientes políticas:
+
+- **Protocolo**: MQTT 3.1.1 con cifrado TLS 1.2.
+- **QoS**: Nivel 1 (At least once).
+- **Keep-alive**: 30 segundos.
+- **Topics jerárquicos**:
+  - `icetrack/freezer/{freezerId}/telemetry`
+  - `icetrack/freezer/{freezerId}/alerts`
+  - `icetrack/freezer/{freezerId}/status`
+
+### Paso 5: Definición de los requisitos de la capa de información
+
+Los mensajes se envían serializados en **JSON UTF-8**. Ejemplo de payload de telemetría regular:
+
+```json
+{
+  "dispositivo": "congeladora_01",
+  "temp_congelador": -18.5,
+  "temp_ambiente": 22.4,
+  "humedad_ambiente": 55.0,
+  "luz_interior_lux": 15.0,
+  "puerta_abierta": false,
+  "humedad_critica": false,
+  "alerta_general": false
+}
+```
+Ejemplo de payload ante evento de alerta:
+
+```json
+{
+  "dispositivo": "congeladora_01",
+  "timestamp": "2026-10-08T15:30:00Z",
+  "tipo_alerta": "TEMP_CONGELADOR_ALTA",
+  "temp_congelador": -11.2,
+  "umbral_limite": -15.0,
+  "alerta_general": true
+}
+
+```
+
+### Paso 6: Definición de los requisitos de la capa de servicios de aplicación
+
+Integración directa con los Bounded Contexts del sistema:
+
+| **Bounded Context**                 | **Función respecto al IoT**                                                                           |
+| ----------------------------------- | ----------------------------------------------------------------------------------------------------- |
+| Cold Chain Execution and Monitoring | Ingesta de datos, evaluación de reglas de negocio en tiempo real y disparo de notificaciones Push/SMS |
+| Dashboard and Analytics             | Procesamiento analítico de curvas de temperatura y pérdida de frío histórica                          |
+| Asset Management                    | Registro y asignación de nodos sensores a congeladoras específicas por tienda                         |
+
+### Paso 7: Selección de las arquitecturas de intercambio e integración
+
+- **Broker**: AWS IoT Core con autenticación mutua mediante certificados X.509.
+- **Integración backend**: AWS IoT Rules → AWS Kinesis / Lambda → API REST Microservicios.
+- **Persistencia**: AWS Timestream (Series temporales) y PostgreSQL (Estado del activo).
+
+### Paso 8: Selección de sensores y actuadores
+
+| **Componente**    | **Tipo**                                | **Requisito atendido** | **Justificación**                                                                             |
+| ----------------- | --------------------------------------- | ---------------------- | --------------------------------------------------------------------------------------------- |
+| DS18B20           | Sensor de temperatura digital (OneWire) | RF-01                  | Precisión de ±0.5 °C entre –10 °C y +85 °C. Sonda blindada ideal para temperaturas bajo cero  |
+| DHT22             | Sensor de temp. y humedad               | RF-02                  | Rango de 0–100 % RH y alta estabilidad para evaluar el clima local                            |
+| LDR               | Fotoresistor analógico                  | RF-03                  | Detecta el incremento de iluminación cuando la puerta se abre e ingresa luz exterior/interior |
+| LCD 16x2 I2C      | Display de caracteres                   | RF-05                  | Permite al personal de tienda verificar rápidamente la temperatura sin abrir la congeladora   |
+| LEDs (Verde/Rojo) | Actuadores luminosos                    | RF-04                  | Indicadores de estado de alta visibilidad (OK vs ALERTA)                                      |
+| Buzzer Activo 5V  | Actuador sonoro                         | RF-04                  | Emite un tono de advertencia audible ante fallas en la congeladora                            |
+
+
+
+
+### Paso 9: Selección del microcontrolador y transceivers de radio
+
+| **Criterio**                 | **ESP32 DevKit-C-v4**                 | **Justificación**                                                                |
+| ---------------------------- | ------------------------------------- | -------------------------------------------------------------------------------- |
+| Procesamiento                | Xtensa Dual-Core 32-bit LX6 @ 240 MHz | Manejo fluido de OneWire, lecturas analógicas y cliente MQTT con cifrado SSL/TLS |
+| Conectividad                 | Wi-Fi 802.11 b/g/n (2.4 GHz)          | Eliminación de módulos de red externos                                           |
+| GPIOs                        | 38 pines (26 utilizables)             | Distribución holgada para buses I2C, OneWire y líneas digitales                  |
+| Estabilidad de temporización | Hardware Timers precisos              | Imprescindible para emular y leer el protocolo OneWire sin perder frames         |
+| Costo unitario               | \~S/ 28                               | Altamente rentable para producción en masa de nodos                              |
+| Simulador                    | Soporte nativo en Wokwi               | Validación completa del circuito y firmware antes del ensamblaje                 |
+
+### Paso 10: Definición del procesamiento de datos por nodo y en la nube
+
+**Procesamiento en el borde (Edge — ESP32):**
+
+- Verificación de la integridad de lectura OneWire (descarte de lecturas erróneas `-127.0 °C`).
+- Mapeo de iluminación LDR de valor ADC a Lux mediante curva logarítmica.
+- Alternancia de datos en pantalla LCD cada 2 segundos.
+- Evaluación inmediata de umbrales locales (Disparo de LED Rojo y Buzzer).
+
+**Procesamiento en la nube (AWS):**
+
+- Generación de informes de cumplimiento HACCP de la cadena de frío.
+- Algoritmos de predicción de falla de aislamiento basados en la frecuencia de apertura de puerta.
+- Envío de alertas críticas a gerentes de tienda.
+
+### Paso 11: Análisis del tiempo de procesamiento
+
+| **Etapa**                                              | **Latencia objetivo** | **Latencia esperada** |
+| ------------------------------------------------------ | --------------------- | --------------------- |
+| Lectura de sensor (DS18B20/DHT22)                      | < 750 ms              | \~200 ms              |
+| Procesamiento y lógica local en ESP32                  | < 50 ms               | \~10 ms               |
+| Activación de alerta local (LED/Buzzer)                | < 100 ms              | \~15 ms               |
+| Publicación MQTT a broker cloud                        | < 300 ms              | \~140 ms              |
+| Ingesta en backend y actualización dashboard           | < 200 ms              | \~120 ms              |
+| **Total: Evento físico → Alerta visible en Dashboard** | **< 1000 ms**         | **\~485 ms**          |
+
+### Paso 12: Definición de la interfaz gráfica de usuario
+
+La interacción se divide en tres niveles:
+
+1. **Interfaz física local**: Pantalla LCD 16x2 que alterna entre lecturas del congelador/puerta y ambiente/humedad, junto con el LED Verde (Estado OK) o LED Rojo + Buzzer (Estado Alerta).
+2. **Dashboard Web Supervisor**: Panel interactivo con gráficos en tiempo real, histórico de temperatura y gestión de alertas.
+3. **App Móvil de Operador**: Notificaciones push inmediatas al detectar ruptura de cadena de frío.
+
+## Dispositivo 01: Módulo de Monitoreo de Cadena de Frío (IceTrack Freezer Monitoring Node)
+
+### Descripción y criterios de diseño
+
+El **IceTrack Freezer Monitoring Node** es el dispositivo encargado de supervisar las condiciones físicas internas y externas de las congeladoras comerciales. Su diseño garantiza que la sonda de temperatura DS18B20 permanezca en el interior del congelador, mientras que la unidad central con la pantalla LCD, el sensor DHT22, el sensor LDR, las alertas y el microcontrolador se ubican en el exterior.
+
+Cuando la temperatura del congelador supera los **$-15.0\text{ }^\circ\text{C}$**, la luz interior supera los **$200\text{ Lux}$** (puerta abierta) o la humedad ambiental supera el **$70\text{ \\%}$**, el sistema activa la alerta sonora local, conmuta el LED Verde al LED Rojo, cambia el mensaje de la pantalla LCD a `!ALERTA SISTEMA!` indicando la causa específica y transmite el evento en formato JSON mediante MQTT.
+
+El gabinete exterior está diseñado en plástico ABS resistente a impactos en color blanco industrial con frontal acrílico para la pantalla LCD, garantizando legibilidad y facilidad de limpieza en entornos comerciales.
+
+### Componentes
+
+| **Componente**                 | **Función**                                                            |
+| ------------------------------ | ---------------------------------------------------------------------- |
+| ESP32 DevKit-C-v4              | MCU Principal — Procesamiento, Wi-Fi, protocolo OneWire y cliente MQTT |
+| DS18B20 (Sonda sumergible)     | Mide la temperatura interna del congelador                             |
+| DHT22                          | Mide la temperatura y humedad del aire del local/tienda                |
+| LDR (Fotoresistor)             | Mide la intensidad luminosa para detectar apertura de puerta           |
+| LCD 16x2 I2C (PCF8574)         | Visualización local de métricas y mensajes de alerta                   |
+| LED Verde (5 mm)               | Indicar estado del sistema operativo y en rango normal                 |
+| LED Rojo (5 mm)                | Indicar condición de alerta activa                                     |
+| Resistencias 220 $\Omega$ (x2) | Limitación de corriente para los LEDs                                  |
+| Buzzer Activo 5V               | Alarma sonora local para el personal                                   |
+| Fuente / Adaptador 5V DC       | Alimentación continua del sistema                                      |
+
+
+![Icetrack Components](assets/chapter05/icetrack_components.png)
+
+
+### Simulación en Wokwi
+
+En la plataforma Wokwi, la sonda DS18B20 se simula utilizando el componente `wokwi-ds18b20` alimentado en su pin `VDD`. El sensor DHT22 se simula con `wokwi-dht22` conectado a GPIO15 y el sensor de luz con `wokwi-photoresistor-sensor`. La comunicación I2C del LCD 16x2 utiliza los pines nativos GPIO21 (SDA) y GPIO22 (SCL).
+
+La siguiente figura muestra el circuito del **IceTrack Freezer Monitoring Node** simulado en Wokwi.
+
+### Flujo de interacción
+
+1. El sensor DS18B20 realiza lecturas de temperatura interna mediante el bus OneWire en GPIO4.
+2. El DHT22 captura la humedad y temperatura ambiental en GPIO15.
+3. El sensor LDR lee el nivel de luz en el pin analógico GPIO33.
+4. El ESP32 evalúa las condiciones:
+   - Si $\text{Temp. Congelador} > -15.0\text{ }^\circ\text{C} \rightarrow$ **Alerta por Temperatura Alta**.
+   - Si $\text{Luz LDR} > 200\text{ Lux} \rightarrow$ **Alerta por Puerta Abierta**.
+   - Si $\text{Humedad DHT22} > 70\text{ \\%} \rightarrow$ **Alerta por Humedad Crítica**.
+5. En estado **NORMAL**:
+   - Mantiene encendido el LED Verde (GPIO18) y apaga el LED Rojo (GPIO19).
+   - Mantiene apagado el Buzzer (GPIO23).
+   - Alterna la pantalla LCD cada 2 segundos entre:
+     - *Vista 1*: Temp. Congelador y Estado de Puerta.
+     - *Vista 2*: Temp. Ambiente y Humedad.
+6. En estado de **ALERTA**:
+   - Apaga el LED Verde y enciende el LED Rojo.
+   - Activa el Buzzer con tono continuo de 1000 Hz.
+   - Fija la pantalla LCD mostrando `!ALERTA SISTEMA!` y la causa del fallo.
+7. Publica la trama de telemetría JSON vía Serial / MQTT cada 2 segundos.
+
+### Tabla de conexiones (Pinout)
+
+| **Componente** | **Pin componente**         | **Pin ESP32** | **Tipo de señal**      |
+| -------------- | -------------------------- | ------------- | ---------------------- |
+| DS18B20        | VDD                        | 3V3           | Alimentación           |
+| DS18B20        | GND                        | GND           | Tierra                 |
+| DS18B20        | DQ                         | GPIO4         | Digital (OneWire)      |
+| DHT22          | VCC                        | 3V3           | Alimentación           |
+| DHT22          | GND                        | GND           | Tierra                 |
+| DHT22          | SDA                        | GPIO15        | Digital Bi-direccional |
+| LDR            | VCC                        | 3V3           | Alimentación           |
+| LDR            | GND                        | GND           | Tierra                 |
+| LDR            | AO                         | GPIO33        | Analógico (ADC 0–3.3V) |
+| LCD 16x2 I2C   | VCC                        | 5V            | Alimentación 5 V       |
+| LCD 16x2 I2C   | GND                        | GND           | Tierra                 |
+| LCD 16x2 I2C   | SDA                        | GPIO21        | I2C Data               |
+| LCD 16x2 I2C   | SCL                        | GPIO22        | I2C Clock              |
+| LED Verde      | Anodo (+) vía 220 $\Omega$ | GPIO18        | Salida Digital         |
+| LED Verde      | Cátodo (-)                 | GND           | Tierra                 |
+| LED Rojo       | Anodo (+) vía 220 $\Omega$ | GPIO19        | Salida Digital         |
+| LED Rojo       | Cátodo (-)                 | GND           | Tierra                 |
+| Buzzer Activo  | (+)                        | GPIO23        | Salida Digital / PWM   |
+| Buzzer Activo  | (-)                        | GND           | Tierra                 |
+
+![Icetrack Simulation](assets/chapter05/icetrack_wokwi_simulation.png)
+Simulación disponible en Wokwi
+[https://wokwi.com/projects/476819184905206785](https://wokwi.com/projects/476819184905206785)
+
+## Arquitectura de comunicación MQTT
+
+El nodo de monitoreo establece comunicación cifrada con la plataforma en la nube a través de los siguientes tópicos MQTT estructurados:
+
+| **Dispositivo**       | **Tópico MQTT**                          | **Microservicio suscriptor**                           |
+| --------------------- | ---------------------------------------- | ------------------------------------------------------ |
+| IceTrack Freezer Node | `icetrack/freezer/{freezerId}/telemetry` | Monitoring Service (Cold Chain Execution BC)           |
+| IceTrack Freezer Node | `icetrack/freezer/{freezerId}/alerts`    | Alert & Notification Service (Cold Chain Execution BC) |
+| IceTrack Freezer Node | `icetrack/freezer/{freezerId}/status`    | Device Watchdog Service (Asset Management BC)          |
+
+La autenticación se realiza mediante certificados X.509 únicos incrustados en la memoria flash del ESP32 durante el proceso de aprovisionamiento en fábrica.
+
+## Paleta de colores e indicadores de estado — Guía de estilos IoT IceTrack
+
+Los elementos de visualización local (LEDs e interfaz gráfica del LCD) responden a la guía de estilos del producto IceTrack para garantizar la rápida interpretación del personal operativo:
+
+| **Elemento / Color** | **Código Hex** | **Condición del sistema**                                                                                    |
+| -------------------- | -------------- | ------------------------------------------------------------------------------------------------------------ |
+| **LED Verde**        | `#1D9E75`      | Cadena de frío asegurada ($\text{Temp} \le -15\text{ }^\circ\text{C}$), puerta cerrada y parámetros normales |
+| **LED Rojo**         | `#E24B4A`      | Alerta crítica activa: Temperatura del congelador elevada, puerta abierta o alta humedad                     |
+| **LCD Luz de fondo** | Estándar I2C   | Encendido permanente durante operación para lectura clara                                                    |
+| **LCD Texto Normal** | Caracteres 5x8 | Muestra cíclica de métricas de temperatura, puerta y humedad                                                 |
+| **LCD Texto Alerta** | Caracteres 5x8 | Mensaje parpadeante de `!ALERTA SISTEMA!` con la descripción de la falla                                     |
 # Capítulo VI: Product Implementation, Validation & Deployment
 
 ## 6.1. Software Configuration Management
