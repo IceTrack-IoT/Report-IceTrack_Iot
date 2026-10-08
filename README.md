@@ -3815,6 +3815,63 @@ Los Mock-ups de las aplicaciones web de IceTrack ilustran la organización de la
 
 ### 5.4.3. Applications User Flow Diagrams
 
+### Goal 1: Onboarding y Personalización del Entorno
+* **Tipo de usuario:** Administrador de negocio de refrigeración / Técnico de mantenimiento.
+* **Descripción:** Permite conocer la propuesta de valor en la landing page, registrarse formalmente indicando el rol operativo (`OWNER_ROLE` o `TECHNICIAN_ROLE`)[cite: 18], iniciar sesión con credenciales directas o Google Workspace (OAuth 2.0)[cite: 19] y configurar las preferencias iniciales de idioma, zona horaria y unidades métricas (°C/°F)[cite: 20].
+
+* ![Wireframe1](assets/chapter05/User goal1.jpg)
+
+---
+
+### Goal 2: Estructuración de Infraestructura de Frío y Sensores IoT
+* **Tipo de usuario:** Administrador de negocio de refrigeración.
+* **Descripción:** Abarca el alta de sedes operativas y equipos frigoríficos en el catálogo central[cite: 21], el emparejamiento de los nodos sensores físicos (IoT/LoRaWAN), la parametrización de sus umbrales de temperatura y la gestión de sus credenciales API de comunicación[cite: 32].
+
+* ![Wireframe1](assets/chapter05/User goal2.jpg)
+
+---
+
+### Goal 3: Supervisión Operativa Continua y Diagnóstico Térmico
+* **Tipo de usuario:** Administrador de negocio de refrigeración.
+* **Descripción:** Facilita la vigilancia en tiempo real de la cadena de frío mediante indicadores globales y gráficos multizona en el dashboard[cite: 23], permitiendo filtrar el inventario para aislar activos comprometidos[cite: 21] y analizar curvas históricas de temperatura frente a los límites permitidos[cite: 32].
+
+* ![Wireframe1](assets/chapter05/User goal3.jpg)
+
+---
+
+### Goal 4: Gestión de Contingencias Térmicas y Generación de Orden de Servicio
+* **Tipo de usuario:** Administrador de negocio de refrigeración.
+* **Descripción:** Canaliza la atención inmediata ante alertas críticas de ruptura térmica[cite: 24], permitiendo reconocer el incidente en el dashboard y emitir una orden de servicio correctivo con los datos del equipo y la telemetría automáticamente precargados[cite: 23, 25].
+
+* ![Wireframe1](assets/chapter05/User goal4.jpg)
+
+---
+
+### Goal 5: Evaluación de Competencias y Despacho Técnico
+* **Tipo de usuario:** Administrador de negocio de refrigeración.
+* **Descripción:** Permite consultar las solicitudes pendientes de atención[cite: 27], verificar certificaciones y valoraciones previas en el directorio de técnicos[cite: 30], y adjudicar el servicio mediante una matriz de compatibilidad por especialidad, SLA de arribo y stock de refacciones[cite: 26].
+
+* ![Wireframe1](assets/chapter05/User goal5.jpg)
+
+---
+
+### Goal 6: Validación de Cierre o Dictamen de Descarte de Incidencias
+* **Tipo de usuario:** Administrador de negocio de refrigeración.
+* **Descripción:** Asegura el cierre formal de las intervenciones validando la normalización térmica y calificando el servicio ejecutado[cite: 28, 30], o bien formalizando el descarte de falsas alarmas (descarches/puerta abierta) con un dictamen técnico obligatorio y firma digital sanitaria[cite: 29].
+
+* ![Wireframe1](assets/chapter05/User goal6.jpg)
+
+---
+
+### Goal 7: Sustentación del Cumplimiento Normativo y Auditoría de Cadena de Frío
+* **Tipo de usuario:** Administrador de negocio de refrigeración.
+* **Descripción:** Proporciona el respaldo legal ante entidades regulatorias (COFEPRIS/FDA 21 CFR Part 11) mediante el cálculo automático de Temperatura Cinética Media (MKT) y horas de excursión[cite: 33], cotejando calibraciones vigentes de sondas[cite: 31, 33] y exportando expedientes foliados con firmas electrónicas avanzadas[cite: 33].
+  
+* ![Wireframe1](assets/chapter05/User goal7.jpg)
+  
+
+
+
 ## 5.5. Applications Prototyping
 
 ## 5.6. IoT Device Design
