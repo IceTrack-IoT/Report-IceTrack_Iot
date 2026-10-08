@@ -3993,7 +3993,7 @@ Requisitos no funcionales clave: latencia de alerta local menor a 100 ms, alta e
 
 ### Paso 2: Selección de la tipología del sistema IoT
 
-Se optó por una arquitectura de **Nodo Fijo de Monitoreo de Cadena de Frío (Stationary Cold-Chain Node)** instalado directamente en cada congeladora comercial. Se conecta a la red Wi-Fi del establecimiento y se alimenta mediante la red eléctrica principal de 5 V DC, asegurando operación continua 24/7.
+Se optó por una arquitectura de Nodo Fijo de Monitoreo de Cadena de Frío (Stationary Cold-Chain Node) instalado directamente en cada congeladora comercial. Se conecta a la red Wi-Fi del establecimiento y se alimenta mediante la red eléctrica principal de 5 V DC, asegurando operación continua 24/7.
 
 ### Paso 3: Definición de los requisitos de la capa física
 
@@ -4021,7 +4021,7 @@ La capa de transporte implementa MQTT sobre Wi-Fi con las siguientes políticas:
 
 ### Paso 5: Definición de los requisitos de la capa de información
 
-Los mensajes se envían serializados en **JSON UTF-8**. Ejemplo de payload de telemetría regular:
+Los mensajes se envían serializados en JSON UTF-8. Ejemplo de payload de telemetría regular:
 
 ```json
 {
@@ -4035,19 +4035,6 @@ Los mensajes se envían serializados en **JSON UTF-8**. Ejemplo de payload de te
   "alerta_general": false
 }
 ```
-Ejemplo de payload ante evento de alerta:
-
-```json
-{
-  "dispositivo": "congeladora_01",
-  "timestamp": "2026-10-08T15:30:00Z",
-  "tipo_alerta": "TEMP_CONGELADOR_ALTA",
-  "temp_congelador": -11.2,
-  "umbral_limite": -15.0,
-  "alerta_general": true
-}
-
-```
 
 ### Paso 6: Definición de los requisitos de la capa de servicios de aplicación
 
@@ -4055,9 +4042,9 @@ Integración directa con los Bounded Contexts del sistema:
 
 | **Bounded Context**                 | **Función respecto al IoT**                                                                           |
 | ----------------------------------- | ----------------------------------------------------------------------------------------------------- |
-| Cold Chain Execution and Monitoring | Ingesta de datos, evaluación de reglas de negocio en tiempo real y disparo de notificaciones Push/SMS |
-| Dashboard and Analytics             | Procesamiento analítico de curvas de temperatura y pérdida de frío histórica                          |
-| Asset Management                    | Registro y asignación de nodos sensores a congeladoras específicas por tienda                         |
+| Monitoring and Alerting Management | Ingesta de datos, evaluación de reglas de negocio en tiempo real y disparo de notificaciones Push/SMS |
+| Reporting and Analysis Management             | Procesamiento analítico de curvas de temperatura y pérdida de frío histórica                          |
+| Assets Management                    | Registro y asignación de nodos sensores a congeladoras específicas por tienda                         |
 
 ### Paso 7: Selección de las arquitecturas de intercambio e integración
 
@@ -4130,7 +4117,7 @@ La interacción se divide en tres niveles:
 
 El **IceTrack Freezer Monitoring Node** es el dispositivo encargado de supervisar las condiciones físicas internas y externas de las congeladoras comerciales. Su diseño garantiza que la sonda de temperatura DS18B20 permanezca en el interior del congelador, mientras que la unidad central con la pantalla LCD, el sensor DHT22, el sensor LDR, las alertas y el microcontrolador se ubican en el exterior.
 
-Cuando la temperatura del congelador supera los **$-15.0\text{ }^\circ\text{C}$**, la luz interior supera los **$200\text{ Lux}$** (puerta abierta) o la humedad ambiental supera el **$70\text{ \\%}$**, el sistema activa la alerta sonora local, conmuta el LED Verde al LED Rojo, cambia el mensaje de la pantalla LCD a `!ALERTA SISTEMA!` indicando la causa específica y transmite el evento en formato JSON mediante MQTT.
+Cuando la temperatura del congelador supera los **$-15.0\text{ }^\circ\text{C}$**, la luz interior supera los **$200\text{Lux}$** (puerta abierta) o la humedad ambiental supera el **$70\text{ \%}$**, el sistema activa la alerta sonora local, conmuta el LED Verde al LED Rojo, cambia el mensaje de la pantalla LCD a `!ALERTA SISTEMA!` indicando la causa específica y transmite el evento en formato JSON mediante MQTT.
 
 El gabinete exterior está diseñado en plástico ABS resistente a impactos en color blanco industrial con frontal acrílico para la pantalla LCD, garantizando legibilidad y facilidad de limpieza en entornos comerciales.
 
@@ -4155,7 +4142,7 @@ El gabinete exterior está diseñado en plástico ABS resistente a impactos en c
 
 ### Simulación en Wokwi
 
-En la plataforma Wokwi, la sonda DS18B20 se simula utilizando el componente `wokwi-ds18b20` alimentado en su pin `VDD`. El sensor DHT22 se simula con `wokwi-dht22` conectado a GPIO15 y el sensor de luz con `wokwi-photoresistor-sensor`. La comunicación I2C del LCD 16x2 utiliza los pines nativos GPIO21 (SDA) y GPIO22 (SCL).
+En la plataforma Wokwi, la sonda DS18B20 se simula utilizando el componente wokwi-ds18b20 alimentado en su pin VDD. El sensor DHT22 se simula con wokwi-dht22 conectado a GPIO15 y el sensor de luz con wokwi-photoresistor-sensor. La comunicación I2C del LCD 16x2 utiliza los pines nativos GPIO21 (SDA) y GPIO22 (SCL).
 
 La siguiente figura muestra el circuito del **IceTrack Freezer Monitoring Node** simulado en Wokwi.
 
@@ -4165,16 +4152,16 @@ La siguiente figura muestra el circuito del **IceTrack Freezer Monitoring Node**
 2. El DHT22 captura la humedad y temperatura ambiental en GPIO15.
 3. El sensor LDR lee el nivel de luz en el pin analógico GPIO33.
 4. El ESP32 evalúa las condiciones:
-   - Si $\text{Temp. Congelador} > -15.0\text{ }^\circ\text{C} \rightarrow$ **Alerta por Temperatura Alta**.
-   - Si $\text{Luz LDR} > 200\text{ Lux} \rightarrow$ **Alerta por Puerta Abierta**.
-   - Si $\text{Humedad DHT22} > 70\text{ \\%} \rightarrow$ **Alerta por Humedad Crítica**.
-5. En estado **NORMAL**:
+   - Si Temp. Congelador > -15.0: **Alerta por Temperatura Alta**.
+   - Si Luz LDR > 200 **Alerta por Puerta Abierta**.
+   - Si Humedad DHT22 > 70 **Alerta por Humedad Crítica**.
+5. En estado normal:
    - Mantiene encendido el LED Verde (GPIO18) y apaga el LED Rojo (GPIO19).
    - Mantiene apagado el Buzzer (GPIO23).
    - Alterna la pantalla LCD cada 2 segundos entre:
      - *Vista 1*: Temp. Congelador y Estado de Puerta.
      - *Vista 2*: Temp. Ambiente y Humedad.
-6. En estado de **ALERTA**:
+6. En estado de alerta:
    - Apaga el LED Verde y enciende el LED Rojo.
    - Activa el Buzzer con tono continuo de 1000 Hz.
    - Fija la pantalla LCD mostrando `!ALERTA SISTEMA!` y la causa del fallo.
@@ -4226,8 +4213,8 @@ Los elementos de visualización local (LEDs e interfaz gráfica del LCD) respond
 
 | **Elemento / Color** | **Código Hex** | **Condición del sistema**                                                                                    |
 | -------------------- | -------------- | ------------------------------------------------------------------------------------------------------------ |
-| **LED Verde**        | `#1D9E75`      | Cadena de frío asegurada ($\text{Temp} \le -15\text{ }^\circ\text{C}$), puerta cerrada y parámetros normales |
-| **LED Rojo**         | `#E24B4A`      | Alerta crítica activa: Temperatura del congelador elevada, puerta abierta o alta humedad                     |
+| **LED Verde**        | #1D9E75`     | Cadena de frío asegurada ($\text{Temp} \le -15\text{ }^\circ\text{C}$), puerta cerrada y parámetros normales |
+| **LED Rojo**         | #E24B4A      | Alerta crítica activa: Temperatura del congelador elevada, puerta abierta o alta humedad                     |
 | **LCD Luz de fondo** | Estándar I2C   | Encendido permanente durante operación para lectura clara                                                    |
 | **LCD Texto Normal** | Caracteres 5x8 | Muestra cíclica de métricas de temperatura, puerta y humedad                                                 |
 | **LCD Texto Alerta** | Caracteres 5x8 | Mensaje parpadeante de `!ALERTA SISTEMA!` con la descripción de la falla                                     |
