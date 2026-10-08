@@ -3700,49 +3700,49 @@ Para los usuarios del sistema, este diagrama describe el flujo de navegación in
 Los Mock-ups de las aplicaciones web de IceTrack ilustran la organización de las pantallas y la ubicación de los menús de navegación. Al priorizar la usabilidad y la función, estos esquemas sirven como mapa para el diseño definitivo. Su propósito es garantizar una experiencia intuitiva y una interacción eficiente, permitiendo que el equipo de diseño y desarrollo perfeccione la distribución de todos los elementos.
 
 
-Figura 1: Wireframe Órdenes.
+Figura 1: Registro de Cuenta y Rol Operativo
 ![Wireframe5](assets/chapter05/Fase11.png)
 
-Figura 2: Wireframe Órdenes.
+Figura 2: Autenticación e Inicio de Sesión
 ![Wireframe5](assets/chapter05/Fase12.png)
 
-Figura 3: Wireframe Órdenes.
+Figura 3: Preferencias de Idioma, Región y Formato de Telemetría
 ![Wireframe5](assets/chapter05/Fase13.png)
 
-Figura 4: Wireframe Órdenes.
+Figura 4: Inventario Global de Sedes y Equipos
 ![Wireframe5](assets/chapter05/Fase21.png)
 
-Figura 5: Wireframe Órdenes.
+Figura 5: Ficha Técnica del Activo, Parámetros Térmicos y Sensores IoT
 ![Wireframe5](assets/chapter05/Fase22.png)
 
-Figura 6: Wireframe Órdenes.
+Figura 6: Dashboard Ejecutivo y Monitoreo Multizona en Tiempo Real
 ![Wireframe5](assets/chapter05/Fase23.png)
 
-Figura 7: Wireframe Órdenes.
+Figura 7: Centro de Notificaciones y Reglas de Despacho
 ![Wireframe5](assets/chapter05/Fase31.png)
 
-Figura 8: Wireframe Órdenes.
+Figura 8: Monitor y Gestión Global de Órdenes de Servicio
 ![Wireframe5](assets/chapter05/Fase32.png)
 
-Figura 9: Wireframe Órdenes.
+Figura 9: Alta y Emisión de Solicitud de Servicio Técnico
 ![Wireframe5](assets/chapter05/Fase33.png)
 
-Figura 10: Wireframe Órdenes.
+Figura 10: Despacho y Asignación Pericial de Técnico Especialista
 ![Wireframe5](assets/chapter05/Fase34.png)
 
-Figura 11: Wireframe Órdenes.
+Figura 11: Seguimiento en Vivo de la Intervención Técnica en Campo
 ![Wireframe5](assets/chapter05/Fase41.png)
 
-Figura 12: Wireframe Órdenes.
+Figura 12: Justificación Oficial y Dictamen de Descarte de Incidencia
 ![Wireframe5](assets/chapter05/Fase42.png)
 
-Figura 13: Wireframe Órdenes.
+Figura 13: Directorio de Especialistas y Evaluación de Calidad de Servicio
 ![Wireframe5](assets/chapter05/Fase43.png)
 
-Figura 14: Wireframe Órdenes.
+Figura 14: Bitácora Histórica de Intervenciones y Mantenimientos del Activo
 ![Wireframe5](assets/chapter05/Fase44.png)
 
-Figura 15: Wireframe Órdenes.
+Figura 15: Centro de Auditoría Regulatoria y Certificación de Cadena de Frío
 ![Wireframe5](assets/chapter05/Fase45.png)
 
 
