@@ -4048,7 +4048,701 @@ A diferencia de los demás productos de IceTrack, la Landing Page ya se encuentr
 
 ### 6.1.3. Source Code Style Guide & Conventions
 
+Para que el código de IceTrack sea consistente, legible y mantenible entre los siete integrantes del equipo y los seis componentes de la solución (Landing Page, aplicación web, aplicación móvil, servicios backend Cloud, Edge API y firmware del ESP32), el equipo adopta guías de estilo reconocidas por la industria en lugar de definir reglas propias desde cero. Esta sección indica qué guía se sigue en cada lenguaje, las convenciones de nomenclatura que se aplican y las herramientas que verifican su cumplimiento.
+
+#### General Principles
+
+1. **Nomenclatura en inglés.** Todo identificador del código (clases, métodos, variables, archivos, paquetes, tablas, columnas, endpoints, campos JSON, ramas, mensajes de commit y archivos `.feature`) se escribe en inglés. El español se reserva para este reporte y para los textos visibles al usuario, que se gestionan mediante recursos de internacionalización (`en-US` por defecto y `es-419`, según RNF-09). Nunca se escriben textos en español directamente en el código.
+2. **Ubiquitous Language.** Los nombres del dominio deben coincidir con los términos de la sección 2.5: `Owner`, `Provider`, `Technician`, `Site`, `Equipment`, `Alert`, `ServiceRequest`, `Intervention`, `Review`, etc. No se crean sinónimos como `Client`, `Branch` o `Fridge`.
+3. **Nombres que se explican solos.** No se usan abreviaturas salvo las universales (`id`, `uid`, `url`, `api`, `dto`). Los booleanos usan los prefijos `is`, `has`, `can` o `should`.
+4. **El formateador decide.** El formato lo aplica una herramienta automática y no se discute en las revisiones de código.
+5. **Los comentarios explican el porqué.** El código explica el qué. La documentación de código (Javadoc, TSDoc, docstrings) también se escribe en inglés.
+6. **Sin valores mágicos.** Los parámetros del dominio se definen como constantes con nombre (por ejemplo, el intervalo de envío de 10 s, la ventana de agregación de 60 s o el margen de histéresis de 0.5 °C).
+7. **Sin secretos en el repositorio.** Las API keys, credenciales Wi-Fi y secretos JWT se leen de variables de entorno o de archivos ignorados por Git.
+
+#### Language and Reference Matrix
+
+| Componente | Lenguaje(s) | Guía de referencia adoptada | Indentación | Línea máx. |
+| :--- | :--- | :--- | :---: | :---: |
+| Landing Page | HTML5, CSS3, JavaScript (ES6+) | Google HTML/CSS Style Guide; HTML Style Guide and Coding Conventions (W3Schools) | 2 espacios | 100 |
+| Aplicación web (Owner) | TypeScript, HTML, SCSS | Google TypeScript Style Guide; Angular Coding Style Guide | 2 espacios | 100 |
+| Aplicación móvil (Technician) | Dart (Flutter) | Effective Dart | 2 espacios | 80 |
+| Backend Cloud | Java (Spring Boot) | Google Java Style Guide; Spring Boot Features | 2 espacios | 100 |
+| Edge API | Python (Flask) | PEP 8 y PEP 257 | 4 espacios | 88 |
+| Firmware ESP32 | C++ (Arduino) | Google C++ Style Guide (formato); Arduino Library Style Guide (nombres) | 2 espacios | 80 |
+| Criterios de aceptación | Gherkin (`.feature`) | Cucumber: *Gherkin Reference* y *Writing better Gherkin* | 2 espacios | — |
+| Bases de datos | SQL (PostgreSQL v18, SQLite) | Convención `snake_case` de Spring Boot | — | — |
+
+
+#### Cross-Language Naming Summary
+
+| Elemento | Java | TypeScript | Dart | Python | C++ |
+| :--- | :--- | :--- | :--- | :--- | :--- |
+| Clases, interfaces y tipos | `UpperCamelCase` | `UpperCamelCase` | `UpperCamelCase` | `PascalCase` | `PascalCase` |
+| Métodos y funciones | `lowerCamelCase` | `lowerCamelCase` | `lowerCamelCase` | `snake_case` | `lowerCamelCase` |
+| Variables y parámetros | `lowerCamelCase` | `lowerCamelCase` | `lowerCamelCase` | `snake_case` | `lowerCamelCase` |
+| Constantes | `UPPER_SNAKE_CASE` | `UPPER_SNAKE_CASE` | `lowerCamelCase` | `UPPER_SNAKE_CASE` | `UPPER_SNAKE_CASE` |
+| Valores de enum | `UPPER_SNAKE_CASE` | `UPPER_SNAKE_CASE` | `lowerCamelCase` | `UPPER_SNAKE_CASE` | `UPPER_SNAKE_CASE` |
+| Paquetes o módulos | `lowercase` | — | `lowercase_with_underscores` | `snake_case` | — |
+| Archivos | `ClassName.java` | `kebab-case.ts` | `snake_case.dart` | `snake_case.py` | `snake_case.cpp` / `.h` |
+
+Los enums que viajan por la API (`ACTIVE`, `COLD_ROOM`, `PENDING`, `IN_PROGRESS`, etc.) se transmiten siempre en `UPPER_SNAKE_CASE`. En Dart se convierten a `lowerCamelCase` en la capa de infraestructura.
+
+#### Universal Formatting Rules
+
+Cada repositorio incluye un archivo `.editorconfig` en su raíz para que todos los editores (IntelliJ IDEA, WebStorm, Visual Studio Code y Android Studio) apliquen la misma configuración base.
+
+```ini
+root = true
+
+[*]
+charset = utf-8
+end_of_line = lf
+insert_final_newline = true
+trim_trailing_whitespace = true
+indent_style = space
+indent_size = 2
+
+[*.py]
+indent_size = 4
+
+[*.md]
+trim_trailing_whitespace = false
+```
+
+#### HTML, CSS and JavaScript (Landing Page)
+
+La Landing Page sigue la *Google HTML/CSS Style Guide* y las reglas de la *HTML Style Guide and Coding Conventions*.
+
+**HTML**
+
+- Todo documento inicia con `<!DOCTYPE html>`, declara `<html lang="en">` (o `es-419` en la versión traducida) e incluye `<meta charset="utf-8">`, `<meta name="viewport" ...>` y un `<title>`.
+- Elementos y atributos en minúsculas, valores entre comillas dobles, indentación de 2 espacios y un solo `<h1>` por página.
+- Se usan elementos semánticos (`header`, `nav`, `main`, `section`, `footer`) en lugar de `div` genéricos.
+- Toda imagen incluye el atributo `alt`. El contenido cumple WCAG 2.1 nivel AA (RNF-06).
+- Se omite el atributo `type` en `<link rel="stylesheet">` y `<script>`, y las etiquetas vacías no llevan barra de cierre (`<br>`, no `<br />`).
+- No se usan estilos ni manejadores de eventos en línea (`style=""`, `onclick=""`).
+
+**CSS**
+
+- Los nombres de clase y los `id` usan `kebab-case` y describen el contenido, no la apariencia. Se permite la convención BEM (`hero__title--highlighted`).
+- Un selector por línea, una declaración por línea, un espacio después de los dos puntos y punto y coma al final de cada declaración.
+- Se escriben los colores en minúscula y en forma corta cuando es posible (`#fff`) y se omite la unidad en los valores cero (`margin: 0`).
+- Se evita `!important` y los selectores por `id`.
+- Los colores, tipografías y espaciados de la guía de estilo (sección 5.1) se declaran como variables CSS (`--color-primary`) en `:root`.
+- El diseño es *mobile-first*, con `@media (min-width: ...)` para pantallas mayores (RNF-06).
+
+```html
+<section class="features" aria-labelledby="features-title">
+  <h2 id="features-title" class="features__title">Real-time monitoring</h2>
+  <p class="features__description">Detect temperature anomalies before they cause losses.</p>
+</section>
+```
+
+```css
+:root {
+  --color-primary: #0a6ebd;
+  --spacing-md: 16px;
+}
+
+.features__title {
+  color: var(--color-primary);
+  margin: 0 0 var(--spacing-md);
+}
+```
+
+**JavaScript**
+
+Sigue las mismas reglas de la guía de TypeScript, sin anotaciones de tipos: `const` y `let` (nunca `var`), comparación estricta (`===`), punto y coma obligatorio, comillas simples, módulos ES y ninguna variable global.
+
+#### TypeScript and Angular (Web Application)
+
+La aplicación web sigue la *Google TypeScript Style Guide* y la *Angular Coding Style Guide*.
+
+**Estructura de carpetas.** El código se organiza por Bounded Context, con las mismas capas del backend para que el equipo reconozca la arquitectura en ambos lados:
+
+```text
+src/app/
+├── shared/                         # shared components, pipes and utilities
+├── iam/
+│   ├── domain/model/               # user.entity.ts, role.enum.ts
+│   ├── application/                # sign-in.store.ts
+│   ├── infrastructure/             # iam-api.service.ts, user.assembler.ts, user.resource.ts
+│   └── presentation/
+│       ├── components/
+│       └── views/                  # sign-in.component.ts / .html / .scss
+├── assets-management/
+├── monitoring/
+└── service-requests/
+```
+
+**Reglas de nomenclatura**
+
+| Elemento | Convención | Ejemplo |
+| :--- | :--- | :--- |
+| Archivos | `kebab-case` con sufijo de tipo | `equipment-list.component.ts`, `equipment-api.service.ts` |
+| Clases | `UpperCamelCase` con el sufijo de su tipo | `EquipmentListComponent`, `AuthGuard`, `EquipmentAssembler` |
+| Interfaces y tipos | `UpperCamelCase`, sin prefijo `I` | `EquipmentResource` |
+| Selectores de componentes | Prefijo `ice-` y `kebab-case` | `ice-equipment-list` |
+| Propiedades `Observable` | Sufijo `$` | `equipments$` |
+| Miembros privados | Palabra clave `private`, sin prefijo `_` | `private readonly equipmentApi` |
+
+**Reglas de código**
+
+- Modo `strict` activado en `tsconfig.json`. No se usa `any` (se usa `unknown` cuando el tipo no se conoce).
+- `const` y `let` (nunca `var`), comillas simples, punto y coma obligatorio y `readonly` en las propiedades que no cambian.
+- Exportaciones nombradas (`export class ...`), sin `export default`.
+- Las dependencias se inyectan con `inject()` o con el constructor. Los componentes no llaman a `HttpClient` directamente: usan los servicios de la capa `infrastructure`.
+- La plantilla no contiene lógica de negocio. Los datos asíncronos se consumen con el pipe `async`.
+- La capa `infrastructure` transforma las respuestas de la API en entidades de dominio mediante los *assemblers*, igual que en el backend.
+- Los textos visibles usan los recursos de traducción y los componentes de Angular Material se importan de forma individual.
+
+#### Dart and Flutter (Mobile Application)
+
+La aplicación móvil sigue *Effective Dart*.
+
+```text
+lib/
+├── core/                           # theme, l10n, http client, offline queue
+└── features/
+    ├── iam/
+    ├── service_requests/
+    │   ├── domain/                 # service_request.dart, service_request_status.dart
+    │   ├── application/            # service_request_bloc.dart
+    │   ├── infrastructure/         # service_request_api.dart, service_request_assembler.dart
+    │   └── presentation/           # pages/ and widgets/
+    └── equipments/
+```
+
+- Los archivos, librerías y paquetes usan `snake_case`. Las clases y los widgets usan `UpperCamelCase` (`EquipmentCard`). Los miembros privados llevan el prefijo `_`.
+- Las constantes y los valores de enum usan `lowerCamelCase`, como indica *Effective Dart*.
+- Los constructores de widgets son `const` siempre que sea posible. No se usa `dynamic` ni `print` (se usa un `Logger`).
+- Se aplica `dart format` y el análisis estático con `flutter_lints`.
+- Los textos se almacenan en archivos ARB (`app_en.arb`, `app_es_419.arb`).
+- Los registros creados sin conexión llevan un UUID generado en el cliente, que garantiza la idempotencia exigida por RNF-07.
+
+```dart
+enum EquipmentType { freezer, coldRoom, refrigerator }
+
+class EquipmentCard extends StatelessWidget {
+  const EquipmentCard({super.key, required this.equipment});
+
+  final Equipment equipment;
+
+  @override
+  Widget build(BuildContext context) {
+    return ListTile(title: Text(equipment.name));
+  }
+}
+```
+
+#### Java and Spring Boot (Backend Cloud)
+
+El backend sigue la *Google Java Style Guide* y las prácticas de *Spring Boot Features*. Cada Bounded Context es un paquete raíz con las cuatro capas definidas en la sección 4.2:
+
+```text
+com.icetrack.platform.<boundedContext>/
+├── domain/
+│   ├── model/        (aggregates, entities, valueobjects, commands, queries, events)
+│   ├── services/     (CommandService and QueryService interfaces)
+│   └── repositories/
+├── application/
+│   ├── commandservices/    queryservices/    eventhandlers/    outboundservices/
+├── interfaces/
+│   ├── controllers/    resources/    assemblers/    acl/
+└── infrastructure/
+    └── persistence/jpa/repositories/
+```
+
+Los nombres de los Bounded Contexts (`iam`, `profiles`, `assets`, `devices`, `monitoring`, `services`, `notifications`, `reporting`) coinciden con los esquemas de la base de datos. El paquete base `com.icetrack.platform` debe ajustarse al `groupId` real del repositorio.
+
+**Nomenclatura de clases por patrón DDD**
+
+| Elemento | Patrón | Ejemplo |
+| :--- | :--- | :--- |
+| Aggregate, Entity | Sustantivo del dominio | `ServiceRequest`, `Equipment` |
+| Value Object, Enum | Sustantivo descriptivo | `TemperatureThreshold`, `AlertStatus` |
+| Command (`record`) | `<Verb><Noun>Command` | `RegisterEquipmentCommand` |
+| Query (`record`) | `Get<Noun>By<Criteria>Query` | `GetEquipmentBySiteQuery` |
+| Domain Event | `<Noun><PastParticiple>Event` | `UserRegisteredEvent`, `AlertRaisedEvent` |
+| Servicios de dominio | `<Aggregate>CommandService`, `<Aggregate>QueryService` | `DeviceCommandService` |
+| Implementación de servicio | Nombre de la interfaz + `Impl` | `DeviceCommandServiceImpl` |
+| Repositorio (dominio) | `<Aggregate>Repository` | `AlertRepository` |
+| Repositorio (infraestructura) | `SpringDataJpa<Aggregate>Repository` | `SpringDataJpaAlertRepository` |
+| Controller | `<Aggregate>Controller` | `EquipmentController` |
+| Resource (`record`) | `<Name>Resource` | `SignUpResource`, `EquipmentResource` |
+| Assembler | `<Aggregate>Assembler` con `toResourceFromEntity` y `toCommandFromResource` | `EquipmentAssembler` |
+| Facade (ACL entrante) | `<Context>ContextFacade` | `AssetContextFacade` |
+| Servicio saliente (ACL) | `<TargetContext>ExternalService` | `DeviceManagementExternalService` |
+| Event Handler | `<Event>Handler` | `UserRegisteredEventHandler` |
+
+Los manejadores de comandos y consultas se llaman `handle(...)` y se sobrecargan según el tipo de comando o consulta.
+
+**Reglas de código**
+
+- Indentación de 2 espacios, línea máxima de 100 columnas, llaves obligatorias en todos los bloques y sin imports con comodín (`*`).
+- Inyección por constructor. No se usa `@Autowired` sobre campos.
+- Los *resources*, comandos y consultas son `record`. Las entidades JPA nunca se exponen en la API, y los campos sensibles (`passwordHash`, `apiKeyHash`) nunca aparecen en un *resource*.
+- Las reglas de negocio viven en el dominio (agregados y servicios de dominio), nunca en los controllers.
+- Los `CommandService` que modifican el estado se anotan con `@Transactional`.
+- Se usa `Optional` solo como tipo de retorno, nunca como campo ni parámetro.
+- El logging usa SLF4J con parámetros (`log.info("Alert {} opened", alert.getId())`). No se usa `System.out`.
+- Los mensajes de error de la API están en inglés (`"Invalid data"`, `"Equipment not found"`).
+- Los secretos y las URL de conexión se leen de variables de entorno desde `application.yml`.
+
+```java
+@Service
+public class EquipmentCommandServiceImpl implements EquipmentCommandService {
+
+  private final EquipmentRepository equipmentRepository;
+
+  public EquipmentCommandServiceImpl(EquipmentRepository equipmentRepository) {
+    this.equipmentRepository = equipmentRepository;
+  }
+
+  @Override
+  @Transactional
+  public Optional<Equipment> handle(RegisterEquipmentCommand command) {
+    var equipment = new Equipment(command);
+    equipmentRepository.save(equipment);
+    return Optional.of(equipment);
+  }
+}
+```
+
+**Convenciones de la API REST**
+
+| Aspecto | Convención | Ejemplo |
+| :--- | :--- | :--- |
+| Recursos | Sustantivos en plural y `kebab-case`, con versión | `/api/v1/service-requests` |
+| Acciones de estado | Subrecurso con verbo | `PUT /api/v1/service-requests/{id}/accept` |
+| API del Edge | Prefijo propio | `/edge/api/v1/readings` |
+| Campos JSON | `camelCase` en toda la solución | `equipmentId`, `recordedAt` |
+| Fechas | ISO-8601 en UTC | `2026-09-20T14:30:00Z` |
+| Códigos HTTP | `201` creación, `200` lectura o duplicado idempotente, `400` datos inválidos, `401` credencial inválida, `404` no encontrado, `409` conflicto de estado | Historias TS-01 a TS-14 |
+
+**Persistencia.** Se usa la estrategia de nombres por defecto de Spring Boot, que convierte `UpperCamelCase` y `lowerCamelCase` a `snake_case`. Cada Bounded Context usa su propio esquema, las tablas van en singular (`service_request`), la clave primaria es `<entity>_id`, las claves foráneas reutilizan el nombre de la clave que referencian, las marcas de tiempo terminan en `_at` y los booleanos usan `is_` (`is_active`).
+
+**Pruebas (JUnit).** La clase de prueba se llama `<ClassName>Test` y se ubica en el mismo paquete que la clase probada. Los métodos usan el patrón `should<ExpectedBehavior>When<Condition>` (por ejemplo, `shouldRejectReviewWhenEditWindowExpired`) y se estructuran en las fases *Arrange*, *Act* y *Assert*.
+
+#### Python and Flask (Edge API)
+
+La Edge API sigue *PEP 8* y *PEP 257*, con líneas de hasta 88 columnas.
+
+```text
+edge-api/
+├── app/
+│   ├── __init__.py          # application factory (create_app)
+│   ├── readings/            # blueprint: routes.py, service.py, repository.py, schemas.py
+│   ├── thresholds/          # excursion evaluation with hysteresis
+│   └── sync/                # outbox and cloud synchronization
+├── tests/
+└── requirements.txt
+```
+
+- Módulos, funciones y variables en `snake_case`. Clases en `PascalCase`. Constantes en `UPPER_SNAKE_CASE`.
+- Anotaciones de tipo en las firmas públicas y docstrings en inglés para módulos, clases y funciones públicas.
+- Las rutas (*blueprints*) solo validan la trama y delegan en servicios. La lógica de umbrales no se escribe dentro de las rutas.
+- Los parámetros del dominio se declaran como constantes.
+- La estructura de las tablas SQLite usa `snake_case` y cada entrada del *outbox* lleva un UUID generado localmente (TS-11).
+- Los errores se devuelven como JSON con el código HTTP correspondiente (`400` con `"Invalid reading payload"` ante una trama incompleta).
+
+```python
+SEND_INTERVAL_SECONDS = 10
+SYNC_WINDOW_SECONDS = 60
+SUSTAINED_EXCURSION_SAMPLES = 12  # 2 minutes at 10-second intervals
+HYSTERESIS_CELSIUS = 0.5
+
+
+def is_sustained_excursion(temperatures: list[float], max_threshold: float) -> bool:
+    """Return True when the last readings are all above the maximum threshold."""
+    recent = temperatures[-SUSTAINED_EXCURSION_SAMPLES:]
+    return len(recent) == SUSTAINED_EXCURSION_SAMPLES and all(
+        value > max_threshold for value in recent
+    )
+```
+
+#### C++ and Arduino (ESP32 Firmware)
+
+El firmware usa la *Google C++ Style Guide* para el formato y la estructura, y las convenciones de nombres de Arduino para mantener coherencia con su API (`digitalWrite`, `millis`).
+
+```text
+firmware/icetrack_esp32/
+├── icetrack_esp32.ino       # setup() and loop()
+├── config.h                 # constants (intervals, pins, endpoints)
+├── secrets.example.h        # template; the real secrets.h is in .gitignore
+├── temperature_sensor.h/.cpp
+└── status_indicator.h/.cpp  # LED and buzzer
+```
+
+- Clases en `PascalCase`, funciones y variables en `lowerCamelCase`, constantes y macros en `UPPER_SNAKE_CASE` y miembros privados con sufijo `_` (`lastSentAt_`).
+- Los pines, intervalos y URL se definen en `config.h` con `constexpr`. Las credenciales Wi-Fi y la API key se definen en `secrets.h`, que nunca se versiona.
+- No se usa `delay()` en el ciclo principal. Los intervalos se controlan con `millis()` para no bloquear el envío ni las señales del LED.
+- Los reintentos ante pérdida del enlace usan espera creciente (US-26).
+- Los estados físicos se representan con un `enum class` (verde = normal, rojo intermitente = excursión térmica, ámbar fijo = pérdida de conectividad, según US-39).
+
+```cpp
+constexpr unsigned long SEND_INTERVAL_MS = 10000;
+constexpr uint8_t STATUS_LED_PIN = 2;
+
+enum class DeviceState { NORMAL, EXCURSION, CONNECTIVITY_LOST };
+
+unsigned long lastSentAtMs = 0;
+
+void loop() {
+  const unsigned long nowMs = millis();
+  if (nowMs - lastSentAtMs >= SEND_INTERVAL_MS) {
+    lastSentAtMs = nowMs;
+    sendReading();
+  }
+}
+```
+
+#### Gherkin (`.feature` Files)
+
+Los criterios de aceptación de las historias de usuario (sección 3.1) se convierten en archivos `.feature` siguiendo las guías de Cucumber para especificaciones legibles. El reporte presenta los escenarios en español (*Dado, Cuando, Entonces*), pero los archivos `.feature` se escriben en inglés (*Given, When, Then*).
+
+- **Ubicación y nombre.** Un archivo por *feature*, agrupados por Bounded Context: `src/test/resources/features/<bounded-context>/<feature-name>.feature`, con nombre en `kebab-case` (`sign-in.feature`).
+- **Etiquetas.** Cada *feature* lleva la etiqueta de su historia y la de su contexto (`@US-02 @iam`). Se agregan `@smoke` o `@wip` cuando corresponda.
+- **Estructura.** `Feature` con la historia en formato *As a / I want / So that*, seguido de los escenarios. Cada escenario lleva un título que describe el comportamiento.
+- **Estilo declarativo.** Los pasos describen el comportamiento del negocio, no la interfaz (`When the owner configures the threshold`, no `When the owner clicks the "Save" button`).
+- **Un solo `When` por escenario.** Los pasos `Given` describen el estado inicial y los `Then` el resultado observable. Se recomienda no superar 5 a 7 pasos por escenario.
+- **Lenguaje ubicuo.** Se usan los términos de la sección 2.5 y los valores de enum del dominio (`PENDING`, `COMPLETED`).
+- **Variaciones de datos.** Se usa `Scenario Outline` con `Examples` en lugar de duplicar escenarios. `Background` se reserva para precondiciones comunes y cortas.
+
+```gherkin
+@US-02 @iam
+Feature: User sign-in
+  As a user
+  I want to sign in with my account
+  So that I can access the platform
+
+  Scenario: Successful sign-in
+    Given a user with an active account
+    When the user signs in with valid credentials
+    Then the system issues a valid session
+    And the user is redirected to the dashboard
+
+  Scenario: Invalid credentials
+    Given a user with an active account
+    When the user signs in with invalid credentials
+    Then the system denies access
+    And the error message does not reveal which field failed
+```
+
+```gherkin
+@US-36 @assets
+Feature: Equipment temperature threshold
+  As a business owner
+  I want to define the acceptable temperature range of each equipment
+  So that the system knows when its contents are at risk
+
+  Scenario Outline: Reject an invalid temperature range
+    Given an equipment owned by the business owner
+    When the owner sets the minimum to <min> and the maximum to <max>
+    Then the system rejects the operation
+    And it states that the range is not valid
+
+    Examples:
+      | min | max |
+      | 5   | -18 |
+      | 4   | 4   |
+```
+
+#### Git Conventions
+
+Estas convenciones complementan el flujo de ramas descrito en la sección 6.1.2.
+
+- **Ramas.** `<type>/<feature-name>` en inglés y en `kebab-case`: `feat/device-pairing`, `fix/alert-duplicate`, `docs/style-guide`, `release/1.0.0`. Las ramas se crean a partir de `develop`.
+- **Commits.** Siguen *Conventional Commits* y se escriben en inglés, en modo imperativo y con el Bounded Context como alcance: `feat(monitoring): add sustained excursion evaluation`. Los tipos usados son `feat`, `fix`, `docs`, `style`, `refactor`, `test`, `build`, `ci` y `chore`.
+- **Pull Requests.** Todo cambio llega a `develop` mediante un Pull Request revisado por al menos otro integrante. El título sigue el formato de Conventional Commits y la descripción referencia el ID de la historia (`US-28`, `TS-12`).
+
+#### Automated Style Enforcement
+
+El equipo adopta las siguientes herramientas para verificar el estilo. Se configuran en cada repositorio y se ejecutan localmente antes del commit y en cada Pull Request.
+
+| Lenguaje | Formato | Análisis estático |
+| :--- | :--- | :--- |
+| Java | Spotless con `google-java-format` | Checkstyle con `google_checks.xml` |
+| TypeScript / Angular | Prettier (comillas simples, 100 columnas) | ESLint con `angular-eslint` |
+| HTML / CSS / JavaScript | Prettier | HTMLHint, Stylelint y ESLint |
+| Dart / Flutter | `dart format` | `flutter analyze` con `flutter_lints` |
+| Python | Ruff (formato) | Ruff (lint) |
+| C++ (ESP32) | `clang-format` con `BasedOnStyle: Google` | — |
+| Gherkin | — | `gherkin-lint` |
+
 ### 6.1.4. Software Deployment Configuration
+
+Esta sección describe cómo se despliega cada producto digital de IceTrack a partir de su repositorio de código fuente. La solución se compone de seis productos que se despliegan en entornos distintos: la Landing Page y la aplicación web (Vercel), los servicios backend y la base de datos (Render), la aplicación móvil (instalable en Android), la Edge API (gateway en el local del cliente) y el firmware del ESP32 (placa instalada en el equipo de refrigeración).
+
+#### Deployment Overview
+
+| Producto | Repositorio | Tecnología | Plataforma de despliegue | Disparador |
+| :--- | :--- | :--- | :--- | :--- |
+| Landing Page | `LandingPage-IceTrack_IoT` | HTML, CSS, JavaScript | Vercel | Push a `master` |
+| Web Application (Owner) | `Frontend-IceTrack_IoT` | Angular, TypeScript | Vercel | Push a `master` |
+| Web Services (Cloud) | `Platform-IceTrack_IoT` | Spring Boot, Java | Render (Docker) | Push a `master` |
+| Platform Database | — | PostgreSQL v18 | Render (PostgreSQL) | Configuración inicial |
+| Mobile Application (Technician) | `Icetrack-mobile-app` | Flutter, Dart | Instalador Android (APK) | Manual, por versión |
+| Edge API | *(repositorio por definir)* | Python, Flask, SQLite | Gateway Linux en el local del cliente | Manual, por versión |
+| Embedded Application | *(repositorio por definir)* | C++ (Arduino), ESP32 | Carga por USB desde Arduino IDE | Manual, por versión |
+
+**Orden de despliegue.** Como los productos dependen entre sí, el despliegue sigue este orden: (1) base de datos, (2) servicios backend, (3) Landing Page y aplicación web, (4) Edge API, (5) firmware del ESP32 y (6) aplicación móvil.
+
+**Ramas y entornos.** Siguiendo el flujo de la sección 6.1.2, `develop` es la rama de integración y `master` (o `main` en la app móvil) es la rama estable que se publica. En Vercel, cada Pull Request genera además un *Preview Deployment* con una URL propia para validar los cambios antes de integrarlos.
+
+**Versionado.** Cada versión publicada se marca con un tag de Git bajo *Semantic Versioning* (`v1.0.0`) sobre la rama estable.
+
+#### Deployment Diagram (C4 Model)
+
+El Deployment Diagram del modelo C4 muestra los nodos de infraestructura donde se ejecuta cada contenedor de IceTrack y cómo se comunican.
+
+<figure style="page-break-inside: avoid; text-align: center;">
+  <img src="assets/chapter04/c4/Deployment.png"
+       alt="IceTrack C4 Deployment Diagram"
+       style="max-width: 95%; height: auto; display: block; margin: 0 auto;">
+  <figcaption style="font-size: 0.9em; color: #555;">
+  </figcaption>
+</figure>
+
+| Nodo | Contenedores que aloja | Comunicación |
+| :--- | :--- | :--- |
+| Dispositivo IoT (ESP32 con sensor DS18B20/DHT22) | Firmware de monitoreo | HTTP hacia la Edge API dentro de la red local del sitio, cada 10 segundos. No sale a internet. |
+| Gateway Edge (equipo en el local del cliente) | Edge API (Flask) y base de datos SQLite | HTTPS hacia la API Cloud con lotes agregados cada 60 segundos, autenticado con la API key del dispositivo. |
+| Vercel | Landing Page y aplicación web (Angular) | HTTPS hacia el navegador del usuario. La aplicación web consume la API Cloud con JWT y recibe telemetría en vivo por Server-Sent Events. |
+| Render (Web Service) | Servicios backend Spring Boot (API Gateway y Bounded Contexts) | HTTPS hacia web y móvil. HTTPS hacia Google Identity Platform y hacia el proveedor de notificaciones push. |
+| Render (PostgreSQL) | Platform Database (PostgreSQL v18, un esquema por Bounded Context) | Conexión privada con el backend. |
+| Dispositivo Android del técnico | Aplicación móvil Flutter | HTTPS hacia la API Cloud con JWT. |
+| Google Identity Platform | Servicio externo OAuth 2.0 | Validación de ID Tokens por parte del backend. |
+
+#### 1. Platform Database (PostgreSQL v18)
+
+1. Crear una instancia de PostgreSQL v18 en Render y registrar su *Internal Database URL* (para el backend desplegado en Render) y su *External Database URL* (para administración local).
+2. Crear un esquema por Bounded Context, que coincide con el nombre del paquete del backend. Hibernate crea las tablas, pero no los esquemas, por lo que este script se ejecuta una sola vez:
+
+```sql
+CREATE SCHEMA IF NOT EXISTS iam;
+CREATE SCHEMA IF NOT EXISTS profiles;
+CREATE SCHEMA IF NOT EXISTS assets;
+CREATE SCHEMA IF NOT EXISTS devices;
+CREATE SCHEMA IF NOT EXISTS monitoring;
+CREATE SCHEMA IF NOT EXISTS services;
+CREATE SCHEMA IF NOT EXISTS notifications;
+CREATE SCHEMA IF NOT EXISTS reporting;
+```
+
+3. Verificar que el backend se conecta correctamente al iniciar (las tablas aparecen en cada esquema tras el primer arranque).
+
+#### 2. Web Services (Spring Boot en Render)
+
+Render no incluye un entorno nativo de Java, por lo que el backend se despliega como contenedor Docker. El repositorio `Platform-IceTrack_IoT` incluye el siguiente `Dockerfile` en su raíz:
+
+```dockerfile
+FROM eclipse-temurin:21-jdk AS build
+WORKDIR /app
+COPY . .
+RUN ./mvnw -B -DskipTests clean package
+
+FROM eclipse-temurin:21-jre
+WORKDIR /app
+COPY --from=build /app/target/*.jar app.jar
+EXPOSE 8080
+ENTRYPOINT ["java", "-jar", "app.jar"]
+```
+
+**Pasos**
+
+1. En Render, crear un **Web Service** conectado al repositorio `Platform-IceTrack_IoT`.
+2. Seleccionar el runtime **Docker**, la rama `master` y el *Auto-Deploy* activado.
+3. Configurar las variables de entorno. Los valores sensibles nunca se versionan (sección 6.1.3).
+
+| Variable | Descripción |
+| :--- | :--- |
+| `PORT` | Puerto asignado por Render. `application.yml` lo lee como `server.port: ${PORT:8080}`. |
+| `SPRING_DATASOURCE_URL` | URL JDBC de la Platform Database (`jdbc:postgresql://<host>:5432/<database>`). |
+| `SPRING_DATASOURCE_USERNAME` | Usuario de la base de datos. |
+| `SPRING_DATASOURCE_PASSWORD` | Contraseña de la base de datos. |
+| `JWT_SECRET` | Clave de firma de los JWT emitidos por el contexto IAM. |
+| `GOOGLE_CLIENT_ID` | ID de cliente de Google OAuth 2.0 usado para validar los ID Tokens. |
+| `CORS_ALLOWED_ORIGINS` | Orígenes permitidos: el dominio de la aplicación web en Vercel. |
+| `PUSH_PROVIDER_CREDENTIALS` | Credenciales del proveedor de notificaciones push (TS-15). |
+
+4. Iniciar el despliegue. Render construye la imagen y publica el servicio en `https://<service-name>.onrender.com`.
+5. Verificar el despliegue abriendo la documentación Swagger/OpenAPI del servicio (por defecto, `/swagger-ui/index.html`) y probando el registro y el inicio de sesión (`POST /api/v1/users` y el endpoint de autenticación) con Postman.
+
+#### 3. Web Application y Landing Page (Vercel)
+
+Ambos productos se despliegan en Vercel, cada uno como un proyecto independiente conectado a su repositorio.
+
+**Web Application (Angular)**
+
+1. En Vercel, elegir **Add New Project** e importar `Frontend-IceTrack_IoT`.
+2. Configurar el proyecto:
+
+| Parámetro | Valor |
+| :--- | :--- |
+| Framework Preset | Angular |
+| Branch de producción | `master` |
+| Install Command | `npm ci` |
+| Build Command | `npm run build` (`ng build --configuration production`) |
+| Output Directory | `dist/<project-name>/browser` (según la versión de Angular) |
+
+3. Definir la URL de la API Cloud en el archivo de entorno de producción (`environment.production.ts`), por ejemplo `apiBaseUrl: 'https://<service-name>.onrender.com/api/v1'`. Esta URL no es un secreto, por lo que se versiona.
+4. Agregar un archivo `vercel.json` en la raíz del repositorio para que las rutas internas de la SPA no devuelvan error 404 al recargar la página:
+
+```json
+{
+  "rewrites": [{ "source": "/(.*)", "destination": "/index.html" }]
+}
+```
+
+5. Registrar el dominio de Vercel en dos lugares: en `CORS_ALLOWED_ORIGINS` del backend y en los *Authorized JavaScript origins* y *redirect URIs* del cliente OAuth de Google Cloud.
+
+**Landing Page**
+
+1. Importar `LandingPage-IceTrack_IoT` como un nuevo proyecto de Vercel con la rama `master` como producción.
+2. Si el sitio es estático (HTML, CSS y JavaScript), usar el preset **Other**, sin *Build Command* y con la raíz del repositorio como *Output Directory*. Si utiliza un bundler, el *Build Command* es `npm run build` y el directorio de salida es `dist`.
+3. Los botones de acceso (US-17) apuntan a la URL de la aplicación web de Vercel y al enlace de descarga de la aplicación móvil.
+
+**Verificación.** Abrir cada URL de producción, comprobar el inicio de sesión desde la aplicación web (incluido el botón «Continuar con Google») y confirmar que la recarga de una ruta interna no devuelve 404.
+
+#### 4. Mobile Application (Flutter, Android)
+
+La aplicación móvil del técnico se compila desde el repositorio `Icetrack-mobile-app` y se distribuye como archivo instalable de Android.
+
+1. Instalar Flutter y Android Studio (sección 6.1.1) y ejecutar `flutter doctor` para validar el entorno.
+2. Clonar el repositorio y descargar las dependencias:
+
+```bash
+git clone https://github.com/IceTrack-IoT/Icetrack-mobile-app.git
+cd Icetrack-mobile-app
+flutter pub get
+```
+
+3. Validar la calidad antes de compilar:
+
+```bash
+flutter analyze
+flutter test
+```
+
+4. Crear el archivo de firma `android/key.properties` con el *keystore* de la aplicación. Ni este archivo ni el *keystore* se suben al repositorio.
+5. Generar el instalador de producción apuntando a la API Cloud:
+
+```bash
+flutter build apk --release --dart-define=API_BASE_URL=https://<service-name>.onrender.com/api/v1
+```
+
+6. El archivo resultante (`build/app/outputs/flutter-apk/app-release.apk`) se adjunta a un *Release* de GitHub con el tag de la versión (`v1.0.0`). El enlace de descarga se publica en la Landing Page.
+
+**Verificación.** Instalar el APK en un dispositivo Android, iniciar sesión con la cuenta de un técnico, y confirmar que se listan las órdenes asignadas y que el registro de una intervención sin conexión se sincroniza al recuperar la red.
+
+#### 5. Edge API (Flask en el gateway del local)
+
+La Edge API se instala en un equipo Linux dentro del local del cliente. Este equipo recibe las lecturas del ESP32 por la red local, las guarda en SQLite y las sincroniza con la nube. No se expone a internet.
+
+1. Preparar el gateway con Python 3 y acceso a la red local y a internet. Crear un usuario de servicio y los directorios de trabajo:
+
+```bash
+sudo useradd --system --create-home icetrack
+sudo mkdir -p /opt/icetrack /etc/icetrack /var/lib/icetrack
+```
+
+2. Obtener el código en la versión a desplegar e instalar las dependencias en un entorno virtual:
+
+```bash
+cd /opt/icetrack
+git clone <edge-api-repository-url> edge-api
+cd edge-api
+git checkout v1.0.0
+python3 -m venv .venv
+.venv/bin/pip install -r requirements.txt gunicorn
+```
+
+3. Crear el archivo de configuración `/etc/icetrack/edge.env` con permisos restringidos (`chmod 600`):
+
+```ini
+CLOUD_BASE_URL=https://<service-name>.onrender.com
+SQLITE_PATH=/var/lib/icetrack/edge.db
+DEVICE_CREDENTIALS_FILE=/etc/icetrack/devices.json
+```
+
+El archivo `devices.json` relaciona cada identificador de dispositivo con su API key. La clave se genera en la aplicación web al emparejar el dispositivo (US-37) y se muestra una sola vez; si se rota (US-38), se actualiza en este archivo.
+
+4. Registrar la aplicación como servicio de `systemd` para que se inicie con el equipo y se reinicie ante fallos. Se usa un solo proceso con varios hilos para evitar conflictos de escritura sobre SQLite. Archivo `/etc/systemd/system/icetrack-edge.service`:
+
+```ini
+[Unit]
+Description=IceTrack Edge API
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+User=icetrack
+WorkingDirectory=/opt/icetrack/edge-api
+EnvironmentFile=/etc/icetrack/edge.env
+ExecStart=/opt/icetrack/edge-api/.venv/bin/gunicorn -w 1 --threads 4 -b 0.0.0.0:5000 "app:create_app()"
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target
+```
+
+5. Activar e iniciar el servicio:
+
+```bash
+sudo systemctl daemon-reload
+sudo systemctl enable --now icetrack-edge
+sudo systemctl status icetrack-edge
+```
+
+**Verificación.** Enviar una lectura de prueba al endpoint `/edge/api/v1/readings` desde otro equipo de la red local y confirmar que responde `201`. Para validar la autonomía del borde (RNF-05 y RNF-08), desconectar el gateway de internet unos minutos y comprobar que sigue recibiendo lecturas y que las sincroniza al restablecer el enlace.
+
+#### 6. Embedded Application (ESP32)
+
+El firmware se carga en cada placa ESP32 desde Arduino IDE, mediante cable USB.
+
+1. Instalar Arduino IDE y agregar el soporte de placas ESP32 desde el Gestor de Tarjetas (paquete *esp32* de Espressif Systems).
+2. Instalar desde el Gestor de Bibliotecas las dependencias del sensor y del manejo de JSON (por ejemplo, `DHT sensor library` o `DallasTemperature` con `OneWire`, y `ArduinoJson`).
+3. Abrir el sketch `icetrack_esp32.ino` y crear el archivo `secrets.h` a partir de la plantilla `secrets.example.h`. Este archivo está en `.gitignore`:
+
+```cpp
+#pragma once
+
+constexpr char WIFI_SSID[] = "your-wifi-name";
+constexpr char WIFI_PASSWORD[] = "your-wifi-password";
+constexpr char EDGE_API_URL[] = "http://192.168.1.50:5000/edge/api/v1/readings";
+constexpr char DEVICE_ID[] = "ICE-0001";
+```
+
+4. Seleccionar la placa (*ESP32 Dev Module*) y el puerto USB, y pulsar **Upload**.
+5. Instalar la placa junto al equipo de refrigeración, con la sonda de temperatura dentro de la cámara o vitrina.
+
+**Verificación.** Abrir el Monitor Serie a 115200 baudios y confirmar la conexión Wi-Fi y las respuestas `201` de la Edge API. El LED debe mostrarse en verde en operación normal y en ámbar fijo si se pierde la conexión con el gateway (US-39). Finalmente, confirmar que la lectura aparece en el dashboard de la aplicación web, tras emparejar el dispositivo con su equipo.
+
+#### Post-Deployment Verification
+
+| Producto | Prueba de humo |
+| :--- | :--- |
+| Platform Database | El backend arranca y crea las tablas en cada esquema. |
+| Web Services | Swagger responde y el registro e inicio de sesión funcionan por Postman. |
+| Web Application | Inicio de sesión con credenciales y con Google; el dashboard carga. |
+| Landing Page | Las secciones cargan y los botones de acceso llevan a la plataforma. |
+| Edge API | `POST /edge/api/v1/readings` responde `201` y los registros quedan en SQLite. |
+| ESP32 | El Monitor Serie muestra envíos exitosos y el LED en verde. |
+| Mobile Application | El técnico inicia sesión, ve sus órdenes y sincroniza una intervención. |
+| Flujo extremo a extremo | Una lectura del ESP32 llega al dashboard en menos de 3 segundos desde su recepción en la nube (RNF-02). |
+
+#### Rollback
+
+| Producto | Procedimiento |
+| :--- | :--- |
+| Landing Page y Web Application | En Vercel, promover un despliegue anterior a producción desde la pestaña *Deployments*. |
+| Web Services | En Render, volver a desplegar la versión previa desde el historial de *Deploys*. |
+| Edge API | `git checkout <previous-tag>` en `/opt/icetrack/edge-api` y `sudo systemctl restart icetrack-edge`. |
+| ESP32 | Volver a cargar el firmware del tag anterior desde Arduino IDE. |
+| Mobile Application | Reinstalar el APK del *Release* anterior. |
 
 ## 6.2. Landing Page, Services & Applications Implementation
 
