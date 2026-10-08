@@ -3817,7 +3817,8 @@ Los wireframes de las aplicaciones web de IceTrack ilustran la organización de 
 
 ### 5.4.2. Applications Wireflow Diagrams
 
-Para los usuarios del sistema, este diagrama describe el flujo de navegación integral de la plataforma web y móvil. Inicia con el proceso de autenticación o registro para acceder al Dashboard y KPI principal, y desde allí despliega las rutas operativas clave hacia la gestión de infraestructura (Sitios & Equipos), el monitoreo continuo (Centro de Alertas y Reportes), y la administración integral de Órdenes de Trabajo, incluyendo el flujo técnico específico para el registro de intervenciones mediante la aplicación móvil
+En este apartado se mostrarán los flujos de actividades a realizar para que el usuario web y móvil puedan alcanzar sus respectivas metas
+
 
 ### Goal 1: Onboarding y Personalización del Entorno
 * **Tipo de usuario:** Administrador de negocio de refrigeración / Técnico de mantenimiento.
