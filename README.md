@@ -3697,6 +3697,56 @@ Para los usuarios del sistema, este diagrama describe el flujo de navegación in
 
 ### 5.4.2. Applications Mock-ups
 
+Los Mock-ups de las aplicaciones web de IceTrack ilustran la organización de las pantallas y la ubicación de los menús de navegación. Al priorizar la usabilidad y la función, estos esquemas sirven como mapa para el diseño definitivo. Su propósito es garantizar una experiencia intuitiva y una interacción eficiente, permitiendo que el equipo de diseño y desarrollo perfeccione la distribución de todos los elementos.
+
+
+Figura 1: Wireframe Órdenes.
+![Wireframe5](assets/chapter05/Fase11.png)
+
+Figura 2: Wireframe Órdenes.
+![Wireframe5](assets/chapter05/Fase12.png)
+
+Figura 3: Wireframe Órdenes.
+![Wireframe5](assets/chapter05/Fase13.png)
+
+Figura 4: Wireframe Órdenes.
+![Wireframe5](assets/chapter05/Fase21.png)
+
+Figura 5: Wireframe Órdenes.
+![Wireframe5](assets/chapter05/Fase22.png)
+
+Figura 6: Wireframe Órdenes.
+![Wireframe5](assets/chapter05/Fase23.png)
+
+Figura 7: Wireframe Órdenes.
+![Wireframe5](assets/chapter05/Fase31.png)
+
+Figura 8: Wireframe Órdenes.
+![Wireframe5](assets/chapter05/Fase32.png)
+
+Figura 9: Wireframe Órdenes.
+![Wireframe5](assets/chapter05/Fase33.png)
+
+Figura 10: Wireframe Órdenes.
+![Wireframe5](assets/chapter05/Fase34.png)
+
+Figura 11: Wireframe Órdenes.
+![Wireframe5](assets/chapter05/Fase41.png)
+
+Figura 12: Wireframe Órdenes.
+![Wireframe5](assets/chapter05/Fase42.png)
+
+Figura 13: Wireframe Órdenes.
+![Wireframe5](assets/chapter05/Fase43.png)
+
+Figura 14: Wireframe Órdenes.
+![Wireframe5](assets/chapter05/Fase44.png)
+
+Figura 15: Wireframe Órdenes.
+![Wireframe5](assets/chapter05/Fase45.png)
+
+
+
 ### 5.4.3. Applications User Flow Diagrams
 
 ## 5.5. Applications Prototyping
