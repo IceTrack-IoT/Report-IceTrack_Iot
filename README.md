@@ -244,6 +244,13 @@
     - [5.4.2. Applications Wireflow Diagrams](#542-applications-wireflow-diagrams)
     - [5.4.2. Applications Mock-ups](#542-applications-mock-ups)
     - [5.4.3. Applications User Flow Diagrams](#543-applications-user-flow-diagrams)
+    - [Goal 1: Onboarding y Personalización del Entorno](#goal-1-onboarding-y-personalización-del-entorno)
+    - [Goal 2: Estructuración de Infraestructura de Frío y Sensores IoT](#goal-2-estructuración-de-infraestructura-de-frío-y-sensores-iot)
+    - [Goal 3: Supervisión Operativa Continua y Diagnóstico Térmico](#goal-3-supervisión-operativa-continua-y-diagnóstico-térmico)
+    - [Goal 4: Gestión de Contingencias Térmicas y Generación de Orden de Servicio](#goal-4-gestión-de-contingencias-térmicas-y-generación-de-orden-de-servicio)
+    - [Goal 5: Evaluación de Competencias y Despacho Técnico](#goal-5-evaluación-de-competencias-y-despacho-técnico)
+    - [Goal 6: Validación de Cierre o Dictamen de Descarte de Incidencias](#goal-6-validación-de-cierre-o-dictamen-de-descarte-de-incidencias)
+    - [Goal 7: Sustentación del Cumplimiento Normativo y Auditoría de Cadena de Frío](#goal-7-sustentación-del-cumplimiento-normativo-y-auditoría-de-cadena-de-frío)
   - [5.5. Applications Prototyping](#55-applications-prototyping)
   - [5.6. IoT Device Design](#56-iot-device-design)
 - [Capítulo VI: Product Implementation, Validation \& Deployment](#capítulo-vi-product-implementation-validation--deployment)
@@ -3892,6 +3899,89 @@ Los Mock-ups de las aplicaciones web de IceTrack ilustran la organización de la
   <p><em><b>Figura 16:</b> Centro de Reportes y Auditoría Regulatoria</em></p>
 </div>
 
+**Aplicación móvil**
+
+<div align="center">
+  <img src="assets/chapter05/mockup1.png" alt="Figura 1: Iniciar sesión" style="width: 100%; max-width: 350px; height: auto; border-radius: 8px; border: 1px solid #d0d7de; box-shadow: 0 4px 12px rgba(0,0,0,0.08);" />
+  <p><em><b>Figura 1:</b> Iniciar sesión</em></p>
+</div>
+
+---
+
+<div align="center">
+  <img src="assets/chapter05/mockup2.png" alt="Figura 2: Crear cuenta de técnico" style="width: 100%; max-width: 350px; height: auto; border-radius: 8px; border: 1px solid #d0d7de; box-shadow: 0 4px 12px rgba(0,0,0,0.08);" />
+  <p><em><b>Figura 2:</b> Crear cuenta de técnico</em></p>
+</div>
+
+---
+
+<div align="center">
+  <img src="assets/chapter05/mockup3.png" alt="Figura 3: Mis órdenes asignadas" style="width: 100%; max-width: 350px; height: auto; border-radius: 8px; border: 1px solid #d0d7de; box-shadow: 0 4px 12px rgba(0,0,0,0.08);" />
+  <p><em><b>Figura 3:</b> Mis órdenes asignadas</em></p>
+</div>
+
+---
+
+<div align="center">
+  <img src="assets/chapter05/mockup4.png" alt="Figura 4: Detalle y aceptación de la orden" style="width: 100%; max-width: 350px; height: auto; border-radius: 8px; border: 1px solid #d0d7de; box-shadow: 0 4px 12px rgba(0,0,0,0.08);" />
+  <p><em><b>Figura 4:</b> Detalle y aceptación de la orden</em></p>
+</div>
+
+---
+
+<div align="center">
+  <img src="assets/chapter05/mockup5.png" alt="Figura 5: Orden aceptada - Llegada a la sede" style="width: 100%; max-width: 350px; height: auto; border-radius: 8px; border: 1px solid #d0d7de; box-shadow: 0 4px 12px rgba(0,0,0,0.08);" />
+  <p><em><b>Figura 5:</b> Orden aceptada - Llegada a la sede</em></p>
+</div>
+
+---
+
+<div align="center">
+  <img src="assets/chapter05/mockup6.png" alt="Figura 6: Equipo y telemetría en campo" style="width: 100%; max-width: 350px; height: auto; border-radius: 8px; border: 1px solid #d0d7de; box-shadow: 0 4px 12px rgba(0,0,0,0.08);" />
+  <p><em><b>Figura 6:</b> Equipo y telemetría en campo</em></p>
+</div>
+
+---
+
+<div align="center">
+  <img src="assets/chapter05/mockup7.png" alt="Figura 7: Registrar intervención sin conexión" style="width: 100%; max-width: 350px; height: auto; border-radius: 8px; border: 1px solid #d0d7de; box-shadow: 0 4px 12px rgba(0,0,0,0.08);" />
+  <p><em><b>Figura 7:</b> Registrar intervención sin conexión</em></p>
+</div>
+
+---
+
+<div align="center">
+  <img src="assets/chapter05/mockup8.png" alt="Figura 8: Alerta push en pantalla bloqueada" style="width: 100%; max-width: 350px; height: auto; border-radius: 8px; border: 1px solid #d0d7de; box-shadow: 0 4px 12px rgba(0,0,0,0.08);" />
+  <p><em><b>Figura 8:</b> Alerta push en pantalla bloqueada</em></p>
+</div>
+
+---
+
+<div align="center">
+  <img src="assets/chapter05/mockup9.png" alt="Figura 9: Centro de notificaciones por rol" style="width: 100%; max-width: 350px; height: auto; border-radius: 8px; border: 1px solid #d0d7de; box-shadow: 0 4px 12px rgba(0,0,0,0.08);" />
+  <p><em><b>Figura 9:</b> Centro de notificaciones por rol</em></p>
+</div>
+
+---
+
+<div align="center">
+  <img src="assets/chapter05/mockup10.png" alt="Figura 10: Perfil, idioma y sincronización" style="width: 100%; max-width: 350px; height: auto; border-radius: 8px; border: 1px solid #d0d7de; box-shadow: 0 4px 12px rgba(0,0,0,0.08);" />
+  <p><em><b>Figura 10:</b> Perfil, idioma y sincronización</em></p>
+</div>
+
+---
+
+<div align="center">
+  <img src="assets/chapter05/mockup11.png" alt="Figura 11: Sesión vencida en campo" style="width: 100%; max-width: 350px; height: auto; border-radius: 8px; border: 1px solid #d0d7de; box-shadow: 0 4px 12px rgba(0,0,0,0.08);" />
+  <p><em><b>Figura 11:</b> Sesión vencida en campo</em></p>
+</div>
+
+---
+
+<div align="center">
+  <img src="assets/chapter05/mockuo12.png" alt="Figura 12: Alertas activas de mis equipos" style="width: 100%; max-width: 350px; height: auto; border-radius: 8px; border: 1px solid #d0d7de; box-shadow: 0 4px 12px rgba(0,0,0,0.08);" />
+  <p><em><b>Figura 12:</b> Alertas activas de mis equipos</em></p>
+</div>
 
 
 ### 5.4.3. Applications User Flow Diagrams
