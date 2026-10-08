@@ -3815,11 +3815,13 @@ Los Mock-ups de las aplicaciones web de IceTrack ilustran la organización de la
 
 ### 5.4.3. Applications User Flow Diagrams
 
+En este apartado se mostrarán los flujos de actividades a realizar para que el usuario pueda alcanzar sus respectivas metas
+
 ### Goal 1: Onboarding y Personalización del Entorno
 * **Tipo de usuario:** Administrador de negocio de refrigeración / Técnico de mantenimiento.
 * **Descripción:** Permite conocer la propuesta de valor en la landing page, registrarse formalmente indicando el rol operativo (`OWNER_ROLE` o `TECHNICIAN_ROLE`)[cite: 18], iniciar sesión con credenciales directas o Google Workspace (OAuth 2.0)[cite: 19] y configurar las preferencias iniciales de idioma, zona horaria y unidades métricas (°C/°F)[cite: 20].
 
-* ![Wireframe1](assets/chapter05/User goal1.jpg)
+* ![Wireframe1](assets/chapter05/Usergoal1.jpg)
 
 ---
 
