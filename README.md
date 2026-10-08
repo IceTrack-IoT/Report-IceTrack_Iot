@@ -3804,6 +3804,13 @@ Los Mock-ups de las aplicaciones web de IceTrack ilustran la organización de la
   <p><em><b>Figura 15:</b> Centro de Auditoría Regulatoria y Certificación de Cadena de Frío</em></p>
 </div>
 
+---
+
+<div align="center">
+  <img src="assets/chapter05/Fase46.png" alt="Figura 16: Centro de Reportes y Auditoría Regulatoria" style="width: 100%; max-width: 900px; aspect-ratio: 16/9; object-fit: cover; border-radius: 8px; border: 1px solid #d0d7de; box-shadow: 0 4px 12px rgba(0,0,0,0.08);" />
+  <p><em><b>Figura 16:</b> Centro de Reportes y Auditoría Regulatoria</em></p>
+</div>
+
 
 
 ### 5.4.3. Applications User Flow Diagrams
