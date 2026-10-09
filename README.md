@@ -5961,6 +5961,64 @@ Para el Sprint 1 el equipo organizó el trabajo en de la siguiente manera:
 
 #### 6.2.1.4. Development Evidence for Sprint Review
 
+En esta sección se explica y presenta los avances en implementación con relación a los productos de Icetrack: Landing Page, FrontEnd y Backend.
+
+| Repository | Branch | Commit Id | Commit Message | Commit Message Body | Commited on (Date) |
+| --- | --- | --- | --- | --- | --- |
+| IceTrack-IoT/Frontend-IceTrack_IoT | master | 039ba80 | initial commit |  | 27/09/2026 |
+| IceTrack-IoT/Frontend-IceTrack_IoT | master | f46ba87 | Init project |  | 01/10/2026 |
+| IceTrack-IoT/Frontend-IceTrack_IoT | master | f3e2abf | feat: Add initial implementation of authentication and session management features |  | 02/10/2026 |
+| IceTrack-IoT/Frontend-IceTrack_IoT | feat/iam | 58ce9bf | feat: Implement authentication API endpoint and enhance user response structure |  | 06/10/2026 |
+| IceTrack-IoT/Frontend-IceTrack_IoT | feat/iam | d0bb767 | feat: Add local sign-in locally functionality and enhance authentication error handling |  | 06/10/2026 |
+| IceTrack-IoT/Frontend-IceTrack_IoT | feat/iam | c1bfad0 | feat: Implement local sign-up functionality for owners and technicians, including Google registration completion |  | 07/10/2026 |
+| IceTrack-IoT/Frontend-IceTrack_IoT | develop | e39fad7 | feat: Revamp styles with new design system, typography, and responsive layout |  | 08/10/2026 |
+| IceTrack-IoT/Frontend-IceTrack_IoT | develop | 6b37513 | feat: Add path mappings for new feature modules in TypeScript configuration |  | 08/10/2026 |
+| IceTrack-IoT/Frontend-IceTrack_IoT | develop | ba7d0e2 | feat: Implement IAM bounded context |  | 08/10/2026 |
+| IceTrack-IoT/Frontend-IceTrack_IoT | develop | a76d957 | feat: Rename resource interfaces for consistency and clarity |  | 08/10/2026 |
+| IceTrack-IoT/Frontend-IceTrack_IoT | develop | 513b438 | feat: Add new interfaces and styles for dashboard configuration and device management |  | 09/10/2026 |
+| IceTrack-IoT/Frontend-IceTrack_IoT | develop | 37df0c9 | feat: Update iceTrackProviderApiBaseUrl to production endpoint |  | 09/10/2026 |
+| IceTrack-IoT/Frontend-IceTrack_IoT | develop | c513201 | feat: Add script to generate environment configuration for production |  | 09/10/2026 |
+| IceTrack-IoT/Frontend-IceTrack_IoT | master | 0cd1e32 | feat: Update environment configuration script to inject googleClientId from environment variables |  | 09/10/2026 |
+| IceTrack-IoT/Frontend-IceTrack_IoT | master | bb45db8 | feat: Enhance environment configuration script to validate target file existence and improve googleClientId injection message |  | 09/10/2026 |
+| IceTrack-IoT/LandingPage-IceTrack_IoT | master | 962f690 | Initial commit |  | 06/10/2026 |
+| IceTrack-IoT/LandingPage-IceTrack_IoT | master | dec31f5 | fix: remove unnecessary URL from doctype declaration |  | 06/10/2026 |
+| IceTrack-IoT/Platform-IceTrack_IoT | master | c3ea69d | Add initial project |  | 22/09/2026 |
+| IceTrack-IoT/Platform-IceTrack_IoT | master | d0c49e8 | feat: Update application properties for environment variable support and add README.md |  | 22/09/2026 |
+| IceTrack-IoT/Platform-IceTrack_IoT | feat/iam | 2166b33 | feat: Implement ExternalProfileService and ProfilesContextFacade for profile provisioning |  | 28/09/2026 |
+| IceTrack-IoT/Platform-IceTrack_IoT | feat/iam | 80f2cff | feat: Enhance user and profile management with role handling and new commands |  | 28/09/2026 |
+| IceTrack-IoT/Platform-IceTrack_IoT | feat/iam | 087755a | feat: Introduce queries and commands for owner and technician profiles, including integration events and persistence entities |  | 28/09/2026 |
+| IceTrack-IoT/Platform-IceTrack_IoT | feat/iam | 8f1d5a5 | feat: Standardize JSON field naming to snake_case across registration and profile resources |  | 28/09/2026 |
+| IceTrack-IoT/Platform-IceTrack_IoT | feat/monitoring | b617bfa | feat: Adding the Monitoring and Alerting BC |  | 28/09/2026 |
+| IceTrack-IoT/Platform-IceTrack_IoT | feat/iam | 489e0f5 | feat: Extend UserResource with provider and external ID fields for enhanced user information |  | 29/09/2026 |
+| IceTrack-IoT/Platform-IceTrack_IoT | feat/iam | 5cfae04 | feat: Implement refresh token functionality with session management and current user retrieval |  | 29/09/2026 |
+| IceTrack-IoT/Platform-IceTrack_IoT | feat/iam | c567bc3 | feat: Add refresh token reuse grace period and purge scheduler for expired tokens |  | 29/09/2026 |
+| IceTrack-IoT/Platform-IceTrack_IoT | feat/iam | 17c34a5 | feat: Enhance refresh token handling with improved error responses and rotation logic |  | 01/10/2026 |
+| IceTrack-IoT/Platform-IceTrack_IoT | develop | 1194ea2 | Merge pull request #1 from IceTrack-IoT/feat/monitoring | feat: Adding the Monitoring and Alerting BC | 02/10/2026 |
+| IceTrack-IoT/Platform-IceTrack_IoT | feat/monitoring | 4a84f60 | docs: Adding documentation |  | 02/10/2026 |
+| IceTrack-IoT/Platform-IceTrack_IoT | feat/-assets-managment | 5bddb2e | feat/ v1 |  | 02/10/2026 |
+| IceTrack-IoT/Platform-IceTrack_IoT | feat/-assets-managment | 426f184 | fix: schemas |  | 02/10/2026 |
+| IceTrack-IoT/Platform-IceTrack_IoT | develop | 472d5be | Merge branch 'feat/iam' into develop |  | 02/10/2026 |
+| IceTrack-IoT/Platform-IceTrack_IoT | feat/notifications | 1af7d2b | feat: Adding the initial Notifications BC structure |  | 04/10/2026 |
+| IceTrack-IoT/Platform-IceTrack_IoT | feat/-assets-managment | 22ba818 | Merge remote-tracking branch 'origin/feat/monitoring' into feat/-assets-managment |  | 04/10/2026 |
+| IceTrack-IoT/Platform-IceTrack_IoT | feat/notifications | 8fddca2 | Merge branch 'feat/-assets-managment' into feat/notifications |  | 04/10/2026 |
+| IceTrack-IoT/Platform-IceTrack_IoT | feat/notifications | db809a1 | feat: Adding to and combining with other BC |  | 04/10/2026 |
+| IceTrack-IoT/Platform-IceTrack_IoT | feat/iam | 42c358b | refactor: Add provider field to user resources and enhance user profile handling |  | 06/10/2026 |
+| IceTrack-IoT/Platform-IceTrack_IoT | feat/iam | 8a6fb23 | feat: Update AuthenticatedUserResource to include provider field in response example |  | 06/10/2026 |
+| IceTrack-IoT/Platform-IceTrack_IoT | feat/iam | c793657 | fix: change the correct AuthenticatedUserResourceFromEntityAssembler |  | 06/10/2026 |
+| IceTrack-IoT/Platform-IceTrack_IoT | develop | e2f9aa2 | Merge branch 'feat/iam' into develop |  | 08/10/2026 |
+| IceTrack-IoT/Platform-IceTrack_IoT | develop | 0033deb | Merge branch 'feat/assets-managment' of https://github.com/IceTrack-IoT/Platform-IceTrack_IoT into develop | # Conflicts:<br># src/main/java/pe/edu/upc/ice/track/platform/profiles/application/acl/ProfilesContextFacadeImpl.java<br># src/main/java/pe/edu/upc/ice/track/platform/profiles/interfaces/acl/ProfilesContextFacade.java | 08/10/2026 |
+| IceTrack-IoT/Platform-IceTrack_IoT | develop | f9b197c | feat: add method to fetch owner ID by user ID in ProfilesContextFacade |  | 08/10/2026 |
+| IceTrack-IoT/Platform-IceTrack_IoT | develop | c5e22e1 | Merge branch 'feat/notifications' of https://github.com/IceTrack-IoT/Platform-IceTrack_IoT into develop |  | 08/10/2026 |
+| IceTrack-IoT/Platform-IceTrack_IoT | feat/iam | f48f44a | refactor: add username param to CompleteGoogleOwnerRegistrationResource and CompleteGoogleTechnicianRegistrationCommandFromResourceAssembler |  | 08/10/2026 |
+| IceTrack-IoT/Platform-IceTrack_IoT | develop | 126b935 | feat: Implement dashboard configs |  | 08/10/2026 |
+| IceTrack-IoT/Platform-IceTrack_IoT | develop | 06fe834 | refactor: Enhance params by IoT standards on temperature ranges |  | 08/10/2026 |
+| IceTrack-IoT/Platform-IceTrack_IoT | develop | cb978d4 | fix: Refactor Assets Bounded Context with not isolated self schema |  | 08/10/2026 |
+| IceTrack-IoT/Platform-IceTrack_IoT | develop | ad1d2a8 | refactor: Remove AddCard functionality and introduce layout update for dashboard cards |  | 08/10/2026 |
+| IceTrack-IoT/Platform-IceTrack_IoT | feat/profiles | 5e7a2ff | refactor: Update Docker Compose configurations for database service |  | 09/10/2026 |
+| IceTrack-IoT/Platform-IceTrack_IoT | feat/profiles | ae24f96 | refactor: Add volume configuration for PostgreSQL data persistence |  | 09/10/2026 |
+| IceTrack-IoT/Platform-IceTrack_IoT | feat/profiles | 717b598 | refactor: Update server port configuration and modify OpenAPI server URLs for production |  | 09/10/2026 |
+
+
 #### 6.2.1.5. Testing Suite Evidence for Sprint Review
 
 #### 6.2.1.6. Execution Evidence for Sprint Review
