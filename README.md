@@ -4079,7 +4079,7 @@ Si el token de sesión caduca mientras el técnico trabaja, la aplicación le pi
 
 ## 5.5. Applications Prototyping
 
-A continuación, se presenta los prototipos de la aplicación web y móvil de IceTrack destinada a los técnicos de mantenimiento. El prototipo cuenta con un flujo de navegación definido e interactividad en los principales botones y elementos de la interfaz, lo que permite recorrer los escenarios clave del  dueño y técnico: iniciar sesión, recibir y aceptar una orden, consultar la telemetría del equipo, registrar una intervención, atender una alerta push, revisar el centro de notificaciones y configurar su perfil.
+A continuación, se presenta los prototipos de la aplicación web y móvil de IceTrack destinada a los técnicos de mantenimiento. El prototipo cuenta con un flujo de navegación definido e interactividad en los principales botones y elementos de la interfaz, lo que permite recorrer los escenarios clave del  dueño y técnico.
 
 **Aplicación Web**
 
