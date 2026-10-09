@@ -3749,6 +3749,46 @@ Las etiquetas funcionan como puntos de entrada semánticos, permitiendo que los 
 
 ### 5.2.3. SEO Tags and Meta Tags
 
+Para asegurar el posicionamiento orgánico en motores de búsqueda (SEO) de las plataformas web y maximizar la visibilidad y conversión de descargas en las tiendas de aplicaciones (ASO), se han estructurado los siguientes metadatos, etiquetas y elementos de optimización:
+
+##### 1. Landing Page
+
+Diseñado para la captación de dueños de heladerías, enfocándose en la prevención de mermas y el monitoreo de la cadena de frío.
+
+* **Title:** `IceTrack | Gestión Inteligente y Monitoreo IoT para la Cadena de Frío`
+* **Meta Description:** `Optimiza la gestión de tu cadena de frío con monitoreo IoT en tiempo real, alertas automáticas de temperatura y mantenimiento predictivo. Protege tu inventario y reduce costos operativos en Lima y el Perú.`
+* **Meta Keywords:** `gestión de refrigeración, monitoreo IoT, cadena de frío, sensores ESP32, mantenimiento predictivo, control de temperatura, eficiencia energética, heladerías, IceTrack, FrostShield`
+* **Meta Author:** `FrostShield Startup`
+* **Open Graph (Redes Sociales):**
+* `og:title` -> `IceTrack: Inteligencia IoT y Monitoreo para la Cadena de Frío`
+* `og:description` -> `Protege tu inventario refrigerado con alertas térmicas en tiempo real y gestión centralizada de mantenimiento.`
+* `og:type` -> `website`
+* `og:image` -> `[URL del banner institucional alojado en la carpeta assets del proyecto]`
+
+##### 2. Aplicación Web 
+
+Orientada a la administración interna de sedes, equipos, analítica y órdenes de servicio por parte de los propietarios y gestores de negocio.
+
+* **Title:** `IceTrack Platform | Panel de Control y Telemetría en Vivo`
+* **Meta Description:** `Supervisa el estado en vivo de tus equipos de refrigeración, administra sedes, programa órdenes de servicio técnico y gestiona alertas críticas desde un solo lugar.`
+* **Meta Keywords:** `panel de control refrigeración, telemetría en vivo, gestión de activos IoT, órdenes de servicio técnico, histórico de temperatura`
+* **Robots Meta Tag:** `noindex, nofollow` *(Aplica exclusivamente para las rutas protegidas tras la autenticación por motivos de seguridad y privacidad de los datos operativos de los negocios).*
+
+##### 3. Aplicación Móvil
+
+Diseñada para los técnicos especializados que operan en campo, facilitando la recepción de alertas, aceptación de órdenes y registro de intervenciones incluso con conectividad intermitente.
+
+* **App Title:** `IceTrack Technician: Mantenimiento y Alertas IoT`
+* **App Subtitle:** `Gestiona órdenes de servicio y monitorea equipos en campo`
+* **App Keywords (iOS / Google Play):** `refrigeración, mantenimiento, técnico, cadena de frío, alertas, órdenes de trabajo, IoT, telemetría`
+* **App Description:**
+`IceTrack Technician es la herramienta móvil definitiva para profesionales y empresas de mantenimiento de equipos de refrigeración. Conéctate con la plataforma IoT de tus clientes y optimiza tu trabajo diario en campo:`
+* *Recibe notificaciones push inmediatas* ante alertas críticas de temperatura y excursiones térmicas en los equipos asignados.
+* *Acepta y gestiona órdenes de trabajo* directamente desde tu smartphone o tablet.
+* *Modo Offline:* Registra tus intervenciones técnicas, diagnósticos y evidencias fotográficas sin conexión; la app se sincronizará automáticamente al recuperar la red.
+* *Consulta el historial técnico completo* de cada congeladora o cámara frigorífica antes de realizar una intervención.
+* *Generación automática de reportes técnicos* para entregar constancias transparentes a tus clientes.
+
 ### 5.2.4. Searching Systems
 
 ### 5.2.5. Navigation Systems
@@ -3758,6 +3798,7 @@ Las etiquetas funcionan como puntos de entrada semánticos, permitiendo que los 
 ### 5.3.1. Landing Page Wireframe
 
 ### 5.3.2. Landing Page Mock-up
+
 
 ## 5.4. Applications UX/UI Design
 
