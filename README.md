@@ -3839,6 +3839,97 @@ Para los usuarios del sistema, este diagrama describe el flujo de navegación in
 
 ### 5.4.2. Applications Mock-ups
 
+A continuación, presentamos los mock-ups de alta fidelidad creados con base en los wireframes iniciales. En esta fase ya hemos incorporado la identidad visual del proyecto, incluyendo la paleta de colores, las fuentes y los elementos gráficos finales. El propósito es ofrecer una vista realista y minuciosa de la interfaz definitiva, asegurando una experiencia de usuario (UX) fluida y un diseño (UI) estético y operativo para todos los perfiles del sistema.
+
+**Aplicación Web**
+
+
+---
+
+**Aplicación Móvil**
+
+<div align="center">
+  <img src="assets/chapter05/mockup1.png" alt="Figura 1: Iniciar sesión" style="width: 100%; max-width: 350px; height: auto; border-radius: 8px; border: 1px solid #d0d7de; box-shadow: 0 4px 12px rgba(0,0,0,0.08);" />
+  <p><em><b>Figura 1:</b> Iniciar sesión</em></p>
+</div>
+
+---
+
+<div align="center">
+  <img src="assets/chapter05/mockup2.png" alt="Figura 2: Crear cuenta de técnico" style="width: 100%; max-width: 350px; height: auto; border-radius: 8px; border: 1px solid #d0d7de; box-shadow: 0 4px 12px rgba(0,0,0,0.08);" />
+  <p><em><b>Figura 2:</b> Crear cuenta de técnico</em></p>
+</div>
+
+---
+
+<div align="center">
+  <img src="assets/chapter05/mockup3.png" alt="Figura 3: Mis órdenes asignadas" style="width: 100%; max-width: 350px; height: auto; border-radius: 8px; border: 1px solid #d0d7de; box-shadow: 0 4px 12px rgba(0,0,0,0.08);" />
+  <p><em><b>Figura 3:</b> Mis órdenes asignadas</em></p>
+</div>
+
+---
+
+<div align="center">
+  <img src="assets/chapter05/mockup4.png" alt="Figura 4: Detalle y aceptación de la orden" style="width: 100%; max-width: 350px; height: auto; border-radius: 8px; border: 1px solid #d0d7de; box-shadow: 0 4px 12px rgba(0,0,0,0.08);" />
+  <p><em><b>Figura 4:</b> Detalle y aceptación de la orden</em></p>
+</div>
+
+---
+
+<div align="center">
+  <img src="assets/chapter05/mockup5.png" alt="Figura 5: Orden aceptada - Llegada a la sede" style="width: 100%; max-width: 350px; height: auto; border-radius: 8px; border: 1px solid #d0d7de; box-shadow: 0 4px 12px rgba(0,0,0,0.08);" />
+  <p><em><b>Figura 5:</b> Orden aceptada - Llegada a la sede</em></p>
+</div>
+
+---
+
+<div align="center">
+  <img src="assets/chapter05/mockup6.png" alt="Figura 6: Equipo y telemetría en campo" style="width: 100%; max-width: 350px; height: auto; border-radius: 8px; border: 1px solid #d0d7de; box-shadow: 0 4px 12px rgba(0,0,0,0.08);" />
+  <p><em><b>Figura 6:</b> Equipo y telemetría en campo</em></p>
+</div>
+
+---
+
+<div align="center">
+  <img src="assets/chapter05/mockup7.png" alt="Figura 7: Registrar intervención sin conexión" style="width: 100%; max-width: 350px; height: auto; border-radius: 8px; border: 1px solid #d0d7de; box-shadow: 0 4px 12px rgba(0,0,0,0.08);" />
+  <p><em><b>Figura 7:</b> Registrar intervención sin conexión</em></p>
+</div>
+
+---
+
+<div align="center">
+  <img src="assets/chapter05/mockup8.png" alt="Figura 8: Alerta push en pantalla bloqueada" style="width: 100%; max-width: 350px; height: auto; border-radius: 8px; border: 1px solid #d0d7de; box-shadow: 0 4px 12px rgba(0,0,0,0.08);" />
+  <p><em><b>Figura 8:</b> Alerta push en pantalla bloqueada</em></p>
+</div>
+
+---
+
+<div align="center">
+  <img src="assets/chapter05/mockup9.png" alt="Figura 9: Centro de notificaciones por rol" style="width: 100%; max-width: 350px; height: auto; border-radius: 8px; border: 1px solid #d0d7de; box-shadow: 0 4px 12px rgba(0,0,0,0.08);" />
+  <p><em><b>Figura 9:</b> Centro de notificaciones por rol</em></p>
+</div>
+
+---
+
+<div align="center">
+  <img src="assets/chapter05/mockup10.png" alt="Figura 10: Perfil, idioma y sincronización" style="width: 100%; max-width: 350px; height: auto; border-radius: 8px; border: 1px solid #d0d7de; box-shadow: 0 4px 12px rgba(0,0,0,0.08);" />
+  <p><em><b>Figura 10:</b> Perfil, idioma y sincronización</em></p>
+</div>
+
+---
+
+<div align="center">
+  <img src="assets/chapter05/mockup11.png" alt="Figura 11: Sesión vencida en campo" style="width: 100%; max-width: 350px; height: auto; border-radius: 8px; border: 1px solid #d0d7de; box-shadow: 0 4px 12px rgba(0,0,0,0.08);" />
+  <p><em><b>Figura 11:</b> Sesión vencida en campo</em></p>
+</div>
+
+---
+
+<div align="center">
+  <img src="assets/chapter05/mockup12.png" alt="Figura 12: Alertas activas de mis equipos" style="width: 100%; max-width: 350px; height: auto; border-radius: 8px; border: 1px solid #d0d7de; box-shadow: 0 4px 12px rgba(0,0,0,0.08);" />
+  <p><em><b>Figura 12:</b> Alertas activas de mis equipos</em></p>
+</div>
+
 ### 5.4.3. Applications User Flow Diagrams
 
 ## 5.5. Applications Prototyping
