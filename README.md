@@ -251,10 +251,68 @@
   - [5.6. IoT Device Design](#56-iot-device-design)
 - [Capítulo VI: Product Implementation, Validation \& Deployment](#capítulo-vi-product-implementation-validation--deployment)
   - [6.1. Software Configuration Management](#61-software-configuration-management)
-    - [6.1.1. Software Development Environment Configuration](#611-software-development-environment-configuration)
-    - [6.1.2. Source Code Management](#612-source-code-management)
+  - [6.1.1. Software Development Environment Configuration](#611-software-development-environment-configuration)
+    - [Project Management](#project-management)
+      - [GitHub](#github)
+    - [Requirements Management](#requirements-management)
+      - [Trello](#trello)
+      - [Lucidchart](#lucidchart)
+    - [Product UX/UI Design](#product-uxui-design)
+      - [Figma](#figma)
+    - [Software Development](#software-development)
+      - [Visual Studio Code](#visual-studio-code)
+      - [WebStorm](#webstorm)
+      - [Angular Framework](#angular-framework)
+      - [Angular Material](#angular-material)
+      - [Android Studio](#android-studio)
+      - [Flutter](#flutter)
+      - [IntelliJ IDEA](#intellij-idea)
+      - [Spring Boot Framework](#spring-boot-framework)
+      - [Spring Data JPA](#spring-data-jpa)
+      - [Spring Security](#spring-security)
+      - [Arduino IDE](#arduino-ide)
+      - [Flask](#flask)
+    - [Software Testing](#software-testing)
+      - [Postman](#postman)
+      - [JUnit](#junit)
+    - [Software Deployment](#software-deployment)
+      - [Vercel](#vercel)
+      - [Render](#render)
+    - [Software Documentation](#software-documentation)
+      - [GitHub Markdown](#github-markdown)
+      - [Swagger / OpenAPI](#swagger--openapi)
+  - [6.1.2. Source Code Management](#612-source-code-management)
+    - [GitHub Repositories](#github-repositories)
+    - [GitFlow Workflow](#gitflow-workflow)
+      - [Backend](#backend)
+      - [Frontend Web Application](#frontend-web-application)
+      - [Mobile Application](#mobile-application)
+      - [Landing Page](#landing-page)
     - [6.1.3. Source Code Style Guide \& Conventions](#613-source-code-style-guide--conventions)
+      - [General Principles](#general-principles)
+      - [Language and Reference Matrix](#language-and-reference-matrix)
+      - [Cross-Language Naming Summary](#cross-language-naming-summary)
+      - [Universal Formatting Rules](#universal-formatting-rules)
+      - [HTML, CSS and JavaScript (Landing Page)](#html-css-and-javascript-landing-page)
+      - [TypeScript and Angular (Web Application)](#typescript-and-angular-web-application)
+      - [Dart and Flutter (Mobile Application)](#dart-and-flutter-mobile-application)
+      - [Java and Spring Boot (Backend Cloud)](#java-and-spring-boot-backend-cloud)
+      - [Python and Flask (Edge API)](#python-and-flask-edge-api)
+      - [C++ and Arduino (ESP32 Firmware)](#c-and-arduino-esp32-firmware)
+      - [Gherkin (`.feature` Files)](#gherkin-feature-files)
+      - [Git Conventions](#git-conventions)
+      - [Automated Style Enforcement](#automated-style-enforcement)
     - [6.1.4. Software Deployment Configuration](#614-software-deployment-configuration)
+      - [Deployment Overview](#deployment-overview)
+      - [Deployment Diagram (C4 Model)](#deployment-diagram-c4-model)
+      - [1. Platform Database (PostgreSQL v18)](#1-platform-database-postgresql-v18)
+      - [2. Web Services (Spring Boot en Render)](#2-web-services-spring-boot-en-render)
+      - [3. Web Application y Landing Page (Vercel)](#3-web-application-y-landing-page-vercel)
+      - [4. Mobile Application (Flutter, Android)](#4-mobile-application-flutter-android)
+      - [5. Edge API (Flask en el gateway del local)](#5-edge-api-flask-en-el-gateway-del-local)
+      - [6. Embedded Application (ESP32)](#6-embedded-application-esp32)
+      - [Post-Deployment Verification](#post-deployment-verification)
+      - [Rollback](#rollback)
   - [6.2. Landing Page, Services \& Applications Implementation](#62-landing-page-services--applications-implementation)
     - [6.2.1. Sprint 1](#621-sprint-1)
       - [6.2.1.1. Sprint Planning 1](#6211-sprint-planning-1)
@@ -3885,52 +3943,940 @@ Los wireframes de las aplicaciones web de IceTrack ilustran la organización de 
 
 **Vista de Dueños**
 
-Figura 1: Wireframe Registro de Usuario.
-![Wireframe1](assets/chapter04/WebWireframe1.png)
+<div align="center">
+  <img src="assets/chapter05/F11.png" alt="Figura 1: Registro de Cuenta y Rol Operativo" style="width: 100%; max-width: 900px; aspect-ratio: 16/9; object-fit: cover; border-radius: 8px; border: 1px solid #d0d7de; box-shadow: 0 4px 12px rgba(0,0,0,0.08);" />
+  <p><em><b>Figura 1:</b> Wireframe de Registro de Cuenta y Rol Operativo</em></p>
+</div>
 
 ---
 
-Figura 2: Wireframe Dashboard.
-![Wireframe2](assets/chapter04/WebWireframe2.png)
-
---- 
-
-Figura 3: Wireframe Sitios y equipos.
-![Wireframe3](assets/chapter04/WebWireframe3.png)
+<div align="center">
+  <img src="assets/chapter05/F12.png" alt="Figura 2: Autenticación e Inicio de Sesión" style="width: 100%; max-width: 900px; aspect-ratio: 16/9; object-fit: cover; border-radius: 8px; border: 1px solid #d0d7de; box-shadow: 0 4px 12px rgba(0,0,0,0.08);" />
+  <p><em><b>Figura 2:</b> Wireframe de Autenticación e Inicio de Sesión</em></p>
+</div>
 
 ---
 
-Figura 4: Wireframe Detalle del equipo.
-![Wireframe4](assets/chapter04/WebWireframe4.png)
+<div align="center">
+  <img src="assets/chapter05/F13.png" alt="Figura 3: Preferencias de Idioma, Región y Formato de Telemetría" style="width: 100%; max-width: 900px; aspect-ratio: 16/9; object-fit: cover; border-radius: 8px; border: 1px solid #d0d7de; box-shadow: 0 4px 12px rgba(0,0,0,0.08);" />
+  <p><em><b>Figura 3:</b> Wireframe de Preferencias de Idioma, Región y Formato de Telemetría</em></p>
+</div>
 
 ---
 
-Figura 5: Wireframe Alertas.
-![Wireframe5](assets/chapter04/WebWireframe5.png)
+<div align="center">
+  <img src="assets/chapter05/F20.png" alt="Figura 4: Inventario Global de Sedes y Equipos" style="width: 100%; max-width: 900px; aspect-ratio: 16/9; object-fit: cover; border-radius: 8px; border: 1px solid #d0d7de; box-shadow: 0 4px 12px rgba(0,0,0,0.08);" />
+  <p><em><b>Figura 4:</b> Wireframe de Inventario Global de Sedes y Equipos</em></p>
+</div>
 
---- 
+---
 
-Figura 6: Wireframe Órdenes.
-![Wireframe5](assets/chapter04/WebWireframe6.png)
+<div align="center">
+  <img src="assets/chapter05/F21.png" alt="Figura 5: Ficha Técnica del Activo, Parámetros Térmicos y Sensores IoT" style="width: 100%; max-width: 900px; aspect-ratio: 16/9; object-fit: cover; border-radius: 8px; border: 1px solid #d0d7de; box-shadow: 0 4px 12px rgba(0,0,0,0.08);" />
+  <p><em><b>Figura 5:</b> Wireframe de Ficha Técnica del Activo, Parámetros Térmicos y Sensores IoT</em></p>
+</div>
 
---- 
+---
+
+<div align="center">
+  <img src="assets/chapter05/F22.png" alt="Figura 6: Dashboard Ejecutivo y Monitoreo Multizona en Tiempo Real" style="width: 100%; max-width: 900px; aspect-ratio: 16/9; object-fit: cover; border-radius: 8px; border: 1px solid #d0d7de; box-shadow: 0 4px 12px rgba(0,0,0,0.08);" />
+  <p><em><b>Figura 6:</b> Wireframe de Dashboard Ejecutivo y Monitoreo Multizona en Tiempo Real</em></p>
+</div>
+
+---
+
+<div align="center">
+  <img src="assets/chapter05/F23.png" alt="Figura 7: Centro de Notificaciones y Reglas de Despacho" style="width: 100%; max-width: 900px; aspect-ratio: 16/9; object-fit: cover; border-radius: 8px; border: 1px solid #d0d7de; box-shadow: 0 4px 12px rgba(0,0,0,0.08);" />
+  <p><em><b>Figura 7:</b> Wireframe de Centro de Notificaciones y Reglas de Despacho</em></p>
+</div>
+
+---
+
+<div align="center">
+  <img src="assets/chapter05/F31.png" alt="Figura 8: Monitor y Gestión Global de Órdenes de Servicio" style="width: 100%; max-width: 900px; aspect-ratio: 16/9; object-fit: cover; border-radius: 8px; border: 1px solid #d0d7de; box-shadow: 0 4px 12px rgba(0,0,0,0.08);" />
+  <p><em><b>Figura 8:</b> Wireframe de Monitor y Gestión Global de Órdenes de Servicio</em></p>
+</div>
+
+---
+
+<div align="center">
+  <img src="assets/chapter05/F32.png" alt="Figura 9: Alta y Emisión de Solicitud de Servicio Técnico" style="width: 100%; max-width: 900px; aspect-ratio: 16/9; object-fit: cover; border-radius: 8px; border: 1px solid #d0d7de; box-shadow: 0 4px 12px rgba(0,0,0,0.08);" />
+  <p><em><b>Figura 9:</b> Wireframe de Alta y Emisión de Solicitud de Servicio Técnico</em></p>
+</div>
+
+---
+
+<div align="center">
+  <img src="assets/chapter05/F41.png" alt="Figura 10: Despacho y Asignación Pericial de Técnico Especialista" style="width: 100%; max-width: 900px; aspect-ratio: 16/9; object-fit: cover; border-radius: 8px; border: 1px solid #d0d7de; box-shadow: 0 4px 12px rgba(0,0,0,0.08);" />
+  <p><em><b>Figura 10:</b> Wireframe de Despacho y Asignación Pericial de Técnico Especialista</em></p>
+</div>
+
+---
+
+<div align="center">
+  <img src="assets/chapter05/F42.png" alt="Figura 11: Seguimiento en Vivo de la Intervención Técnica en Campo" style="width: 100%; max-width: 900px; aspect-ratio: 16/9; object-fit: cover; border-radius: 8px; border: 1px solid #d0d7de; box-shadow: 0 4px 12px rgba(0,0,0,0.08);" />
+  <p><em><b>Figura 11:</b> Wireframe de Seguimiento en Vivo de la Intervención Técnica en Campo</em></p>
+</div>
+
+---
+
+<div align="center">
+  <img src="assets/chapter05/F43.png" alt="Figura 12: Justificación Oficial y Dictamen de Descarte de Incidencia" style="width: 100%; max-width: 900px; aspect-ratio: 16/9; object-fit: cover; border-radius: 8px; border: 1px solid #d0d7de; box-shadow: 0 4px 12px rgba(0,0,0,0.08);" />
+  <p><em><b>Figura 12:</b> Wireframe de Justificación Oficial y Dictamen de Descarte de Incidencia</em></p>
+</div>
+
+---
+
+<div align="center">
+  <img src="assets/chapter05/F44.png" alt="Figura 13: Directorio de Especialistas y Evaluación de Calidad de Servicio" style="width: 100%; max-width: 900px; aspect-ratio: 16/9; object-fit: cover; border-radius: 8px; border: 1px solid #d0d7de; box-shadow: 0 4px 12px rgba(0,0,0,0.08);" />
+  <p><em><b>Figura 13:</b> Wireframe de Directorio de Especialistas y Evaluación de Calidad de Servicio</em></p>
+</div>
+
+---
+
+<div align="center">
+  <img src="assets/chapter05/F45.png" alt="Figura 14: Bitácora Histórica de Intervenciones y Mantenimientos del Activo" style="width: 100%; max-width: 900px; aspect-ratio: 16/9; object-fit: cover; border-radius: 8px; border: 1px solid #d0d7de; box-shadow: 0 4px 12px rgba(0,0,0,0.08);" />
+  <p><em><b>Figura 14:</b> Wireframe de Bitácora Histórica de Intervenciones y Mantenimientos del Activo</em></p>
+</div>
+
+---
+
+<div align="center">
+  <img src="assets/chapter05/F46.png" alt="Figura 15: Centro de Auditoría Regulatoria y Certificación de Cadena de Frío" style="width: 100%; max-width: 900px; aspect-ratio: 16/9; object-fit: cover; border-radius: 8px; border: 1px solid #d0d7de; box-shadow: 0 4px 12px rgba(0,0,0,0.08);" />
+  <p><em><b>Figura 15:</b> Wireframe de Centro de Auditoría Regulatoria y Certificación de Cadena de Frío</em></p>
+</div>
+
+---
+
+<div align="center">
+  <img src="assets/chapter05/F51.png" alt="Figura 16: Centro de Reportes y Auditoría Regulatoria" style="width: 100%; max-width: 900px; aspect-ratio: 16/9; object-fit: cover; border-radius: 8px; border: 1px solid #d0d7de; box-shadow: 0 4px 12px rgba(0,0,0,0.08);" />
+  <p><em><b>Figura 16:</b> Wireframe de Centro de Reportes y Auditoría Regulatoria</em></p>
+</div>
+
+---
 
 **Vista de Técnicos**
 
+<div align="center">
+  <img src="assets/chapter05/wireframe1.png" alt="Figura 1: Wireframe Iniciar sesión" style="width: 100%; max-width: 350px; height: auto; border-radius: 8px; border: 1px solid #d0d7de; box-shadow: 0 4px 12px rgba(0,0,0,0.08);" />
+  <p><em><b>Figura 1:</b> Wireframe Iniciar sesión.</em></p>
+</div>
+
+---
+
+<div align="center">
+  <img src="assets/chapter05/wireframe2.png" alt="Figura 2: Wireframe Crear cuenta de técnico" style="width: 100%; max-width: 350px; height: auto; border-radius: 8px; border: 1px solid #d0d7de; box-shadow: 0 4px 12px rgba(0,0,0,0.08);" />
+  <p><em><b>Figura 2:</b> Wireframe Crear cuenta de técnico.</em></p>
+</div>
+
+---
+
+<div align="center">
+  <img src="assets/chapter05/wireframe3.png" alt="Figura 3: Wireframe Mis órdenes asignadas" style="width: 100%; max-width: 350px; height: auto; border-radius: 8px; border: 1px solid #d0d7de; box-shadow: 0 4px 12px rgba(0,0,0,0.08);" />
+  <p><em><b>Figura 3:</b> Wireframe Mis órdenes asignadas.</em></p>
+</div>
+
+---
+
+<div align="center">
+  <img src="assets/chapter05/wireframe4.png" alt="Figura 4: Wireframe Detalle y aceptación de la orden" style="width: 100%; max-width: 350px; height: auto; border-radius: 8px; border: 1px solid #d0d7de; box-shadow: 0 4px 12px rgba(0,0,0,0.08);" />
+  <p><em><b>Figura 4:</b> Wireframe Detalle y aceptación de la orden.</em></p>
+</div>
+
+---
+
+<div align="center">
+  <img src="assets/chapter05/wireframe5.png" alt="Figura 5: Wireframe Orden aceptada - Llegada a la sede" style="width: 100%; max-width: 350px; height: auto; border-radius: 8px; border: 1px solid #d0d7de; box-shadow: 0 4px 12px rgba(0,0,0,0.08);" />
+  <p><em><b>Figura 5:</b> Wireframe Orden aceptada - Llegada a la sede.</em></p>
+</div>
+
+---
+
+<div align="center">
+  <img src="assets/chapter05/wireframe6.png" alt="Figura 6: Wireframe Equipo y telemetría en campo" style="width: 100%; max-width: 350px; height: auto; border-radius: 8px; border: 1px solid #d0d7de; box-shadow: 0 4px 12px rgba(0,0,0,0.08);" />
+  <p><em><b>Figura 6:</b> Wireframe Equipo y telemetría en campo.</em></p>
+</div>
+
+---
+
+<div align="center">
+  <img src="assets/chapter05/wireframe7.png" alt="Figura 7: Wireframe Registrar intervención sin conexión" style="width: 100%; max-width: 350px; height: auto; border-radius: 8px; border: 1px solid #d0d7de; box-shadow: 0 4px 12px rgba(0,0,0,0.08);" />
+  <p><em><b>Figura 7:</b> Wireframe Registrar intervención sin conexión.</em></p>
+</div>
+
+---
+
+<div align="center">
+  <img src="assets/chapter05/wireframe8.png" alt="Figura 8: Wireframe Alerta push en pantalla bloqueada" style="width: 100%; max-width: 350px; height: auto; border-radius: 8px; border: 1px solid #d0d7de; box-shadow: 0 4px 12px rgba(0,0,0,0.08);" />
+  <p><em><b>Figura 8:</b> Wireframe Alerta push en pantalla bloqueada.</em></p>
+</div>
+
+---
+
+<div align="center">
+  <img src="assets/chapter05/wireframe9.png" alt="Figura 9: Wireframe Centro de notificaciones por rol" style="width: 100%; max-width: 350px; height: auto; border-radius: 8px; border: 1px solid #d0d7de; box-shadow: 0 4px 12px rgba(0,0,0,0.08);" />
+  <p><em><b>Figura 9:</b> Wireframe Centro de notificaciones por rol.</em></p>
+</div>
+
+---
+
+<div align="center">
+  <img src="assets/chapter05/wireframe10.png" alt="Figura 10: Wireframe Perfil, idioma y sincronización" style="width: 100%; max-width: 350px; height: auto; border-radius: 8px; border: 1px solid #d0d7de; box-shadow: 0 4px 12px rgba(0,0,0,0.08);" />
+  <p><em><b>Figura 10:</b> Wireframe Perfil, idioma y sincronización.</em></p>
+</div>
+
+---
+
+<div align="center">
+  <img src="assets/chapter05/wireframe11.png" alt="Figura 11: Wireframe Sesión vencida en campo" style="width: 100%; max-width: 350px; height: auto; border-radius: 8px; border: 1px solid #d0d7de; box-shadow: 0 4px 12px rgba(0,0,0,0.08);" />
+  <p><em><b>Figura 11:</b> Wireframe Sesión vencida en campo.</em></p>
+</div>
+
+---
+
+<div align="center">
+  <img src="assets/chapter05/wireframe12.png" alt="Figura 12: Wireframe Alertas activas de mis equipos" style="width: 100%; max-width: 350px; height: auto; border-radius: 8px; border: 1px solid #d0d7de; box-shadow: 0 4px 12px rgba(0,0,0,0.08);" />
+  <p><em><b>Figura 12:</b> Wireframe Alertas activas de mis equipos.</em></p>
+</div>
+
 ### 5.4.2. Applications Wireflow Diagrams
 
-Para los usuarios del sistema, este diagrama describe el flujo de navegación integral de la plataforma web y móvil. Inicia con el proceso de autenticación o registro para acceder al Dashboard y KPI principal, y desde allí despliega las rutas operativas clave hacia la gestión de infraestructura (Sitios & Equipos), el monitoreo continuo (Centro de Alertas y Reportes), y la administración integral de Órdenes de Trabajo, incluyendo el flujo técnico específico para el registro de intervenciones mediante la aplicación móvil
+En este apartado se mostrarán mediante los Wireframes los flujos de actividades a realizar para que el usuario pueda alcanzar sus respectivas metas
 
-![Wireflow1](assets/chapter04/NewWireflow1.jpg)
+**Apartado de Dueños**
 
+### Goal 1: Onboarding y Personalización del Entorno
+* **Tipo de usuario:** Administrador de negocio de refrigeración / Técnico de mantenimiento.
+* **Descripción:** Permite conocer la propuesta de valor en la landing page, registrarse formalmente indicando el rol operativo (`OWNER_ROLE` o `TECHNICIAN_ROLE`)[cite: 18], iniciar sesión con credenciales directas o Google Workspace (OAuth 2.0)[cite: 19] y configurar las preferencias iniciales de idioma, zona horaria y unidades métricas (°C/°F)[cite: 20].
+
+* ![WF1](assets/chapter05/Wireflow1.jpg)
+
+---
+
+### Goal 2: Estructuración de Infraestructura de Frío y Sensores IoT
+* **Tipo de usuario:** Administrador de negocio de refrigeración.
+* **Descripción:** Abarca el alta de sedes operativas y equipos frigoríficos en el catálogo central[cite: 21], el emparejamiento de los nodos sensores físicos (IoT/LoRaWAN), la parametrización de sus umbrales de temperatura y la gestión de sus credenciales API de comunicación[cite: 32].
+
+* ![WF2](assets/chapter05/Wireflow2.jpg)
+
+---
+
+### Goal 3: Supervisión Operativa Continua y Diagnóstico Térmico
+* **Tipo de usuario:** Administrador de negocio de refrigeración.
+* **Descripción:** Facilita la vigilancia en tiempo real de la cadena de frío mediante indicadores globales y gráficos multizona en el dashboard[cite: 23], permitiendo filtrar el inventario para aislar activos comprometidos[cite: 21] y analizar curvas históricas de temperatura frente a los límites permitidos[cite: 32].
+
+* ![WF3](assets/chapter05/Wireflow3.jpg)
+
+---
+
+### Goal 4: Gestión de Contingencias Térmicas y Generación de Orden de Servicio
+* **Tipo de usuario:** Administrador de negocio de refrigeración.
+* **Descripción:** Canaliza la atención inmediata ante alertas críticas de ruptura térmica[cite: 24], permitiendo reconocer el incidente en el dashboard y emitir una orden de servicio correctivo con los datos del equipo y la telemetría automáticamente precargados[cite: 23, 25].
+
+* ![WF4](assets/chapter05/Wireflow4.jpg)
+
+---
+
+### Goal 5: Evaluación de Competencias y Despacho Técnico
+* **Tipo de usuario:** Administrador de negocio de refrigeración.
+* **Descripción:** Permite consultar las solicitudes pendientes de atención[cite: 27], verificar certificaciones y valoraciones previas en el directorio de técnicos[cite: 30], y adjudicar el servicio mediante una matriz de compatibilidad por especialidad, SLA de arribo y stock de refacciones[cite: 26].
+
+* ![WF5](assets/chapter05/Wireflow5.jpg)
+
+---
+
+### Goal 6: Validación de Cierre o Dictamen de Descarte de Incidencias
+* **Tipo de usuario:** Administrador de negocio de refrigeración.
+* **Descripción:** Asegura el cierre formal de las intervenciones validando la normalización térmica y calificando el servicio ejecutado[cite: 28, 30], o bien formalizando el descarte de falsas alarmas (descarches/puerta abierta) con un dictamen técnico obligatorio y firma digital sanitaria[cite: 29].
+
+* ![WF6](assets/chapter05/Wireflow6.jpg)
+
+---
+
+### Goal 7: Sustentación del Cumplimiento Normativo y Auditoría de Cadena de Frío
+* **Tipo de usuario:** Administrador de negocio de refrigeración.
+* **Descripción:** Proporciona el respaldo legal ante entidades regulatorias (COFEPRIS/FDA 21 CFR Part 11) mediante el cálculo automático de Temperatura Cinética Media (MKT) y horas de excursión[cite: 33], cotejando calibraciones vigentes de sondas[cite: 31, 33] y exportando expedientes foliados con firmas electrónicas avanzadas[cite: 33].
+
+* ![WF7](assets/chapter05/Wireflow7.jpg)
+
+
+**Apartado de Técnicos**
+
+<div align="center">
+  <img src="assets/chapter05/wireflow1.png"
+  alt="Figura 1: Wireflow - Registrarse, iniciar sesión y acceder a la aplicación"
+  style="width: 100%; height: auto; border-radius: 8px; border: 1px solid #d0d7de; box-shadow: 0 4px 12px rgba(0,0,0,0.08);" />
+  <p><em><b>Figura 1:</b> Wireflow - Registrarse, iniciar sesión y acceder a la aplicación</em></p>
+</div>
+
+<div align="center">
+  <img src="assets/chapter05/wireflow2.png"
+  alt="Figura 2: Wireflow - Recibir y aceptar una asignación de servicio"
+  style="width: 100%; height: auto; border-radius: 8px; border: 1px solid #d0d7de; box-shadow: 0 4px 12px rgba(0,0,0,0.08);" />
+  <p><em><b>Figura 2:</b> Wireflow - Recibir y aceptar una asignación de servicio</em></p>
+</div>
+
+<div align="center">
+  <img src="assets/chapter05/wireflow3.png"
+  alt="Figura 3: Wireflow - Consultar el equipo y actualizar el estado en campo"
+  style="width: 100%; height: auto; border-radius: 8px; border: 1px solid #d0d7de; box-shadow: 0 4px 12px rgba(0,0,0,0.08);" />
+  <p><em><b>Figura 3:</b> Wireflow - Consultar el equipo y actualizar el estado en campo</em></p>
+</div>
+
+<div align="center">
+  <img src="assets/chapter05/wireflow4.png"
+  alt="Figura 4: Wireflow - Registrar la intervención técnica, incluso sin conexión"
+  style="width: 100%; height: auto; border-radius: 8px; border: 1px solid #d0d7de; box-shadow: 0 4px 12px rgba(0,0,0,0.08);" />
+  <p><em><b>Figura 4:</b> Wireflow - Registrar la intervención técnica, incluso sin conexión</em></p>
+</div>
+
+<div align="center">
+  <img src="assets/chapter05/wireflow5.png"
+  alt="Figura 5: Wireflow - Atender una alerta térmica crítica"
+  style="width: 100%; height: auto; border-radius: 8px; border: 1px solid #d0d7de; box-shadow: 0 4px 12px rgba(0,0,0,0.08);" />
+  <p><em><b>Figura 5:</b> Wireflow - Atender una alerta térmica crítica</em></p>
+</div>
+
+<div align="center">
+  <img src="assets/chapter05/wireflow6.png"
+  alt="Figura 6: Wireflow - Consultar el centro de notificaciones"
+  style="width: 100%; height: auto; border-radius: 8px; border: 1px solid #d0d7de; box-shadow: 0 4px 12px rgba(0,0,0,0.08);" />
+  <p><em><b>Figura 6:</b> Wireflow - Consultar el centro de notificaciones</em></p>
+</div>
+
+<div align="center">
+  <img src="assets/chapter05/wireflow7.png"
+  alt="Figura 7: Wireflow - Configurar idioma, sincronización y sesión"
+  style="width: 100%; height: auto; border-radius: 8px; border: 1px solid #d0d7de; box-shadow: 0 4px 12px rgba(0,0,0,0.08);" />
+  <p><em><b>Figura 7:</b> Wireflow - Configurar idioma, sincronización y sesión</em></p>
+</div>
+
+<div align="center">
+  <img src="assets/chapter05/wireflow8.png"
+  alt="Figura 8: Wireflow - Recuperar la sesión vencida en campo"
+  style="width: 100%; height: auto; border-radius: 8px; border: 1px solid #d0d7de; box-shadow: 0 4px 12px rgba(0,0,0,0.08);" />
+  <p><em><b>Figura 8:</b> Wireflow - Recuperar la sesión vencida en campo</em></p>
+</div>
 
 ### 5.4.2. Applications Mock-ups
 
+A continuación, presentamos los mock-ups de alta fidelidad creados con base en los wireframes iniciales. En esta fase ya hemos incorporado la identidad visual del proyecto, incluyendo la paleta de colores, las fuentes y los elementos gráficos finales. El propósito es ofrecer una vista realista y minuciosa de la interfaz definitiva, asegurando una experiencia de usuario (UX) fluida y un diseño (UI) estético y operativo para todos los perfiles del sistema.
+
+**Aplicación Web**
+
+<div align="center">
+  <img src="assets/chapter05/Fase11.png" alt="Figura 1: Registro de Cuenta y Rol Operativo" style="width: 100%; max-width: 900px; aspect-ratio: 16/9; object-fit: cover; border-radius: 8px; border: 1px solid #d0d7de; box-shadow: 0 4px 12px rgba(0,0,0,0.08);" />
+  <p><em><b>Figura 1:</b> Registro de Cuenta y Rol Operativo</em></p>
+</div>
+
+---
+
+<div align="center">
+  <img src="assets/chapter05/Fase12.png" alt="Figura 2: Autenticación e Inicio de Sesión" style="width: 100%; max-width: 900px; aspect-ratio: 16/9; object-fit: cover; border-radius: 8px; border: 1px solid #d0d7de; box-shadow: 0 4px 12px rgba(0,0,0,0.08);" />
+  <p><em><b>Figura 2:</b> Autenticación e Inicio de Sesión</em></p>
+</div>
+
+---
+
+<div align="center">
+  <img src="assets/chapter05/Fase13.png" alt="Figura 3: Preferencias de Idioma, Región y Formato de Telemetría" style="width: 100%; max-width: 900px; aspect-ratio: 16/9; object-fit: cover; border-radius: 8px; border: 1px solid #d0d7de; box-shadow: 0 4px 12px rgba(0,0,0,0.08);" />
+  <p><em><b>Figura 3:</b> Preferencias de Idioma, Región y Formato de Telemetría</em></p>
+</div>
+
+---
+
+<div align="center">
+  <img src="assets/chapter05/Fase21.png" alt="Figura 4: Inventario Global de Sedes y Equipos" style="width: 100%; max-width: 900px; aspect-ratio: 16/9; object-fit: cover; border-radius: 8px; border: 1px solid #d0d7de; box-shadow: 0 4px 12px rgba(0,0,0,0.08);" />
+  <p><em><b>Figura 4:</b> Inventario Global de Sedes y Equipos</em></p>
+</div>
+
+---
+
+<div align="center">
+  <img src="assets/chapter05/Fase22.png" alt="Figura 5: Ficha Técnica del Activo, Parámetros Térmicos y Sensores IoT" style="width: 100%; max-width: 900px; aspect-ratio: 16/9; object-fit: cover; border-radius: 8px; border: 1px solid #d0d7de; box-shadow: 0 4px 12px rgba(0,0,0,0.08);" />
+  <p><em><b>Figura 5:</b> Ficha Técnica del Activo, Parámetros Térmicos y Sensores IoT</em></p>
+</div>
+
+---
+
+<div align="center">
+  <img src="assets/chapter05/Fase23.png" alt="Figura 6: Dashboard Ejecutivo y Monitoreo Multizona en Tiempo Real" style="width: 100%; max-width: 900px; aspect-ratio: 16/9; object-fit: cover; border-radius: 8px; border: 1px solid #d0d7de; box-shadow: 0 4px 12px rgba(0,0,0,0.08);" />
+  <p><em><b>Figura 6:</b> Dashboard Ejecutivo y Monitoreo Multizona en Tiempo Real</em></p>
+</div>
+
+---
+
+<div align="center">
+  <img src="assets/chapter05/Fase31.png" alt="Figura 7: Centro de Notificaciones y Reglas de Despacho" style="width: 100%; max-width: 900px; aspect-ratio: 16/9; object-fit: cover; border-radius: 8px; border: 1px solid #d0d7de; box-shadow: 0 4px 12px rgba(0,0,0,0.08);" />
+  <p><em><b>Figura 7:</b> Centro de Notificaciones y Reglas de Despacho</em></p>
+</div>
+
+---
+
+<div align="center">
+  <img src="assets/chapter05/Fase32.png" alt="Figura 8: Monitor y Gestión Global de Órdenes de Servicio" style="width: 100%; max-width: 900px; aspect-ratio: 16/9; object-fit: cover; border-radius: 8px; border: 1px solid #d0d7de; box-shadow: 0 4px 12px rgba(0,0,0,0.08);" />
+  <p><em><b>Figura 8:</b> Monitor y Gestión Global de Órdenes de Servicio</em></p>
+</div>
+
+---
+
+<div align="center">
+  <img src="assets/chapter05/Fase33.png" alt="Figura 9: Alta y Emisión de Solicitud de Servicio Técnico" style="width: 100%; max-width: 900px; aspect-ratio: 16/9; object-fit: cover; border-radius: 8px; border: 1px solid #d0d7de; box-shadow: 0 4px 12px rgba(0,0,0,0.08);" />
+  <p><em><b>Figura 9:</b> Alta y Emisión de Solicitud de Servicio Técnico</em></p>
+</div>
+
+---
+
+<div align="center">
+  <img src="assets/chapter05/Fase34.png" alt="Figura 10: Despacho y Asignación Pericial de Técnico Especialista" style="width: 100%; max-width: 900px; aspect-ratio: 16/9; object-fit: cover; border-radius: 8px; border: 1px solid #d0d7de; box-shadow: 0 4px 12px rgba(0,0,0,0.08);" />
+  <p><em><b>Figura 10:</b> Despacho y Asignación Pericial de Técnico Especialista</em></p>
+</div>
+
+---
+
+<div align="center">
+  <img src="assets/chapter05/Fase41.png" alt="Figura 11: Seguimiento en Vivo de la Intervención Técnica en Campo" style="width: 100%; max-width: 900px; aspect-ratio: 16/9; object-fit: cover; border-radius: 8px; border: 1px solid #d0d7de; box-shadow: 0 4px 12px rgba(0,0,0,0.08);" />
+  <p><em><b>Figura 11:</b> Seguimiento en Vivo de la Intervención Técnica en Campo</em></p>
+</div>
+
+---
+
+<div align="center">
+  <img src="assets/chapter05/Fase42.png" alt="Figura 12: Justificación Oficial y Dictamen de Descarte de Incidencia" style="width: 100%; max-width: 900px; aspect-ratio: 16/9; object-fit: cover; border-radius: 8px; border: 1px solid #d0d7de; box-shadow: 0 4px 12px rgba(0,0,0,0.08);" />
+  <p><em><b>Figura 12:</b> Justificación Oficial y Dictamen de Descarte de Incidencia</em></p>
+</div>
+
+---
+
+<div align="center">
+  <img src="assets/chapter05/Fase43.png" alt="Figura 13: Directorio de Especialistas y Evaluación de Calidad de Servicio" style="width: 100%; max-width: 900px; aspect-ratio: 16/9; object-fit: cover; border-radius: 8px; border: 1px solid #d0d7de; box-shadow: 0 4px 12px rgba(0,0,0,0.08);" />
+  <p><em><b>Figura 13:</b> Directorio de Especialistas y Evaluación de Calidad de Servicio</em></p>
+</div>
+
+---
+
+<div align="center">
+  <img src="assets/chapter05/Fase44.png" alt="Figura 14: Bitácora Histórica de Intervenciones y Mantenimientos del Activo" style="width: 100%; max-width: 900px; aspect-ratio: 16/9; object-fit: cover; border-radius: 8px; border: 1px solid #d0d7de; box-shadow: 0 4px 12px rgba(0,0,0,0.08);" />
+  <p><em><b>Figura 14:</b> Bitácora Histórica de Intervenciones y Mantenimientos del Activo</em></p>
+</div>
+
+---
+
+<div align="center">
+  <img src="assets/chapter05/Fase45.png" alt="Figura 15: Centro de Auditoría Regulatoria y Certificación de Cadena de Frío" style="width: 100%; max-width: 900px; aspect-ratio: 16/9; object-fit: cover; border-radius: 8px; border: 1px solid #d0d7de; box-shadow: 0 4px 12px rgba(0,0,0,0.08);" />
+  <p><em><b>Figura 15:</b> Centro de Auditoría Regulatoria y Certificación de Cadena de Frío</em></p>
+</div>
+
+---
+
+<div align="center">
+  <img src="assets/chapter05/Fase46.png" alt="Figura 16: Centro de Reportes y Auditoría Regulatoria" style="width: 100%; max-width: 900px; aspect-ratio: 16/9; object-fit: cover; border-radius: 8px; border: 1px solid #d0d7de; box-shadow: 0 4px 12px rgba(0,0,0,0.08);" />
+  <p><em><b>Figura 16:</b> Centro de Reportes y Auditoría Regulatoria</em></p>
+</div>
+
+---
+
+**Aplicación Móvil**
+
+<div align="center">
+  <img src="assets/chapter05/mockup1.png" alt="Figura 1: Iniciar sesión" style="width: 100%; max-width: 350px; height: auto; border-radius: 8px; border: 1px solid #d0d7de; box-shadow: 0 4px 12px rgba(0,0,0,0.08);" />
+  <p><em><b>Figura 1:</b> Iniciar sesión</em></p>
+</div>
+
+---
+
+<div align="center">
+  <img src="assets/chapter05/mockup2.png" alt="Figura 2: Crear cuenta de técnico" style="width: 100%; max-width: 350px; height: auto; border-radius: 8px; border: 1px solid #d0d7de; box-shadow: 0 4px 12px rgba(0,0,0,0.08);" />
+  <p><em><b>Figura 2:</b> Crear cuenta de técnico</em></p>
+</div>
+
+---
+
+<div align="center">
+  <img src="assets/chapter05/mockup3.png" alt="Figura 3: Mis órdenes asignadas" style="width: 100%; max-width: 350px; height: auto; border-radius: 8px; border: 1px solid #d0d7de; box-shadow: 0 4px 12px rgba(0,0,0,0.08);" />
+  <p><em><b>Figura 3:</b> Mis órdenes asignadas</em></p>
+</div>
+
+---
+
+<div align="center">
+  <img src="assets/chapter05/mockup4.png" alt="Figura 4: Detalle y aceptación de la orden" style="width: 100%; max-width: 350px; height: auto; border-radius: 8px; border: 1px solid #d0d7de; box-shadow: 0 4px 12px rgba(0,0,0,0.08);" />
+  <p><em><b>Figura 4:</b> Detalle y aceptación de la orden</em></p>
+</div>
+
+---
+
+<div align="center">
+  <img src="assets/chapter05/mockup5.png" alt="Figura 5: Orden aceptada - Llegada a la sede" style="width: 100%; max-width: 350px; height: auto; border-radius: 8px; border: 1px solid #d0d7de; box-shadow: 0 4px 12px rgba(0,0,0,0.08);" />
+  <p><em><b>Figura 5:</b> Orden aceptada - Llegada a la sede</em></p>
+</div>
+
+---
+
+<div align="center">
+  <img src="assets/chapter05/mockup6.png" alt="Figura 6: Equipo y telemetría en campo" style="width: 100%; max-width: 350px; height: auto; border-radius: 8px; border: 1px solid #d0d7de; box-shadow: 0 4px 12px rgba(0,0,0,0.08);" />
+  <p><em><b>Figura 6:</b> Equipo y telemetría en campo</em></p>
+</div>
+
+---
+
+<div align="center">
+  <img src="assets/chapter05/mockup7.png" alt="Figura 7: Registrar intervención sin conexión" style="width: 100%; max-width: 350px; height: auto; border-radius: 8px; border: 1px solid #d0d7de; box-shadow: 0 4px 12px rgba(0,0,0,0.08);" />
+  <p><em><b>Figura 7:</b> Registrar intervención sin conexión</em></p>
+</div>
+
+---
+
+<div align="center">
+  <img src="assets/chapter05/mockup8.png" alt="Figura 8: Alerta push en pantalla bloqueada" style="width: 100%; max-width: 350px; height: auto; border-radius: 8px; border: 1px solid #d0d7de; box-shadow: 0 4px 12px rgba(0,0,0,0.08);" />
+  <p><em><b>Figura 8:</b> Alerta push en pantalla bloqueada</em></p>
+</div>
+
+---
+
+<div align="center">
+  <img src="assets/chapter05/mockup9.png" alt="Figura 9: Centro de notificaciones por rol" style="width: 100%; max-width: 350px; height: auto; border-radius: 8px; border: 1px solid #d0d7de; box-shadow: 0 4px 12px rgba(0,0,0,0.08);" />
+  <p><em><b>Figura 9:</b> Centro de notificaciones por rol</em></p>
+</div>
+
+---
+
+<div align="center">
+  <img src="assets/chapter05/mockup10.png" alt="Figura 10: Perfil, idioma y sincronización" style="width: 100%; max-width: 350px; height: auto; border-radius: 8px; border: 1px solid #d0d7de; box-shadow: 0 4px 12px rgba(0,0,0,0.08);" />
+  <p><em><b>Figura 10:</b> Perfil, idioma y sincronización</em></p>
+</div>
+
+---
+
+<div align="center">
+  <img src="assets/chapter05/mockup11.png" alt="Figura 11: Sesión vencida en campo" style="width: 100%; max-width: 350px; height: auto; border-radius: 8px; border: 1px solid #d0d7de; box-shadow: 0 4px 12px rgba(0,0,0,0.08);" />
+  <p><em><b>Figura 11:</b> Sesión vencida en campo</em></p>
+</div>
+
+---
+
+<div align="center">
+  <img src="assets/chapter05/mockuo12.png" alt="Figura 12: Alertas activas de mis equipos" style="width: 100%; max-width: 350px; height: auto; border-radius: 8px; border: 1px solid #d0d7de; box-shadow: 0 4px 12px rgba(0,0,0,0.08);" />
+  <p><em><b>Figura 12:</b> Alertas activas de mis equipos</em></p>
+</div>
+
 ### 5.4.3. Applications User Flow Diagrams
+
+En este apartado se muestran los flujos de actividades que realiza el técnico en la aplicación móvil para alcanzar sus metas. Cada flujo se construye a partir de los mock-ups de la aplicación y de las historias de usuario asociadas.
+
+**Apartado de Dueños**
+
+### Goal 1: Onboarding y Personalización del Entorno
+* **Tipo de usuario:** Administrador de negocio de refrigeración / Técnico de mantenimiento.
+* **Descripción:** Permite conocer la propuesta de valor en la landing page, registrarse formalmente indicando el rol operativo (`OWNER_ROLE` o `TECHNICIAN_ROLE`)[cite: 18], iniciar sesión con credenciales directas o Google Workspace (OAuth 2.0)[cite: 19] y configurar las preferencias iniciales de idioma, zona horaria y unidades métricas (°C/°F)[cite: 20].
+
+* ![UG1](assets/chapter05/Usergoal1.jpg)
+
+---
+
+### Goal 2: Estructuración de Infraestructura de Frío y Sensores IoT
+* **Tipo de usuario:** Administrador de negocio de refrigeración.
+* **Descripción:** Abarca el alta de sedes operativas y equipos frigoríficos en el catálogo central[cite: 21], el emparejamiento de los nodos sensores físicos (IoT/LoRaWAN), la parametrización de sus umbrales de temperatura y la gestión de sus credenciales API de comunicación[cite: 32].
+
+* ![UG2](assets/chapter05/Usergoal2.jpg)
+
+---
+
+### Goal 3: Supervisión Operativa Continua y Diagnóstico Térmico
+* **Tipo de usuario:** Administrador de negocio de refrigeración.
+* **Descripción:** Facilita la vigilancia en tiempo real de la cadena de frío mediante indicadores globales y gráficos multizona en el dashboard[cite: 23], permitiendo filtrar el inventario para aislar activos comprometidos[cite: 21] y analizar curvas históricas de temperatura frente a los límites permitidos[cite: 32].
+
+* ![UG3](assets/chapter05/Usergoal3.jpg)
+
+---
+
+### Goal 4: Gestión de Contingencias Térmicas y Generación de Orden de Servicio
+* **Tipo de usuario:** Administrador de negocio de refrigeración.
+* **Descripción:** Canaliza la atención inmediata ante alertas críticas de ruptura térmica[cite: 24], permitiendo reconocer el incidente en el dashboard y emitir una orden de servicio correctivo con los datos del equipo y la telemetría automáticamente precargados[cite: 23, 25].
+
+* ![UG4](assets/chapter05/Usergoal4.jpg)
+
+---
+
+### Goal 5: Evaluación de Competencias y Despacho Técnico
+* **Tipo de usuario:** Administrador de negocio de refrigeración.
+* **Descripción:** Permite consultar las solicitudes pendientes de atención[cite: 27], verificar certificaciones y valoraciones previas en el directorio de técnicos[cite: 30], y adjudicar el servicio mediante una matriz de compatibilidad por especialidad, SLA de arribo y stock de refacciones[cite: 26].
+
+* ![UG5](assets/chapter05/Usergoal5.jpg)
+
+---
+
+### Goal 6: Validación de Cierre o Dictamen de Descarte de Incidencias
+* **Tipo de usuario:** Administrador de negocio de refrigeración.
+* **Descripción:** Asegura el cierre formal de las intervenciones validando la normalización térmica y calificando el servicio ejecutado[cite: 28, 30], o bien formalizando el descarte de falsas alarmas (descarches/puerta abierta) con un dictamen técnico obligatorio y firma digital sanitaria[cite: 29].
+
+* ![UG6](assets/chapter05/Usergoal6.jpg)
+
+---
+
+### Goal 7: Sustentación del Cumplimiento Normativo y Auditoría de Cadena de Frío
+* **Tipo de usuario:** Administrador de negocio de refrigeración.
+* **Descripción:** Proporciona el respaldo legal ante entidades regulatorias (COFEPRIS/FDA 21 CFR Part 11) mediante el cálculo automático de Temperatura Cinética Media (MKT) y horas de excursión[cite: 33], cotejando calibraciones vigentes de sondas[cite: 31, 33] y exportando expedientes foliados con firmas electrónicas avanzadas[cite: 33].
+
+* ![UG7](assets/chapter05/Usergoal7.jpg)
+
+
+
+**Apartado de Técnicos**
+
+**User Goal 1: Registrarse, iniciar sesión y acceder a la aplicación**
+El técnico abre la aplicación e inicia sesión con su correo o con su cuenta de Google. Si ya tiene una cuenta, accede directamente al listado de órdenes asignadas. Si no la tiene, completa el formulario de creación de cuenta de técnico y, al finalizar, ingresa al mismo listado.
+
+<div align="center">
+  <img src="assets/chapter05/userflow1.png"
+  alt="Figura 1: User Goal 1 - Registrarse, iniciar sesión y acceder a la aplicación"
+  style="width: 100%; height: auto; border-radius: 8px; border: 1px solid #d0d7de; box-shadow: 0 4px 12px rgba(0,0,0,0.08);" />
+  <p><em><b>Figura 1:</b> User Goal 1 - Registrarse, iniciar sesión y acceder a la aplicación</em></p>
+</div>
+
+**User Goal 2: Recibir y aceptar una asignación de servicio**
+El técnico recibe una notificación de nueva orden asignada y la abre desde el listado de órdenes. En el detalle revisa la sede, el equipo, la fecha, la prioridad y el problema reportado. Si acepta el servicio, la orden pasa a ACEPTADA y el cambio queda visible para el propietario en la aplicación web; si la rechaza, vuelve al listado de órdenes.
+
+<div align="center">
+  <img src="assets/chapter05/userflow2.png"
+  alt="Figura 2: User Goal 2 - Recibir y aceptar una asignación de servicio"
+  style="width: 100%; height: auto; border-radius: 8px; border: 1px solid #d0d7de; box-shadow: 0 4px 12px rgba(0,0,0,0.08);" />
+  <p><em><b>Figura 2:</b> User Goal 2 - Recibir y aceptar una asignación de servicio</em></p>
+</div>
+
+**User Goal 3: Consultar el equipo y actualizar el estado en campo**
+Con la orden aceptada, el técnico consulta durante el desplazamiento el detalle del equipo: la última telemetría de temperatura, el historial técnico y las intervenciones previas. Al llegar a la sede marca su llegada y la orden pasa a EN PROGRESO; mientras no llegue, la orden permanece aceptada.
+
+<div align="center">
+  <img src="assets/chapter05/userflow3.png"
+  alt="Figura 3: User Goal 3 - Consultar el equipo y actualizar el estado en campo"
+  style="width: 100%; height: auto; border-radius: 8px; border: 1px solid #d0d7de; box-shadow: 0 4px 12px rgba(0,0,0,0.08);" />
+  <p><em><b>Figura 3:</b> User Goal 3 - Consultar el equipo y actualizar el estado en campo</em></p>
+</div>
+
+**User Goal 4: Registrar la intervención técnica, incluso sin conexión**
+Al concluir el servicio, el técnico completa el formulario de intervención con el diagnóstico, las acciones realizadas, los repuestos y la evidencia fotográfica, y pulsa "Finalizar servicio". Si hay conexión, la intervención se envía y la orden pasa a COMPLETADA. Si no la hay, se guarda en una cola local con un identificador único y se sincroniza automáticamente al recuperar la red, sin generar registros duplicados.
+
+<div align="center">
+  <img src="assets/chapter05/userflow4.png"
+  alt="Figura 4: User Goal 4 - Registrar la intervención técnica, incluso sin conexión"
+  style="width: 100%; height: auto; border-radius: 8px; border: 1px solid #d0d7de; box-shadow: 0 4px 12px rgba(0,0,0,0.08);" />
+  <p><em><b>Figura 4:</b> User Goal 4 - Registrar la intervención técnica, incluso sin conexión</em></p>
+</div>
+
+**User Goal 5: Atender una alerta térmica crítica**
+El técnico recibe una notificación push con el equipo, la sede, la temperatura registrada y la severidad. Al seleccionarla se abre el detalle del equipo con su telemetría reciente. Si el equipo requiere intervención, procede a registrarla; caso contrario, puede darle seguimiento desde el apartado de alertas activas.
+
+<div align="center">
+  <img src="assets/chapter05/userflow5.png"
+  alt="Figura 5: User Goal 5 - Atender una alerta térmica crítica"
+  style="width: 100%; height: auto; border-radius: 8px; border: 1px solid #d0d7de; box-shadow: 0 4px 12px rgba(0,0,0,0.08);" />
+  <p><em><b>Figura 5:</b> User Goal 5 - Atender una alerta térmica crítica</em></p>
+</div>
+
+**User Goal 6: Consultar el centro de notificaciones**
+Desde el listado de órdenes, el técnico ingresa al centro de notificaciones, donde solo ve los avisos que le corresponden según las órdenes y equipos que tiene asignados. Puede marcarlos como leídos y, según el tipo de aviso, abrir el equipo afectado (alerta) o el detalle de la orden (asignación).
+
+<div align="center">
+  <img src="assets/chapter05/userflow6.png"
+  alt="Figura 6: User Goal 6 - Consultar el centro de notificaciones"
+  style="width: 100%; height: auto; border-radius: 8px; border: 1px solid #d0d7de; box-shadow: 0 4px 12px rgba(0,0,0,0.08);" />
+  <p><em><b>Figura 6:</b> User Goal 6 - Consultar el centro de notificaciones</em></p>
+</div>
+
+**User Goal 7: Configurar idioma, sincronización y sesión**
+En el apartado "Perfil", el técnico puede cambiar el idioma de la interfaz entre español latinoamericano e inglés, revisar los registros pendientes de sincronizar, forzar una sincronización y configurar las notificaciones push. También puede cerrar sesión, con lo que vuelve a la pantalla de inicio de sesión.
+
+<div align="center">
+  <img src="assets/chapter05/userflow7.png"
+  alt="Figura 7: User Goal 7 - Configurar idioma, sincronización y sesión"
+  style="width: 100%; height: auto; border-radius: 8px; border: 1px solid #d0d7de; box-shadow: 0 4px 12px rgba(0,0,0,0.08);" />
+  <p><em><b>Figura 7:</b> User Goal 7 - Configurar idioma, sincronización y sesión</em></p>
+</div>
+
+**User Goal 8: Recuperar la sesión vencida en campo**
+Si el token de sesión caduca mientras el técnico trabaja, la aplicación le pide volver a autenticarse. Si se reautentica con Google, la sesión se renueva y los registros pendientes se sincronizan. Si elige "Ahora no", sus registros se conservan en el dispositivo sin pérdida hasta que vuelva a iniciar sesión.
+
+<div align="center">
+  <img src="assets/chapter05/userflow8.png"
+  alt="Figura 8: User Goal 8 - Recuperar la sesión vencida en campo"
+  style="width: 100%; height: auto; border-radius: 8px; border: 1px solid #d0d7de; box-shadow: 0 4px 12px rgba(0,0,0,0.08);" />
+  <p><em><b>Figura 8:</b> User Goal 8 - Recuperar la sesión vencida en campo</em></p>
+</div>
+
+
 
 ## 5.5. Applications Prototyping
 
+A continuación, se presenta los videos de los prototipos de la aplicación web y móvil de IceTrack destinada a los técnicos de mantenimiento. Los prototipo cuenta con un flujo de navegación definido e interactividad en los principales botones y elementos de la interfaz, lo que permite recorrer los escenarios clave del  dueño y técnico.
+
+![Application Prototyping](assets/chapter05/app-prototyping.png)
+
+Link del video: [https://upcedupe-my.sharepoint.com/:v:/g/personal/u202123843_upc_edu_pe/IQAsE4xzMD0ES4UXgryZEz8sAWu-k1CA6TqAmQ9_MqvK1vQ?e=KqBKcP](https://upcedupe-my.sharepoint.com/:v:/g/personal/u202123843_upc_edu_pe/IQAsE4xzMD0ES4UXgryZEz8sAWu-k1CA6TqAmQ9_MqvK1vQ?e=KqBKcP)
+
+
+Link del prototipo: [Prototipo móvil de IceTrack](https://www.figma.com/proto/4aJUpnAi9WWZRhQjSwR2nQ/IceTrack-%E2%80%93-App-M%C3%B3vil-T%C3%A9cnico?node-id=78-13766&p=f&viewport=40%2C349%2C0.14&t=fYf5sHV2I1R9Qiol-1&scaling=min-zoom&content-scaling=fixed&starting-point-node-id=78%3A13766&page-id=78%3A13765&show-proto-sidebar=1)
+
 ## 5.6. IoT Device Design
+La propuesta de diseño de los dispoitivos IoT de Icetrack está fundamentada en 3 criterios principales: garantía del funcionamiento de la cadena de frío mediante supervisión en la cámara de congelación, detección preventiva de fugas térmicas por puerta abierta, y comunicación de baja latencia con el centro de control mediante el protocolo MQTT. Los dispositivos actúan como una primera capa de captura de telemetría ambiental e industrial en los puntos de venta y almacén. Estos datos obtenidos permitirán alimentar el dashboard de supervisión ocn información objetiva para prevenir la pérdida de producto.
+
+El dispositivo está construido sobre el microcontrolador ESP32 DevKit-C-v4, que ofrece conectividad Wi-Fi integrada, procesamiento dual-core adecuado para el firmware embebido en C++ y una gestión precisa del protocolo OneWire y señales de tiempo para sensores ambientales. El protocolo MQTT 3.1.1 sobre TLS1.2 servirá para tener la conexión con el backend, publicando eventos al broker AWS IoT Core.
+
+| Decisión técnica | Valor |
+|---|---|
+| Microcontrolador | ESP32 DevKit-C-v4 (38 pines) |
+| Protocolo de comunicación | MQTT 3.1.1 sobre TLS 1.2 |
+| Broker | AWS IoT Core |
+| Calidad de servicio | QoS 1 (entrega garantizada) |
+| Autenticación | Certificados X.509 por dispositivo |
+| Firmware | C++ (Framework Arduino) |
+| Simulador | Wokwi |
+
+## Aplicación del Framework IoT System Design Steps
+
+Para fundamentar la selección de cada dispositivo y sus componentes, se aplicó el framework de Iot System Desgin Steps, que consiste en 12 pasos en los cuales no aseguraremos que cada elemento responda a un requisito específico de la cadena de frío.
+
+
+### Paso 1: Definición de los requisitos del sistema
+
+A partir del análisis de entrevistas y requerimientos operativos, se definieron los siguientes requisitos funcionales:
+
+- **RF-01**: Monitorear continuamente la temperatura interna del congelador mediante sonda sumergible (DS18B20).
+- **RF-02**: Medir la temperatura y humedad relativa del entorno/tienda donde opera la congeladora (DHT22).
+- **RF-03**: Detectar aperturas prolongadas o no autorizadas de la puerta del congelador mediante nivel de iluminación interna (LDR).
+- **RF-04**: Emitir alertas visuales (LEDs) y sonoras (Buzzer) locales cuando alguna variable supere los umbrales críticos.
+- **RF-05**: Desplegar el estado del sistema y lecturas de sensores en una pantalla LCD 16×2 en el punto de venta.
+- **RF-06**: Transmitir la telemetría en formato JSON estructurado hacia el broker central en la nube.
+
+Requisitos no funcionales clave: latencia de alerta local menor a 100 ms, alta estabilidad en lecturas bajo cero y tolerancia al ambiente húmedo.
+
+### Paso 2: Selección de la tipología del sistema IoT
+
+Se optó por una arquitectura de Nodo Fijo de Monitoreo de Cadena de Frío (Stationary Cold-Chain Node) instalado directamente en cada congeladora comercial. Se conecta a la red Wi-Fi del establecimiento y se alimenta mediante la red eléctrica principal de 5 V DC, asegurando operación continua 24/7.
+
+### Paso 3: Definición de los requisitos de la capa física
+
+El entorno comercial e industrial de heladería impone las siguientes condiciones:
+
+| Requisito | Especificación |
+|---|---|
+| Rango de temperatura operativa del sensor interno | –55 °C a +125 °C (Sonda DS18B20) |
+| Rango de temperatura operativa del nodo exterior | 0 °C a +50 °C |
+| Humedad relativa ambiental | 10 % a 90 % sin condensación |
+| Alimentación del nodo | Red eléctrica 5 V DC (Adaptador USB-C / Jack DC) |
+| Estanqueidad de la sonda | Cable de acero inoxidable sumergible con IP67 |
+
+### Paso 4: Definición de los requisitos de la capa de intercambio
+
+La capa de transporte implementa MQTT sobre Wi-Fi con las siguientes políticas:
+
+- **Protocolo**: MQTT 3.1.1 con cifrado TLS 1.2.
+- **QoS**: Nivel 1 (At least once).
+- **Keep-alive**: 30 segundos.
+- **Topics jerárquicos**:
+  - `icetrack/freezer/{freezerId}/telemetry`
+  - `icetrack/freezer/{freezerId}/alerts`
+  - `icetrack/freezer/{freezerId}/status`
+
+### Paso 5: Definición de los requisitos de la capa de información
+
+Los mensajes se envían serializados en JSON UTF-8. Ejemplo de payload de telemetría regular:
+
+```json
+{
+  "dispositivo": "congeladora_01",
+  "temp_congelador": -18.5,
+  "temp_ambiente": 22.4,
+  "humedad_ambiente": 55.0,
+  "luz_interior_lux": 15.0,
+  "puerta_abierta": false,
+  "humedad_critica": false,
+  "alerta_general": false
+}
+```
+
+### Paso 6: Definición de los requisitos de la capa de servicios de aplicación
+
+Integración directa con los Bounded Contexts del sistema:
+
+| **Bounded Context**                 | **Función respecto al IoT**                                                                           |
+| ----------------------------------- | ----------------------------------------------------------------------------------------------------- |
+| Monitoring and Alerting Management | Ingesta de datos, evaluación de reglas de negocio en tiempo real y disparo de notificaciones Push/SMS |
+| Reporting and Analysis Management             | Procesamiento analítico de curvas de temperatura y pérdida de frío histórica                          |
+| Assets Management                    | Registro y asignación de nodos sensores a congeladoras específicas por tienda                         |
+
+### Paso 7: Selección de las arquitecturas de intercambio e integración
+
+- **Broker**: AWS IoT Core con autenticación mutua mediante certificados X.509.
+- **Integración backend**: AWS IoT Rules → AWS Kinesis / Lambda → API REST Microservicios.
+- **Persistencia**: AWS Timestream (Series temporales) y PostgreSQL (Estado del activo).
+
+### Paso 8: Selección de sensores y actuadores
+
+| **Componente**    | **Tipo**                                | **Requisito atendido** | **Justificación**                                                                             |
+| ----------------- | --------------------------------------- | ---------------------- | --------------------------------------------------------------------------------------------- |
+| DS18B20           | Sensor de temperatura digital (OneWire) | RF-01                  | Precisión de ±0.5 °C entre –10 °C y +85 °C. Sonda blindada ideal para temperaturas bajo cero  |
+| DHT22             | Sensor de temp. y humedad               | RF-02                  | Rango de 0–100 % RH y alta estabilidad para evaluar el clima local                            |
+| LDR               | Fotoresistor analógico                  | RF-03                  | Detecta el incremento de iluminación cuando la puerta se abre e ingresa luz exterior/interior |
+| LCD 16x2 I2C      | Display de caracteres                   | RF-05                  | Permite al personal de tienda verificar rápidamente la temperatura sin abrir la congeladora   |
+| LEDs (Verde/Rojo) | Actuadores luminosos                    | RF-04                  | Indicadores de estado de alta visibilidad (OK vs ALERTA)                                      |
+| Buzzer Activo 5V  | Actuador sonoro                         | RF-04                  | Emite un tono de advertencia audible ante fallas en la congeladora                            |
+
+
+
+
+### Paso 9: Selección del microcontrolador y transceivers de radio
+
+| **Criterio**                 | **ESP32 DevKit-C-v4**                 | **Justificación**                                                                |
+| ---------------------------- | ------------------------------------- | -------------------------------------------------------------------------------- |
+| Procesamiento                | Xtensa Dual-Core 32-bit LX6 @ 240 MHz | Manejo fluido de OneWire, lecturas analógicas y cliente MQTT con cifrado SSL/TLS |
+| Conectividad                 | Wi-Fi 802.11 b/g/n (2.4 GHz)          | Eliminación de módulos de red externos                                           |
+| GPIOs                        | 38 pines (26 utilizables)             | Distribución holgada para buses I2C, OneWire y líneas digitales                  |
+| Estabilidad de temporización | Hardware Timers precisos              | Imprescindible para emular y leer el protocolo OneWire sin perder frames         |
+| Costo unitario               | \~S/ 28                               | Altamente rentable para producción en masa de nodos                              |
+| Simulador                    | Soporte nativo en Wokwi               | Validación completa del circuito y firmware antes del ensamblaje                 |
+
+### Paso 10: Definición del procesamiento de datos por nodo y en la nube
+
+**Procesamiento en el borde (Edge — ESP32):**
+
+- Verificación de la integridad de lectura OneWire (descarte de lecturas erróneas `-127.0 °C`).
+- Mapeo de iluminación LDR de valor ADC a Lux mediante curva logarítmica.
+- Alternancia de datos en pantalla LCD cada 2 segundos.
+- Evaluación inmediata de umbrales locales (Disparo de LED Rojo y Buzzer).
+
+**Procesamiento en la nube (AWS):**
+
+- Generación de informes de cumplimiento HACCP de la cadena de frío.
+- Algoritmos de predicción de falla de aislamiento basados en la frecuencia de apertura de puerta.
+- Envío de alertas críticas a gerentes de tienda.
+
+### Paso 11: Análisis del tiempo de procesamiento
+
+| **Etapa**                                              | **Latencia objetivo** | **Latencia esperada** |
+| ------------------------------------------------------ | --------------------- | --------------------- |
+| Lectura de sensor (DS18B20/DHT22)                      | < 750 ms              | \~200 ms              |
+| Procesamiento y lógica local en ESP32                  | < 50 ms               | \~10 ms               |
+| Activación de alerta local (LED/Buzzer)                | < 100 ms              | \~15 ms               |
+| Publicación MQTT a broker cloud                        | < 300 ms              | \~140 ms              |
+| Ingesta en backend y actualización dashboard           | < 200 ms              | \~120 ms              |
+| **Total: Evento físico → Alerta visible en Dashboard** | **< 1000 ms**         | **\~485 ms**          |
+
+### Paso 12: Definición de la interfaz gráfica de usuario
+
+La interacción se divide en tres niveles:
+
+1. **Interfaz física local**: Pantalla LCD 16x2 que alterna entre lecturas del congelador/puerta y ambiente/humedad, junto con el LED Verde (Estado OK) o LED Rojo + Buzzer (Estado Alerta).
+2. **Dashboard Web Supervisor**: Panel interactivo con gráficos en tiempo real, histórico de temperatura y gestión de alertas.
+3. **App Móvil de Operador**: Notificaciones push inmediatas al detectar ruptura de cadena de frío.
+
+## Dispositivo 01: Módulo de Monitoreo de Cadena de Frío (IceTrack Freezer Monitoring Node)
+
+### Descripción y criterios de diseño
+
+El **IceTrack Freezer Monitoring Node** es el dispositivo encargado de supervisar las condiciones físicas internas y externas de las congeladoras comerciales. Su diseño garantiza que la sonda de temperatura DS18B20 permanezca en el interior del congelador, mientras que la unidad central con la pantalla LCD, el sensor DHT22, el sensor LDR, las alertas y el microcontrolador se ubican en el exterior.
+
+Cuando la temperatura del congelador supera los **$-15.0\text{ }^\circ\text{C}$**, la luz interior supera los **$200\text{Lux}$** (puerta abierta) o la humedad ambiental supera el **$70\text{ \%}$**, el sistema activa la alerta sonora local, conmuta el LED Verde al LED Rojo, cambia el mensaje de la pantalla LCD a `!ALERTA SISTEMA!` indicando la causa específica y transmite el evento en formato JSON mediante MQTT.
+
+El gabinete exterior está diseñado en plástico ABS resistente a impactos en color blanco industrial con frontal acrílico para la pantalla LCD, garantizando legibilidad y facilidad de limpieza en entornos comerciales.
+
+### Componentes
+
+| **Componente**                 | **Función**                                                            |
+| ------------------------------ | ---------------------------------------------------------------------- |
+| ESP32 DevKit-C-v4              | MCU Principal — Procesamiento, Wi-Fi, protocolo OneWire y cliente MQTT |
+| DS18B20 (Sonda sumergible)     | Mide la temperatura interna del congelador                             |
+| DHT22                          | Mide la temperatura y humedad del aire del local/tienda                |
+| LDR (Fotoresistor)             | Mide la intensidad luminosa para detectar apertura de puerta           |
+| LCD 16x2 I2C (PCF8574)         | Visualización local de métricas y mensajes de alerta                   |
+| LED Verde (5 mm)               | Indicar estado del sistema operativo y en rango normal                 |
+| LED Rojo (5 mm)                | Indicar condición de alerta activa                                     |
+| Resistencias 220 $\Omega$ (x2) | Limitación de corriente para los LEDs                                  |
+| Buzzer Activo 5V               | Alarma sonora local para el personal                                   |
+| Fuente / Adaptador 5V DC       | Alimentación continua del sistema                                      |
+
+
+![Icetrack Components](assets/chapter05/icetrack_components.png)
+
+
+### Simulación en Wokwi
+
+En la plataforma Wokwi, la sonda DS18B20 se simula utilizando el componente wokwi-ds18b20 alimentado en su pin VDD. El sensor DHT22 se simula con wokwi-dht22 conectado a GPIO15 y el sensor de luz con wokwi-photoresistor-sensor. La comunicación I2C del LCD 16x2 utiliza los pines nativos GPIO21 (SDA) y GPIO22 (SCL).
+
+La siguiente figura muestra el circuito del **IceTrack Freezer Monitoring Node** simulado en Wokwi.
+
+### Flujo de interacción
+
+1. El sensor DS18B20 realiza lecturas de temperatura interna mediante el bus OneWire en GPIO4.
+2. El DHT22 captura la humedad y temperatura ambiental en GPIO15.
+3. El sensor LDR lee el nivel de luz en el pin analógico GPIO33.
+4. El ESP32 evalúa las condiciones:
+   - Si Temp. Congelador > -15.0: **Alerta por Temperatura Alta**.
+   - Si Luz LDR > 200 **Alerta por Puerta Abierta**.
+   - Si Humedad DHT22 > 70 **Alerta por Humedad Crítica**.
+5. En estado normal:
+   - Mantiene encendido el LED Verde (GPIO18) y apaga el LED Rojo (GPIO19).
+   - Mantiene apagado el Buzzer (GPIO23).
+   - Alterna la pantalla LCD cada 2 segundos entre:
+     - *Vista 1*: Temp. Congelador y Estado de Puerta.
+     - *Vista 2*: Temp. Ambiente y Humedad.
+6. En estado de alerta:
+   - Apaga el LED Verde y enciende el LED Rojo.
+   - Activa el Buzzer con tono continuo de 1000 Hz.
+   - Fija la pantalla LCD mostrando `!ALERTA SISTEMA!` y la causa del fallo.
+7. Publica la trama de telemetría JSON vía Serial / MQTT cada 2 segundos.
+
+### Tabla de conexiones (Pinout)
+
+| **Componente** | **Pin componente**         | **Pin ESP32** | **Tipo de señal**      |
+| -------------- | -------------------------- | ------------- | ---------------------- |
+| DS18B20        | VDD                        | 3V3           | Alimentación           |
+| DS18B20        | GND                        | GND           | Tierra                 |
+| DS18B20        | DQ                         | GPIO4         | Digital (OneWire)      |
+| DHT22          | VCC                        | 3V3           | Alimentación           |
+| DHT22          | GND                        | GND           | Tierra                 |
+| DHT22          | SDA                        | GPIO15        | Digital Bi-direccional |
+| LDR            | VCC                        | 3V3           | Alimentación           |
+| LDR            | GND                        | GND           | Tierra                 |
+| LDR            | AO                         | GPIO33        | Analógico (ADC 0–3.3V) |
+| LCD 16x2 I2C   | VCC                        | 5V            | Alimentación 5 V       |
+| LCD 16x2 I2C   | GND                        | GND           | Tierra                 |
+| LCD 16x2 I2C   | SDA                        | GPIO21        | I2C Data               |
+| LCD 16x2 I2C   | SCL                        | GPIO22        | I2C Clock              |
+| LED Verde      | Anodo (+) vía 220 $\Omega$ | GPIO18        | Salida Digital         |
+| LED Verde      | Cátodo (-)                 | GND           | Tierra                 |
+| LED Rojo       | Anodo (+) vía 220 $\Omega$ | GPIO19        | Salida Digital         |
+| LED Rojo       | Cátodo (-)                 | GND           | Tierra                 |
+| Buzzer Activo  | (+)                        | GPIO23        | Salida Digital / PWM   |
+| Buzzer Activo  | (-)                        | GND           | Tierra                 |
+
+![Icetrack Simulation](assets/chapter05/icetrack_wokwi_simulation.png)
+Simulación disponible en Wokwi
+[https://wokwi.com/projects/476819184905206785](https://wokwi.com/projects/476819184905206785)
+
+## Arquitectura de comunicación MQTT
+
+El nodo de monitoreo establece comunicación cifrada con la plataforma en la nube a través de los siguientes tópicos MQTT estructurados:
+
+| **Dispositivo**       | **Tópico MQTT**                          | **Microservicio suscriptor**                           |
+| --------------------- | ---------------------------------------- | ------------------------------------------------------ |
+| IceTrack Freezer Node | `icetrack/freezer/{freezerId}/telemetry` | Monitoring Service (Cold Chain Execution BC)           |
+| IceTrack Freezer Node | `icetrack/freezer/{freezerId}/alerts`    | Alert & Notification Service (Cold Chain Execution BC) |
+| IceTrack Freezer Node | `icetrack/freezer/{freezerId}/status`    | Device Watchdog Service (Asset Management BC)          |
+
+La autenticación se realiza mediante certificados X.509 únicos incrustados en la memoria flash del ESP32 durante el proceso de aprovisionamiento en fábrica.
+
+## Paleta de colores e indicadores de estado — Guía de estilos IoT IceTrack
+
+Los elementos de visualización local (LEDs e interfaz gráfica del LCD) responden a la guía de estilos del producto IceTrack para garantizar la rápida interpretación del personal operativo:
+
+| **Elemento / Color** | **Código Hex** | **Condición del sistema**                                                                                    |
+| -------------------- | -------------- | ------------------------------------------------------------------------------------------------------------ |
+| **LED Verde**        | #1D9E75`     | Cadena de frío asegurada ($\text{Temp} \le -15\text{ }^\circ\text{C}$), puerta cerrada y parámetros normales |
+| **LED Rojo**         | #E24B4A      | Alerta crítica activa: Temperatura del congelador elevada, puerta abierta o alta humedad                     |
+| **LCD Luz de fondo** | Estándar I2C   | Encendido permanente durante operación para lectura clara                                                    |
+| **LCD Texto Normal** | Caracteres 5x8 | Muestra cíclica de métricas de temperatura, puerta y humedad                                                 |
+| **LCD Texto Alerta** | Caracteres 5x8 | Mensaje parpadeante de `!ALERTA SISTEMA!` con la descripción de la falla                                     |
 
 # Capítulo VI: Product Implementation, Validation & Deployment
 
