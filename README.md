@@ -4091,7 +4091,7 @@ A continuación, se presenta los prototipos de la aplicación web y móvil de Ic
   style="width: 100%; max-width: 350px; height: auto; border-radius: 8px; border: 1px solid #d0d7de; box-shadow: 0 4px 12px rgba(0,0,0,0.08);" />
 </div>
 
-Link del prototipo: [Prototipo móvil de IceTrack]([PEGA_AQUÍ_EL_LINK_DEL_PROTOTIPO](https://www.figma.com/proto/4aJUpnAi9WWZRhQjSwR2nQ/IceTrack-%E2%80%93-App-M%C3%B3vil-T%C3%A9cnico?node-id=78-13766&p=f&viewport=40%2C349%2C0.14&t=fYf5sHV2I1R9Qiol-1&scaling=min-zoom&content-scaling=fixed&starting-point-node-id=78%3A13766&page-id=78%3A13765&show-proto-sidebar=1))
+Link del prototipo: [Prototipo móvil de IceTrack][PEGA_AQUÍ_EL_LINK_DEL_PROTOTIPO](https://www.figma.com/proto/4aJUpnAi9WWZRhQjSwR2nQ/IceTrack-%E2%80%93-App-M%C3%B3vil-T%C3%A9cnico?node-id=78-13766&p=f&viewport=40%2C349%2C0.14&t=fYf5sHV2I1R9Qiol-1&scaling=min-zoom&content-scaling=fixed&starting-point-node-id=78%3A13766&page-id=78%3A13765&show-proto-sidebar=1)
 
 ## 5.6. IoT Device Design
 
