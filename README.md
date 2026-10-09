@@ -4,7 +4,7 @@
   <h2>Carrera: Ingeniería de Software</h2>
   <h2>Periodo: 2026-20</h2>
 <br>
-  <h2>Curso: Desarolllo de soluciones IOT</h2>
+  <h2>Curso: Desarollo de soluciones IOT</h2>
   <h2>Codigo del Curso: 1ASI0572</h2>
   <h2>NRC: 8740</h2>
   <h2>Profesor: David Carlos Olivera</h2>
