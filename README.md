@@ -5037,16 +5037,16 @@ Vercel se utiliza para desplegar la Landing Page de IceTrack y la aplicación we
   <img src="assets\chapter06\vercel.png" alt="Vercel" width="300">
 </p>
 
-#### Render
+#### Railway
 
-Render se utiliza para desplegar los servicios backend desarrollados con Spring Boot.
+Railway se utiliza para desplegar los servicios backend desarrollados con Spring Boot.
 
 - **Tipo:** SaaS / Cloud Platform
 - **Propósito:** Hosting y ejecución de los servicios backend.
-- **Ruta de referencia:** https://render.com/
+- **Ruta de referencia:** https://railway.com/
 
 <p align="center">
-  <img src="assets\chapter06\render.png" alt="Rencer" width="300">
+  <img src="assets\chapter06\railway.png" alt="Rencer" width="150">
 </p>
 
 ### Software Documentation
