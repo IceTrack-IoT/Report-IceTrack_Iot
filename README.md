@@ -3926,7 +3926,7 @@ A continuación, presentamos los mock-ups de alta fidelidad creados con base en 
 ---
 
 <div align="center">
-  <img src="assets/chapter05/mockup12.png" alt="Figura 12: Alertas activas de mis equipos" style="width: 100%; max-width: 350px; height: auto; border-radius: 8px; border: 1px solid #d0d7de; box-shadow: 0 4px 12px rgba(0,0,0,0.08);" />
+  <img src="assets/chapter05/mockuo12.png" alt="Figura 12: Alertas activas de mis equipos" style="width: 100%; max-width: 350px; height: auto; border-radius: 8px; border: 1px solid #d0d7de; box-shadow: 0 4px 12px rgba(0,0,0,0.08);" />
   <p><em><b>Figura 12:</b> Alertas activas de mis equipos</em></p>
 </div>
 
