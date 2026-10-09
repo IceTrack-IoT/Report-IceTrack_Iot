@@ -5844,7 +5844,7 @@ Al ser el primer Sprint, el equipo no cuenta con un *Velocity* histórico. El *V
 | **Sprint #** | Sprint 1 |
 | :--- | :--- |
 | **Sprint Planning Background** | |
-| Date | 2026-10-25 10:00 AM |
+| Date | 2026-10-21 10:00 AM |
 | Location | Reunión virtual en Meet |
 | Prepared By | Jeremy Alexander Quijada Magro |
 | Attendees (to planning meeting) | Arostegui Alzamora Cesar Augusto, Cuentas Peña Joaquin Alberto, Fajardo Monrroy Walter Luis, Guillen Galindo Julio Adolfo, Jiménez Guerra Gianmarco Fabian, Quijada Magro Jeremy Alexander y Tenorio Medina, Piero Francesco |
@@ -5852,8 +5852,8 @@ Al ser el primer Sprint, el equipo no cuenta con un *Velocity* histórico. El *V
 | Sprint 0 Retrospective Summary | No aplica.  |
 | **Sprint Goal & User Stories** | |
 | Sprint 1 Goal | Nuestro enfoque está en ofrecer a los propietarios de negocios y técnicos de la cadena de frío que visitan IceTrack una visión clara del valor, las soluciones y las funcionalidades clave de la plataforma, con un acceso directo a las aplicaciones web y móvil; ofrecer a los desarrolladores frontend y móvil los primeros endpoints RESTful seguros para registrar usuarios y gestionar solicitudes de servicio, intervenciones y evaluaciones de servicio; y ofrecer a los propietarios y técnicos el primer flujo de acceso (registro e inicio de sesión) en la aplicación web. <br><br>Creemos que esto entrega mayor confianza a los visitantes para evaluar IceTrack en su operación de refrigeración; una base de API extensible sobre la cual los equipos de frontend y móvil puedan construir las funcionalidades de propietarios y técnicos de los próximos Sprints sin depender del equipo de backend; y un primer camino funcional para que los nuevos usuarios se registren e ingresen a la plataforma. <br><br> Esto se confirmará cuando un visitante pueda encontrar la propuesta de valor, las soluciones por tipo de negocio, las funcionalidades clave y la misión y visión en la Landing Page desplegada en Vercel, y llegar al inicio de sesión de la aplicación web o a la descarga de la aplicación móvil con un solo clic; los endpoints de usuarios, solicitudes de servicio (creación y consulta de estado), intervenciones y evaluaciones de servicio estén desplegados en Render, documentados en Swagger y respondan correctamente a sus escenarios de aceptación (respuestas 201, 400, 404 y 409); y un nuevo usuario pueda registrarse e iniciar sesión desde la aplicación web, consumiendo la API desplegada. |
-| Sprint 1 Velocity | 42 Story Points |
-| Sum of Story Points | 42 Story Points |
+| Sprint 1 Velocity | 50 Story Points |
+| Sum of Story Points | 50 Story Points |
 
 #### 6.2.1.2. Aspect Leaders and Collaborators
 
@@ -5870,6 +5870,31 @@ Para el Sprint 1 el equipo organizó el trabajo en de la siguiente manera:
 | Tenorio Medina, Piero Francesco | `[PieroTM2005]` | - | L | C | - | - | C | - |
 
 #### 6.2.1.3. Sprint Backlog 1
+
+El objetivo principal del **Sprint 1** consistió en consolidar la presencia digital del producto mediante el desarrollo completo de la **Landing Page** y en sentar las bases funcionales de la plataforma: los primeros servicios REST del Backend (registro de usuarios, solicitudes de servicio con consulta de estado, intervenciones y evaluaciones) y el primer flujo de registro e inicio de sesión en la aplicación web. Con ello se habilitó una base extensible sobre la API desplegada para que los equipos de Frontend y Móvil continúen construyendo en los siguientes Sprints.
+
+| Sprint # | Sprint 1 |  |  |  |  |  |  |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| **User Story** |  | **Work-Item / Task** |  |  |  |  |  |
+| **Story Id** | **Story Title** | **Task Id** | **Task Title** | **Task Description** | **Estimation (Story Points)** | **Assigned To** | **Status (To-do / In-Process / To-Review / Done)** |
+| US-13 | Visualizar la propuesta de valor principal | UT-L1 | Sección de propuesta de valor | Maquetar la propuesta de valor de IceTrack en la Landing Page. | 2 | Walter Fajardo | Done |
+| US-14 | Explorar soluciones específicas para mi rubro | UT-L2 | Sección de soluciones por rubro | Diseñar la sección de soluciones para negocios de cadena de frío y proveedores técnicos. | 2 | Walter Fajardo | Done |
+| US-15 | Comprender las funcionalidades clave | UT-L3 | Sección de funcionalidades clave | Presentar las funcionalidades principales de la plataforma en la Landing Page. | 3 | Julio Guillén | Done |
+| US-16 | Conocer la misión y visión | UT-L4 | Sección institucional (misión y visión) | Redactar y maquetar los apartados de misión y visión en la Landing Page. | 2 | Julio Guillén | Done |
+| US-17 | Acceder a la plataforma desde el call to action | UT-L5 | Vinculación de CTAs | Enlazar los botones de la Landing Page con el inicio de sesión web y la descarga móvil. | 2 | Walter Fajardo | Done |
+| TS-04 | Registrar nuevo usuario a través de API RESTful | UT-B1 | API de registro de usuarios | Implementar y validar el endpoint de registro de usuarios (unicidad y formato). | 5 | Piero Tenorio | Done |
+| TS-01 | Creación de solicitudes de servicio por API RESTful | UT-B2 | API de creación de solicitudes | Implementar el endpoint de creación de solicitudes de servicio. | 8 | Joaquin Cuentas | Done |
+| TS-05 | Consulta del estado de una solicitud por API | UT-B3 | API de consulta de solicitudes | Implementar el endpoint de consulta del estado de una solicitud de servicio. | 8 | Joaquin Cuentas | Done |
+| TS-02 | Registro de intervenciones técnicas por API RESTful | UT-B4 | API de intervenciones técnicas | Implementar el endpoint de registro de intervenciones realizadas. | 5 | Gianmarco Jiménez | Done |
+| TS-03 | Gestión de evaluaciones de servicio vía API | UT-B5 | API de evaluaciones de servicio | Implementar los endpoints para registrar y actualizar evaluaciones de servicio. | 5 | Gianmarco Jiménez | Done |
+| US-01 | Registro de usuario | UT-A1 | Flujo de registro en la app web | Implementar el flujo de registro (propietario/técnico) en la aplicación web. | 5 | Jeremy Quijada | Done |
+| US-02 | Inicio de sesión | UT-A2 | Flujo de inicio de sesión en la app web | Implementar el flujo de inicio de sesión consumiendo la API en la aplicación web. | 3 | Jeremy Quijada | Done |
+
+<p align="center">
+  <img src="assets/chapter06/Trello-Sprint-1.png" alt="trello1" width="1000">
+</p>
+
+* **URL pública del Board de Trello:** https://trello.com/invite/b/6ac91c87c32b30e15cf90b14/ATTI800b8473167aaf37736c6f13443d013550F75477/icetrack-iot
 
 #### 6.2.1.4. Development Evidence for Sprint Review
 
@@ -5929,7 +5954,6 @@ En esta sección se explica y presenta los avances en implementación con relaci
 | IceTrack-IoT/Platform-IceTrack_IoT | feat/profiles | 5e7a2ff | refactor: Update Docker Compose configurations for database service |  | 09/10/2026 |
 | IceTrack-IoT/Platform-IceTrack_IoT | feat/profiles | ae24f96 | refactor: Add volume configuration for PostgreSQL data persistence |  | 09/10/2026 |
 | IceTrack-IoT/Platform-IceTrack_IoT | feat/profiles | 717b598 | refactor: Update server port configuration and modify OpenAPI server URLs for production |  | 09/10/2026 |
-
 
 #### 6.2.1.5. Testing Suite Evidence for Sprint Review
 
