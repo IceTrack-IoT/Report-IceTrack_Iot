@@ -3680,31 +3680,159 @@ El siguiente diagrama presenta el diseño de la base de datos del esquema `repor
 
 # Capítulo V: Solution UI/UX Design
 
+En este capítulo se establece la propuesta integral de diseño UX/UI para la plataforma IceTrack, desarrollada sobre la base del conjunto de User Stories identificados y el modelo Lean UX del producto. El diseño responde a la necesidad de centralizar, supervisar y gestionar la cadena de frío comercial mediante telemetría IoT, garantizando interfaces accesibles, usables y coherentes en todas las plataformas digitales con las que interactúan los usuarios.
+
 ## 5.1. Style Guidelines
+
+Los Style Guidelines de IceTrack funcionan como la fuente de verdad visual y de interacción para el equipo de desarrollo y diseño. Establecen estándares normalizados para interfaces web responsive, aplicaciones móviles para trabajo en campo e interacción con interfaces físicas de hardware IoT, asegurando consistencia visual, jerarquía y accesibilidad bajo estándares WCAG 2.1 AA.
 
 ### 5.1.1. General Style Guidelines
 
+![IceTrack Style Guidelines](assets/chapter05/style-guidelines/palette-color.png)
+
+**Paleta de color de IceTrack.** Muestra los tokens y semántica de la plataforma: azules corporativos para acciones primarias y superficies densas, cian frío para telemetría en tiempo real, verdes, ámbar y rojos para estados óptimo, advertencia y alarma crítica, grises para nodos sin conexión, además de neutros claros para fondos, tarjetas, bordes y jerarquía tipográfica. Esta paleta garantiza consistencia visual, contraste accesible y lectura inmediata del estado térmico.
+
+<img src="assets/chapter05/style-guidelines/logo.svg" width="200" height="200" />
+
+**Logo de IceTrack.** Fusiona la silueta de un escudo de protección con un cristal geométrico de hielo que evoca un copo de nieve, símbolo de preservación proactiva de la cadena de frío y precisión técnica IoT. Se presenta como vector escalable, con versión principal a color sobre fondos claros y variante monocromática en blanco o negro para superficies oscuras, etiquetas térmicas e informes impresos.
+
+
+Esta sección formaliza las decisiones de diseño fundamentales que rigen la identidad de la solución en todos sus puntos de contacto.
+
+| Elemento | Decisión |
+| :-- | :-- |
+| Isotipo | Escudo + cristal de hielo / copo de nieve. Preservación de frío y precisión IoT |
+| Archivo | Vector escalable en `public/assets/icons/logo.svg` |
+| Versión principal | Isotipo cian/azul sobre fondo claro + texto Dark Navy `#0A2540` |
+| Alto contraste | Blanco `#FFFFFF` sobre oscuro / Negro `#000000` para etiquetas e impresos |
+| Aislamiento | Margen mínimo = altura de la inicial “I” |
+| Tamaño mínimo | 120 x 32 px horizontal completa / 24 x 24 px isotipo solo |
+
+| Tipografía | Decisión |
+| :-- | :-- |
+| Familia | Exo 2, sans serif tecnológica, desde Google Fonts |
+| Cifras IoT | Tabulares, peso 700, sin fluctuación en tiempo real |
+| display-1 / h1 / h2 / h3 | 48/34, 32/26, 24/20, 18/16 px desktop/móvil. Bold / SemiBold |
+| body amplio / base / reducido | 16/15, 14/14, 12/12 px. Regular / Medium |
+| KPI telemetría | 36/28 px Bold para temperatura en widgets |
+
+| Color | Token | Uso |
+| :-- | :-- | :-- |
+| Marca | `#004AAD` / `#0A2540` / `#001E47` | Acciones, fondos oscuros, máxima densidad |
+| Acento | `#0C8DDF` / `#E6F0FA` | Telemetría en vivo, badges activos |
+| Estado | `#10B981` / `#F59E0B` / `#EF4444` / `#64748B` | Óptimo, advertencia, crítico, offline |
+| Neutros | `#F8FAFC` / `#FFFFFF` / `#E2E8F0` | Canvas, tarjetas, bordes |
+| Texto | `#0F172A` / `#475569` / `#94A3B8` | Principal, medio, sutil |
+
+| Sistema | Decisión |
+| :-- | :-- |
+| Rejilla | Módulo 8 pt: 4, 8, 12, 16, 24, 32, 48, 64 px |
+| Radios | 4 px tags, 8 px controles, 12 px tarjetas |
+| Sombras | Suave en tarjetas, profunda en modales |
+
+| Tono | Nivel | Intención |
+| :-- | :-- | :-- |
+| Serio | 85% | Exactitud ante activos críticos |
+| Técnico | 65% | setpoint, histéresis, excursión, telemetría |
+| Respetuoso | 100% | Consultivo con negocio y técnicos |
+| Sereno | 80% | Instrucciones claras sin pánico |
+
 ### 5.1.2. Web, Mobile and IoT Style Guidelines
+
+Esta sección formaliza las decisiones de interacción visual y técnica por canal, en coherencia con la identidad definida y con los criterios de accesibilidad exigidos.
+
+1. Guía web. La paleta central integra azul, celeste, rojo, blanco y negro. El Dashboard combina tarjetas, tablas y maquetación de 3 columnas sobre rejilla de 12 columnas con ancho máximo de 1280 px. Las tablas operan con filas de 48 px, alineación numérica a la derecha y micrográficos vectoriales. La iconografía se estandariza con la librería Tabler Icons servida como sprites vectoriales desde la ruta public/assets/icons/sprite.svg con trazo de grosor 1.75. El acceso admite correo y contraseña o cuenta de Google. Los roles disponibles son Owner y Technician. El diseño garantiza navegación por teclado y contrastes conformes al nivel AA de las pautas de accesibilidad.
+2. Guía móvil. Mantiene la identidad visual de la versión web y prioriza ergonomía de campo para técnicos que operan con guantes térmicos o en baja visibilidad. La navegación principal usa menú hamburguesa y tarjetas apiladas con botones adaptados a interacción táctil. Soporta toque y desplazamiento horizontal. Las zonas táctiles críticas se ubican en el 40 por ciento inferior con áreas mínimas de 48 por 48 dp. Los técnicos pueden aceptar solicitudes y registrar intervenciones desde el navegador móvil. Un banner superior persistente informa el estado sin conexión e indica almacenamiento seguro en cola local.
+3. Guía IoT. Los dispositivos se basan en ESP32 con sensor de temperatura. La señal lumínica distingue verde continuo para operación nominal del procesador, azul parpadeante a 1 Hz durante envío de telemetría, ámbar parpadeante a 3 Hz durante aprovisionamiento de red, rojo estroboscópico a 2 Hz con zumbador audible ante excursiones fuera de valor objetivo, y rojo continuo ante desconexión de sonda. La pantalla OLED monocromática de 128 por 64 px permite lectura local inmediata sin teléfono ni computador. Cada equipo incorpora placa exterior con código QR industrial para emparejamiento rápido desde la aplicación móvil. La configuración se gestiona íntegramente desde la plataforma web y el zumbador se reserva únicamente para excursiones térmicas.
 
 ## 5.2. Information Architecture
 
+La arquitectura de información estructura el contenido para que propietarios y técnicos localicen datos sin esfuerzo, con lo cual se optimizan la supervisión de activos y la resolución de alertas.
+
 ### 5.2.1. Organization Systems
+
+Se aplican diversos métodos para organizar la información según relevancia y presentación visual.
+
+1. Organización jerárquica en el Dashboard principal, desde indicadores ejecutivos en cabecera hacia alertas críticas activas y hacia tabla detallada de telemetría. Prioriza alertas críticas, estado de equipos y reportes históricos.
+2. Organización secuencial en registros, solicitudes de servicio, configuración de alertas, creación de órdenes PENDING hacia ACCEPTED hacia IN PROGRESS hacia COMPLETED y aprovisionamiento de dispositivos.
+3. Organización matricial en el módulo de equipos para cruzar sede, tipo y fecha, con lo cual se compara desempeño de equipos y técnicos.
+4. Esquemas por rol, por cronología y por tipo de activo. Por rol, la navegación diferencia Owner y Technician. Owner administra sedes, equipos, alertas, solicitudes y reportes. Technician visualiza solicitudes asignadas y alertas relacionadas. Por cronología se ordenan lecturas históricas y bitácoras. Por tipo se agrupa en FREEZER, COLD ROOM y REFRIGERATOR.
 
 ### 5.2.2. Labeling Systems
 
+Se adopta un rotulado breve, técnico y unívoco que privilegia simplicidad, consistencia y claridad. El vocabulario de dominio emplea Sitio, Equipo, Alerta, Solicitud e Intervención. Las etiquetas se ofrecen en español e inglés y la navegación se adapta por rol Owner y Technician, mientras en móvil las opciones se presentan mediante menú hamburguesa.
+
+1. Dashboard para resumen de equipos, alertas y solicitudes.
+2. Sitios y Equipos para gestión de sedes y equipos de refrigeración.
+3. Alertas para seguimiento térmico y de conectividad.
+4. Solicitudes de Servicio para creación y seguimiento técnico.
+5. Reportes para análisis de mantenimiento, equipos y técnicos.
+6. Notificaciones para recordatorios, alertas y actualizaciones.
+7. Perfil para datos de usuario, idioma y preferencias.
+8. Términos operativos EN RANGO y OPTIMAL para lectura dentro de límites, EXCURSIÓN y WARNING para lectura que supera el límite sin alcanzar alarma crítica, CRÍTICO y CRITICAL para variación sostenida que compromete inventario, OFFLINE para equipo que omite tres ventanas consecutivas, FREEZER para congelador industrial en rango de 22 a 16 grados bajo cero, COLD ROOM para cámara frigorífica, REFRIGERATOR para conservador entre 2 y 8 grados sobre cero, SOLICITAR SERVICIO para registrar mantenimiento y RECONOCER para acusar recibo de incidente.
+
 ### 5.2.3. SEO Tags and Meta Tags
+
+El objetivo es mejorar posicionamiento orgánico, facilitar descubrimiento y aumentar conversión.
+
+1. Landing Page enfocada en propietarios de heladerías con SEO orientado a cadena de frío, monitoreo IoT y mantenimiento predictivo, mediante Title, Meta Description, Keywords y Open Graph para aumentar visibilidad y captar clientes. El título es IceTrack Monitoreo IoT y Protección de la Cadena de Frío. La descripción destaca inteligencia de datos IoT para monitoreo en tiempo real, alertas automáticas y gestión de mantenimiento. Las palabras clave incluyen monitoreo de refrigeración, cadena de frío IoT, sensores de temperatura, telemetría frigorífica y mantenimiento predictivo en Lima Perú. La autoría corresponde a IceTrack Technologies. Los tags Open Graph definen título, descripción, tipo website e imagen de vista previa alojada en el dominio oficial.
+2. Aplicación web orientada a gestión de sedes, equipos, alertas y órdenes, con keywords de telemetría, refrigeración e IoT y uso de noindex y nofollow en rutas privadas para proteger información operativa.
+3. Aplicación móvil con ASO enfocado en refrigeración, mantenimiento, alertas e IoT, cuyas funciones destacadas son alertas críticas en tiempo real, gestión de órdenes, modo sin conexión con sincronización automática e historial de equipos con reportes técnicos.
 
 ### 5.2.4. Searching Systems
 
+El sistema optimiza la localización entre grandes volúmenes de telemetría mediante el flujo Buscar hacia Filtrar hacia Priorizar hacia Actuar.
+
+1. Buscar con barra global para consultar equipos, identificadores, números de serie, sedes o técnicos, así como nombre de equipo, código patrimonial ICE FRZ 01, dirección de sitio o número de orden.
+2. Filtrar para refinar por tipo de activo, estado, severidad, periodo o ubicación, con filtros facetados combinables por sede, tipo, severidad y estado.
+3. Priorizar con clasificación visual en Crítica, Advertencia o Normal.
+4. Actuar con ficha que muestra temperatura reciente, estado de hardware y accesos a historial o acciones correctivas. Si no hay coincidencias, se muestra el mensaje No se encontraron equipos para los criterios aplicados junto al botón Restablecer filtros. El resultado es acceso más rápido a información crítica y mejor respuesta ante incidencias.
+
 ### 5.2.5. Navigation Systems
+
+El recorrido se estructura por dispositivo y objetivo.
+
+1. Landing Page con narrativa comercial que guía desde el problema hacia la solución y hacia la conversión, con enfoque en adquisición.
+2. Aplicación web con barra lateral persistente en color #0A2540 que organiza Dashboard, Sedes, Equipos, Alertas, Órdenes de Servicio e Informes, con enfoque en gestión operativa.
+3. Aplicación móvil con navegación inferior de cuatro destinos, a saber Monitoreo, Alarmas, Mantenimientos y Ajustes, que facilita acceso rápido a órdenes, historial e intervenciones, con enfoque en trabajo en campo y operación con una sola mano. La navegación contextual ofrece enlaces rápidos dentro de alertas hacia la ficha del equipo afectado y hacia la creación de orden precargada con un solo clic.
 
 ## 5.3. Landing Page UI Design
 
 ### 5.3.1. Landing Page Wireframe
 
-### 5.3.2. Landing Page Mock-up
+El esquema de escritorio organiza 12 columnas con cabecera corporativa, bloque hero dividido entre propuesta y vista previa de telemetría, soluciones por segmento en retícula bento, cuadrícula de funcionalidades, sección editorial de misión y visión, y pie institucional. El esquema móvil adopta columna única que prioriza la llamada a la acción inicial, navegación con menú colapsable tipo hamburguesa y tarjetas apiladas que garantizan legibilidad táctil.
+
+![IceTrack Landing Page Wireframe 1](assets/chapter05/wireframes/landing-page/landing-page-wireframe-1.png)
+
+![IceTrack Landing Page Wireframe 2](assets/chapter05/wireframes/landing-page/landing-page-wireframe-2.png)
+
+![IceTrack Landing Page Wireframe 3](assets/chapter05/wireframes/landing-page/landing-page-wireframe-3.png)
+
+![IceTrack Landing Page Wireframe 4](assets/chapter05/wireframes/landing-page/landing-page-wireframe-4.png)
+
+![IceTrack Landing Page Wireframe 5](assets/chapter05/wireframes/landing-page/landing-page-wireframe-5.png)
+
+![IceTrack Landing Page Wireframe 6](assets/chapter05/wireframes/landing-page/landing-page-wireframe-6.png)
+
+### 5.3.2. Landing Page Mock up
+
+La versión de alta fidelidad aplica tokens, tipografía Exo 2 e iconografía bridad por Tabler. En escritorio presenta cabecera con acceso por rol, sección hero con widget de telemetría simulada, cuadrícula de soluciones para propietarios y técnicos, y banner de cierre de alto contraste. En móvil optimiza tamaños de fuente, simplifica curvas, amplía botones táctiles para solicitar demostración o descargar la aplicación y preserva jerarquía y contraste.
+
+![IceTrack Landing Page Mockup 1](assets/chapter05/mockups/landing-page/landing-page-mockup-1.png)
+
+![IceTrack Landing Page Mockup 2](assets/chapter05/mockups/landing-page/landing-page-mockup-2.png)
+
+![IceTrack Landing Page Mockup 3](assets/chapter05/mockups/landing-page/landing-page-mockup-3.png)
+
+![IceTrack Landing Page Mockup 4](assets/chapter05/mockups/landing-page/landing-page-mockup-4.png)
+
+![IceTrack Landing Page Mockup 5](assets/chapter05/mockups/landing-page/landing-page-mockup-5.png)
+
+![IceTrack Landing Page Mockup 6](assets/chapter05/mockups/landing-page/landing-page-mockup-6.png)
 
 ## 5.4. Applications UX/UI Design
+
+Esta sección detalla esquemas y maquetas de alta fidelidad para el portal web de propietarios y la aplicación móvil de técnicos. El portal brinda control exhaustivo sobre inventario, alertas y trazabilidad de mantenimiento. La aplicación facilita diagnóstico rápido en baja conectividad y registro oportuno en campo. Ambos canales comparten identidad, jerarquía y criterios de accesibilidad.
 
 ### 5.4.1. Applications Wireframes
 
