@@ -3830,10 +3830,68 @@ Figura 6: Wireframe Órdenes.
 
 ### 5.4.2. Applications Wireflow Diagrams
 
-Para los usuarios del sistema, este diagrama describe el flujo de navegación integral de la plataforma web y móvil. Inicia con el proceso de autenticación o registro para acceder al Dashboard y KPI principal, y desde allí despliega las rutas operativas clave hacia la gestión de infraestructura (Sitios & Equipos), el monitoreo continuo (Centro de Alertas y Reportes), y la administración integral de Órdenes de Trabajo, incluyendo el flujo técnico específico para el registro de intervenciones mediante la aplicación móvil
+En este apartado se mostrarán mediante los Wireframes los flujos de actividades a realizar para que el usuario pueda alcanzar sus respectivas metas
 
-![Wireflow1](assets/chapter04/NewWireflow1.jpg)
+**Apartado de Dueños**
 
+
+**Apartado de Técnicos**
+
+<div align="center">
+  <img src="assets/chapter05/wireflow1.png"
+  alt="Figura 1: Wireflow - Registrarse, iniciar sesión y acceder a la aplicación"
+  style="width: 100%; height: auto; border-radius: 8px; border: 1px solid #d0d7de; box-shadow: 0 4px 12px rgba(0,0,0,0.08);" />
+  <p><em><b>Figura 1:</b> Wireflow - Registrarse, iniciar sesión y acceder a la aplicación</em></p>
+</div>
+
+<div align="center">
+  <img src="assets/chapter05/wireflow2.png"
+  alt="Figura 2: Wireflow - Recibir y aceptar una asignación de servicio"
+  style="width: 100%; height: auto; border-radius: 8px; border: 1px solid #d0d7de; box-shadow: 0 4px 12px rgba(0,0,0,0.08);" />
+  <p><em><b>Figura 2:</b> Wireflow - Recibir y aceptar una asignación de servicio</em></p>
+</div>
+
+<div align="center">
+  <img src="assets/chapter05/wireflow3.png"
+  alt="Figura 3: Wireflow - Consultar el equipo y actualizar el estado en campo"
+  style="width: 100%; height: auto; border-radius: 8px; border: 1px solid #d0d7de; box-shadow: 0 4px 12px rgba(0,0,0,0.08);" />
+  <p><em><b>Figura 3:</b> Wireflow - Consultar el equipo y actualizar el estado en campo</em></p>
+</div>
+
+<div align="center">
+  <img src="assets/chapter05/wireflow4.png"
+  alt="Figura 4: Wireflow - Registrar la intervención técnica, incluso sin conexión"
+  style="width: 100%; height: auto; border-radius: 8px; border: 1px solid #d0d7de; box-shadow: 0 4px 12px rgba(0,0,0,0.08);" />
+  <p><em><b>Figura 4:</b> Wireflow - Registrar la intervención técnica, incluso sin conexión</em></p>
+</div>
+
+<div align="center">
+  <img src="assets/chapter05/wireflow5.png"
+  alt="Figura 5: Wireflow - Atender una alerta térmica crítica"
+  style="width: 100%; height: auto; border-radius: 8px; border: 1px solid #d0d7de; box-shadow: 0 4px 12px rgba(0,0,0,0.08);" />
+  <p><em><b>Figura 5:</b> Wireflow - Atender una alerta térmica crítica</em></p>
+</div>
+
+<div align="center">
+  <img src="assets/chapter05/wireflow6.png"
+  alt="Figura 6: Wireflow - Consultar el centro de notificaciones"
+  style="width: 100%; height: auto; border-radius: 8px; border: 1px solid #d0d7de; box-shadow: 0 4px 12px rgba(0,0,0,0.08);" />
+  <p><em><b>Figura 6:</b> Wireflow - Consultar el centro de notificaciones</em></p>
+</div>
+
+<div align="center">
+  <img src="assets/chapter05/wireflow7.png"
+  alt="Figura 7: Wireflow - Configurar idioma, sincronización y sesión"
+  style="width: 100%; height: auto; border-radius: 8px; border: 1px solid #d0d7de; box-shadow: 0 4px 12px rgba(0,0,0,0.08);" />
+  <p><em><b>Figura 7:</b> Wireflow - Configurar idioma, sincronización y sesión</em></p>
+</div>
+
+<div align="center">
+  <img src="assets/chapter05/wireflow8.png"
+  alt="Figura 8: Wireflow - Recuperar la sesión vencida en campo"
+  style="width: 100%; height: auto; border-radius: 8px; border: 1px solid #d0d7de; box-shadow: 0 4px 12px rgba(0,0,0,0.08);" />
+  <p><em><b>Figura 8:</b> Wireflow - Recuperar la sesión vencida en campo</em></p>
+</div>
 
 ### 5.4.2. Applications Mock-ups
 
@@ -4020,6 +4078,20 @@ Si el token de sesión caduca mientras el técnico trabaja, la aplicación le pi
 
 
 ## 5.5. Applications Prototyping
+
+A continuación, se presenta los prototipos de la aplicación web y móvil de IceTrack destinada a los técnicos de mantenimiento. El prototipo cuenta con un flujo de navegación definido e interactividad en los principales botones y elementos de la interfaz, lo que permite recorrer los escenarios clave del  dueño y técnico: iniciar sesión, recibir y aceptar una orden, consultar la telemetría del equipo, registrar una intervención, atender una alerta push, revisar el centro de notificaciones y configurar su perfil.
+
+**Aplicación Web**
+
+**Aplicación Móvil**
+
+<div align="center">
+  <img src="assets/chapter05/prototype-mobile.png"
+  alt="Prototipo de la aplicación móvil de IceTrack"
+  style="width: 100%; max-width: 350px; height: auto; border-radius: 8px; border: 1px solid #d0d7de; box-shadow: 0 4px 12px rgba(0,0,0,0.08);" />
+</div>
+
+Link del prototipo: [Prototipo móvil de IceTrack]([PEGA_AQUÍ_EL_LINK_DEL_PROTOTIPO](https://www.figma.com/proto/4aJUpnAi9WWZRhQjSwR2nQ/IceTrack-%E2%80%93-App-M%C3%B3vil-T%C3%A9cnico?node-id=78-13766&p=f&viewport=40%2C349%2C0.14&t=fYf5sHV2I1R9Qiol-1&scaling=min-zoom&content-scaling=fixed&starting-point-node-id=78%3A13766&page-id=78%3A13765&show-proto-sidebar=1))
 
 ## 5.6. IoT Device Design
 
