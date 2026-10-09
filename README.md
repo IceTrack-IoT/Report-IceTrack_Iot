@@ -3791,7 +3791,29 @@ Diseñada para los técnicos especializados que operan en campo, facilitando la 
 
 ### 5.2.4. Searching Systems
 
+El sistema de búsqueda implementado en la plataforma **IceTrack** ha sido diseñado para optimizar la localización y recuperación de información operativa, garantizando que los administradores (*Owners*) y el personal técnico (*Technicians*) accedan de manera eficiente a los datos críticos de los activos y servicios. La arquitectura de búsqueda incorpora mecanismos orientados a reducir la sobrecarga cognitiva y mitigar el riesgo de pérdida de información en entornos de alta criticidad como la gestión de la cadena de frío.
+
+La plataforma expone una **barra de búsqueda global** de acceso transversal, la cual permite la consulta mediante texto libre sobre identificadores unívocos de equipos (UIDs), números de serie de dispositivos de telemetría IoT, denominaciones de sedes o nombres del personal técnico asignado. Los resultados se actualizan de forma dinámica mediante filtrado en tiempo real conforme el usuario introduce los criterios de búsqueda.
+
+Adicionalmente, el sistema integra **filtros multifactoriales** estructurados según el dominio del problema:
+
+* **Filtros por tipología y estado de activos:** Permiten segmentar el inventario de refrigeración entre congeladores, cámaras frías y vitrinas, así como discriminar unidades según su estado operativo y conectividad con la red de sensores (activos, en mantenimiento o fuera de línea).
+* **Filtros de criticidad e incidencias:** Facilitan la catalogación de alertas térmicas y de conectividad según su nivel de severidad (*Crítica*, *Advertencia* o *Normal*), priorizando la atención de eventos con riesgo de excursión térmica.
+* **Filtros temporales y espaciales:** Delimitan el análisis histórico de telemetría y los registros de intervención a periodos o sucursales geográficas específicas.
+
+La presentación de los resultados tras la ejecución de una búsqueda se estructura mediante tarjetas de datos tabulares enriquecidas con indicadores visuales de severidad. Cada resultado proporciona de manera inmediata los parámetros térmicos más recientes, el estado del hardware asociado y accesos directos hacia las acciones correctivas o el historial técnico del activo.
+
 ### 5.2.5. Navigation Systems
+
+Los sistemas de navegación de **IceTrack** establecen los lineamientos de interacción y recorrido que guían a los usuarios a través de la página de presentación (*Landing Page*), la plataforma web administrativa y la aplicación móvil en campo. Su diseño persigue asegurar que las metas operativas de cada rol se ejecuten de manera fluida, intuitiva y exenta de fricción.
+
+El recorrido del contenido se encuentra segmentado de acuerdo con la audiencia y el canal digital:
+
+1. **Recorrido en la Landing Page (Adquisición y Propuesta de Valor):** La navegación se estructura mediante un esquema secuencial de tipo *storytelling* comercial. El flujo conduce al visitante desde la identificación del problema en la cadena de frío y la presentación de la solución tecnológica basada en IoT, hasta los beneficios operativos, la validación institucional, los casos de éxito y los formularios de conversión orientados a la adopción del servicio.
+2. **Navegación en la Aplicación Web (Gestión Operativa - Owner):** Los administradores operan a través de un **menú lateral persistente** (*Sidebar*) que distribuye la funcionalidad en áreas lógicas de negocio (*Dashboard*, *Sitios y Equipos*, *Alertas*, *Servicios*, *Reportes* y *Configuración*). Se complementa con el uso de **migas de pan (*breadcrumbs*)** en las vistas de detalle profundo, permitiendo al usuario retornar a los niveles jerárquicos superiores sin perder la traza de su navegación.
+3. **Navegación en la Aplicación Móvil (Operaciones en Campo - Technician):** Diseñada bajo un enfoque *mobile-first*, la interfaz prioriza la accesibilidad táctil mediante una estructura de pestañas inferiores (*Bottom Navigation*). Esto garantiza que el personal técnico en desplazamiento gestione con rapidez sus órdenes de trabajo asignadas, consulte el historial del equipo en riesgo y registre sus intervenciones técnicas bajo condiciones de conectividad intermitente.
+
+Para prevenir la desorientación del usuario, las interfaces incorporan indicadores visuales de estado activo en los elementos del menú y adaptan de manera fluida la distribución espacial de los componentes según la resolución del dispositivo (diseño responsivo).
 
 ## 5.3. Landing Page UI Design
 
