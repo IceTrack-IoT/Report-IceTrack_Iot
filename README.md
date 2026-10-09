@@ -4,12 +4,12 @@
   <h2>Carrera: Ingeniería de Software</h2>
   <h2>Periodo: 2026-20</h2>
 <br>
-  <h2>Curso: Desarolllo de soluciones IOT</h2>
+  <h2>Curso: Desarollo de soluciones IOT</h2>
   <h2>Codigo del Curso: 1ASI0572</h2>
   <h2>NRC: 8740</h2>
   <h2>Profesor: David Carlos Olivera</h2>
 <br>
- <h1>Informe del Avance 1</h1>
+ <h1>Informe del Avance Parcial</h1>
   <h2>Startup: Frostshield </h2>
   <h2>Producto: IceTrack </h2>
 <br>
@@ -49,6 +49,9 @@
 | 1.5     | 19/09/2026 | Gianmarco Jiménez     | Versión Actualizada del Ubiquitous Language                                       |
 | 1.6     | 20/09/2026 | Cesar Arostegui       | Desarrollo del Software Architecture y Tactical-Level Domain-Driven Design        |
 | 1.7     | 20/09/2026 | Joaquin Cuentas       | Desarrollo del Software Architecture y C4 diagrams       |
+| 2.0     | 8/10/2026 | Piero Tenorio Medina    | Desarrollo de la primera versión Style Guidelines| 
+| 2.1     | 8/10/2026 | Joaquin Cuentas   | Desarrollo de wireframes, mockups y userflow | 
+
 
 
 </div>
@@ -85,11 +88,6 @@
     - [1.2.2. Lean UX Process.](#122-lean-ux-process)
       - [1.2.2.1. Lean UX Problem Statements.](#1221-lean-ux-problem-statements)
       - [1.2.2.2. Lean UX Assumptions.](#1222-lean-ux-assumptions)
-        - [Business Assumptions](#business-assumptions)
-        - [Business Outcome Assumptions](#business-outcome-assumptions)
-        - [User Assumptions](#user-assumptions)
-        - [User Outcome and Benefit Assumptions](#user-outcome-and-benefit-assumptions)
-        - [Feature Assumptions](#feature-assumptions)
       - [1.2.2.3. Lean UX Hypothesis Statements.](#1223-lean-ux-hypothesis-statements)
       - [1.2.2.4. Lean UX Canvas.](#1224-lean-ux-canvas)
   - [1.3. Segmentos objetivo.](#13-segmentos-objetivo)
@@ -97,48 +95,19 @@
   - [2.1. Competidores](#21-competidores)
     - [2.1.1. Análisis competitivo](#211-análisis-competitivo)
     - [2.1.2. Estrategias y tácticas frente a competidores](#212-estrategias-y-tácticas-frente-a-competidores)
-      - [Solución integral para equipos de refrigeración comercial ](#solución-integral-para-equipos-de-refrigeración-comercial-)
-      - [Historial técnico centralizado por equipo ](#historial-técnico-centralizado-por-equipo-)
-      - [Integración entre negocios y técnicos de mantenimiento ](#integración-entre-negocios-y-técnicos-de-mantenimiento-)
-      - [Interfaz intuitiva y multiplataforma ](#interfaz-intuitiva-y-multiplataforma-)
-      - [Marketing digital dirigido a heladerías ](#marketing-digital-dirigido-a-heladerías-)
-      - [Demostraciones y pruebas piloto ](#demostraciones-y-pruebas-piloto-)
-      - [Prueba inicial de la solución: ](#prueba-inicial-de-la-solución-)
-      - [Transparencia en los costos ](#transparencia-en-los-costos-)
-      - [Colaboraciones con proveedores locales ](#colaboraciones-con-proveedores-locales-)
-      - [Enfoque inicial en Lima y expansión progresiva ](#enfoque-inicial-en-lima-y-expansión-progresiva-)
   - [2.2. Entrevistas](#22-entrevistas)
     - [2.2.1. Diseño de entrevistas](#221-diseño-de-entrevistas)
     - [2.2.2. Registro de entrevistas](#222-registro-de-entrevistas)
-  - [Segmento objetivo #1: Heladerías con equipos de refrigeración](#segmento-objetivo-1-heladerías-con-equipos-de-refrigeración)
-      - [Entrevistas:](#entrevistas)
-      - [Entrevista 2:](#entrevista-2)
-      - [Entrevista 3:](#entrevista-3)
-  - [Segmento Objetivo 2 - Técnicos y empresas de mantenimiento de refrigeración:](#segmento-objetivo-2---técnicos-y-empresas-de-mantenimiento-de-refrigeración)
-      - [Entrevista 3:](#entrevista-3-1)
     - [2.2.3. Análisis de entrevistas](#223-análisis-de-entrevistas)
-  - [Segmento objetivo #1: Heladerías con equipos de refrigeración](#segmento-objetivo-1-heladerías-con-equipos-de-refrigeración-1)
-  - [Segmento Objetivo 2 - Técnicos y empresas de mantenimiento de refrigeración:](#segmento-objetivo-2---técnicos-y-empresas-de-mantenimiento-de-refrigeración-1)
   - [2.3. Needfinding](#23-needfinding)
     - [2.3.1. User Personas](#231-user-personas)
     - [2.3.2. User Task Matrix](#232-user-task-matrix)
     - [2.3.3. User Journey Mapping](#233-user-journey-mapping)
     - [2.3.4. Empathy Mapping](#234-empathy-mapping)
   - [2.4. Big Picture Event Storming](#24-big-picture-event-storming)
-  - [1. IAM](#1-iam)
-  - [2. Profiles and Preferences](#2-profiles-and-preferences)
-  - [3. Assets Management](#3-assets-management)
-  - [4. Device Management](#4-device-management)
-  - [5. Service Request and Feedback Management](#5-service-request-and-feedback-management)
-  - [6. Notifications Management](#6-notifications-management)
-  - [7. Reporting and Analysis Management](#7-reporting-and-analysis-management)
-  - [8. Monitoring and Alerting Management](#8-monitoring-and-alerting-management)
   - [2.5. Ubiquitous Language](#25-ubiquitous-language)
 - [Capítulo III: Requirements Specification](#capítulo-iii-requirements-specification)
   - [3.1. User Stories.](#31-user-stories)
-    - [Épicas](#épicas)
-    - [User Stories](#user-stories)
-    - [Technical Stories](#technical-stories)
   - [3.2. Impact Mapping.](#32-impact-mapping)
   - [3.3. Product Backlog.](#33-product-backlog)
 - [Capítulo IV: Solution Software Design](#capítulo-iv-solution-software-design)
@@ -249,67 +218,9 @@
 - [Capítulo VI: Product Implementation, Validation \& Deployment](#capítulo-vi-product-implementation-validation--deployment)
   - [6.1. Software Configuration Management](#61-software-configuration-management)
   - [6.1.1. Software Development Environment Configuration](#611-software-development-environment-configuration)
-    - [Project Management](#project-management)
-      - [GitHub](#github)
-    - [Requirements Management](#requirements-management)
-      - [Trello](#trello)
-      - [Lucidchart](#lucidchart)
-    - [Product UX/UI Design](#product-uxui-design)
-      - [Figma](#figma)
-    - [Software Development](#software-development)
-      - [Visual Studio Code](#visual-studio-code)
-      - [WebStorm](#webstorm)
-      - [Angular Framework](#angular-framework)
-      - [Angular Material](#angular-material)
-      - [Android Studio](#android-studio)
-      - [Flutter](#flutter)
-      - [IntelliJ IDEA](#intellij-idea)
-      - [Spring Boot Framework](#spring-boot-framework)
-      - [Spring Data JPA](#spring-data-jpa)
-      - [Spring Security](#spring-security)
-      - [Arduino IDE](#arduino-ide)
-      - [Flask](#flask)
-    - [Software Testing](#software-testing)
-      - [Postman](#postman)
-      - [JUnit](#junit)
-    - [Software Deployment](#software-deployment)
-      - [Vercel](#vercel)
-      - [Render](#render)
-    - [Software Documentation](#software-documentation)
-      - [GitHub Markdown](#github-markdown)
-      - [Swagger / OpenAPI](#swagger--openapi)
   - [6.1.2. Source Code Management](#612-source-code-management)
-    - [GitHub Repositories](#github-repositories)
-    - [GitFlow Workflow](#gitflow-workflow)
-      - [Backend](#backend)
-      - [Frontend Web Application](#frontend-web-application)
-      - [Mobile Application](#mobile-application)
-      - [Landing Page](#landing-page)
     - [6.1.3. Source Code Style Guide \& Conventions](#613-source-code-style-guide--conventions)
-      - [General Principles](#general-principles)
-      - [Language and Reference Matrix](#language-and-reference-matrix)
-      - [Cross-Language Naming Summary](#cross-language-naming-summary)
-      - [Universal Formatting Rules](#universal-formatting-rules)
-      - [HTML, CSS and JavaScript (Landing Page)](#html-css-and-javascript-landing-page)
-      - [TypeScript and Angular (Web Application)](#typescript-and-angular-web-application)
-      - [Dart and Flutter (Mobile Application)](#dart-and-flutter-mobile-application)
-      - [Java and Spring Boot (Backend Cloud)](#java-and-spring-boot-backend-cloud)
-      - [Python and Flask (Edge API)](#python-and-flask-edge-api)
-      - [C++ and Arduino (ESP32 Firmware)](#c-and-arduino-esp32-firmware)
-      - [Gherkin (`.feature` Files)](#gherkin-feature-files)
-      - [Git Conventions](#git-conventions)
-      - [Automated Style Enforcement](#automated-style-enforcement)
     - [6.1.4. Software Deployment Configuration](#614-software-deployment-configuration)
-      - [Deployment Overview](#deployment-overview)
-      - [Deployment Diagram (C4 Model)](#deployment-diagram-c4-model)
-      - [1. Platform Database (PostgreSQL v18)](#1-platform-database-postgresql-v18)
-      - [2. Web Services (Spring Boot en Render)](#2-web-services-spring-boot-en-render)
-      - [3. Web Application y Landing Page (Vercel)](#3-web-application-y-landing-page-vercel)
-      - [4. Mobile Application (Flutter, Android)](#4-mobile-application-flutter-android)
-      - [5. Edge API (Flask en el gateway del local)](#5-edge-api-flask-en-el-gateway-del-local)
-      - [6. Embedded Application (ESP32)](#6-embedded-application-esp32)
-      - [Post-Deployment Verification](#post-deployment-verification)
-      - [Rollback](#rollback)
   - [6.2. Landing Page, Services \& Applications Implementation](#62-landing-page-services--applications-implementation)
     - [6.2.1. Sprint 1](#621-sprint-1)
       - [6.2.1.1. Sprint Planning 1](#6211-sprint-planning-1)
@@ -338,8 +249,8 @@ En el siguiente cuadro se describe las acciones realizadas y enunciados de concl
 
 | Criterio específico | Acciones realizadas | Conclusiones |
 | :------------------ | :------------------ | :----------- |
-| Trabaja en equipo para proporcionar liderazgo en forma conjunta | **Jeremy Quijada Magro** <br> **AV1**: Dentro de esta entrega tome el liderato para poder dividir y coordinar como realizar los diferentes entregables de esta entrega.<br> **Piero Francesco Tenorio Medina** <br> **AV1**: Dentro de esta entrega se desarrolló la refactorización del curso en términos de la solución implementada. Se informó a cada integrante sobre posibles mejoras a los diagramas como tambien de los servicios que se implementarán dentro del proyecto.<br>**Gianmarco Fabian Jiménez Guerra** <br> **AV1**: Dentro de esta entrega pude contribuir en el trabajo en equipo definiendo mejor los bounded contexts y creando el Big Picture Event Storming de cada uno. Adicionalmente, como grupo, nos pudimos dividir la asignación de entrevistas.<br>**Cesar Augusto Arostegui Alzamora** <br> **AV1**: Dentro de esta entrega asumí el liderazgo del diseño de la arquitectura de software y del diseño táctico del dominio. Definí los diagramas de paisaje del sistema, contexto, contenedores y despliegue. Detallé cada contexto en sus capas de dominio, interfaz, aplicación e infraestructura. Elaboré los diagramas de componentes, clases y base de datos. Coordiné con el equipo la alineación entre contextos y la protección de la integración. Orienté a compañeros en decisiones de arquitectura para mantener coherencia en el modelo. <br> **Julio Adolfo Guillen Galindo** <br> **AV1**: Dentro de esta entrega contribuí en el desarrollo de los competidores y definiendo estrategias y tácticas. Asimismo, participé en el desarrollo de las entrevistas mediante su diseño, registro y posterior análisis. Coordiné estas actividades con los demás integrantes para asegurar que la información obtenida estuviera alineada con los segmentos objetivo y sirviera como base para la definición de los requerimientos de la solución.<br>**Joaquin Alberto Cuentas Peña** <br> **AV1**: Dentro de esta entrega contribuí en el desarrollo de los diagramas C4, en el nivel de components y deploy. Coordiné estas actividades con los demás integrantes para asegurar que la arquitectura del futuro proyecto tenga una base sólida sobre la cual desarrollarla.<br>**Walter Luis Fajardo Monrroy** <br> **AV1**: Dentro de esta entrega asumí el liderazgo en la fase de análisis de usuarios (Needfinding). A partir de la información recopilada por el equipo, dirigí la creación de los User Personas, el User Task Matrix y el User Journey Mapping. Coordiné constantemente con mis compañeros para asegurar que los perfiles desarrollados y los puntos de dolor mapeados reflejaran fielmente la problemática de la cadena de frío, guiando así la visión del equipo hacia las necesidades reales del mercado. | **AV1**: Se logro liderazgo conjunto al distribuir responsabilidades según fortalezas y alinear decisiones de arquitectura, eventos y flujos entre contextos. La integración de aportes permitió cerrar y con coherencia técnica. |
-| Crea un entorno colaborativo e inclusivo, establece metas, planifica tareas y cumple objetivos. | **Jeremy Quijada Magro** <br> **AV1**: Dentro de esta entrega tome el liderato para poder dividir y coordinar como realizar los diferentes entregables de esta entrega.<br> **Piero Francesco Tenorio Medina** <br> **AV1**: Dentro de esta entrega se estableció metas para algunos de los integrantes del grupo que se vean implicados en ciertos puntos del trabajo en los que me veía implicado. <br> **Gianmarco Fabian Jiméenz Guerra** <br> **AV1**: Para esta entrega cada integrante del grupo contó con una tarea y una fecha de entrega. En mi caso, mi tarea era la de crear el Big Picture Event Storming basado en la lógica del prorgama y los flujos y tenía que conseguir una entrevista para el segmento objetivo número 2. Todo este aporte dentro del plazo establecido.<br>**Cesar Augusto Arostegui Alzamora** <br> **AV1**: Planifiqué el trabajo por bloques de avance y mantuve comunicación constante con el equipo para validar dependencias entre contextos. Aporté en un entorno de respeto e inclusión, atendiendo sugerencias y compartiendo avances de forma clara. Así contribuí al cumplimiento de los objetivos comunes del informe. <br>**Julio Adolfo Guillen Galindo** <br> **AV1**: Para esta entrega organicé la información recopilada, establecí los aspectos que debían analizarse para cada competidor y coordiné el diseño y registro de las entrevistas con los segmentos objetivo. Finalmente, analicé los resultados obtenidos y compartí los principales hallazgos con el equipo para contribuir al cumplimiento de los objetivos establecidos para el avance.<br>**Joaquin Alberto Cuentas Peña** <br> **AV1**: Dentro de esta entrega se estableció metas para el desarrollo del proyecto. En primer lugar la para la versión web y en segundo lugar para la versión móvil.<br>**Walter Luis Fajardo Monrroy** <br> **AV1**: Para cumplir con esta sección del informe, planifiqué el desarrollo de los artefactos de Needfinding estableciendo metas y fechas internas. Compartí los borradores de los arquetipos y mapas de experiencia con el equipo, fomentando un espacio inclusivo donde todos pudieron brindar retroalimentación o sugerir cambios. Finalmente, entregué el User Task Matrix y los diagramas pulidos dentro de los plazos establecidos para no retrasar la fase de ideación e Impact Mapping. | **AV1**: Se creo un entorno colaborativo e inclusivo con metas claras, tareas asignadas y fechas de entrega cumplidas. La comunicación constante y el respeto por los avances de cada integrante permitieron cumplir los objetivos del avance y sentar bases sólidas para el proyecto. |
+| Trabaja en equipo para proporcionar liderazgo en forma conjunta | **Jeremy Quijada Magro** <br> **AV1**: Dentro de esta entrega tome el liderato para poder dividir y coordinar como realizar los diferentes entregables de esta entrega.<br> **Piero Francesco Tenorio Medina** <br> **AV1**: Dentro de esta entrega se desarrolló la refactorización del curso en términos de la solución implementada. Se informó a cada integrante sobre posibles mejoras a los diagramas como tambien de los servicios que se implementarán dentro del proyecto.<br> **TP:** Para esta entrega se consultó los distintos parámetros y escalas para la parte visual del proyecto. Además se consultó  sobre las correcciones y las distintas herramientas que se usarán dentro del proyecto para el desarrollo de las distintas funcionalidades. <br>**Gianmarco Fabian Jiménez Guerra** <br> **AV1**: Dentro de esta entrega pude contribuir en el trabajo en equipo definiendo mejor los bounded contexts y creando el Big Picture Event Storming de cada uno. Adicionalmente, como grupo, nos pudimos dividir la asignación de entrevistas.<br>**Cesar Augusto Arostegui Alzamora** <br> **AV1**: Dentro de esta entrega asumí el liderazgo del diseño de la arquitectura de software y del diseño táctico del dominio. Definí los diagramas de paisaje del sistema, contexto, contenedores y despliegue. Detallé cada contexto en sus capas de dominio, interfaz, aplicación e infraestructura. Elaboré los diagramas de componentes, clases y base de datos. Coordiné con el equipo la alineación entre contextos y la protección de la integración. Orienté a compañeros en decisiones de arquitectura para mantener coherencia en el modelo. <br> **Julio Adolfo Guillen Galindo** <br> **AV1**: Dentro de esta entrega contribuí en el desarrollo de los competidores y definiendo estrategias y tácticas. Asimismo, participé en el desarrollo de las entrevistas mediante su diseño, registro y posterior análisis. Coordiné estas actividades con los demás integrantes para asegurar que la información obtenida estuviera alineada con los segmentos objetivo y sirviera como base para la definición de los requerimientos de la solución.<br>**Joaquin Alberto Cuentas Peña** <br> **AV1**: Dentro de esta entrega contribuí en el desarrollo de los diagramas C4, en el nivel de components y deploy. Coordiné estas actividades con los demás integrantes para asegurar que la arquitectura del futuro proyecto tenga una base sólida sobre la cual desarrollarla.<br>**TP:** Para esta entrega trabajó el liderazgo promoviendo las primeras versiones del ux/ui de la aplicación en el apartado de wireframes, mockups y las secuencias de usuario mediante wireflow y userflow. De la misma manera se trabajó en conjunto para implementar la primera versión de prototype de la aplicación. <br>**Walter Luis Fajardo Monrroy** <br> **AV1**: Dentro de esta entrega asumí el liderazgo en la fase de análisis de usuarios (Needfinding). A partir de la información recopilada por el equipo, dirigí la creación de los User Personas, el User Task Matrix y el User Journey Mapping. Coordiné constantemente con mis compañeros para asegurar que los perfiles desarrollados y los puntos de dolor mapeados reflejaran fielmente la problemática de la cadena de frío, guiando así la visión del equipo hacia las necesidades reales del mercado. | **AV1**: Se logro liderazgo conjunto al distribuir responsabilidades según fortalezas y alinear decisiones de arquitectura, eventos y flujos entre contextos. La integración de aportes permitió cerrar y con coherencia técnica. |
+| Crea un entorno colaborativo e inclusivo, establece metas, planifica tareas y cumple objetivos. | **Jeremy Quijada Magro** <br> **AV1**: Dentro de esta entrega tome el liderato para poder dividir y coordinar como realizar los diferentes entregables de esta entrega.<br> **Piero Francesco Tenorio Medina** <br> **AV1**: Dentro de esta entrega se estableció metas para algunos de los integrantes del grupo que se vean implicados en ciertos puntos del trabajo en los que me veía implicado.<br> **TP:** Para el desarrollo de esta entrega se establecieron objetivos relacionados a la entrega del proyecto. Se establecieron metas para cada integrante con un tiempo definido con tal de mantener cierto orden a la hora de trabajar cada segmento del documento.  <br> **Gianmarco Fabian Jiméenz Guerra** <br> **AV1**: Para esta entrega cada integrante del grupo contó con una tarea y una fecha de entrega. En mi caso, mi tarea era la de crear el Big Picture Event Storming basado en la lógica del prorgama y los flujos y tenía que conseguir una entrevista para el segmento objetivo número 2. Todo este aporte dentro del plazo establecido.<br>**Cesar Augusto Arostegui Alzamora** <br> **AV1**: Planifiqué el trabajo por bloques de avance y mantuve comunicación constante con el equipo para validar dependencias entre contextos. Aporté en un entorno de respeto e inclusión, atendiendo sugerencias y compartiendo avances de forma clara. Así contribuí al cumplimiento de los objetivos comunes del informe. <br>**Julio Adolfo Guillen Galindo** <br> **AV1**: Para esta entrega organicé la información recopilada, establecí los aspectos que debían analizarse para cada competidor y coordiné el diseño y registro de las entrevistas con los segmentos objetivo. Finalmente, analicé los resultados obtenidos y compartí los principales hallazgos con el equipo para contribuir al cumplimiento de los objetivos establecidos para el avance.<br>**Joaquin Alberto Cuentas Peña** <br> **AV1**: Dentro de esta entrega se estableció metas para el desarrollo del proyecto. En primer lugar la para la versión web y en segundo lugar para la versión móvil.<br>**TP:** Para esta entrega se establecieron metas para llevar al siguiente nivel de diseño de la aplicación. De esta manera se cumplió con el desarrollo de los diseños web.<br>**Walter Luis Fajardo Monrroy** <br> **AV1**: Para cumplir con esta sección del informe, planifiqué el desarrollo de los artefactos de Needfinding estableciendo metas y fechas internas. Compartí los borradores de los arquetipos y mapas de experiencia con el equipo, fomentando un espacio inclusivo donde todos pudieron brindar retroalimentación o sugerir cambios. Finalmente, entregué el User Task Matrix y los diagramas pulidos dentro de los plazos establecidos para no retrasar la fase de ideación e Impact Mapping. | **AV1**: Se creo un entorno colaborativo e inclusivo con metas claras, tareas asignadas y fechas de entrega cumplidas. La comunicación constante y el respeto por los avances de cada integrante permitieron cumplir los objetivos del avance y sentar bases sólidas para el proyecto. |
 
 # Capítulo I: Introducción
 
@@ -447,13 +358,19 @@ Aunque algunos negocios cuentan con sensores, controladores o sistemas de monito
 
 Lo que las soluciones existentes no abordan completamente es la necesidad de contar con una plataforma especializada que centralice la información de los equipos de refrigeración y, al mismo tiempo, permita obtener datos directamente mediante sensores IoT, independientemente de los sistemas existentes en el negocio. Este vacío limita la capacidad de los usuarios para detectar anomalías oportunamente, anticiparse a posibles fallas, analizar el rendimiento de los equipos y mantener un historial unificado de su funcionamiento y mantenimiento.
 
-Nuestro producto, IceTrack, abordará este vacío mediante una plataforma de Inteligencia de Datos especializada en equipos de refrigeración. La solución permitirá conectar sensores IoT para recopilar información en tiempo real, integrar datos provenientes de controladores y sistemas de monitoreo existentes, centralizar dicha información y transformarla en indicadores, alertas y recomendaciones útiles. Además, proporcionará herramientas para la gestión de mantenimientos, historial técnico, seguimiento de servicios y análisis del rendimiento de los equipos.
+Nuestro producto, **IceTrack**, abordará este vacío mediante una plataforma de Inteligencia de Datos especializada en equipos de refrigeración. La solución permitirá conectar sensores IoT para recopilar información en tiempo real, integrar datos provenientes de controladores y sistemas de monitoreo existentes, centralizar dicha información y transformarla en indicadores, alertas y recomendaciones útiles. Además, proporcionará herramientas para la gestión de mantenimientos, historial técnico, seguimiento de servicios y análisis del rendimiento de los equipos.
 
 Nuestro enfoque inicial estará dirigido a negocios de Lima que dependen de la cadena de frío y necesitan reducir los riesgos asociados a fallas en sus equipos, así como a técnicos y proveedores de servicios de refrigeración que buscan mejorar la gestión y eficiencia de sus operaciones.
 
-Sabremos que tendremos éxito cuando los negocios utilicen de manera recurrente el monitoreo de sus equipos, respondan oportunamente a las alertas generadas por la plataforma, reduzcan las fallas críticas y las pérdidas asociadas a problemas de refrigeración, y mejoren su eficiencia energética. Asimismo, consideraremos exitoso el producto cuando técnicos y proveedores utilicen la plataforma para gestionar sus servicios, reduzcan sus tiempos de atención y mantengan una mayor continuidad en sus relaciones con los clientes.
+**Criterios de Éxito y Definition of Done (DoD):**
 
-#### 1.2.2.2. Lean UX Assumptions.
+* **Adopción y Uso:** Al menos el 80% de los negocios piloto registran y consultan el estado de sus equipos de forma diaria durante un periodo de prueba de 30 días.
+* **Tiempo de Respuesta:** El sistema emite y entrega alertas de excursión térmica en menos de 70 segundos desde que se detecta la anomalía en el borde (cumpliendo RNF-02).
+* **Impacto Operativo:** Reducción del 25% en las horas dedicadas a tareas administrativas y de coordinación manual por parte de los técnicos en un plazo de 60 días tras la implementación.
+
+
+#### 1.2.2.2. Lean UX Assumptions
+
 
 ##### Business Assumptions
 
@@ -503,79 +420,66 @@ Sabremos que tendremos éxito cuando los negocios utilicen de manera recurrente 
 - Creemos que el análisis de consumo energético permitirá identificar oportunidades para reducir el uso innecesario de energía.
 - Creemos que una interfaz web y móvil permitirá a los usuarios consultar información y gestionar sus actividades tanto desde sus oficinas como desde el campo.
 
-#### 1.2.2.3. Lean UX Hypothesis Statements.
+#### 1.2.2.3. Lean UX Hypothesis Statements 
 
-**Hipótesis 1: Conexión mediante sensores IoT**
+* **Hipótesis 1: Conexión mediante sensores IoT**
+*Creemos que* lograremos aumentar la adopción y el valor percibido de IceTrack al proporcionar datos confiables y continuos sobre los equipos de refrigeración.
+*Si* los responsables de negocios y técnicos obtienen información automática mediante sensores IoT conectados directamente a los equipos.
+*Sabremos que hemos tenido éxito cuando* el 90% de los dispositivos instalados mantengan una sincronización continua sin pérdida de tramas durante un ciclo de prueba de 30 días.
 
-Creemos que lograremos aumentar la adopción y el valor percibido de IceTrack al proporcionar datos confiables y continuos sobre los equipos de refrigeración.
 
-Si los responsables de negocios que dependen de la cadena de frío y los técnicos especializados obtienen información automática y actualizada sobre el estado de los equipos con la conexión de sensores IoT que recopilen datos directamente desde los sistemas de refrigeración.
+* **Hipótesis 2: Monitoreo en tiempo real**
+*Creemos que* lograremos reducir la ocurrencia e impacto de fallas críticas.
+*Si* los usuarios pueden consultar en tiempo real las variables de funcionamiento mediante el módulo de monitoreo web y móvil.
+*Sabremos que hemos tenido éxito cuando* el tiempo de detección de una anomalía se reduzca a menos de 2 minutos, logrando una frecuencia de consulta diaria por parte del operador del negocio.
 
-Sabremos que hemos tenido éxito cuando los usuarios mantengan sus equipos conectados y consulten regularmente los datos recopilados por los sensores para supervisar su funcionamiento.
 
-**Hipótesis 2: Monitoreo en tiempo real**
+* **Hipótesis 3: Alertas automáticas**
+*Creemos que* lograremos disminuir las pérdidas de inventario por fallas térmicas.
+*Si* los usuarios reciben notificaciones oportunas basadas en datos de la plataforma ante condiciones críticas.
+*Sabremos que hemos tenido éxito cuando* el 95% de las alertas críticas sean atendidas por el personal del local antes de que transcurran 15 minutos desde su emisión, evitando mermas de productos.
 
-Creemos que lograremos reducir la ocurrencia e impacto de fallas críticas relacionadas con los equipos de refrigeración.
+* **Hipótesis 4: Historial técnico**
+*Creemos que* mejoraremos la eficiencia del diagnóstico en campo.
+*Si* los técnicos consultan el historial centralizado de incidencias y mantenimientos previos de cada activo.
+*Sabremos que hemos tenido éxito cuando* el tiempo promedio de diagnóstico (MTTD) por parte del técnico se reduzca en un 30% en comparación con el registro en papel o bitácoras dispersas.
 
-Si los responsables de negocios que dependen de la cadena de frío pueden conocer en tiempo real el estado y las principales variables de funcionamiento de sus equipos con un módulo de monitoreo en tiempo real conectado a sensores IoT y otras fuentes de datos.
+* **Hipótesis 5: Gestión y programación de mantenimientos**
+*Creemos que* reduciremos los costos por mantenimiento reactivo.
+*Si* los técnicos y proveedores planifican y hacen seguimiento de sus actividades mediante el módulo de gestión.
+*Sabremos que hemos tenido éxito cuando* el porcentaje de mantenimientos preventivos ejecutados a tiempo aumente al menos un 40% al finalizar el primer mes de uso.
 
-Sabremos que hemos tenido éxito cuando los usuarios consulten regularmente el estado de sus equipos y detecten anomalías antes de que generen una falla crítica o una pérdida de inventario.
 
-**Hipótesis 3: Alertas automáticas**
+* **Hipótesis 6: Informes de rendimiento**
+*Creemos que* mejoraremos la toma de decisiones sobre la infraestructura.
+*Si* los usuarios analizan reportes históricos comprensibles de rendimiento y cadena de frío.
+*Sabremos que hemos tenido éxito cuando* el 70% de los administradores utilicen los reportes mensuales exportados para justificar decisiones de mantenimiento o reemplazo de equipos.
 
-Creemos que lograremos reducir las pérdidas ocasionadas por fallas o condiciones anormales de los equipos.
+* **Hipótesis 7: Análisis del consumo energético**
+*Creemos que* disminuiremos los costos operativos de electricidad.
+*Si* los negocios identifican equipos con consumos ineficientes mediante el módulo de análisis energético.
+*Sabremos que hemos tenido éxito cuando* se detecten anomalías de consumo en la fase piloto que deriven en ajustes correctivos, logrando una baja estimada de al menos un 8% en la factura eléctrica del equipo intervenido en un plazo de 45 días.
 
-Si los responsables de negocios y técnicos especializados pueden recibir una notificación oportuna ante una anomalía o condición crítica con un sistema de alertas automáticas basado en los datos recopilados por la plataforma.
+* **Hipótesis 8: Gestión de usuarios, roles y ubicaciones**
+*Creemos que* facilitaremos la administración en organizaciones multisede.
+*Si* los administradores controlan los accesos y permisos según las responsabilidades de cada usuario.
+*Sabremos que hemos tenido éxito cuando* negocios con más de dos locales logren configurar y segregar sus equipos por sede en menos de 10 minutos sin asistencia técnica externa.
 
-Sabremos que hemos tenido éxito cuando los usuarios reciban las alertas, actúen ante ellas y logren resolver o mitigar incidentes antes de que produzcan pérdidas significativas.
 
-**Hipótesis 4: Historial técnico**
+* **Hipótesis 9: Plataforma multiplataforma (Web y Móvil)**
+*Creemos que* aumentaremos la frecuencia de uso y la supervisión en campo.
+*Si* los usuarios disponen de interfaces adaptadas tanto para la oficina (web) como para la movilidad del técnico (móvil).
+*Sabremos que hemos tenido éxito cuando* el 50% de las interacciones de los técnicos ocurran desde la interfaz móvil en campo durante la atención de sus órdenes.
 
-Creemos que lograremos mejorar la eficiencia del diagnóstico y mantenimiento de los equipos.
+Para garantizar que ningún supuesto quede sin validar y cumplir con la trazabilidad, establecemos la siguiente matriz de correlación:
 
-Si los técnicos y proveedores de servicios de refrigeración pueden consultar el comportamiento histórico, incidencias y mantenimientos realizados en cada equipo con un historial técnico centralizado y asociado a cada activo.
-
-Sabremos que hemos tenido éxito cuando los técnicos consulten el historial durante sus servicios y reduzcan el tiempo necesario para identificar las causas de los problemas.
-
-**Hipótesis 5: Gestión y programación de mantenimientos**
-
-Creemos que lograremos reducir los costos asociados al mantenimiento reactivo y mejorar la productividad de los técnicos.
-
-Si los técnicos y proveedores de servicios de refrigeración pueden planificar, organizar y realizar seguimiento de sus actividades de mantenimiento con un módulo de programación y gestión de mantenimientos.
-
-Sabremos que hemos tenido éxito cuando aumente el porcentaje de mantenimientos planificados y disminuya el tiempo promedio empleado en gestionar y atender servicios.
-
-**Hipótesis 6: Informes de rendimiento**
-
-Creemos que lograremos mejorar la toma de decisiones relacionada con el funcionamiento de los equipos.
-
-Si los responsables de negocios y proveedores pueden analizar el rendimiento de sus equipos mediante información histórica y reportes comprensibles con un módulo de generación de informes de rendimiento.
-
-Sabremos que hemos tenido éxito cuando los usuarios consulten los informes periódicamente y utilicen la información obtenida para realizar acciones de mantenimiento, optimización o reemplazo de equipos.
-
-**Hipótesis 7: Análisis del consumo energético**
-
-Creemos que lograremos disminuir los costos operativos asociados al consumo energético de los equipos de refrigeración.
-
-Si los responsables de negocios pueden identificar equipos con un consumo energético elevado o comportamientos ineficientes con un módulo de monitoreo y análisis del consumo energético.
-
-Sabremos que hemos tenido éxito cuando los usuarios identifiquen oportunidades de ahorro y se observe una reducción del consumo energético en los equipos intervenidos.
-
-**Hipótesis 8: Gestión de usuarios, roles y ubicaciones**
-
-Creemos que lograremos facilitar la administración de equipos en organizaciones con múltiples usuarios o establecimientos.
-
-Si los responsables de negocios y proveedores que gestionan múltiples usuarios, equipos o ubicaciones pueden controlar el acceso a la información según las responsabilidades de cada persona con un sistema de gestión de usuarios, roles y ubicaciones.
-
-Sabremos que hemos tenido éxito cuando las organizaciones puedan administrar diferentes usuarios y equipos desde una misma cuenta sin comprometer la seguridad ni la organización de la información.
-
-**Hipótesis 9: Plataforma multiplataforma**
-
-Creemos que lograremos aumentar la frecuencia de uso de IceTrack y facilitar la supervisión de los equipos fuera de las oficinas.
-
-Si los responsables de negocios y técnicos pueden consultar información y gestionar sus actividades desde diferentes ubicaciones con una plataforma disponible mediante interfaces web y móvil.
-
-Sabremos que hemos tenido éxito cuando los usuarios accedan a la plataforma tanto desde sus lugares de trabajo como durante sus actividades en campo.
+| Enunciado resumido del Supuesto | Hipótesis Relacionada | Experimento de Validación / Método | Métrica de Éxito del Experimento |
+| --- | --- | --- | --- |
+| Oportunidad de mercado y disposición a pagar | Hipótesis 1, 3 | Entrevistas de profundidad y prototipo de valor con 10 dueños de heladerías en Lima. | Al menos 6 de 10 negocios muestran intención clara de adopción del piloto. |
+| Necesidad de visualizar temperatura y alertas | Hipótesis 2, 3 | Prueba de concepto (PoC) con sensores IoT simulados y envío de alertas a dispositivos móviles de prueba. | 100% de entrega exitosa de alertas en menos de 70 segundos en condiciones de red estables. |
+| Técnicos requieren historial y organización | Hipótesis 4, 5 | Taller de validación de flujos (Prototype Walkthrough) con 3 técnicos de mantenimiento en Lima. | Reducción estimada del tiempo de registro administrativo validada positivamente por los técnicos. |
+| Valor de sensores IoT y Dashboard en tiempo real | Hipótesis 1, 2, 9 | Implementación piloto de 1 semana midiendo tasa de retención de apertura de la plataforma web/móvil. | Uso activo diario en al menos 5 de los 7 días de la prueba piloto. |
+| Utilidad del historial y programación de mantenimiento | Hipótesis 4, 5 | Simulación de asignación y cierre de 15 órdenes de servicio con técnicos reales. | Cero pérdida de registros de intervención y sincronización correcta de la cola offline. |
 
 #### 1.2.2.4. Lean UX Canvas.
 
@@ -817,15 +721,15 @@ Los resultados obtenidos permitirán validar las hipótesis planteadas y orienta
 
 7. ¿Supervisan actualmente el consumo eléctrico de sus equipos de refrigeración? ¿Han identificado alguna vez un aumento de consumo relacionado con un equipo funcionando de manera ineficiente?
 
-8. ¿Utilizan actualmente sensores, aplicaciones o algún sistema digital para monitorear sus equipos? En caso afirmativo, ¿qué utilizan y qué aspectos consideran que podrían mejorar?
+8. ¿Qué herramientas o métodos utilizan actualmente para supervisar sus equipos de refrigeración? ¿Cómo ha sido su experiencia con ellos?
 
-9. Si pudiera recibir una alerta en su celular cuando un equipo presente una temperatura anormal o un posible problema de funcionamiento, ¿en qué situaciones considera que sería más útil?
+9. ¿Qué dificultades, si las hay, encuentra para detectar a tiempo las anomalías en sus equipos de refrigeración? ¿Cómo suele actuar cuando identifica una?
 
-10. ¿Qué información le gustaría poder consultar sobre cada equipo desde una plataforma? Por ejemplo, temperatura actual, consumo energético, historial de fallas, mantenimientos realizados o próximas fechas de mantenimiento.
+10. ¿Qué información consulta actualmente sobre sus equipos de refrigeración y para qué la utiliza? ¿Hay algún dato que necesite y que actualmente no tenga disponible?
 
-11. ¿Qué factores serían importantes para que considere implementar una solución de monitoreo en sus equipos? Por ejemplo, precio, facilidad de instalación, precisión de las alertas, facilidad de uso o soporte técnico.
+11. ¿Qué aspectos considera al evaluar cambios o nuevas herramientas para la supervisión y el mantenimiento de sus equipos de refrigeración? ¿Qué factores influyen en su decisión de adoptarlas o no?
 
-12. Si una solución de este tipo demostrara que puede ayudar a detectar problemas antes de que ocasionen pérdidas, ¿consideraría pagar una suscripción mensual? ¿Qué modalidad de pago le resultaría más conveniente?
+12. ¿Qué criterios tendría en cuenta para decidir si vale la pena invertir en una herramienta de monitoreo de equipos de refrigeración? ¿Qué beneficios esperaría obtener y qué aspectos podrían desanimarlo a contratarla?
 
 ---
 
@@ -845,15 +749,15 @@ Los resultados obtenidos permitirán validar las hipótesis planteadas y orienta
 
 7. ¿Utiliza actualmente alguna aplicación, software o herramienta digital para gestionar clientes, equipos, mantenimientos o reportes? En caso afirmativo, ¿cuál y qué limitaciones encuentra?
 
-8. ¿Considera que recibir alertas sobre posibles anomalías en los equipos de sus clientes podría ayudarle a realizar mantenimientos de manera más preventiva? ¿Por qué?
+8. ¿Cómo identifica actualmente las posibles anomalías en los equipos de sus clientes y qué dificultades encuentra para anticiparse a las fallas?
 
 9. ¿Qué información debería contener el historial técnico de un equipo para que sea realmente útil durante un diagnóstico o mantenimiento?
 
-10. ¿Qué tan útil sería generar automáticamente un reporte después de cada mantenimiento para compartirlo con el cliente?
+10. ¿Cómo documenta actualmente los trabajos de mantenimiento que realiza y de qué manera comunica los resultados a sus clientes?
 
-11. Si pudiera administrar desde una misma plataforma los equipos de diferentes clientes y establecimientos, ¿cómo podría beneficiar esto a su trabajo o empresa?
+11. ¿Cómo organiza actualmente la información de los equipos y mantenimientos de sus diferentes clientes? ¿Qué dificultades encuentra al gestionar esta información?
 
-12. ¿Qué funcionalidades considera indispensables en una plataforma de monitoreo y gestión de mantenimiento para que realmente la incorporara a su trabajo?
+12. ¿Qué herramientas utiliza actualmente para gestionar sus actividades de mantenimiento y qué necesidades o dificultades siguen sin resolverse con ellas?
 
 ### 2.2.2. Registro de entrevistas
 
@@ -887,7 +791,7 @@ Los resultados obtenidos permitirán validar las hipótesis planteadas y orienta
 - **Duración:** 08:26 min
 - **URL:** [`https://upcedupe-my.sharepoint.com/:v:/g/personal/u20241a352_upc_edu_pe/IQDtPmZWk-kPSL7Hk4eeGOo3AVHl5d9OkXV4RKNw_Aqf10U?e=qe5Asn&nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifSwicGxheWJhY2tPcHRpb25zIjp7InN0YXJ0VGltZUluU2Vjb25kcyI6MzY0LjM4fX0%3D`](https://upcedupe-my.sharepoint.com/:v:/g/personal/u20241a352_upc_edu_pe/IQDtPmZWk-kPSL7Hk4eeGOo3AVHl5d9OkXV4RKNw_Aqf10U?e=qe5Asn&nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifSwicGxheWJhY2tPcHRpb25zIjp7InN0YXJ0VGltZUluU2Vjb25kcyI6MzY0LjM4fX0%3D)
 
-- **Resumen:** El entrevistado llego a perder parte de sus productos cuando se presentaron fallas inesperadas. Actualmente, revisa manualmente la temperatura de las congeladoras y coordina mantenimientos cada cierto tiempo para prevenir problemas. Sin embargo, considera que este proceso podría mejorar mediante el uso de tecnología. El entrevistado mostró interés en recibir notificaciones automáticas cuando un equipo presente alguna anomalía, así como disponer de un registro de los mantenimientos y reparaciones realizadas. También señaló que estaría dispuesta a pagar por IceTrack si la aplicación le ayuda a detectar problemas con anticipación, proteger sus productos y disminuir las pérdidas ocasionadas por fallas en las congeladoras.
+- **Resumen:** El entrevistado llego a perder parte de sus productos cuando se presentaron fallas inesperadas. Actualmente, revisa manualmente la temperatura de las congeladoras y coordina mantenimientos cada cierto tiempo para prevenir problemas. Sin embargo, considera que este proceso podría mejorar mediante el uso de tecnología. El entrevistado mostró interés en recibir notificaciones automáticas cuando un equipo presente alguna anomalía, así como disponer de un registro de los mantenimientos y reparaciones realizadas. También señaló que estaría dispuesta a pagar por IceTrack independientemente del tipo de membresía si la aplicación le ayuda a detectar problemas con anticipación, proteger sus productos y disminuir las pérdidas ocasionadas por fallas en las congeladoras.
 
 
 ---
@@ -904,7 +808,7 @@ Los resultados obtenidos permitirán validar las hipótesis planteadas y orienta
 - **Duración:** 07:09 min
 - **URL:** [`https://upcedupe-my.sharepoint.com/:v:/g/personal/u20241a352_upc_edu_pe/IQDtPmZWk-kPSL7Hk4eeGOo3AVHl5d9OkXV4RKNw_Aqf10U?e=A3pSiG&nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifSwicGxheWJhY2tPcHRpb25zIjp7InN0YXJ0VGltZUluU2Vjb25kcyI6ODcxLjAyfX0%3D`](https://upcedupe-my.sharepoint.com/:v:/g/personal/u20241a352_upc_edu_pe/IQDtPmZWk-kPSL7Hk4eeGOo3AVHl5d9OkXV4RKNw_Aqf10U?e=A3pSiG&nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifSwicGxheWJhY2tPcHRpb25zIjp7InN0YXJ0VGltZUluU2Vjb25kcyI6ODcxLjAyfX0%3D)
 
-- **Resumen:** La entrevistada mencionó que anteriormente ha sufrido pérdidas debido a problemas en la cadena de frío, situación que afectó parte de los helados almacenados. Para prevenir estos inconvenientes, realiza revisiones semanales y programa el mantenimiento de sus equipos mensualmente. Además, ya utiliza algunas herramientas digitales para controlar la temperatura. La entrevistada considera muy útil recibir alertas automáticas cuando se detecte alguna anomalía, además de contar con un historial técnico y reportes específicos de cada congeladora. Indicó que preferiría acceder a esta información desde una computadora o tablet y que estaría dispuesto a pagar por IceTrack, de preferencia mediante un pago único, siempre que la aplicación contribuya a disminuir las pérdidas de su heladería. Sin embargo, dejaría de utilizarla si presenta fallas frecuentes, un soporte técnico deficiente o costos que no se justifiquen.
+- **Resumen:** La entrevistada mencionó que anteriormente ha sufrido pérdidas debido a problemas en la cadena de frío, situación que afectó parte de los helados almacenados. Para prevenir estos inconvenientes, realiza revisiones semanales y programa el mantenimiento de sus equipos mensualmente; sin embargo, ella considera que el riesgo de pérdida aún sigue vigente por fallos inesperados. Además, ya utiliza algunas herramientas digitales para controlar la temperatura. La entrevistada considera muy útil recibir alertas automáticas, principalmente cuando se detecte alguna anomalía. Indicó que preferiría acceder a esta información desde una computadora o tablet y que estaría dispuesto a pagar por IceTrack, de preferencia mediante un pago único, siempre que la aplicación contribuya a disminuir las pérdidas de su heladería. Sin embargo, dejaría de utilizarla si presenta fallas frecuentes, un soporte técnico deficiente o costos que no se justifiquen.
 
 ---
 
@@ -962,11 +866,43 @@ Los resultados obtenidos permitirán validar las hipótesis planteadas y orienta
 
 De manera general, los entrevistados mostraron interés en contar con alertas automáticas que les permitan conocer rápidamente cualquier anomalía en sus equipos sin necesidad de supervisarlos constantemente. Asimismo, consideran importante disponer de un historial técnico por equipo y reportes de los mantenimientos realizados, ya que esto facilitaría el seguimiento de las fallas y reparaciones anteriores. También existe disposición a pagar por una solución como IceTrack siempre que contribuya a reducir las pérdidas económicas y sea confiable y sencilla de utilizar. Por ello, para este segmento, las funcionalidades más relevantes serían el monitoreo del estado de los equipos, las alertas automáticas, el historial de mantenimiento y la generación de reportes.
 
+En las entrevistas hemos podido identificar lo siguiente:
+
+## Uso de herramientas digitales
+Dos de las tres heladerías utilizan herramientas digitales para supervisar sus equipos, mientras que una no lo hace. Esto evidencia una oportunidad para ofrecer una solución que facilite el monitoreo de la refrigeración.
+![Heladería1](assets/chapter02/interview-analysis/heladeria1.png)
+
+## Pérdidas por fallas de refrigeración
+Las tres heladerías entrevistadas reportaron pérdidas de productos ocasionadas por fallas en sus equipos de refrigeración. Este resultado resalta la importancia de implementar mecanismos preventivos que permitan detectar anomalías oportunamente.
+![Heladería2](assets/chapter02/interview-analysis/heladeria2.png)
+
+## Necesidad de alertas automáticas
+Las tres heladerías manifestaron la necesidad de recibir alertas automáticas ante posibles anomalías en sus equipos. Esto respalda la incorporación de notificaciones en IceTrack para facilitar la detección temprana de problemas y reducir el riesgo de pérdidas.
+![Heladería3](assets/chapter02/interview-analysis/heladeria3.png)
+
+
 ## Segmento Objetivo 2 - Técnicos y empresas de mantenimiento de refrigeración:
 
 **Análisis:** En este segmento se identificó que las principales dificultades están relacionadas con la organización y gestión de los servicios técnicos. Los entrevistados utilizan herramientas como WhatsApp, llamadas, Excel, calendarios digitales, fotografías y anotaciones manuales para coordinar visitas y registrar los trabajos realizados. Al encontrarse la información distribuida en diferentes medios, pueden generarse problemas como pérdida de información, dificultad para consultar intervenciones anteriores, cambios de horarios y mayor tiempo destinado a la elaboración de reportes.
 
 Los entrevistados consideran favorable contar con una plataforma centralizada que permita consultar el historial de cada equipo, organizar las visitas técnicas y registrar directamente en campo las actividades realizadas. También valoran la posibilidad de adjuntar fotografías, recibir alertas sobre posibles fallas y generar reportes técnicos automáticamente. Además, la facilidad de uso aparece como un factor importante para la adopción de la solución, especialmente para los técnicos que necesitan acceder rápidamente a la información mientras realizan una atención. En conjunto, las entrevistas muestran que IceTrack podría contribuir a reducir tareas manuales, mejorar la planificación de los servicios y facilitar la comunicación entre los técnicos y las heladerías atendidas.
+
+A continuación se mostrará de manera gráfica la información obtenida:
+
+## Ejecución de tareas administrativas de manera manual
+
+Los resultados muestran que los tres talleres realizan tareas administrativas manualmente, lo que evidencia una oportunidad para automatizar el registro de información y agilizar la gestión de sus actividades.
+
+![Taller1](assets/chapter02/interview-analysis/taller1.png)
+
+## Información técnica dispersa o desorganizada
+Los tres talleres reportan dificultades relacionadas con la dispersión o desorganización de la información técnica. Esto resalta la necesidad de centralizar los registros para facilitar su consulta y seguimiento.
+![Taller2](assets/chapter02/interview-analysis/taller2.png)
+
+## Dificultades para organizar mantenimientos y visitas
+Dos de los tres talleres presentan dificultades para organizar los mantenimientos y las visitas técnicas, mientras que uno no reporta este problema. Estos resultados sugieren que IceTrack podría contribuir a mejorar la planificación y coordinación de los servicios.
+![Taller3](assets/chapter02/interview-analysis/taller3.png)
+
 
 ## 2.3. Needfinding
 
@@ -1296,8 +1232,8 @@ Además, para facilitar la planificación, el seguimiento y la priorización de 
 
 | Epic / Story ID | Título | Descripción | Criterios de Aceptación | Relacionado con (Epic ID) |
 | --- | --- | --- | --- | --- |
-| US-01 | Registro de usuario | Como nuevo usuario, quiero registrarme indicando si soy propietario de negocio o técnico, para acceder a la plataforma con las capacidades que corresponden a mi rol. | **Escenario 1: Creación exitosa de la cuenta**<br>Dado que el nuevo usuario accede al formulario de registro,<br>Cuando ingresa un nombre de usuario único, una contraseña válida y selecciona el rol OWNER_ROLE o TECHNICIAN_ROLE,<br>Entonces el sistema crea la cuenta, genera el perfil correspondiente a ese rol y redirige al usuario a la plataforma.<br><br>**Escenario 2: Nombre de usuario ya registrado**<br>Dado que el usuario envía el formulario con un nombre de usuario existente,<br>Cuando el sistema procesa la solicitud,<br>Entonces muestra un mensaje indicando que el nombre de usuario no está disponible y no crea la cuenta.<br><br>**Escenario 3: Contraseña que no cumple la política**<br>Dado que el usuario ingresa una contraseña que no cumple los requisitos mínimos de seguridad,<br>Cuando intenta registrarse,<br>Entonces el sistema muestra los requisitos incumplidos y no crea la cuenta. | EP-01 |
-| US-02 | Inicio de sesión | Como usuario, quiero iniciar sesión con mi cuenta para acceder a la plataforma. | **Escenario 1: Inicio de sesión correcto**<br>Dado que el usuario tiene una cuenta activa,<br>Cuando ingresa sus credenciales correctas,<br>Entonces el sistema emite una sesión válida y lo dirige a su panel de control.<br><br>**Escenario 2: Credenciales incorrectas**<br>Dado que el usuario ingresa credenciales inválidas,<br>Cuando intenta iniciar sesión,<br>Entonces el sistema deniega el acceso y muestra un mensaje de error sin revelar cuál de los dos campos falló. | EP-01 |
+| US-01 | Registro de usuario | Como nuevo usuario, quiero registrarme indicando si soy propietario de negocio o técnico, para acceder a la plataforma con las capacidades que corresponden a mi rol. | **Escenario 1: Creación exitosa de la cuenta**<br>Dado que el nuevo usuario accede al formulario de registro,<br>Cuando ingresa un nombre de usuario único de 4 a 30 caracteres (letras, dígitos, . o _), una contraseña de 8 a 64 caracteres con al menos una mayúscula, una minúscula y un dígito, y selecciona el rol OWNER_ROLE o TECHNICIAN_ROLE,<br>Entonces la API responde 201, el sistema crea la cuenta, genera el perfil correspondiente a ese rol y redirige al usuario a la plataforma.<br><br>**Escenario 2: Nombre de usuario ya registrado**<br>Dado que el usuario envía el formulario con un nombre de usuario existente,<br>Cuando el sistema procesa la solicitud,<br>Entonces la API responde 409 CONFLICT, el formulario muestra que el nombre de usuario no está disponible y no se crea la cuenta.<br><br>**Escenario 3: Contraseña que no cumple la política**<br>Dado que el usuario ingresa una contraseña con menos de 8 caracteres o sin alguna mayúscula, minúscula o dígito,<br>Cuando intenta registrarse,<br>Entonces la API responde 400 VALIDATION_ERROR, el formulario lista cada requisito incumplido y no se crea la cuenta. | EP-01 |
+| US-02 | Inicio de sesión | Como usuario, quiero iniciar sesión con mi cuenta para acceder a la plataforma. | **Escenario 1: Inicio de sesión exitoso**<br>Dado que el usuario tiene una cuenta activa,<br>Cuando envía su nombre de usuario y su contraseña registrados,<br>Entonces la API responde 200 con un JWT de 60 minutos de vigencia y el usuario es dirigido a su panel según su rol (Owner o Technician).<br><br>**Escenario 2: Credenciales incorrectas**<br>Dado que el usuario envía un nombre de usuario inexistente o una contraseña que no coincide,<br>Cuando intenta iniciar sesión,<br>Entonces la API responde 401 UNAUTHORIZED con el mismo mensaje en ambos casos (sin revelar cuál campo falló), no emite JWT y el intento queda registrado.<br><br>**Escenario 3: Campos vacíos**<br>Dado que el usuario deja vacío el nombre de usuario o la contraseña,<br>Cuando intenta iniciar sesión,<br>Entonces la API responde 400 VALIDATION_ERROR indicando el campo faltante. | EP-01 |
 | US-03 | Registrar y actualizar equipos de refrigeración | Como propietario del negocio, quiero registrar mis equipos de refrigeración asociándolos a un sitio, para mantener un inventario detallado de cada activo. | **Escenario 1: Registro de un equipo**<br>Dado que el propietario tiene los datos de un equipo nuevo,<br>Cuando ingresa nombre, tipo (FREEZER, COLD_ROOM o REFRIGERATOR), código de equipo y sitio de operación,<br>Entonces el sistema registra el equipo con estado ACTIVE y lo asocia al sitio indicado.<br><br>**Escenario 2: Actualización de un equipo**<br>Dado que el propietario desea modificar los datos de un equipo registrado,<br>Cuando realiza los cambios y confirma,<br>Entonces la información se actualiza y el historial de telemetría previo del equipo se conserva. | EP-02 |
 | US-04 | Solicitar un servicio de mantenimiento o reparación | Como propietario del negocio, quiero solicitar servicios preventivos y correctivos para mis equipos, para asegurar su funcionamiento y recibir confirmación de mi solicitud. | **Escenario 1: Solicitud registrada**<br>Dado que el propietario requiere un servicio para uno de sus equipos,<br>Cuando selecciona el equipo, el tipo (PREVENTIVE_MAINTENANCE o REPAIR), la prioridad y describe el problema,<br>Entonces la solicitud se registra en estado PENDING con su fecha de creación y se notifica al propietario.<br><br>**Escenario 2: Confirmación con resumen**<br>Dado que la solicitud fue enviada,<br>Cuando el sistema la procesa,<br>Entonces el propietario recibe una confirmación con el número de orden, el equipo, el sitio y el tipo de servicio solicitado. | EP-03 |
 | US-05 | Dar seguimiento al progreso de un servicio | Como propietario del negocio, quiero seguir el avance de una solicitud con su historial de estados, para saber en qué etapa se encuentra y cuándo estará completada. | **Escenario 1: Estado actual e historial**<br>Dado que el propietario tiene una solicitud activa,<br>Cuando accede a su detalle,<br>Entonces visualiza el estado actual y la secuencia de transiciones previas con sus fechas y responsables.<br><br>**Escenario 2: Reflejo de un cambio de estado**<br>Dado que una solicitud está en curso,<br>Cuando el técnico actualiza su estado desde la aplicación móvil,<br>Entonces el nuevo estado queda visible para el propietario en la aplicación web. | EP-03 |
@@ -1317,22 +1253,22 @@ Además, para facilitar la planificación, el seguimiento y la priorización de 
 | US-19 | Visualizar el dashboard con telemetría en tiempo real | Como propietario del negocio, quiero visualizar un dashboard con métricas resumidas y la temperatura en vivo de mis equipos, para conocer el estado general de mi operación de un vistazo. | **Escenario 1: Carga del dashboard**<br>Dado que el propietario ingresa al dashboard de la aplicación web,<br>Cuando carga la pantalla,<br>Entonces visualiza la cantidad de equipos monitoreados, la temperatura actual de cada sensor, las alertas abiertas y los reportes recientes.<br><br>**Escenario 2: Actualización en vivo**<br>Dado que el propietario mantiene el dashboard abierto,<br>Cuando la plataforma recibe nueva telemetría del borde,<br>Entonces los indicadores y gráficos se actualizan por el canal de streaming sin recargar la página. | EP-09 |
 | US-20 | Registrar y consultar sitios | Como propietario del negocio, quiero registrar los sitios donde opera mi equipamiento, para organizar mis activos por ubicación. | **Escenario 1: Registro de un sitio**<br>Dado que el propietario selecciona "Register New Site" en la aplicación web,<br>Cuando ingresa nombre, dirección, persona de contacto y teléfono,<br>Entonces el sistema registra el sitio y lo asocia al propietario.<br><br>**Escenario 2: Listado de sitios**<br>Dado que existen sitios registrados,<br>Cuando el propietario accede al módulo Sites,<br>Entonces visualiza nombre, dirección, contacto, teléfono y la cantidad de equipos de cada sitio. | EP-02 |
 | US-21 | Consultar y filtrar las solicitudes de servicio | Como propietario del negocio, quiero consultar todas mis solicitudes con sus datos y filtrarlas, para organizar la atención de mi operación. | **Escenario 1: Listado de solicitudes**<br>Dado que existen solicitudes registradas,<br>Cuando el propietario accede al módulo Services,<br>Entonces visualiza número de orden, fecha, equipo, sede, técnico asignado, tipo, prioridad y estado.<br><br>**Escenario 2: Filtrado por estado**<br>Dado que el propietario quiere enfocarse en las solicitudes activas,<br>Cuando filtra por estado IN_PROGRESS,<br>Entonces el listado se actualiza mostrando únicamente las solicitudes que coinciden. | EP-03 |
-| US-22 | Buscar y filtrar reportes | Como propietario del negocio, quiero buscar reportes por nombre, tipo o estado, para localizar información rápidamente. | **Escenario 1: Búsqueda por nombre**<br>Dado que existen múltiples reportes generados,<br>Cuando el propietario escribe un nombre en el buscador,<br>Entonces el sistema muestra las coincidencias relacionadas.<br><br>**Escenario 2: Filtrado por tipo o estado**<br>Dado que el propietario necesita segmentar la información,<br>Cuando aplica filtros de tipo de reporte o de estado de generación,<br>Entonces el listado se actualiza con los resultados correspondientes. | EP-04 |
+| US-22 | Buscar y filtrar reportes | Como propietario del negocio, quiero buscar reportes por nombre, tipo o estado, para localizar información rápidamente. | **Escenario 1: Búsqueda por nombre**<br>Dado que existen múltiples reportes generados,<br>Cuando el propietario escribe al menos 2 caracteres en el buscador,<br>Entonces el listado muestra los reportes cuyo nombre contiene el texto, sin distinguir mayúsculas ni tildes.<br><br>**Escenario 2: Filtrado por tipo y estado**<br>Dado que el propietario necesita segmentar la información,<br>Cuando aplica un tipo de reporte (cumplimiento de mantenimiento, disponibilidad del equipo, desempeño de técnicos o excursiones de temperatura) y un estado de generación (pendiente, generando, completado o fallido),<br>Entonces el listado muestra solo los reportes que cumplen ambos filtros.<br><br>**Escenario 3: Sin coincidencias**<br>Dado que ningún reporte cumple la búsqueda o los filtros,<br>Cuando el propietario los aplica,<br>Entonces se muestra un estado vacío que indica que no hay coincidencias y ofrece limpiar los filtros. | EP-04 |
 | US-23 | Cambiar el idioma de la interfaz | Como usuario, quiero cambiar el idioma de la interfaz entre inglés y español latinoamericano, para usar la plataforma en mi idioma preferido en la web y en el móvil. | **Escenario 1: Cambio a español latinoamericano**<br>Dado que el usuario selecciona es-419 en sus preferencias,<br>Cuando confirma la acción,<br>Entonces la interfaz se muestra en español y la preferencia persiste en su siguiente sesión y en el otro canal.<br><br>**Escenario 2: Cambio a inglés**<br>Dado que el usuario selecciona en-US,<br>Cuando confirma la acción,<br>Entonces la interfaz se muestra en inglés, que es el idioma por defecto del sistema. | EP-01 |
 | US-24 | Consultar el reporte de un servicio realizado | Como propietario del negocio, quiero consultar el reporte detallado de un servicio, para saber qué se hizo en mi equipo y conservar la constancia. | **Escenario 1: Generación automática del reporte**<br>Dado que una solicitud de servicio pasa a estado COMPLETED,<br>Cuando el sistema procesa el evento,<br>Entonces genera automáticamente el reporte de servicio con el diagnóstico, las acciones ejecutadas y los tiempos de la intervención.<br><br>**Escenario 2: Descarga del reporte**<br>Dado que el reporte fue generado,<br>Cuando el propietario lo solicita,<br>Entonces el sistema lo entrega en el formato elegido (PDF, EXCEL o CSV). | EP-04 |
-| US-25 | Visualizar métricas resumidas del sistema | Como propietario del negocio, quiero visualizar indicadores resumidos de mi operación, para conocer rápidamente su estado general. | **Escenario 1: Visualización de métricas**<br>Dado que el propietario ingresa al dashboard,<br>Cuando carga la pantalla principal,<br>Entonces visualiza la cantidad de sitios, equipos monitoreados, alertas abiertas y servicios en curso.<br><br>**Escenario 2: Actualización manual**<br>Dado que el propietario desea forzar la lectura más reciente,<br>Cuando selecciona "Refresh Dashboard",<br>Entonces el sistema recalcula y actualiza los indicadores mostrados. | EP-09 |
+| US-25 | Visualizar indicadores del dashboard | Como propietario del negocio, quiero visualizar indicadores resumidos de mi operación, para conocer rápidamente su estado general. | **Escenario 1: Visualización de métricas**<br>Dado que el propietario ingresa al dashboard,<br>Cuando carga la pantalla principal,<br>Entonces en menos de 3 segundos visualiza cuatro indicadores: cantidad de sitios, cantidad de equipos con dispositivo emparejado, cantidad de alertas en estado OPEN y cantidad de solicitudes en estado IN_PROGRESS, calculados solo con los datos de su cuenta.<br><br>**Escenario 2: Actualización manual**<br>Dado que el propietario desea forzar la lectura más reciente,<br>Cuando selecciona "Refresh Dashboard",<br>Entonces el sistema recalcula los cuatro indicadores y muestra la fecha y hora de la última actualización. | EP-09 |
 | US-26 | Programar el ESP32 para enviar telemetría al gateway del local | Como desarrollador de hardware, quiero programar el ESP32 con la sonda de temperatura para que envíe lecturas al Edge API por la red local, para alimentar la telemetría sin exponer el microcontrolador a internet. | **Escenario 1: Envío exitoso de una lectura**<br>Dado que el ESP32 está configurado con las credenciales Wi-Fi, la URL del Edge API y su identificador de dispositivo,<br>Cuando la sonda registra una medición y el firmware ejecuta POST a `/edge/api/v1/readings` cada 10 segundos,<br>Entonces el Edge API responde 201 y la lectura queda almacenada localmente.<br><br>**Escenario 2: Pérdida del enlace local**<br>Dado que el ESP32 pierde la conexión con la red Wi-Fi del local,<br>Cuando intenta enviar una lectura,<br>Entonces conserva las lecturas más recientes en memoria, reintenta con espera creciente y las transmite al restablecerse el enlace. | EP-08 |
 | US-27 | Visualizar la telemetría histórica y actual de un equipo | Como propietario o técnico, quiero visualizar la evolución de temperatura de un equipo combinando historial y lecturas recientes, para entender su comportamiento y no solo su estado momentáneo. | **Escenario 1: Línea de tiempo continua**<br>Dado que el usuario selecciona un equipo monitoreado,<br>Cuando accede al módulo de gráficos de rendimiento,<br>Entonces el sistema muestra una línea de tiempo que combina los datos históricos con las últimas lecturas recibidas, y marca visualmente los periodos de excursión.<br><br>**Escenario 2: Equipo sin telemetría**<br>Dado que un equipo no tiene dispositivo emparejado o nunca reportó,<br>Cuando se consulta su gráfico,<br>Entonces el sistema muestra un estado vacío explicando que el equipo aún no envía telemetría. | EP-09 |
 | US-28 | Generar alertas automáticas por excursión térmica sostenida | Como sistema, quiero abrir una alerta cuando un equipo reporte temperatura fuera de su rango configurado de forma sostenida, para advertir antes de que se comprometa el inventario. | **Escenario 1: Apertura de la alerta**<br>Dado un equipo cuyo umbral máximo configurado es superado durante al menos 2 minutos continuos,<br>Cuando la plataforma procesa el evento recibido del borde,<br>Entonces abre una alerta de severidad CRITICAL, registra la lectura que la disparó y no abre una segunda alerta para el mismo equipo mientras esa siga abierta.<br><br>**Escenario 2: Resolución de la alerta**<br>Dado que existe una alerta abierta por excursión térmica,<br>Cuando la temperatura regresa dentro del rango con el margen de histéresis durante 2 minutos,<br>Entonces la alerta pasa a RESOLVED y se registra su duración total y la temperatura máxima alcanzada. | EP-09 |
 | US-29 | Interpretar una alerta y generar la orden correctiva | Como propietario del negocio, quiero interpretar con claridad una alerta y generar desde ella la orden de servicio, para reducir el tiempo entre la detección y la reparación. | **Escenario 1: Resalte visual del estado**<br>Dado que un equipo presenta una alerta activa,<br>Cuando el propietario visualiza el listado o el detalle del equipo,<br>Entonces el sistema resalta el estado con un indicador de severidad y ofrece la acción sugerida de generar una orden de servicio correctivo.<br><br>**Escenario 2: Orden precargada desde la alerta**<br>Dado que el propietario revisa una alerta crítica,<br>Cuando selecciona "Generar Orden de Servicio",<br>Entonces el sistema precarga el equipo, el sitio, el tipo REPAIR y el contexto de la alerta en el formulario de nueva solicitud, dejando la confirmación final al usuario. | EP-09 |
 | US-30 | Recibir y aceptar una asignación de servicio en el móvil | Como técnico en campo, quiero recibir y aceptar mis asignaciones desde la aplicación móvil, para organizar mis visitas sin depender de la plataforma web. | **Escenario 1: Recepción de la asignación**<br>Dado que el propietario asignó un servicio al técnico,<br>Cuando el técnico abre la aplicación móvil,<br>Entonces visualiza la nueva orden con sede, equipo, fecha y prioridad.<br><br>**Escenario 2: Aceptación de la orden**<br>Dado que el técnico visualiza una orden pendiente,<br>Cuando pulsa "Aceptar servicio",<br>Entonces la aplicación consume el endpoint de transición, el estado pasa a ACCEPTED y el cambio es visible para el propietario en la aplicación web. | EP-07 |
-| US-31 | Registrar la intervención técnica desde el móvil, incluso sin conexión | Como técnico en campo, quiero registrar la intervención realizada aunque no tenga conectividad, para dejar constancia inmediata del mantenimiento ejecutado. | **Escenario 1: Registro en línea**<br>Dado que el técnico concluyó el servicio y tiene conexión,<br>Cuando completa el formulario (diagnóstico, acciones, repuestos y evidencia fotográfica) y pulsa "Finalizar",<br>Entonces la aplicación envía la intervención, esta queda asociada al equipo y a la orden, y la orden pasa a COMPLETED.<br><br>**Escenario 2: Registro diferido sin conexión**<br>Dado que el técnico no dispone de conexión en la sede,<br>Cuando registra la intervención,<br>Entonces la aplicación la almacena en una cola local con un identificador único y la sincroniza automáticamente al restablecerse la red, sin generar registros duplicados. | EP-07 |
+| US-31 | Registrar intervención sin conexión | Como técnico en campo, quiero registrar la intervención realizada aunque no tenga conectividad, para dejar constancia inmediata del mantenimiento ejecutado. | **Escenario 1: Registro en línea**<br>Dado que el técnico concluyó el servicio y tiene conexión,<br>Cuando completa el diagnóstico y las acciones ejecutadas (obligatorios), opcionalmente los repuestos y la evidencia fotográfica, y pulsa "Finalizar",<br>Entonces la API responde 201 a POST /api/v1/interventions, la intervención queda asociada al equipo y a la orden, y la orden pasa a COMPLETED.<br><br>**Escenario 2: Registro diferido sin conexión**<br>Dado que el técnico no dispone de conexión en la sede,<br>Cuando completa los mismos campos y pulsa "Finalizar",<br>Entonces la aplicación guarda la intervención en una cola local con un identificador único, la marca como "Pendiente de sincronizar" y la orden permanece en IN_PROGRESS hasta la sincronización.<br><br>**Escenario 3: Sincronización al recuperar la red**<br>Dado que existen registros en la cola local,<br>Cuando la aplicación recupera la conexión,<br>Entonces envía cada registro y la API responde 201 si es nuevo o 200 si ya fue recibido (según su identificador único), sin crear duplicados, y la orden pasa a COMPLETED. | EP-07 |
 | US-32 | Recibir alertas push de anomalías térmicas en el móvil | Como técnico en campo, quiero recibir notificaciones push de alertas críticas, para acudir oportunamente a los equipos en riesgo. | **Escenario 1: Recepción de la alerta push**<br>Dado que se generó una alerta crítica sobre un equipo con una orden asignada al técnico,<br>Cuando el servicio de notificaciones procesa el evento,<br>Entonces el técnico recibe una notificación push con el equipo, la sede, la temperatura registrada y la severidad.<br><br>**Escenario 2: Navegación contextual**<br>Dado que el técnico recibe la alerta push,<br>Cuando la selecciona,<br>Entonces la aplicación abre el detalle del equipo afectado, muestra su telemetría reciente y ofrece la acción de generar una orden de servicio. | EP-10 |
 | US-33 | Actualizar el estado del servicio y consultar telemetría en campo | Como técnico en campo, quiero consultar el detalle del equipo y actualizar el estado de la orden, para mantener la trazabilidad durante el desplazamiento. | **Escenario 1: Consulta del equipo en campo**<br>Dado que el técnico aceptó una orden,<br>Cuando accede al detalle del equipo vinculado,<br>Entonces visualiza el historial técnico, la última telemetría de temperatura y las intervenciones previas.<br><br>**Escenario 2: Actualización del estado**<br>Dado que el técnico llegó al sitio,<br>Cuando cambia el estado de la orden a IN_PROGRESS,<br>Entonces la aplicación sincroniza el cambio con la API y el nuevo estado queda visible para el propietario. | EP-07 |
-| US-34 | Iniciar sesión con Google mediante OAuth 2.0 | Como nuevo usuario, quiero iniciar sesión o registrarme con mi cuenta de Google mediante OAuth 2.0 para acceder a la plataforma sin crear una contraseña adicional. | **Escenario 1: Autenticación exitosa**<br>Dado que el usuario selecciona "Continuar con Google" en la aplicación web o móvil,<br>Cuando autoriza a IceTrack en la pantalla de consentimiento y Google devuelve un ID Token válido,<br>Entonces el backend valida el token, crea o vincula la cuenta y otorga una sesión con JWT propio.<br><br>**Escenario 2: Consentimiento cancelado o token inválido**<br>Dado que el usuario cancela el consentimiento o el token es inválido o caducado,<br>Cuando la plataforma procesa la respuesta del proveedor,<br>Entonces deniega el acceso, informa que no fue posible autenticar con Google y conserva la opción de ingreso con credenciales. | EP-01 |
+| US-34 | Iniciar sesión con Google mediante OAuth 2.0 | Como nuevo usuario, quiero iniciar sesión o registrarme con mi cuenta de Google mediante OAuth 2.0 para acceder a la plataforma sin crear una contraseña adicional. | **Escenario 1: Autenticación exitosa**<br>Dado que el usuario selecciona "Continuar con Google" en la aplicación web o móvil,<br>Cuando autoriza a IceTrack en la pantalla de consentimiento y Google devuelve un ID Token con firma verificable, audiencia igual al client ID de IceTrack, fecha de expiración vigente y correo verificado,<br>Entonces el backend responde 200, crea la cuenta o la vincula a una existente con el mismo correo y entrega un JWT propio.<br><br>**Escenario 2: Primer ingreso con Google**<br>Dado que el correo de Google no tiene cuenta en IceTrack,<br>Cuando el backend valida el ID Token,<br>Entonces el usuario debe elegir explícitamente su rol (Owner o Technician) antes de recibir el JWT.<br><br>**Escenario 3: Consentimiento cancelado o token rechazado**<br>Dado que el usuario cancela el consentimiento, o el ID Token tiene firma inválida, audiencia distinta, está vencido o el correo no está verificado,<br>Cuando la plataforma procesa la respuesta de Google,<br>Entonces la API responde 401 UNAUTHORIZED, no se emite JWT, se muestra "No fue posible autenticar con Google" y se mantiene disponible el ingreso con credenciales. | EP-01 |
 | US-35 | Configurar las tarjetas del dashboard | Como propietario del negocio, quiero elegir qué tarjetas se muestran en mi dashboard y en qué orden, para priorizar la información que más uso en mi operación. | **Escenario 1: Agregar y ordenar tarjetas**<br>Dado que el propietario accede a la configuración del dashboard,<br>Cuando agrega una tarjeta de tipo MONITORED_EQUIPMENT, OPEN_ALERTS, ACTIVE_ORDERS o EQUIPMENT_STATUS y define su posición,<br>Entonces el dashboard se reordena y la configuración persiste para ese usuario.<br><br>**Escenario 2: Ocultar una tarjeta**<br>Dado que una tarjeta está visible en el dashboard,<br>Cuando el propietario cambia su visibilidad a oculta,<br>Entonces la tarjeta deja de mostrarse sin eliminarse de la configuración y puede reactivarse después. | EP-01 |
-| US-36 | Configurar el umbral de temperatura de un equipo | Como propietario del negocio, quiero definir la temperatura mínima y máxima aceptable de cada equipo, para que el sistema sepa cuándo su contenido está en riesgo. | **Escenario 1: Definición del umbral**<br>Dado que el propietario accede al detalle de un equipo,<br>Cuando define una temperatura mínima y una máxima en grados Celsius,<br>Entonces el sistema guarda el umbral y lo aplica a las siguientes evaluaciones, tanto en el borde como en la nube.<br><br>**Escenario 2: Umbral inválido**<br>Dado que el propietario ingresa una temperatura mínima mayor o igual que la máxima,<br>Cuando intenta guardar,<br>Entonces el sistema rechaza la operación e indica que el rango no es válido. | EP-02 |
-| US-37 | Emparejar un dispositivo de monitoreo con un equipo | Como propietario del negocio, quiero enlazar el identificador de un dispositivo físico con un equipo de refrigeración, para que sus lecturas queden atribuidas al activo correcto. | **Escenario 1: Emparejamiento exitoso**<br>Dado que el propietario tiene el identificador de un dispositivo sin emparejar,<br>Cuando lo asocia a un equipo de su propiedad,<br>Entonces el dispositivo pasa a estado PAIRED, el sistema emite su API key y las lecturas siguientes se atribuyen a ese equipo.<br><br>**Escenario 2: Dispositivo ya emparejado o equipo ajeno**<br>Dado que el dispositivo ya está enlazado a otro equipo o el equipo no pertenece al propietario,<br>Cuando se intenta el emparejamiento,<br>Entonces el sistema rechaza la operación e indica el motivo sin revelar datos del otro propietario. | EP-02 |
+| US-36 | Configurar el umbral de temperatura de un equipo | Como propietario del negocio, quiero definir la temperatura mínima y máxima aceptable de cada equipo, para que el sistema sepa cuándo su contenido está en riesgo. | **Escenario 1: Definición del umbral**<br>Dado que el propietario accede al detalle de un equipo,<br>Cuando define una temperatura mínima y una máxima en grados Celsius dentro de −40 °C a 30 °C, con mínima menor que máxima,<br>Entonces la API responde 200, el umbral queda guardado y se aplica a las siguientes lecturas, tanto en el borde como en la nube.<br><br>**Escenario 2: Rango incoherente**<br>Dado que el propietario ingresa una mínima mayor o igual que la máxima,<br>Cuando intenta guardar,<br>Entonces la API responde 400 VALIDATION_ERROR indicando "la mínima debe ser menor que la máxima" y el umbral anterior se conserva.<br><br>**Escenario 3: Valor fuera de los límites**<br>Dado que el propietario ingresa una temperatura menor a −40 °C o mayor a 30 °C,<br>Cuando intenta guardar,<br>Entonces la API responde 400 VALIDATION_ERROR indicando el campo y el rango permitido, y el umbral anterior se conserva. | EP-02 |
+| US-37 | Emparejar un dispositivo de monitoreo con un equipo | Como propietario del negocio, quiero enlazar el identificador de un dispositivo físico con un equipo de refrigeración, para que sus lecturas queden atribuidas al activo correcto. | **Escenario 1: Emparejamiento exitoso**<br>Dado que el propietario tiene el identificador de un dispositivo sin emparejar,<br>Cuando lo asocia a un equipo de su propiedad,<br>Entonces la API responde 201, el dispositivo pasa a estado PAIRED, el sistema emite su API key (visible una sola vez) y las lecturas siguientes se atribuyen a ese equipo.<br><br>**Escenario 2: Dispositivo ya emparejado**<br>Dado que el dispositivo ya está enlazado a otro equipo,<br>Cuando se intenta el emparejamiento,<br>Entonces la API responde 409 CONFLICT con el mensaje "El dispositivo ya está emparejado", sin revelar el equipo ni el propietario de ese enlace.<br><br>**Escenario 3: Equipo ajeno o inexistente**<br>Dado que el equipo no pertenece al propietario o no existe,<br>Cuando se intenta el emparejamiento,<br>Entonces la API responde 404 NOT_FOUND y no se crea ningún enlace. | EP-02 |
 | US-38 | Rotar o revocar la credencial de un dispositivo | Como propietario del negocio, quiero regenerar o revocar la API key de un dispositivo, para cortar el acceso si sospecho que la credencial fue comprometida. | **Escenario 1: Rotación de la credencial**<br>Dado que el propietario solicita regenerar la API key de un dispositivo emparejado,<br>Cuando confirma la acción,<br>Entonces el sistema genera una nueva credencial, invalida la anterior y muestra la nueva una sola vez para su configuración en el gateway.<br><br>**Escenario 2: Rechazo de lecturas con la credencial anterior**<br>Dado que una API key fue rotada,<br>Cuando llega una trama autenticada con la credencial anterior,<br>Entonces la plataforma responde 401 y no almacena la lectura. | EP-02 |
 | US-39 | Señalizar el estado del equipo en el propio dispositivo | Como propietario del negocio, quiero que el dispositivo instalado en el equipo indique físicamente su estado, para enterarme de una anomalía aunque no esté mirando una pantalla. | **Escenario 1: Indicación de excursión térmica**<br>Dado que el borde detecta una excursión sostenida en el equipo monitoreado,<br>Cuando el estado se comunica al dispositivo,<br>Entonces el LED pasa a rojo intermitente y el zumbador emite una señal audible.<br><br>**Escenario 2: Indicación de pérdida de conectividad**<br>Dado que el dispositivo no logra comunicarse con el gateway del local,<br>Cuando transcurren tres intentos fallidos,<br>Entonces el LED pasa a ámbar fijo, distinguible de la señal de operación normal en verde. | EP-08 |
 | US-40 | Consultar el estado local de los dispositivos en sitio | Como técnico, quiero consultar desde el gateway el estado de los dispositivos del local durante la instalación o el diagnóstico, para verificar que reportan correctamente sin depender de internet. | **Escenario 1: Consulta del estado local**<br>Dado que el técnico accede al endpoint de estado del Edge API en la red del local,<br>Cuando solicita el estado de los dispositivos,<br>Entonces obtiene, por cada dispositivo, su última lectura, la hora de recepción, si tiene una excursión local abierta y cuántos registros están pendientes de sincronizar.<br><br>**Escenario 2: Consulta sin conexión a internet**<br>Dado que el local no tiene salida a internet,<br>Cuando el técnico realiza la consulta,<br>Entonces el Edge API responde igualmente con el estado local e indica que la sincronización con la nube está pendiente. | EP-08 |
@@ -1341,16 +1277,16 @@ Además, para facilitar la planificación, el seguimiento y la priorización de 
 | US-43 | Consultar el centro de notificaciones | Como usuario, quiero consultar mis notificaciones y marcarlas como leídas, para no perder eventos relevantes de mis equipos y servicios. | **Escenario 1: Listado con no leídas**<br>Dado que el usuario tiene notificaciones pendientes,<br>Cuando abre el centro de notificaciones,<br>Entonces visualiza cada notificación con su tipo, severidad y fecha, y un contador de no leídas.<br><br>**Escenario 2: Marcar como leída y descartar**<br>Dado que el usuario revisa una notificación,<br>Cuando la marca como leída o la descarta,<br>Entonces el contador se actualiza y la notificación descartada deja de listarse sin eliminarse del registro. | EP-10 |
 | US-44 | Recibir la notificación correcta según mi rol | Como usuario, quiero recibir únicamente las notificaciones que me corresponden según mi relación con el equipo o la orden, para no recibir avisos irrelevantes. | **Escenario 1: Alerta térmica crítica**<br>Dado que se abre una alerta crítica sobre un equipo,<br>Cuando el sistema procesa el evento,<br>Entonces notifica al propietario del equipo y a los técnicos con una orden activa sobre ese equipo, y a nadie más.<br><br>**Escenario 2: Cambio de estado de una orden**<br>Dado que una solicitud cambia de estado,<br>Cuando el sistema procesa el evento,<br>Entonces notifica al propietario solicitante y al técnico asignado, en el idioma configurado por cada destinatario. | EP-10 |
 | US-45 | Generar el reporte de excursiones térmicas con indicadores de cadena de frío | Como propietario del negocio, quiero un reporte que cuantifique las excursiones térmicas de un equipo en un periodo, para sustentar ante terceros que mi cadena de frío se mantuvo bajo control. | **Escenario 1: Cálculo de indicadores**<br>Dado que el propietario solicita el reporte de excursión térmica de un equipo para un rango de fechas,<br>Cuando el sistema procesa la telemetría de ese periodo,<br>Entonces calcula la Temperatura Cinética Media (ponderación de Arrhenius), los grados-minuto de excursión, el porcentaje de tiempo en rango y la desviación estándar de temperatura.<br><br>**Escenario 2: Periodo sin datos suficientes**<br>Dado que el rango solicitado no contiene lecturas,<br>Cuando se procesa la solicitud,<br>Entonces el reporte finaliza en estado FAILED indicando que no hay telemetría suficiente para el periodo. | EP-04 |
-| US-46 | Iniciar sesión en la aplicación móvil | Como técnico en campo, quiero iniciar sesión en la aplicación móvil con mi cuenta de Google, para acceder a mis asignaciones sin recordar otra contraseña. | **Escenario 1: Sesión iniciada en el móvil**<br>Dado que el técnico selecciona "Continuar con Google" en la aplicación móvil,<br>Cuando autoriza el acceso y el backend valida el token,<br>Entonces la aplicación almacena el JWT de forma segura y presenta el listado de órdenes asignadas.<br><br>**Escenario 2: Sesión vencida en campo**<br>Dado que el JWT del técnico caducó,<br>Cuando la aplicación intenta consumir la API,<br>Entonces solicita reautenticación y conserva sin pérdida los registros pendientes de sincronizar. | EP-07 |
+| US-46 | Iniciar sesión en la aplicación móvil | Como técnico en campo, quiero iniciar sesión en la aplicación móvil con mi cuenta de Google, para acceder a mis asignaciones sin recordar otra contraseña. | **Escenario 1: Sesión iniciada en el móvil**<br>Dado que el técnico selecciona "Continuar con Google" en la aplicación móvil,<br>Cuando autoriza el acceso y el backend valida el ID Token según los criterios de US-34,<br>Entonces la aplicación guarda el JWT en el almacenamiento seguro del sistema (Keychain en iOS, Keystore en Android) y presenta el listado de solicitudes obtenido con GET /api/v1/service-requests?assignedTo=me.<br><br>**Escenario 2: Sesión vencida en campo**<br>Dado que el JWT del técnico caducó,<br>Cuando la aplicación recibe 401 al consumir la API,<br>Entonces solicita reautenticación con Google, conserva sin modificar los registros de la cola local pendientes de sincronizar y los envía tras reautenticarse. | EP-07 |
 
 ### Technical Stories
 
 | Epic / Story ID | Título | Descripción | Criterios de Aceptación | Relacionado con (Epic ID) |
 | --- | --- | --- | --- | --- |
-| TS-01 | Creación de solicitudes de servicio por API RESTful | Como desarrollador, quiero implementar la API que permite crear solicitudes de servicio, para que los negocios reporten necesidades de soporte técnico. | **Escenario 1: Creación exitosa**<br>Dado que se envía POST a `/api/v1/service-requests` con el equipo, el tipo, la prioridad y la descripción del problema,<br>Cuando la solicitud es procesada,<br>Entonces se recibe 201 y la solicitud queda registrada en estado PENDING.<br><br>**Escenario 2: Datos incompletos**<br>Dado que se envía la solicitud sin un campo obligatorio,<br>Cuando es procesada,<br>Entonces se recibe 400 con el mensaje "Invalid data". | EP-03 |
+| TS-01 | Creación de solicitudes de servicio por API RESTful | Como desarrollador, quiero implementar la API que permite crear solicitudes de servicio, para que los negocios reporten necesidades de soporte técnico. | **Escenario 1: Creación exitosa**<br>Dado que se envía POST `/api/v1/service-requests` con equipmentId, type, priority y description,<br>Cuando la solicitud es procesada,<br>Entonces se recibe 201, la solicitud queda registrada en estado `PENDING` y la respuesta incluye su identificador.<br><br>**Escenario 2: Campo obligatorio faltante**<br>Dado que se envía la solicitud sin alguno de equipmentId, type, priority o description,<br>Cuando es procesada,<br>Entonces se recibe 400 `VALIDATION_ERROR` que lista los campos faltantes y no se crea ninguna solicitud.<br><br>**Escenario 3: Equipo ajeno**<br>Dado que equipmentId no pertenece al propietario autenticado,<br>Cuando es procesada,<br>Entonces se recibe 404 `NOT_FOUND`. | EP-03 |
 | TS-02 | Registro de intervenciones técnicas por API RESTful | Como desarrollador, quiero registrar las intervenciones realizadas a través de la API, para llevar un seguimiento detallado del mantenimiento. | **Escenario 1: Registro exitoso**<br>Dado que se envía POST a `/api/v1/interventions` con la solicitud, el técnico, el diagnóstico y las acciones ejecutadas,<br>Cuando la solicitud es procesada,<br>Entonces se recibe 201, la intervención se almacena y la solicitud padre pasa a COMPLETED.<br><br>**Escenario 2: Técnico inexistente**<br>Dado que el identificador del técnico no existe,<br>Cuando se realiza la solicitud,<br>Entonces se recibe 404 con el mensaje "Technician not found". | EP-03 |
 | TS-03 | Gestión de evaluaciones de servicio vía API | Como desarrollador, quiero implementar los endpoints que permiten registrar y actualizar una evaluación de servicio, para reflejar la experiencia del cliente. | **Escenario 1: Evaluación inicial**<br>Dado que el cliente recibió un servicio completado,<br>Cuando se envía POST a `/api/v1/reviews` con las puntuaciones (1 a 5),<br>Entonces se recibe 201 y la evaluación queda almacenada junto a su fecha límite de edición.<br><br>**Escenario 2: Edición fuera de plazo**<br>Dado que transcurrieron más de 48 horas desde la evaluación,<br>Cuando se envía PUT a `/api/v1/reviews/{id}`,<br>Entonces se recibe 409 con el mensaje "Review edit window expired" y la evaluación no se modifica. | EP-05 |
-| TS-04 | Registrar nuevo usuario a través de API RESTful | Como desarrollador, quiero exponer un endpoint para registrar nuevos usuarios validando unicidad y formato, para permitir el acceso seguro de nuevos usuarios. | **Escenario 1: Registro exitoso**<br>Dado que el endpoint `/api/v1/users` está disponible,<br>Cuando se envía POST con datos válidos (nombre, email único, contraseña válida y rol),<br>Entonces el sistema responde 201 y devuelve el usuario registrado sin exponer la credencial.<br><br>**Escenario 2: Email ya registrado**<br>Dado que el correo ya existe en el sistema,<br>Cuando se intenta registrar nuevamente,<br>Entonces se devuelve 400 con el mensaje "Email already registered". | EP-01 |
+| TS-04 | Registrar nuevo usuario a través de API RESTful | Como desarrollador, quiero exponer un endpoint para registrar nuevos usuarios validando unicidad y formato, para permitir el acceso seguro de nuevos usuarios. | **Escenario 1: Registro exitoso**<br>Dado que se envía POST `/api/v1/users` con nombre de usuario único (4 a 30 caracteres: letras, dígitos, ., _), contraseña de 8 a 64 caracteres con al menos una mayúscula, una minúscula y un dígito, y rol `OWNER_ROLE` o `TECHNICIAN_ROLE`,<br>Cuando la solicitud es procesada,<br>Entonces se recibe 201 y la respuesta devuelve el usuario sin incluir la contraseña ni su hash.<br><br>**Escenario 2: Nombre de usuario ya registrado**<br>Dado que el nombre de usuario ya existe,<br>Cuando se intenta registrar nuevamente,<br>Entonces se recibe 409 `CONFLICT` con el mensaje "Username already registered" y no se crea la cuenta.<br><br>**Escenario 3: Formato o política incumplidos**<br>Dado que la contraseña, el nombre de usuario o el rol no cumplen las reglas establecidas,<br>Cuando es procesada,<br>Entonces se recibe 400 VALIDATION_ERROR que lista cada campo y la regla incumplida. | EP-01 |
 | TS-05 | Consulta del estado de una solicitud por API | Como desarrollador, quiero exponer un endpoint para consultar el estado de una solicitud de servicio, para que la web y el móvil muestren información consistente. | **Escenario 1: Consulta exitosa**<br>Dado que se envía GET a `/api/v1/service-requests/{id}` con un identificador válido,<br>Cuando la solicitud es procesada,<br>Entonces se recibe 200 con el estado actual y el historial de transiciones.<br><br>**Escenario 2: Identificador inexistente**<br>Dado que el identificador no corresponde a ninguna solicitud,<br>Cuando se realiza la consulta,<br>Entonces se recibe 404 con el mensaje "Service request not found". | EP-03 |
 | TS-06 | Integración de la aplicación móvil cross-platform con la API RESTful | Como desarrollador, quiero integrar la aplicación móvil multiplataforma con la API RESTful, para que el técnico opere con los mismos datos que la plataforma web. | **Escenario 1: Consumo autenticado**<br>Dado que la aplicación dispone de un JWT vigente,<br>Cuando solicita GET a `/api/v1/service-requests?assignedTo=me` con el encabezado Authorization Bearer,<br>Entonces recibe 200 con sus órdenes asignadas y las presenta en el listado móvil.<br><br>**Escenario 2: Sincronización idempotente de la cola**<br>Dado que la aplicación acumuló registros offline,<br>Cuando restablece la conexión y sincroniza la cola,<br>Entonces la API responde 201 por cada registro nuevo y 200 por los ya recibidos según su identificador único, sin crear duplicados. | EP-07 |
 | TS-07 | Validación de credenciales en el API Gateway | Como desarrollador, quiero que el API Gateway valide el JWT del tráfico de usuarios y la API key del tráfico del borde antes de enrutar a cada bounded context, para centralizar el control de acceso. | **Escenario 1: Tráfico de usuario con JWT válido**<br>Dado que una solicitud incluye el encabezado Authorization Bearer con un JWT vigente,<br>Cuando el gateway la procesa,<br>Entonces valida la firma y el vencimiento, y enruta al controlador del bounded context correspondiente.<br><br>**Escenario 2: Tráfico del borde sin API key válida**<br>Dado que una solicitud dirigida a `/api/v1/telemetry` presenta una API key de dispositivo desconocida o revocada,<br>Cuando el gateway la procesa,<br>Entonces responde 401, no enruta la solicitud y registra el intento. | EP-01 |
@@ -3800,6 +3736,21 @@ El recorrido se estructura por dispositivo y objetivo.
 
 ### 5.3.1. Landing Page Wireframe
 
+El diseño esquemático inicial de la página de presentación (*Landing Page*) de **IceTrack** se estructuró mediante un *wireframe* de baja fidelidad. Su propósito fundamental consistió en definir la arquitectura de información, la jerarquía visual y la distribución espacial de los componentes antes de la aplicación de elementos gráficos definitivos. El esquema prioriza una narrativa comercial de tipo *storytelling* B2B, orientada a la conversión de visitantes en usuarios registrados mediante la exposición clara del problema de la cadena de frío y la propuesta de valor tecnológica de la startup.
+
+La estructura del *wireframe* se organizó en las siguientes zonas funcionales:
+
+1. **Cabecera (*Header*):** Ubicada en la parte superior fija, contiene la isotipografía institucional de IceTrack y un menú de navegación simplificado con anclajes hacia las secciones clave, acompañado de los selectores de idioma (*es-419* / *en-US*) y accesos directos de autenticación.
+2. **Sección Principal (*Hero Section*):** Diseñada como el primer impacto visual, integra un titular de gran formato enfocado en la prevención de mermas por ruptura térmica, un párrafo explicativo sobre la integración de sensores IoT y un doble botón de llamada a la acción (*Call to Action* - CTA) para iniciar pruebas o solicitar demostraciones.
+3. **Bloque de Propuesta de Valor y Características:** Organizado mediante una retícula (*grid*) de tres columnas para destacar los pilares operativos de la plataforma: monitoreo en tiempo real, alertas automatizadas y gestión centralizada de mantenimiento.
+4. **Sección Institucional y de Autoridad:** Espacio dedicado a exponer la misión y visión de FrostShield, reforzando la confianza corporativa mediante la validación de casos de uso y testimonios de operadores del sector.
+5. **Formulario de Conversión (*Lead Generation*):** Un bloque centralizado con campos estructurados para la captura de prospectos comerciales (nombre, correo corporativo, tipo de establecimiento y requerimiento).
+6. **Pie de Página (*Footer*):** Contiene los enlaces legales, avisos de privacidad, referencias a los repositorios públicos del proyecto en GitHub y accesos directos a redes sociales corporativas.
+
+![Wireframe1](assets/chapter04/LandingPageWireframe.png)
+
+*Figura 1: Esquema estructural (Wireframe) de la Landing Page de IceTrack.*
+
 El esquema de escritorio organiza 12 columnas con cabecera corporativa, bloque hero dividido entre propuesta y vista previa de telemetría, soluciones por segmento en retícula bento, cuadrícula de funcionalidades, sección editorial de misión y visión, y pie institucional. El esquema móvil adopta columna única que prioriza la llamada a la acción inicial, navegación con menú colapsable tipo hamburguesa y tarjetas apiladas que garantizan legibilidad táctil.
 
 ![IceTrack Landing Page Wireframe 1](assets/chapter05/wireframes/landing-page/landing-page-wireframe-1.png)
@@ -4863,6 +4814,10 @@ WebStorm se utiliza como entorno de desarrollo para la aplicación web de IceTra
 - **Propósito:** Desarrollo, depuración y mantenimiento de la aplicación web.
 - **Ruta de descarga:** https://www.jetbrains.com/webstorm/
 
+<p align="center">
+  <img src="assets\chapter06\webstorm.png" alt="webstorm" width="150">
+</p>
+
 #### Angular Framework
 
 Angular es el framework principal utilizado para el desarrollo de la aplicación web de IceTrack.
@@ -5024,16 +4979,16 @@ Vercel se utiliza para desplegar la Landing Page de IceTrack y la aplicación we
   <img src="assets\chapter06\vercel.png" alt="Vercel" width="300">
 </p>
 
-#### Render
+#### Railway
 
-Render se utiliza para desplegar los servicios backend desarrollados con Spring Boot.
+Railway se utiliza para desplegar los servicios backend desarrollados con Spring Boot.
 
 - **Tipo:** SaaS / Cloud Platform
 - **Propósito:** Hosting y ejecución de los servicios backend.
-- **Ruta de referencia:** https://render.com/
+- **Ruta de referencia:** https://railway.com/
 
 <p align="center">
-  <img src="assets\chapter06\render.png" alt="Rencer" width="300">
+  <img src="assets\chapter06\railway.png" alt="Rencer" width="150">
 </p>
 
 ### Software Documentation
@@ -5824,11 +5779,123 @@ constexpr char DEVICE_ID[] = "ICE-0001";
 
 #### 6.2.1.1. Sprint Planning 1
 
+El Sprint Planning 1 es la reunión con la que el Scrum Team de IceTrack inicia su primer Sprint. Como punto de partida se usó el Product Backlog, del cual se tomaron los elementos de mayor prioridad que el equipo puede completar con su capacidad. El resultado de la reunión es un Sprint Goal compartido, medible y centrado en el valor para los usuarios, y el conjunto de User Stories y Technical Stories que lo hacen posible.
+
+Al ser el primer Sprint, el equipo no cuenta con un *Velocity* histórico. El *Velocity* del Sprint 1 se estableció a partir de la capacidad del equipo de siete integrantes y de la complejidad de los elementos priorizados, y será la referencia para calibrar la planificación de los siguientes Sprints.
+
+| **Sprint #** | Sprint 1 |
+| :--- | :--- |
+| **Sprint Planning Background** | |
+| Date | 2026-10-21 10:00 AM |
+| Location | Reunión virtual en Meet |
+| Prepared By | Jeremy Alexander Quijada Magro |
+| Attendees (to planning meeting) | Arostegui Alzamora Cesar Augusto, Cuentas Peña Joaquin Alberto, Fajardo Monrroy Walter Luis, Guillen Galindo Julio Adolfo, Jiménez Guerra Gianmarco Fabian, Quijada Magro Jeremy Alexander y Tenorio Medina, Piero Francesco |
+| Sprint 0 Review Summary | No aplica. Sprint 1 es el primer Sprint de implementación, por lo que no existe un Sprint anterior que revisar. |
+| Sprint 0 Retrospective Summary | No aplica.  |
+| **Sprint Goal & User Stories** | |
+| Sprint 1 Goal | Nuestro enfoque está en ofrecer a los propietarios de negocios y técnicos de la cadena de frío que visitan IceTrack una visión clara del valor, las soluciones y las funcionalidades clave de la plataforma, con un acceso directo a las aplicaciones web y móvil; ofrecer a los desarrolladores frontend y móvil los primeros endpoints RESTful seguros para registrar usuarios y gestionar solicitudes de servicio, intervenciones y evaluaciones de servicio; y ofrecer a los propietarios y técnicos el primer flujo de acceso (registro e inicio de sesión) en la aplicación web. <br><br>Creemos que esto entrega mayor confianza a los visitantes para evaluar IceTrack en su operación de refrigeración; una base de API extensible sobre la cual los equipos de frontend y móvil puedan construir las funcionalidades de propietarios y técnicos de los próximos Sprints sin depender del equipo de backend; y un primer camino funcional para que los nuevos usuarios se registren e ingresen a la plataforma. <br><br> Esto se confirmará cuando un visitante pueda encontrar la propuesta de valor, las soluciones por tipo de negocio, las funcionalidades clave y la misión y visión en la Landing Page desplegada en Vercel, y llegar al inicio de sesión de la aplicación web o a la descarga de la aplicación móvil con un solo clic; los endpoints de usuarios, solicitudes de servicio (creación y consulta de estado), intervenciones y evaluaciones de servicio estén desplegados en Render, documentados en Swagger y respondan correctamente a sus escenarios de aceptación (respuestas 201, 400, 404 y 409); y un nuevo usuario pueda registrarse e iniciar sesión desde la aplicación web, consumiendo la API desplegada. |
+| Sprint 1 Velocity | 50 Story Points |
+| Sum of Story Points | 50 Story Points |
+
 #### 6.2.1.2. Aspect Leaders and Collaborators
+
+Para el Sprint 1 el equipo organizó el trabajo en de la siguiente manera:
+
+| Team Member (Last Name, First Name) | GitHub Username | Landing Page | IAM API | Service Requests API | Interventions & Reviews API | Web App Authentication | Testing & API Documentation | Deployment & Configuration |
+| :--- | :--- | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
+| Arostegui Alzamora, Cesar Augusto | `[Legendnt1]` | C | - | - | - | - | - | L |
+| Cuentas Peña, Joaquin Alberto | `[JoaCupe]` | - | - | L | C | - | - | C |
+| Fajardo Monrroy, Walter Luis | `[WalterFajardo]` | L | - | - | - | C | - | - |
+| Guillen Galindo, Julio Adolfo | `[julio645]` | C | - | - | C | - | L | - |
+| Jiménez Guerra, Gianmarco Fabian | `[ZAICO21]` | - | C | - | L | C | - | - |
+| Quijada Magro, Jeremy Alexander | `jquijada-dev` | - | - | - | - | L | C | - |
+| Tenorio Medina, Piero Francesco | `[PieroTM2005]` | - | L | C | - | - | C | - |
 
 #### 6.2.1.3. Sprint Backlog 1
 
+El objetivo principal del **Sprint 1** consistió en consolidar la presencia digital del producto mediante el desarrollo completo de la **Landing Page** y en sentar las bases funcionales de la plataforma: los primeros servicios REST del Backend (registro de usuarios, solicitudes de servicio con consulta de estado, intervenciones y evaluaciones) y el primer flujo de registro e inicio de sesión en la aplicación web. Con ello se habilitó una base extensible sobre la API desplegada para que los equipos de Frontend y Móvil continúen construyendo en los siguientes Sprints.
+
+| Sprint # | Sprint 1 |  |  |  |  |  |  |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| **User Story** |  | **Work-Item / Task** |  |  |  |  |  |
+| **Story Id** | **Story Title** | **Task Id** | **Task Title** | **Task Description** | **Estimation (Story Points)** | **Assigned To** | **Status (To-do / In-Process / To-Review / Done)** |
+| US-13 | Visualizar la propuesta de valor principal | UT-L1 | Sección de propuesta de valor | Maquetar la propuesta de valor de IceTrack en la Landing Page. | 2 | Walter Fajardo | Done |
+| US-14 | Explorar soluciones específicas para mi rubro | UT-L2 | Sección de soluciones por rubro | Diseñar la sección de soluciones para negocios de cadena de frío y proveedores técnicos. | 2 | Walter Fajardo | Done |
+| US-15 | Comprender las funcionalidades clave | UT-L3 | Sección de funcionalidades clave | Presentar las funcionalidades principales de la plataforma en la Landing Page. | 3 | Julio Guillén | Done |
+| US-16 | Conocer la misión y visión | UT-L4 | Sección institucional (misión y visión) | Redactar y maquetar los apartados de misión y visión en la Landing Page. | 2 | Julio Guillén | Done |
+| US-17 | Acceder a la plataforma desde el call to action | UT-L5 | Vinculación de CTAs | Enlazar los botones de la Landing Page con el inicio de sesión web y la descarga móvil. | 2 | Walter Fajardo | Done |
+| TS-04 | Registrar nuevo usuario a través de API RESTful | UT-B1 | API de registro de usuarios | Implementar y validar el endpoint de registro de usuarios (unicidad y formato). | 5 | Piero Tenorio | Done |
+| TS-01 | Creación de solicitudes de servicio por API RESTful | UT-B2 | API de creación de solicitudes | Implementar el endpoint de creación de solicitudes de servicio. | 8 | Joaquin Cuentas | Done |
+| TS-05 | Consulta del estado de una solicitud por API | UT-B3 | API de consulta de solicitudes | Implementar el endpoint de consulta del estado de una solicitud de servicio. | 8 | Joaquin Cuentas | Done |
+| TS-02 | Registro de intervenciones técnicas por API RESTful | UT-B4 | API de intervenciones técnicas | Implementar el endpoint de registro de intervenciones realizadas. | 5 | Gianmarco Jiménez | Done |
+| TS-03 | Gestión de evaluaciones de servicio vía API | UT-B5 | API de evaluaciones de servicio | Implementar los endpoints para registrar y actualizar evaluaciones de servicio. | 5 | Gianmarco Jiménez | Done |
+| US-01 | Registro de usuario | UT-A1 | Flujo de registro en la app web | Implementar el flujo de registro (propietario/técnico) en la aplicación web. | 5 | Jeremy Quijada | Done |
+| US-02 | Inicio de sesión | UT-A2 | Flujo de inicio de sesión en la app web | Implementar el flujo de inicio de sesión consumiendo la API en la aplicación web. | 3 | Jeremy Quijada | Done |
+
+<p align="center">
+  <img src="assets/chapter06/Trello-Sprint-1.png" alt="trello1" width="1000">
+</p>
+
+* **URL pública del Board de Trello:** https://trello.com/invite/b/6ac91c87c32b30e15cf90b14/ATTI800b8473167aaf37736c6f13443d013550F75477/icetrack-iot
+
 #### 6.2.1.4. Development Evidence for Sprint Review
+
+En esta sección se explica y presenta los avances en implementación con relación a los productos de Icetrack: Landing Page, FrontEnd y Backend.
+
+| Repository | Branch | Commit Id | Commit Message | Commit Message Body | Commited on (Date) |
+| --- | --- | --- | --- | --- | --- |
+| IceTrack-IoT/Frontend-IceTrack_IoT | master | 039ba80 | initial commit |  | 27/09/2026 |
+| IceTrack-IoT/Frontend-IceTrack_IoT | master | f46ba87 | Init project |  | 01/10/2026 |
+| IceTrack-IoT/Frontend-IceTrack_IoT | master | f3e2abf | feat: Add initial implementation of authentication and session management features |  | 02/10/2026 |
+| IceTrack-IoT/Frontend-IceTrack_IoT | feat/iam | 58ce9bf | feat: Implement authentication API endpoint and enhance user response structure |  | 06/10/2026 |
+| IceTrack-IoT/Frontend-IceTrack_IoT | feat/iam | d0bb767 | feat: Add local sign-in locally functionality and enhance authentication error handling |  | 06/10/2026 |
+| IceTrack-IoT/Frontend-IceTrack_IoT | feat/iam | c1bfad0 | feat: Implement local sign-up functionality for owners and technicians, including Google registration completion |  | 07/10/2026 |
+| IceTrack-IoT/Frontend-IceTrack_IoT | develop | e39fad7 | feat: Revamp styles with new design system, typography, and responsive layout |  | 08/10/2026 |
+| IceTrack-IoT/Frontend-IceTrack_IoT | develop | 6b37513 | feat: Add path mappings for new feature modules in TypeScript configuration |  | 08/10/2026 |
+| IceTrack-IoT/Frontend-IceTrack_IoT | develop | ba7d0e2 | feat: Implement IAM bounded context |  | 08/10/2026 |
+| IceTrack-IoT/Frontend-IceTrack_IoT | develop | a76d957 | feat: Rename resource interfaces for consistency and clarity |  | 08/10/2026 |
+| IceTrack-IoT/Frontend-IceTrack_IoT | develop | 513b438 | feat: Add new interfaces and styles for dashboard configuration and device management |  | 09/10/2026 |
+| IceTrack-IoT/Frontend-IceTrack_IoT | develop | 37df0c9 | feat: Update iceTrackProviderApiBaseUrl to production endpoint |  | 09/10/2026 |
+| IceTrack-IoT/Frontend-IceTrack_IoT | develop | c513201 | feat: Add script to generate environment configuration for production |  | 09/10/2026 |
+| IceTrack-IoT/Frontend-IceTrack_IoT | master | 0cd1e32 | feat: Update environment configuration script to inject googleClientId from environment variables |  | 09/10/2026 |
+| IceTrack-IoT/Frontend-IceTrack_IoT | master | bb45db8 | feat: Enhance environment configuration script to validate target file existence and improve googleClientId injection message |  | 09/10/2026 |
+| IceTrack-IoT/LandingPage-IceTrack_IoT | master | 962f690 | Initial commit |  | 06/10/2026 |
+| IceTrack-IoT/LandingPage-IceTrack_IoT | master | dec31f5 | fix: remove unnecessary URL from doctype declaration |  | 06/10/2026 |
+| IceTrack-IoT/Platform-IceTrack_IoT | master | c3ea69d | Add initial project |  | 22/09/2026 |
+| IceTrack-IoT/Platform-IceTrack_IoT | master | d0c49e8 | feat: Update application properties for environment variable support and add README.md |  | 22/09/2026 |
+| IceTrack-IoT/Platform-IceTrack_IoT | feat/iam | 2166b33 | feat: Implement ExternalProfileService and ProfilesContextFacade for profile provisioning |  | 28/09/2026 |
+| IceTrack-IoT/Platform-IceTrack_IoT | feat/iam | 80f2cff | feat: Enhance user and profile management with role handling and new commands |  | 28/09/2026 |
+| IceTrack-IoT/Platform-IceTrack_IoT | feat/iam | 087755a | feat: Introduce queries and commands for owner and technician profiles, including integration events and persistence entities |  | 28/09/2026 |
+| IceTrack-IoT/Platform-IceTrack_IoT | feat/iam | 8f1d5a5 | feat: Standardize JSON field naming to snake_case across registration and profile resources |  | 28/09/2026 |
+| IceTrack-IoT/Platform-IceTrack_IoT | feat/monitoring | b617bfa | feat: Adding the Monitoring and Alerting BC |  | 28/09/2026 |
+| IceTrack-IoT/Platform-IceTrack_IoT | feat/iam | 489e0f5 | feat: Extend UserResource with provider and external ID fields for enhanced user information |  | 29/09/2026 |
+| IceTrack-IoT/Platform-IceTrack_IoT | feat/iam | 5cfae04 | feat: Implement refresh token functionality with session management and current user retrieval |  | 29/09/2026 |
+| IceTrack-IoT/Platform-IceTrack_IoT | feat/iam | c567bc3 | feat: Add refresh token reuse grace period and purge scheduler for expired tokens |  | 29/09/2026 |
+| IceTrack-IoT/Platform-IceTrack_IoT | feat/iam | 17c34a5 | feat: Enhance refresh token handling with improved error responses and rotation logic |  | 01/10/2026 |
+| IceTrack-IoT/Platform-IceTrack_IoT | develop | 1194ea2 | Merge pull request #1 from IceTrack-IoT/feat/monitoring | feat: Adding the Monitoring and Alerting BC | 02/10/2026 |
+| IceTrack-IoT/Platform-IceTrack_IoT | feat/monitoring | 4a84f60 | docs: Adding documentation |  | 02/10/2026 |
+| IceTrack-IoT/Platform-IceTrack_IoT | feat/-assets-managment | 5bddb2e | feat/ v1 |  | 02/10/2026 |
+| IceTrack-IoT/Platform-IceTrack_IoT | feat/-assets-managment | 426f184 | fix: schemas |  | 02/10/2026 |
+| IceTrack-IoT/Platform-IceTrack_IoT | develop | 472d5be | Merge branch 'feat/iam' into develop |  | 02/10/2026 |
+| IceTrack-IoT/Platform-IceTrack_IoT | feat/notifications | 1af7d2b | feat: Adding the initial Notifications BC structure |  | 04/10/2026 |
+| IceTrack-IoT/Platform-IceTrack_IoT | feat/-assets-managment | 22ba818 | Merge remote-tracking branch 'origin/feat/monitoring' into feat/-assets-managment |  | 04/10/2026 |
+| IceTrack-IoT/Platform-IceTrack_IoT | feat/notifications | 8fddca2 | Merge branch 'feat/-assets-managment' into feat/notifications |  | 04/10/2026 |
+| IceTrack-IoT/Platform-IceTrack_IoT | feat/notifications | db809a1 | feat: Adding to and combining with other BC |  | 04/10/2026 |
+| IceTrack-IoT/Platform-IceTrack_IoT | feat/iam | 42c358b | refactor: Add provider field to user resources and enhance user profile handling |  | 06/10/2026 |
+| IceTrack-IoT/Platform-IceTrack_IoT | feat/iam | 8a6fb23 | feat: Update AuthenticatedUserResource to include provider field in response example |  | 06/10/2026 |
+| IceTrack-IoT/Platform-IceTrack_IoT | feat/iam | c793657 | fix: change the correct AuthenticatedUserResourceFromEntityAssembler |  | 06/10/2026 |
+| IceTrack-IoT/Platform-IceTrack_IoT | develop | e2f9aa2 | Merge branch 'feat/iam' into develop |  | 08/10/2026 |
+| IceTrack-IoT/Platform-IceTrack_IoT | develop | 0033deb | Merge branch 'feat/assets-managment' of https://github.com/IceTrack-IoT/Platform-IceTrack_IoT into develop | # Conflicts:<br># src/main/java/pe/edu/upc/ice/track/platform/profiles/application/acl/ProfilesContextFacadeImpl.java<br># src/main/java/pe/edu/upc/ice/track/platform/profiles/interfaces/acl/ProfilesContextFacade.java | 08/10/2026 |
+| IceTrack-IoT/Platform-IceTrack_IoT | develop | f9b197c | feat: add method to fetch owner ID by user ID in ProfilesContextFacade |  | 08/10/2026 |
+| IceTrack-IoT/Platform-IceTrack_IoT | develop | c5e22e1 | Merge branch 'feat/notifications' of https://github.com/IceTrack-IoT/Platform-IceTrack_IoT into develop |  | 08/10/2026 |
+| IceTrack-IoT/Platform-IceTrack_IoT | feat/iam | f48f44a | refactor: add username param to CompleteGoogleOwnerRegistrationResource and CompleteGoogleTechnicianRegistrationCommandFromResourceAssembler |  | 08/10/2026 |
+| IceTrack-IoT/Platform-IceTrack_IoT | develop | 126b935 | feat: Implement dashboard configs |  | 08/10/2026 |
+| IceTrack-IoT/Platform-IceTrack_IoT | develop | 06fe834 | refactor: Enhance params by IoT standards on temperature ranges |  | 08/10/2026 |
+| IceTrack-IoT/Platform-IceTrack_IoT | develop | cb978d4 | fix: Refactor Assets Bounded Context with not isolated self schema |  | 08/10/2026 |
+| IceTrack-IoT/Platform-IceTrack_IoT | develop | ad1d2a8 | refactor: Remove AddCard functionality and introduce layout update for dashboard cards |  | 08/10/2026 |
+| IceTrack-IoT/Platform-IceTrack_IoT | feat/profiles | 5e7a2ff | refactor: Update Docker Compose configurations for database service |  | 09/10/2026 |
+| IceTrack-IoT/Platform-IceTrack_IoT | feat/profiles | ae24f96 | refactor: Add volume configuration for PostgreSQL data persistence |  | 09/10/2026 |
+| IceTrack-IoT/Platform-IceTrack_IoT | feat/profiles | 717b598 | refactor: Update server port configuration and modify OpenAPI server URLs for production |  | 09/10/2026 |
 
 #### 6.2.1.5. Testing Suite Evidence for Sprint Review
 
