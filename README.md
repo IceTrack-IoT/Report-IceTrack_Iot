@@ -3932,6 +3932,95 @@ A continuación, presentamos los mock-ups de alta fidelidad creados con base en 
 
 ### 5.4.3. Applications User Flow Diagrams
 
+En este apartado se muestran los flujos de actividades que realiza el técnico en la aplicación móvil para alcanzar sus metas. Cada flujo se construye a partir de los mock-ups de la aplicación y de las historias de usuario asociadas.
+
+**Apartado de Dueños**
+
+
+**Apartado de Técnicos**
+
+**User Goal 1: Registrarse, iniciar sesión y acceder a la aplicación**
+El técnico abre la aplicación e inicia sesión con su correo o con su cuenta de Google. Si ya tiene una cuenta, accede directamente al listado de órdenes asignadas. Si no la tiene, completa el formulario de creación de cuenta de técnico y, al finalizar, ingresa al mismo listado.
+
+<div align="center">
+  <img src="assets/chapter05/userflow1.png"
+  alt="Figura 1: User Goal 1 - Registrarse, iniciar sesión y acceder a la aplicación"
+  style="width: 100%; height: auto; border-radius: 8px; border: 1px solid #d0d7de; box-shadow: 0 4px 12px rgba(0,0,0,0.08);" />
+  <p><em><b>Figura 1:</b> User Goal 1 - Registrarse, iniciar sesión y acceder a la aplicación</em></p>
+</div>
+
+**User Goal 2: Recibir y aceptar una asignación de servicio**
+El técnico recibe una notificación de nueva orden asignada y la abre desde el listado de órdenes. En el detalle revisa la sede, el equipo, la fecha, la prioridad y el problema reportado. Si acepta el servicio, la orden pasa a ACEPTADA y el cambio queda visible para el propietario en la aplicación web; si la rechaza, vuelve al listado de órdenes.
+
+<div align="center">
+  <img src="assets/chapter05/userflow2.png"
+  alt="Figura 2: User Goal 2 - Recibir y aceptar una asignación de servicio"
+  style="width: 100%; height: auto; border-radius: 8px; border: 1px solid #d0d7de; box-shadow: 0 4px 12px rgba(0,0,0,0.08);" />
+  <p><em><b>Figura 2:</b> User Goal 2 - Recibir y aceptar una asignación de servicio</em></p>
+</div>
+
+**User Goal 3: Consultar el equipo y actualizar el estado en campo**
+Con la orden aceptada, el técnico consulta durante el desplazamiento el detalle del equipo: la última telemetría de temperatura, el historial técnico y las intervenciones previas. Al llegar a la sede marca su llegada y la orden pasa a EN PROGRESO; mientras no llegue, la orden permanece aceptada.
+
+<div align="center">
+  <img src="assets/chapter05/userflow3.png"
+  alt="Figura 3: User Goal 3 - Consultar el equipo y actualizar el estado en campo"
+  style="width: 100%; height: auto; border-radius: 8px; border: 1px solid #d0d7de; box-shadow: 0 4px 12px rgba(0,0,0,0.08);" />
+  <p><em><b>Figura 3:</b> User Goal 3 - Consultar el equipo y actualizar el estado en campo</em></p>
+</div>
+
+**User Goal 4: Registrar la intervención técnica, incluso sin conexión**
+Al concluir el servicio, el técnico completa el formulario de intervención con el diagnóstico, las acciones realizadas, los repuestos y la evidencia fotográfica, y pulsa "Finalizar servicio". Si hay conexión, la intervención se envía y la orden pasa a COMPLETADA. Si no la hay, se guarda en una cola local con un identificador único y se sincroniza automáticamente al recuperar la red, sin generar registros duplicados.
+
+<div align="center">
+  <img src="assets/chapter05/userflow4.png"
+  alt="Figura 4: User Goal 4 - Registrar la intervención técnica, incluso sin conexión"
+  style="width: 100%; height: auto; border-radius: 8px; border: 1px solid #d0d7de; box-shadow: 0 4px 12px rgba(0,0,0,0.08);" />
+  <p><em><b>Figura 4:</b> User Goal 4 - Registrar la intervención técnica, incluso sin conexión</em></p>
+</div>
+
+**User Goal 5: Atender una alerta térmica crítica**
+El técnico recibe una notificación push con el equipo, la sede, la temperatura registrada y la severidad. Al seleccionarla se abre el detalle del equipo con su telemetría reciente. Si el equipo requiere intervención, procede a registrarla; caso contrario, puede darle seguimiento desde el apartado de alertas activas.
+
+<div align="center">
+  <img src="assets/chapter05/userflow5.png"
+  alt="Figura 5: User Goal 5 - Atender una alerta térmica crítica"
+  style="width: 100%; height: auto; border-radius: 8px; border: 1px solid #d0d7de; box-shadow: 0 4px 12px rgba(0,0,0,0.08);" />
+  <p><em><b>Figura 5:</b> User Goal 5 - Atender una alerta térmica crítica</em></p>
+</div>
+
+**User Goal 6: Consultar el centro de notificaciones**
+Desde el listado de órdenes, el técnico ingresa al centro de notificaciones, donde solo ve los avisos que le corresponden según las órdenes y equipos que tiene asignados. Puede marcarlos como leídos y, según el tipo de aviso, abrir el equipo afectado (alerta) o el detalle de la orden (asignación).
+
+<div align="center">
+  <img src="assets/chapter05/userflow6.png"
+  alt="Figura 6: User Goal 6 - Consultar el centro de notificaciones"
+  style="width: 100%; height: auto; border-radius: 8px; border: 1px solid #d0d7de; box-shadow: 0 4px 12px rgba(0,0,0,0.08);" />
+  <p><em><b>Figura 6:</b> User Goal 6 - Consultar el centro de notificaciones</em></p>
+</div>
+
+**User Goal 7: Configurar idioma, sincronización y sesión**
+En el apartado "Perfil", el técnico puede cambiar el idioma de la interfaz entre español latinoamericano e inglés, revisar los registros pendientes de sincronizar, forzar una sincronización y configurar las notificaciones push. También puede cerrar sesión, con lo que vuelve a la pantalla de inicio de sesión.
+
+<div align="center">
+  <img src="assets/chapter05/userflow7.png"
+  alt="Figura 7: User Goal 7 - Configurar idioma, sincronización y sesión"
+  style="width: 100%; height: auto; border-radius: 8px; border: 1px solid #d0d7de; box-shadow: 0 4px 12px rgba(0,0,0,0.08);" />
+  <p><em><b>Figura 7:</b> User Goal 7 - Configurar idioma, sincronización y sesión</em></p>
+</div>
+
+**User Goal 8: Recuperar la sesión vencida en campo**
+Si el token de sesión caduca mientras el técnico trabaja, la aplicación le pide volver a autenticarse. Si se reautentica con Google, la sesión se renueva y los registros pendientes se sincronizan. Si elige "Ahora no", sus registros se conservan en el dispositivo sin pérdida hasta que vuelva a iniciar sesión.
+
+<div align="center">
+  <img src="assets/chapter05/userflow8.png"
+  alt="Figura 8: User Goal 8 - Recuperar la sesión vencida en campo"
+  style="width: 100%; height: auto; border-radius: 8px; border: 1px solid #d0d7de; box-shadow: 0 4px 12px rgba(0,0,0,0.08);" />
+  <p><em><b>Figura 8:</b> User Goal 8 - Recuperar la sesión vencida en campo</em></p>
+</div>
+
+
+
 ## 5.5. Applications Prototyping
 
 ## 5.6. IoT Device Design
