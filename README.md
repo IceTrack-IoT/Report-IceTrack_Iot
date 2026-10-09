@@ -3819,8 +3819,60 @@ Para prevenir la desorientación del usuario, las interfaces incorporan indicado
 
 ### 5.3.1. Landing Page Wireframe
 
+El diseño esquemático inicial de la página de presentación (*Landing Page*) de **IceTrack** se estructuró mediante un *wireframe* de baja fidelidad. Su propósito fundamental consistió en definir la arquitectura de información, la jerarquía visual y la distribución espacial de los componentes antes de la aplicación de elementos gráficos definitivos. El esquema prioriza una narrativa comercial de tipo *storytelling* B2B, orientada a la conversión de visitantes en usuarios registrados mediante la exposición clara del problema de la cadena de frío y la propuesta de valor tecnológica de la startup.
+
+La estructura del *wireframe* se organizó en las siguientes zonas funcionales:
+
+1. **Cabecera (*Header*):** Ubicada en la parte superior fija, contiene la isotipografía institucional de IceTrack y un menú de navegación simplificado con anclajes hacia las secciones clave, acompañado de los selectores de idioma (*es-419* / *en-US*) y accesos directos de autenticación.
+2. **Sección Principal (*Hero Section*):** Diseñada como el primer impacto visual, integra un titular de gran formato enfocado en la prevención de mermas por ruptura térmica, un párrafo explicativo sobre la integración de sensores IoT y un doble botón de llamada a la acción (*Call to Action* - CTA) para iniciar pruebas o solicitar demostraciones.
+3. **Bloque de Propuesta de Valor y Características:** Organizado mediante una retícula (*grid*) de tres columnas para destacar los pilares operativos de la plataforma: monitoreo en tiempo real, alertas automatizadas y gestión centralizada de mantenimiento.
+4. **Sección Institucional y de Autoridad:** Espacio dedicado a exponer la misión y visión de FrostShield, reforzando la confianza corporativa mediante la validación de casos de uso y testimonios de operadores del sector.
+5. **Formulario de Conversión (*Lead Generation*):** Un bloque centralizado con campos estructurados para la captura de prospectos comerciales (nombre, correo corporativo, tipo de establecimiento y requerimiento).
+6. **Pie de Página (*Footer*):** Contiene los enlaces legales, avisos de privacidad, referencias a los repositorios públicos del proyecto en GitHub y accesos directos a redes sociales corporativas.
+
+![Wireframe1](assets/chapter04/LandingPageWireframe.png)
+*Figura 1: Esquema estructural (Wireframe) de la Landing Page de IceTrack.*
+
 ### 5.3.2. Landing Page Mock-up
 
+A partir de la validación del esquema estructural, se desarrollaron los prototipos de alta fidelidad (*mock-ups*) de la Landing Page. Esta fase aplicó de manera estricta las directrices de la guía de estilo visual de la plataforma (empleando la paleta de azules corporativos `#004AAD` y `#0C8DDF`, el tono de alerta crítico `#FF5757` para acentos clave, y la tipografía *Roboto Serif*), logrando una interfaz moderna, limpia y alineada con los estándares de diseño de soluciones SaaS industriales.
+
+A continuación se detalla la distribución y el propósito visual de cada una de las vistas implementadas:
+
+#### A. Vista de Inicio (*Hero Section*)
+
+Presenta la interfaz de bienvenida con un banner superior de alta resolución que ilustra un entorno de refrigeración comercial conectado a infraestructura inalámbrica. La tipografía destaca el mensaje central de la plataforma, guiando de inmediato la atención del visitante hacia los botones de acción principal.
+
+![Wireframe1](assets/chapter04/LPMockupInicio.png)
+*Figura 1: Vista de Inicio de la Landing Page de IceTrack.*
+
+#### B. Sección de Beneficios
+
+Organizada mediante tarjetas (*cards*) con bordes redondeados e iconografía esquemática en color celeste. Su diseño resalta métricas de impacto comercial y operativo, facilitando una lectura rápida y comprensible para gerentes y administradores.
+
+![Wireframe1](assets/chapter04/LPMockupBeneficios.png)
+*Figura 2: Sección de Beneficios y Ventajas Competitivas.*
+
+#### C. Sección Institucional (Sobre Nosotros)
+
+Comunica la misión, visión y los valores corporativos de FrostShield. Utiliza un estilo visual sobrio que transmite estabilidad tecnológica y profesionalismo en la gestión de la cadena de frío.
+
+![Wireframe1](assets/chapter04/LPMockupSobreNosotros.png)
+*Figura 3: Sección Institucional y Propósito Estratégico.*
+
+#### D. Sección de Testimonios y Prueba Social
+
+Incorpora reseñas y valoraciones de usuarios reales (operadores logísticos y dueños de establecimientos), aportando evidencia social sobre la fiabilidad y efectividad del sistema de monitoreo.
+
+![Wireframe1](assets/chapter04/LPMockupTestimonios.png)
+*Figura 4: Módulo de Testimonios y Validación de Clientes.*
+
+#### E. Formulario de Contacto
+
+Ofrece un canal de comunicación directo y estructurado con campos de entrada optimizados y un botón de envío principal con efectos visuales de interacción (*hover*), asegurando una experiencia de conversión fluida.
+
+![Wireframe1](assets/chapter04/LPMockupContacto.pngg)
+*Figura 5: Formulario de Contacto y Captación de Prospectos.*
 
 ## 5.4. Applications UX/UI Design
 
