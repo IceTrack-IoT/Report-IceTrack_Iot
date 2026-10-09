@@ -3630,13 +3630,27 @@ El diseño del logo de IceTrack busca transmitir los conceptos de protección, t
 **Typography:** La tipografía del producto es *Roboto Serif*, en seis variantes (Regular 400, Medium 500, SemiBold 600, Bold 700, ExtraBold 800 e Italic), cargadas como fuentes propias de la aplicación. Dentro de esto se incluye todo los títulos, párrafos, etiquetas y datos técnicos. Esta decisión simplifica la carga de fuentes y mantiene coherencia visual en una sola familia, en lugar de combinar dos.
 
 	
-  - **Escala:** 
+  - **Escala:**
+
+  <img src="./assets/chapter01/GSG_Escala.png">
+
 
   - **Weight:**
 	
+  <img src="./assets/chapter01/GSG_Weights.png">
+  
   - **Nomenclatura:**
 	
+  <img src="./assets/chapter01/GSG_Nomenclatura.png">
+  
   - **Example:**
+  
+  <img src="./assets/chapter01/GSG_Example.png" height=200px>
+
+  - **Colors:**
+
+  <img src="./assets/chapter01/WSG_Colors.png" height=300px>
+
 
 ### 5.1.2. Web, Mobile and IoT Style Guidelines
 Esta sección establece los estándares visuales e interactivos para los distintos canales digitales de IceTrack: la interfaz web de administración, la experiencia en dispositivos móviles, y los dispositivos IoT (placas ESP32 con sensores) instalados junto a cada equipo de refrigeración. Los tres comparten la misma identidad visual definida en los General Style Guidelines: la paleta de azules, rojo y Roboto Serif, pero cada canal tiene particularidades propias de interacción.
@@ -3659,10 +3673,15 @@ Al tratarse de la misma aplicación web en un viewport reducido, el Mobile Style
 - Gestión de alertas en campo: el técnico que recibe una notificación de una solicitud asignada puede aceptarla y registrar su intervención desde el navegador móvil, sin requerir instalación de una app.
 
 **IoT Style Guide:**
-Esta guía aplica al indicador visual de la propia placa IoT (ESP32 con sensor de temperatura) instalada junto al equipo de refrigeración monitoreado. A diferencia de los otros dos canales, esta guía es de carácter prospectivo: el firmware actual del dispositivo se limita a transmitir lecturas a la Edge API y no implementa todavía retroalimentación visual, por lo que lo siguiente son lineamientos para una futura placa con LED indicador, no una funcionalidad ya construida:
-- Indicador LED de un solo color, usando la paleta de marca: celeste (`#0C8DDF`) fijo para conexión estable, celeste parpadeante durante el emparejamiento con un equipo, rojo (`#FF5757`) fijo cuando el dispositivo pierde conectividad por más del umbral configurado en su política de alerta (`DeviceStatus.OFFLINE`).
-- Sin pantalla embebida ni interacción táctil en el dispositivo: toda la configuración (umbral de temperatura, política de alerta) se administra desde la web, nunca desde la placa física.
-- El indicador debe ser visible pero no distractor, dado que el dispositivo se instala en un entorno operativo (cocina, almacén) y no es el punto de atención principal del usuario.
+Dispositivos IoT (placas ESP32 con sensor de temperatura) instalados junto a cada equipo de refrigeración monitoreado:
+
+- **Indicadores visuales:** uso de un LED de estado con tres comportamientos (verde fijo para operación normal, rojo intermitente para excursión térmica y ámbar fijo para pérdida de conectividad). El rojo es el mismo rojo reservado en la plataforma para alertas críticas, y cada estado se corresponde con una etiqueta de la interfaz web (alerta Abierta de tipo excursión térmica, o Dispositivo sin conexión).
+
+- **Pantallas embarcadas:** el dispositivo no incorpora pantalla ni interacción táctil. Toda la configuración (umbral de temperatura, política de alerta y emparejamiento con el equipo) se administra desde la web, nunca desde la placa, por lo que la tipografía Roboto Serif no aplica en este canal.
+
+- **Jerarquía de alertas:** la excursión térmica es el único estado que se acompaña de refuerzo sonoro (buzzer), que se silencia al normalizarse la lectura. La pérdida de conectividad se indica solo de forma visual, para informar con claridad sin generar alarma innecesaria.
+
+- **Contraste:** se garantiza que el LED sea visible a distancia y bajo iluminación variable de cocinas y almacenes, con difusor y sin competir con el equipo. Los estados no dependen solo del color: el rojo parpadea (máx. 2 Hz) y el ámbar permanece fijo, para ser distinguibles también por personas con daltonismo.
 
 
 ## 5.2. Information Architecture
@@ -3676,6 +3695,30 @@ Se utilizarán diversos métodos para organizar la información según su releva
 - **Organización por Audiencia (Rol):** Dado que el sistema distingue dos roles de usuario(Owner y Technician), cada uno accede a una configuración de navegación distinta. El Owner administra sedes, equipos, políticas de alerta, solicitudes de servicio y reportes; el Technician accede únicamente a las solicitudes que tiene asignadas y a las alertas de los equipos relacionados con ellas.
 
 ### 5.2.2. Labeling Systems
+
+El sistema de etiquetado se diseñó con enfoque en simplicidad, consistencia y precisión operacional, utilizando palabras cortas y familiares para dueños de negocio y técnicos. Se priorizó la claridad en la asociación entre etiqueta y contenido, evitando tecnicismos innecesarios pero respetando el lenguaje ubicuo del dominio (Sitio, Equipo, Alerta, Solicitud de servicio, Intervención). Las etiquetas están disponibles en español e inglés mediante el selector de idioma.
+
+- **Menú principal (menú lateral – Owner):** Dashboard, Sitios y Equipos, Alertas, Solicitudes de Servicio, Reportes, Notificaciones y Perfil.
+Menú principal (menú lateral – Technician): Mis Solicitudes, Alertas, Notificaciones y Perfil.
+
+- **Menú principal (navegación móvil – ambos roles):** el mismo conjunto de opciones del rol, presentado en menú hamburguesa, priorizando la consulta rápida y la atención de solicitudes desde el navegador móvil en campo.
+Acceso: Iniciar sesión, Registrarse, Continuar con Google y Cerrar sesión. Al registrarse, el usuario elige explícitamente su rol (Owner o Technician).
+
+Las etiquetas funcionan como puntos de entrada semánticos, permitiendo que los usuarios identifiquen rápidamente la funcionalidad:
+
+- **Dashboard:** Vista principal del Owner con tarjetas configurables (equipos monitoreados, alertas abiertas, solicitudes activas y estado de equipos), ordenadas por prioridad con las alertas críticas primero.
+
+- **Sitios y Equipos:** Registro y consulta de sedes y equipos de refrigeración (Congelador, Cámara fría, Refrigerador), con su detalle, umbral de temperatura, dispositivo emparejado e historial de mantenimiento.
+
+- **Alertas:** Administración de alertas térmicas y de conectividad según su estado (Abierta, Reconocida, Resuelta, Descartada), con indicación clara de severidad y equipo afectado.
+
+- **Solicitudes de Servicio:** Creación, seguimiento y calificación de servicios técnicos según su estado (Pendiente, Aceptada, Rechazada, En progreso, Completada, Cancelada).
+
+- **Reportes:** Generación bajo demanda de reportes de cumplimiento de mantenimiento, disponibilidad del equipo, desempeño de técnicos y excursiones de temperatura, con filtros por sede, equipo o rango de fechas.
+
+- **Notificaciones:** Centro de notificaciones con recordatorios de mantenimiento, alertas de monitoreo y actualizaciones de solicitudes.
+
+- **Perfil:** Datos del usuario, idioma de la interfaz y preferencias del dashboard.
 
 ### 5.2.3. SEO Tags and Meta Tags
 
