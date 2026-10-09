@@ -3668,13 +3668,13 @@ Al tratarse de la misma aplicación web en un viewport reducido, el Mobile Style
 **IoT Style Guide:**
 Dispositivos IoT (placas ESP32 con sensor de temperatura) instalados junto a cada equipo de refrigeración monitoreado:
 
-- **Indicadores visuales:** uso de un LED de estado con tres comportamientos (verde fijo para operación normal, rojo intermitente para excursión térmica y ámbar fijo para pérdida de conectividad). El rojo es el mismo rojo reservado en la plataforma para alertas críticas, y cada estado se corresponde con una etiqueta de la interfaz web (alerta Abierta de tipo excursión térmica, o Dispositivo sin conexión).
+- **Indicadores visuales:** Uso de dos LED de estado con colores semánticos de señalización, verde fijo para operación normal y rojo fijo para alerta. El rojo del LED corresponde al rojo reservado en la plataforma para alertas críticas, y ambos LED nunca están encendidos al mismo tiempo.
 
-- **Pantallas embarcadas:** el dispositivo no incorpora pantalla ni interacción táctil. Toda la configuración (umbral de temperatura, política de alerta y emparejamiento con el equipo) se administra desde la web, nunca desde la placa, por lo que la tipografía Roboto Serif no aplica en este canal.
+- **Pantallas embarcadas:** LCD de 16x2 caracteres con fondo retroiluminado. En operación normal alterna cada ciclo entre dos vistas: temperatura del congelador con estado de la puerta, y temperatura y humedad del ambiente. En alerta muestra la cabecera “!ALERTA SISTEMA!” y, en la segunda línea, la causa activa. Por el límite de la pantalla, los textos se escriben sin tildes ni caracteres especiales.
 
-- **Jerarquía de alertas:** la excursión térmica es el único estado que se acompaña de refuerzo sonoro (buzzer), que se silencia al normalizarse la lectura. La pérdida de conectividad se indica solo de forma visual, para informar con claridad sin generar alarma innecesaria.
+- **Jerarquía de alertas:** Cuando coinciden varias causas, la pantalla muestra solo la de mayor prioridad: temperatura del congelador, luego puerta abierta y luego humedad crítica. La alerta se acompaña de refuerzo sonoro (buzzer a 1000 Hz) que se silencia al normalizarse la condición.
 
-- **Contraste:** se garantiza que el LED sea visible a distancia y bajo iluminación variable de cocinas y almacenes, con difusor y sin competir con el equipo. Los estados no dependen solo del color: el rojo parpadea (máx. 2 Hz) y el ámbar permanece fijo, para ser distinguibles también por personas con daltonismo.
+- **Contraste:** Se garantiza que los LED sean visibles a distancia en cocinas y almacenes, y que la información crítica no dependa solo del color: la alerta también se comunica con texto en la pantalla y con sonido.
 
 
 ## 5.2. Information Architecture
