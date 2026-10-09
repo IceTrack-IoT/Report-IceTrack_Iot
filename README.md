@@ -4964,6 +4964,10 @@ WebStorm se utiliza como entorno de desarrollo para la aplicación web de IceTra
 - **Propósito:** Desarrollo, depuración y mantenimiento de la aplicación web.
 - **Ruta de descarga:** https://www.jetbrains.com/webstorm/
 
+<p align="center">
+  <img src="assets\chapter06\webstorm.png" alt="webstorm" width="150">
+</p>
+
 #### Angular Framework
 
 Angular es el framework principal utilizado para el desarrollo de la aplicación web de IceTrack.
