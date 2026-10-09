@@ -248,10 +248,68 @@
   - [5.6. IoT Device Design](#56-iot-device-design)
 - [Capítulo VI: Product Implementation, Validation \& Deployment](#capítulo-vi-product-implementation-validation--deployment)
   - [6.1. Software Configuration Management](#61-software-configuration-management)
-    - [6.1.1. Software Development Environment Configuration](#611-software-development-environment-configuration)
-    - [6.1.2. Source Code Management](#612-source-code-management)
+  - [6.1.1. Software Development Environment Configuration](#611-software-development-environment-configuration)
+    - [Project Management](#project-management)
+      - [GitHub](#github)
+    - [Requirements Management](#requirements-management)
+      - [Trello](#trello)
+      - [Lucidchart](#lucidchart)
+    - [Product UX/UI Design](#product-uxui-design)
+      - [Figma](#figma)
+    - [Software Development](#software-development)
+      - [Visual Studio Code](#visual-studio-code)
+      - [WebStorm](#webstorm)
+      - [Angular Framework](#angular-framework)
+      - [Angular Material](#angular-material)
+      - [Android Studio](#android-studio)
+      - [Flutter](#flutter)
+      - [IntelliJ IDEA](#intellij-idea)
+      - [Spring Boot Framework](#spring-boot-framework)
+      - [Spring Data JPA](#spring-data-jpa)
+      - [Spring Security](#spring-security)
+      - [Arduino IDE](#arduino-ide)
+      - [Flask](#flask)
+    - [Software Testing](#software-testing)
+      - [Postman](#postman)
+      - [JUnit](#junit)
+    - [Software Deployment](#software-deployment)
+      - [Vercel](#vercel)
+      - [Render](#render)
+    - [Software Documentation](#software-documentation)
+      - [GitHub Markdown](#github-markdown)
+      - [Swagger / OpenAPI](#swagger--openapi)
+  - [6.1.2. Source Code Management](#612-source-code-management)
+    - [GitHub Repositories](#github-repositories)
+    - [GitFlow Workflow](#gitflow-workflow)
+      - [Backend](#backend)
+      - [Frontend Web Application](#frontend-web-application)
+      - [Mobile Application](#mobile-application)
+      - [Landing Page](#landing-page)
     - [6.1.3. Source Code Style Guide \& Conventions](#613-source-code-style-guide--conventions)
+      - [General Principles](#general-principles)
+      - [Language and Reference Matrix](#language-and-reference-matrix)
+      - [Cross-Language Naming Summary](#cross-language-naming-summary)
+      - [Universal Formatting Rules](#universal-formatting-rules)
+      - [HTML, CSS and JavaScript (Landing Page)](#html-css-and-javascript-landing-page)
+      - [TypeScript and Angular (Web Application)](#typescript-and-angular-web-application)
+      - [Dart and Flutter (Mobile Application)](#dart-and-flutter-mobile-application)
+      - [Java and Spring Boot (Backend Cloud)](#java-and-spring-boot-backend-cloud)
+      - [Python and Flask (Edge API)](#python-and-flask-edge-api)
+      - [C++ and Arduino (ESP32 Firmware)](#c-and-arduino-esp32-firmware)
+      - [Gherkin (`.feature` Files)](#gherkin-feature-files)
+      - [Git Conventions](#git-conventions)
+      - [Automated Style Enforcement](#automated-style-enforcement)
     - [6.1.4. Software Deployment Configuration](#614-software-deployment-configuration)
+      - [Deployment Overview](#deployment-overview)
+      - [Deployment Diagram (C4 Model)](#deployment-diagram-c4-model)
+      - [1. Platform Database (PostgreSQL v18)](#1-platform-database-postgresql-v18)
+      - [2. Web Services (Spring Boot en Render)](#2-web-services-spring-boot-en-render)
+      - [3. Web Application y Landing Page (Vercel)](#3-web-application-y-landing-page-vercel)
+      - [4. Mobile Application (Flutter, Android)](#4-mobile-application-flutter-android)
+      - [5. Edge API (Flask en el gateway del local)](#5-edge-api-flask-en-el-gateway-del-local)
+      - [6. Embedded Application (ESP32)](#6-embedded-application-esp32)
+      - [Post-Deployment Verification](#post-deployment-verification)
+      - [Rollback](#rollback)
   - [6.2. Landing Page, Services \& Applications Implementation](#62-landing-page-services--applications-implementation)
     - [6.2.1. Sprint 1](#621-sprint-1)
       - [6.2.1.1. Sprint Planning 1](#6211-sprint-planning-1)
@@ -3684,9 +3742,69 @@ Figura 5: Wireframe Alertas.
 Figura 6: Wireframe Órdenes.
 ![Wireframe5](assets/chapter04/WebWireframe6.png)
 
---- 
+---
 
 **Vista de Técnicos**
+
+Figura 1: Wireframe Iniciar sesión.
+![Wireframe1](assets/chapter05/wireframe1.png)
+
+---
+
+Figura 2: Wireframe Crear cuenta de técnico.
+![Wireframe2](assets/chapter05/wireframe2.png)
+
+---
+
+Figura 3: Wireframe Mis órdenes asignadas.
+![Wireframe3](assets/chapter05/wireframe3.png)
+
+---
+
+Figura 4: Wireframe Detalle y aceptación de la orden.
+![Wireframe4](assets/chapter05/wireframe4.png)
+
+---
+
+Figura 5: Wireframe Orden aceptada - Llegada a la sede.
+![Wireframe5](assets/chapter05/wireframe5.png)
+
+---
+
+Figura 6: Wireframe Equipo y telemetría en campo.
+![Wireframe6](assets/chapter05/wireframe6.png)
+
+---
+
+Figura 7: Wireframe Registrar intervención sin conexión.
+![Wireframe7](assets/chapter05/wireframe7.png)
+
+---
+
+Figura 8: Wireframe Alerta push en pantalla bloqueada.
+![Wireframe8](assets/chapter05/wireframe8.png)
+
+---
+
+Figura 9: Wireframe Centro de notificaciones por rol.
+![Wireframe9](assets/chapter05/wireframe9.png)
+
+---
+
+Figura 10: Wireframe Perfil, idioma y sincronización.
+![Wireframe10](assets/chapter05/wireframe10.png)
+
+---
+
+Figura 11: Wireframe Sesión vencida en campo.
+![Wireframe11](assets/chapter05/wireframe11.png)
+
+---
+
+Figura 12: Wireframe Alertas activas de mis equipos.
+![Wireframe12](assets/chapter05/wireframe12.png)
+
+---
 
 ### 5.4.2. Applications Wireflow Diagrams
 
