@@ -760,15 +760,15 @@ Los resultados obtenidos permitirán validar las hipótesis planteadas y orienta
 
 7. ¿Supervisan actualmente el consumo eléctrico de sus equipos de refrigeración? ¿Han identificado alguna vez un aumento de consumo relacionado con un equipo funcionando de manera ineficiente?
 
-8. ¿Utilizan actualmente sensores, aplicaciones o algún sistema digital para monitorear sus equipos? En caso afirmativo, ¿qué utilizan y qué aspectos consideran que podrían mejorar?
+8. ¿Qué herramientas o métodos utilizan actualmente para supervisar sus equipos de refrigeración? ¿Cómo ha sido su experiencia con ellos?
 
-9. Si pudiera recibir una alerta en su celular cuando un equipo presente una temperatura anormal o un posible problema de funcionamiento, ¿en qué situaciones considera que sería más útil?
+9. ¿Qué dificultades, si las hay, encuentra para detectar a tiempo las anomalías en sus equipos de refrigeración? ¿Cómo suele actuar cuando identifica una?
 
-10. ¿Qué información le gustaría poder consultar sobre cada equipo desde una plataforma? Por ejemplo, temperatura actual, consumo energético, historial de fallas, mantenimientos realizados o próximas fechas de mantenimiento.
+10. ¿Qué información consulta actualmente sobre sus equipos de refrigeración y para qué la utiliza? ¿Hay algún dato que necesite y que actualmente no tenga disponible?
 
-11. ¿Qué factores serían importantes para que considere implementar una solución de monitoreo en sus equipos? Por ejemplo, precio, facilidad de instalación, precisión de las alertas, facilidad de uso o soporte técnico.
+11. ¿Qué aspectos considera al evaluar cambios o nuevas herramientas para la supervisión y el mantenimiento de sus equipos de refrigeración? ¿Qué factores influyen en su decisión de adoptarlas o no?
 
-12. Si una solución de este tipo demostrara que puede ayudar a detectar problemas antes de que ocasionen pérdidas, ¿consideraría pagar una suscripción mensual? ¿Qué modalidad de pago le resultaría más conveniente?
+12. ¿Qué criterios tendría en cuenta para decidir si vale la pena invertir en una herramienta de monitoreo de equipos de refrigeración? ¿Qué beneficios esperaría obtener y qué aspectos podrían desanimarlo a contratarla?
 
 ---
 
@@ -788,15 +788,15 @@ Los resultados obtenidos permitirán validar las hipótesis planteadas y orienta
 
 7. ¿Utiliza actualmente alguna aplicación, software o herramienta digital para gestionar clientes, equipos, mantenimientos o reportes? En caso afirmativo, ¿cuál y qué limitaciones encuentra?
 
-8. ¿Considera que recibir alertas sobre posibles anomalías en los equipos de sus clientes podría ayudarle a realizar mantenimientos de manera más preventiva? ¿Por qué?
+8. ¿Cómo identifica actualmente las posibles anomalías en los equipos de sus clientes y qué dificultades encuentra para anticiparse a las fallas?
 
 9. ¿Qué información debería contener el historial técnico de un equipo para que sea realmente útil durante un diagnóstico o mantenimiento?
 
-10. ¿Qué tan útil sería generar automáticamente un reporte después de cada mantenimiento para compartirlo con el cliente?
+10. ¿Cómo documenta actualmente los trabajos de mantenimiento que realiza y de qué manera comunica los resultados a sus clientes?
 
-11. Si pudiera administrar desde una misma plataforma los equipos de diferentes clientes y establecimientos, ¿cómo podría beneficiar esto a su trabajo o empresa?
+11. ¿Cómo organiza actualmente la información de los equipos y mantenimientos de sus diferentes clientes? ¿Qué dificultades encuentra al gestionar esta información?
 
-12. ¿Qué funcionalidades considera indispensables en una plataforma de monitoreo y gestión de mantenimiento para que realmente la incorporara a su trabajo?
+12. ¿Qué herramientas utiliza actualmente para gestionar sus actividades de mantenimiento y qué necesidades o dificultades siguen sin resolverse con ellas?
 
 ### 2.2.2. Registro de entrevistas
 
@@ -830,7 +830,7 @@ Los resultados obtenidos permitirán validar las hipótesis planteadas y orienta
 - **Duración:** 08:26 min
 - **URL:** [`https://upcedupe-my.sharepoint.com/:v:/g/personal/u20241a352_upc_edu_pe/IQDtPmZWk-kPSL7Hk4eeGOo3AVHl5d9OkXV4RKNw_Aqf10U?e=qe5Asn&nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifSwicGxheWJhY2tPcHRpb25zIjp7InN0YXJ0VGltZUluU2Vjb25kcyI6MzY0LjM4fX0%3D`](https://upcedupe-my.sharepoint.com/:v:/g/personal/u20241a352_upc_edu_pe/IQDtPmZWk-kPSL7Hk4eeGOo3AVHl5d9OkXV4RKNw_Aqf10U?e=qe5Asn&nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifSwicGxheWJhY2tPcHRpb25zIjp7InN0YXJ0VGltZUluU2Vjb25kcyI6MzY0LjM4fX0%3D)
 
-- **Resumen:** El entrevistado llego a perder parte de sus productos cuando se presentaron fallas inesperadas. Actualmente, revisa manualmente la temperatura de las congeladoras y coordina mantenimientos cada cierto tiempo para prevenir problemas. Sin embargo, considera que este proceso podría mejorar mediante el uso de tecnología. El entrevistado mostró interés en recibir notificaciones automáticas cuando un equipo presente alguna anomalía, así como disponer de un registro de los mantenimientos y reparaciones realizadas. También señaló que estaría dispuesta a pagar por IceTrack si la aplicación le ayuda a detectar problemas con anticipación, proteger sus productos y disminuir las pérdidas ocasionadas por fallas en las congeladoras.
+- **Resumen:** El entrevistado llego a perder parte de sus productos cuando se presentaron fallas inesperadas. Actualmente, revisa manualmente la temperatura de las congeladoras y coordina mantenimientos cada cierto tiempo para prevenir problemas. Sin embargo, considera que este proceso podría mejorar mediante el uso de tecnología. El entrevistado mostró interés en recibir notificaciones automáticas cuando un equipo presente alguna anomalía, así como disponer de un registro de los mantenimientos y reparaciones realizadas. También señaló que estaría dispuesta a pagar por IceTrack independientemente del tipo de membresía si la aplicación le ayuda a detectar problemas con anticipación, proteger sus productos y disminuir las pérdidas ocasionadas por fallas en las congeladoras.
 
 
 ---
@@ -847,7 +847,7 @@ Los resultados obtenidos permitirán validar las hipótesis planteadas y orienta
 - **Duración:** 07:09 min
 - **URL:** [`https://upcedupe-my.sharepoint.com/:v:/g/personal/u20241a352_upc_edu_pe/IQDtPmZWk-kPSL7Hk4eeGOo3AVHl5d9OkXV4RKNw_Aqf10U?e=A3pSiG&nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifSwicGxheWJhY2tPcHRpb25zIjp7InN0YXJ0VGltZUluU2Vjb25kcyI6ODcxLjAyfX0%3D`](https://upcedupe-my.sharepoint.com/:v:/g/personal/u20241a352_upc_edu_pe/IQDtPmZWk-kPSL7Hk4eeGOo3AVHl5d9OkXV4RKNw_Aqf10U?e=A3pSiG&nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifSwicGxheWJhY2tPcHRpb25zIjp7InN0YXJ0VGltZUluU2Vjb25kcyI6ODcxLjAyfX0%3D)
 
-- **Resumen:** La entrevistada mencionó que anteriormente ha sufrido pérdidas debido a problemas en la cadena de frío, situación que afectó parte de los helados almacenados. Para prevenir estos inconvenientes, realiza revisiones semanales y programa el mantenimiento de sus equipos mensualmente. Además, ya utiliza algunas herramientas digitales para controlar la temperatura. La entrevistada considera muy útil recibir alertas automáticas cuando se detecte alguna anomalía, además de contar con un historial técnico y reportes específicos de cada congeladora. Indicó que preferiría acceder a esta información desde una computadora o tablet y que estaría dispuesto a pagar por IceTrack, de preferencia mediante un pago único, siempre que la aplicación contribuya a disminuir las pérdidas de su heladería. Sin embargo, dejaría de utilizarla si presenta fallas frecuentes, un soporte técnico deficiente o costos que no se justifiquen.
+- **Resumen:** La entrevistada mencionó que anteriormente ha sufrido pérdidas debido a problemas en la cadena de frío, situación que afectó parte de los helados almacenados. Para prevenir estos inconvenientes, realiza revisiones semanales y programa el mantenimiento de sus equipos mensualmente; sin embargo, ella considera que el riesgo de pérdida aún sigue vigente por fallos inesperados. Además, ya utiliza algunas herramientas digitales para controlar la temperatura. La entrevistada considera muy útil recibir alertas automáticas, principalmente cuando se detecte alguna anomalía. Indicó que preferiría acceder a esta información desde una computadora o tablet y que estaría dispuesto a pagar por IceTrack, de preferencia mediante un pago único, siempre que la aplicación contribuya a disminuir las pérdidas de su heladería. Sin embargo, dejaría de utilizarla si presenta fallas frecuentes, un soporte técnico deficiente o costos que no se justifiquen.
 
 ---
 
@@ -905,11 +905,43 @@ Los resultados obtenidos permitirán validar las hipótesis planteadas y orienta
 
 De manera general, los entrevistados mostraron interés en contar con alertas automáticas que les permitan conocer rápidamente cualquier anomalía en sus equipos sin necesidad de supervisarlos constantemente. Asimismo, consideran importante disponer de un historial técnico por equipo y reportes de los mantenimientos realizados, ya que esto facilitaría el seguimiento de las fallas y reparaciones anteriores. También existe disposición a pagar por una solución como IceTrack siempre que contribuya a reducir las pérdidas económicas y sea confiable y sencilla de utilizar. Por ello, para este segmento, las funcionalidades más relevantes serían el monitoreo del estado de los equipos, las alertas automáticas, el historial de mantenimiento y la generación de reportes.
 
+En las entrevistas hemos podido identificar lo siguiente:
+
+## Uso de herramientas digitales
+Dos de las tres heladerías utilizan herramientas digitales para supervisar sus equipos, mientras que una no lo hace. Esto evidencia una oportunidad para ofrecer una solución que facilite el monitoreo de la refrigeración.
+![Heladería1](assets/chapter02/interview-analysis/heladeria1.png)
+
+## Pérdidas por fallas de refrigeración
+Las tres heladerías entrevistadas reportaron pérdidas de productos ocasionadas por fallas en sus equipos de refrigeración. Este resultado resalta la importancia de implementar mecanismos preventivos que permitan detectar anomalías oportunamente.
+![Heladería2](assets/chapter02/interview-analysis/heladeria2.png)
+
+## Necesidad de alertas automáticas
+Las tres heladerías manifestaron la necesidad de recibir alertas automáticas ante posibles anomalías en sus equipos. Esto respalda la incorporación de notificaciones en IceTrack para facilitar la detección temprana de problemas y reducir el riesgo de pérdidas.
+![Heladería3](assets/chapter02/interview-analysis/heladeria3.png)
+
+
 ## Segmento Objetivo 2 - Técnicos y empresas de mantenimiento de refrigeración:
 
 **Análisis:** En este segmento se identificó que las principales dificultades están relacionadas con la organización y gestión de los servicios técnicos. Los entrevistados utilizan herramientas como WhatsApp, llamadas, Excel, calendarios digitales, fotografías y anotaciones manuales para coordinar visitas y registrar los trabajos realizados. Al encontrarse la información distribuida en diferentes medios, pueden generarse problemas como pérdida de información, dificultad para consultar intervenciones anteriores, cambios de horarios y mayor tiempo destinado a la elaboración de reportes.
 
 Los entrevistados consideran favorable contar con una plataforma centralizada que permita consultar el historial de cada equipo, organizar las visitas técnicas y registrar directamente en campo las actividades realizadas. También valoran la posibilidad de adjuntar fotografías, recibir alertas sobre posibles fallas y generar reportes técnicos automáticamente. Además, la facilidad de uso aparece como un factor importante para la adopción de la solución, especialmente para los técnicos que necesitan acceder rápidamente a la información mientras realizan una atención. En conjunto, las entrevistas muestran que IceTrack podría contribuir a reducir tareas manuales, mejorar la planificación de los servicios y facilitar la comunicación entre los técnicos y las heladerías atendidas.
+
+A continuación se mostrará de manera gráfica la información obtenida:
+
+## Ejecución de tareas administrativas de manera manual
+
+Los resultados muestran que los tres talleres realizan tareas administrativas manualmente, lo que evidencia una oportunidad para automatizar el registro de información y agilizar la gestión de sus actividades.
+
+![Taller1](assets/chapter02/interview-analysis/taller1.png)
+
+## Información técnica dispersa o desorganizada
+Los tres talleres reportan dificultades relacionadas con la dispersión o desorganización de la información técnica. Esto resalta la necesidad de centralizar los registros para facilitar su consulta y seguimiento.
+![Taller2](assets/chapter02/interview-analysis/taller2.png)
+
+## Dificultades para organizar mantenimientos y visitas
+Dos de los tres talleres presentan dificultades para organizar los mantenimientos y las visitas técnicas, mientras que uno no reporta este problema. Estos resultados sugieren que IceTrack podría contribuir a mejorar la planificación y coordinación de los servicios.
+![Taller3](assets/chapter02/interview-analysis/taller3.png)
+
 
 ## 2.3. Needfinding
 
