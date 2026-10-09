@@ -3746,65 +3746,89 @@ Figura 6: Wireframe Órdenes.
 
 **Vista de Técnicos**
 
-Figura 1: Wireframe Iniciar sesión.
-![Wireframe1](assets/chapter05/wireframe1.png)
+---
+
+<div align="center">
+  <img src="assets/chapter05/wireframe1.png" alt="Figura 1: Wireframe Iniciar sesión" style="width: 100%; max-width: 350px; height: auto; border-radius: 8px; border: 1px solid #d0d7de; box-shadow: 0 4px 12px rgba(0,0,0,0.08);" />
+  <p><em><b>Figura 1:</b> Wireframe Iniciar sesión.</em></p>
+</div>
 
 ---
 
-Figura 2: Wireframe Crear cuenta de técnico.
-![Wireframe2](assets/chapter05/wireframe2.png)
+<div align="center">
+  <img src="assets/chapter05/wireframe2.png" alt="Figura 2: Wireframe Crear cuenta de técnico" style="width: 100%; max-width: 350px; height: auto; border-radius: 8px; border: 1px solid #d0d7de; box-shadow: 0 4px 12px rgba(0,0,0,0.08);" />
+  <p><em><b>Figura 2:</b> Wireframe Crear cuenta de técnico.</em></p>
+</div>
 
 ---
 
-Figura 3: Wireframe Mis órdenes asignadas.
-![Wireframe3](assets/chapter05/wireframe3.png)
+<div align="center">
+  <img src="assets/chapter05/wireframe3.png" alt="Figura 3: Wireframe Mis órdenes asignadas" style="width: 100%; max-width: 350px; height: auto; border-radius: 8px; border: 1px solid #d0d7de; box-shadow: 0 4px 12px rgba(0,0,0,0.08);" />
+  <p><em><b>Figura 3:</b> Wireframe Mis órdenes asignadas.</em></p>
+</div>
 
 ---
 
-Figura 4: Wireframe Detalle y aceptación de la orden.
-![Wireframe4](assets/chapter05/wireframe4.png)
+<div align="center">
+  <img src="assets/chapter05/wireframe4.png" alt="Figura 4: Wireframe Detalle y aceptación de la orden" style="width: 100%; max-width: 350px; height: auto; border-radius: 8px; border: 1px solid #d0d7de; box-shadow: 0 4px 12px rgba(0,0,0,0.08);" />
+  <p><em><b>Figura 4:</b> Wireframe Detalle y aceptación de la orden.</em></p>
+</div>
 
 ---
 
-Figura 5: Wireframe Orden aceptada - Llegada a la sede.
-![Wireframe5](assets/chapter05/wireframe5.png)
+<div align="center">
+  <img src="assets/chapter05/wireframe5.png" alt="Figura 5: Wireframe Orden aceptada - Llegada a la sede" style="width: 100%; max-width: 350px; height: auto; border-radius: 8px; border: 1px solid #d0d7de; box-shadow: 0 4px 12px rgba(0,0,0,0.08);" />
+  <p><em><b>Figura 5:</b> Wireframe Orden aceptada - Llegada a la sede.</em></p>
+</div>
 
 ---
 
-Figura 6: Wireframe Equipo y telemetría en campo.
-![Wireframe6](assets/chapter05/wireframe6.png)
+<div align="center">
+  <img src="assets/chapter05/wireframe6.png" alt="Figura 6: Wireframe Equipo y telemetría en campo" style="width: 100%; max-width: 350px; height: auto; border-radius: 8px; border: 1px solid #d0d7de; box-shadow: 0 4px 12px rgba(0,0,0,0.08);" />
+  <p><em><b>Figura 6:</b> Wireframe Equipo y telemetría en campo.</em></p>
+</div>
 
 ---
 
-Figura 7: Wireframe Registrar intervención sin conexión.
-![Wireframe7](assets/chapter05/wireframe7.png)
+<div align="center">
+  <img src="assets/chapter05/wireframe7.png" alt="Figura 7: Wireframe Registrar intervención sin conexión" style="width: 100%; max-width: 350px; height: auto; border-radius: 8px; border: 1px solid #d0d7de; box-shadow: 0 4px 12px rgba(0,0,0,0.08);" />
+  <p><em><b>Figura 7:</b> Wireframe Registrar intervención sin conexión.</em></p>
+</div>
 
 ---
 
-Figura 8: Wireframe Alerta push en pantalla bloqueada.
-![Wireframe8](assets/chapter05/wireframe8.png)
+<div align="center">
+  <img src="assets/chapter05/wireframe8.png" alt="Figura 8: Wireframe Alerta push en pantalla bloqueada" style="width: 100%; max-width: 350px; height: auto; border-radius: 8px; border: 1px solid #d0d7de; box-shadow: 0 4px 12px rgba(0,0,0,0.08);" />
+  <p><em><b>Figura 8:</b> Wireframe Alerta push en pantalla bloqueada.</em></p>
+</div>
 
 ---
 
-Figura 9: Wireframe Centro de notificaciones por rol.
-![Wireframe9](assets/chapter05/wireframe9.png)
+<div align="center">
+  <img src="assets/chapter05/wireframe9.png" alt="Figura 9: Wireframe Centro de notificaciones por rol" style="width: 100%; max-width: 350px; height: auto; border-radius: 8px; border: 1px solid #d0d7de; box-shadow: 0 4px 12px rgba(0,0,0,0.08);" />
+  <p><em><b>Figura 9:</b> Wireframe Centro de notificaciones por rol.</em></p>
+</div>
 
 ---
 
-Figura 10: Wireframe Perfil, idioma y sincronización.
-![Wireframe10](assets/chapter05/wireframe10.png)
+<div align="center">
+  <img src="assets/chapter05/wireframe10.png" alt="Figura 10: Wireframe Perfil, idioma y sincronización" style="width: 100%; max-width: 350px; height: auto; border-radius: 8px; border: 1px solid #d0d7de; box-shadow: 0 4px 12px rgba(0,0,0,0.08);" />
+  <p><em><b>Figura 10:</b> Wireframe Perfil, idioma y sincronización.</em></p>
+</div>
 
 ---
 
-Figura 11: Wireframe Sesión vencida en campo.
-![Wireframe11](assets/chapter05/wireframe11.png)
+<div align="center">
+  <img src="assets/chapter05/wireframe11.png" alt="Figura 11: Wireframe Sesión vencida en campo" style="width: 100%; max-width: 350px; height: auto; border-radius: 8px; border: 1px solid #d0d7de; box-shadow: 0 4px 12px rgba(0,0,0,0.08);" />
+  <p><em><b>Figura 11:</b> Wireframe Sesión vencida en campo.</em></p>
+</div>
 
 ---
 
-Figura 12: Wireframe Alertas activas de mis equipos.
-![Wireframe12](assets/chapter05/wireframe12.png)
-
----
+<div align="center">
+  <img src="assets/chapter05/wireframe12.png" alt="Figura 12: Wireframe Alertas activas de mis equipos" style="width: 100%; max-width: 350px; height: auto; border-radius: 8px; border: 1px solid #d0d7de; box-shadow: 0 4px 12px rgba(0,0,0,0.08);" />
+  <p><em><b>Figura 12:</b> Wireframe Alertas activas de mis equipos.</em></p>
+</div>
 
 ### 5.4.2. Applications Wireflow Diagrams
 
