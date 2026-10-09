@@ -3736,7 +3736,7 @@ Los wireframes de las aplicaciones web de IceTrack ilustran la organización de 
 ---
 
 <div align="center">
-  <img src="assets/chapter05/Fase20.png" alt="Figura 4: Inventario Global de Sedes y Equipos" style="width: 100%; max-width: 900px; aspect-ratio: 16/9; object-fit: cover; border-radius: 8px; border: 1px solid #d0d7de; box-shadow: 0 4px 12px rgba(0,0,0,0.08);" />
+  <img src="assets/chapter05/F20.png" alt="Figura 4: Inventario Global de Sedes y Equipos" style="width: 100%; max-width: 900px; aspect-ratio: 16/9; object-fit: cover; border-radius: 8px; border: 1px solid #d0d7de; box-shadow: 0 4px 12px rgba(0,0,0,0.08);" />
   <p><em><b>Figura 4:</b> Wireframe de Inventario Global de Sedes y Equipos</em></p>
 </div>
 
