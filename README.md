@@ -3746,8 +3746,6 @@ Figura 6: Wireframe Órdenes.
 
 **Vista de Técnicos**
 
----
-
 <div align="center">
   <img src="assets/chapter05/wireframe1.png" alt="Figura 1: Wireframe Iniciar sesión" style="width: 100%; max-width: 350px; height: auto; border-radius: 8px; border: 1px solid #d0d7de; box-shadow: 0 4px 12px rgba(0,0,0,0.08);" />
   <p><em><b>Figura 1:</b> Wireframe Iniciar sesión.</em></p>
