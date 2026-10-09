@@ -3831,6 +3831,7 @@ La estructura del *wireframe* se organizó en las siguientes zonas funcionales:
 6. **Pie de Página (*Footer*):** Contiene los enlaces legales, avisos de privacidad, referencias a los repositorios públicos del proyecto en GitHub y accesos directos a redes sociales corporativas.
 
 ![Wireframe1](assets/chapter04/LandingPageWireframe.png)
+
 *Figura 1: Esquema estructural (Wireframe) de la Landing Page de IceTrack.*
 
 ### 5.3.2. Landing Page Mock-up
@@ -3871,7 +3872,7 @@ Incorpora reseñas y valoraciones de usuarios reales (operadores logísticos y d
 
 Ofrece un canal de comunicación directo y estructurado con campos de entrada optimizados y un botón de envío principal con efectos visuales de interacción (*hover*), asegurando una experiencia de conversión fluida.
 
-![Wireframe1](assets/chapter04/LPMockupContacto.pngg)
+![Wireframe1](assets/chapter04/LPMockupContacto.png)
 *Figura 5: Formulario de Contacto y Captación de Prospectos.*
 
 ## 5.4. Applications UX/UI Design
