@@ -392,13 +392,19 @@ Aunque algunos negocios cuentan con sensores, controladores o sistemas de monito
 
 Lo que las soluciones existentes no abordan completamente es la necesidad de contar con una plataforma especializada que centralice la información de los equipos de refrigeración y, al mismo tiempo, permita obtener datos directamente mediante sensores IoT, independientemente de los sistemas existentes en el negocio. Este vacío limita la capacidad de los usuarios para detectar anomalías oportunamente, anticiparse a posibles fallas, analizar el rendimiento de los equipos y mantener un historial unificado de su funcionamiento y mantenimiento.
 
-Nuestro producto, IceTrack, abordará este vacío mediante una plataforma de Inteligencia de Datos especializada en equipos de refrigeración. La solución permitirá conectar sensores IoT para recopilar información en tiempo real, integrar datos provenientes de controladores y sistemas de monitoreo existentes, centralizar dicha información y transformarla en indicadores, alertas y recomendaciones útiles. Además, proporcionará herramientas para la gestión de mantenimientos, historial técnico, seguimiento de servicios y análisis del rendimiento de los equipos.
+Nuestro producto, **IceTrack**, abordará este vacío mediante una plataforma de Inteligencia de Datos especializada en equipos de refrigeración. La solución permitirá conectar sensores IoT para recopilar información en tiempo real, integrar datos provenientes de controladores y sistemas de monitoreo existentes, centralizar dicha información y transformarla en indicadores, alertas y recomendaciones útiles. Además, proporcionará herramientas para la gestión de mantenimientos, historial técnico, seguimiento de servicios y análisis del rendimiento de los equipos.
 
 Nuestro enfoque inicial estará dirigido a negocios de Lima que dependen de la cadena de frío y necesitan reducir los riesgos asociados a fallas en sus equipos, así como a técnicos y proveedores de servicios de refrigeración que buscan mejorar la gestión y eficiencia de sus operaciones.
 
-Sabremos que tendremos éxito cuando los negocios utilicen de manera recurrente el monitoreo de sus equipos, respondan oportunamente a las alertas generadas por la plataforma, reduzcan las fallas críticas y las pérdidas asociadas a problemas de refrigeración, y mejoren su eficiencia energética. Asimismo, consideraremos exitoso el producto cuando técnicos y proveedores utilicen la plataforma para gestionar sus servicios, reduzcan sus tiempos de atención y mantengan una mayor continuidad en sus relaciones con los clientes.
+**Criterios de Éxito y Definition of Done (DoD):**
 
-#### 1.2.2.2. Lean UX Assumptions.
+* **Adopción y Uso:** Al menos el 80% de los negocios piloto registran y consultan el estado de sus equipos de forma diaria durante un periodo de prueba de 30 días.
+* **Tiempo de Respuesta:** El sistema emite y entrega alertas de excursión térmica en menos de 70 segundos desde que se detecta la anomalía en el borde (cumpliendo RNF-02).
+* **Impacto Operativo:** Reducción del 25% en las horas dedicadas a tareas administrativas y de coordinación manual por parte de los técnicos en un plazo de 60 días tras la implementación.
+
+
+#### 1.2.2.2. Lean UX Assumptions
+
 
 ##### Business Assumptions
 
@@ -448,79 +454,66 @@ Sabremos que tendremos éxito cuando los negocios utilicen de manera recurrente 
 - Creemos que el análisis de consumo energético permitirá identificar oportunidades para reducir el uso innecesario de energía.
 - Creemos que una interfaz web y móvil permitirá a los usuarios consultar información y gestionar sus actividades tanto desde sus oficinas como desde el campo.
 
-#### 1.2.2.3. Lean UX Hypothesis Statements.
+#### 1.2.2.3. Lean UX Hypothesis Statements 
 
-**Hipótesis 1: Conexión mediante sensores IoT**
+* **Hipótesis 1: Conexión mediante sensores IoT**
+*Creemos que* lograremos aumentar la adopción y el valor percibido de IceTrack al proporcionar datos confiables y continuos sobre los equipos de refrigeración.
+*Si* los responsables de negocios y técnicos obtienen información automática mediante sensores IoT conectados directamente a los equipos.
+*Sabremos que hemos tenido éxito cuando* el 90% de los dispositivos instalados mantengan una sincronización continua sin pérdida de tramas durante un ciclo de prueba de 30 días.
 
-Creemos que lograremos aumentar la adopción y el valor percibido de IceTrack al proporcionar datos confiables y continuos sobre los equipos de refrigeración.
 
-Si los responsables de negocios que dependen de la cadena de frío y los técnicos especializados obtienen información automática y actualizada sobre el estado de los equipos con la conexión de sensores IoT que recopilen datos directamente desde los sistemas de refrigeración.
+* **Hipótesis 2: Monitoreo en tiempo real**
+*Creemos que* lograremos reducir la ocurrencia e impacto de fallas críticas.
+*Si* los usuarios pueden consultar en tiempo real las variables de funcionamiento mediante el módulo de monitoreo web y móvil.
+*Sabremos que hemos tenido éxito cuando* el tiempo de detección de una anomalía se reduzca a menos de 2 minutos, logrando una frecuencia de consulta diaria por parte del operador del negocio.
 
-Sabremos que hemos tenido éxito cuando los usuarios mantengan sus equipos conectados y consulten regularmente los datos recopilados por los sensores para supervisar su funcionamiento.
 
-**Hipótesis 2: Monitoreo en tiempo real**
+* **Hipótesis 3: Alertas automáticas**
+*Creemos que* lograremos disminuir las pérdidas de inventario por fallas térmicas.
+*Si* los usuarios reciben notificaciones oportunas basadas en datos de la plataforma ante condiciones críticas.
+*Sabremos que hemos tenido éxito cuando* el 95% de las alertas críticas sean atendidas por el personal del local antes de que transcurran 15 minutos desde su emisión, evitando mermas de productos.
 
-Creemos que lograremos reducir la ocurrencia e impacto de fallas críticas relacionadas con los equipos de refrigeración.
+* **Hipótesis 4: Historial técnico**
+*Creemos que* mejoraremos la eficiencia del diagnóstico en campo.
+*Si* los técnicos consultan el historial centralizado de incidencias y mantenimientos previos de cada activo.
+*Sabremos que hemos tenido éxito cuando* el tiempo promedio de diagnóstico (MTTD) por parte del técnico se reduzca en un 30% en comparación con el registro en papel o bitácoras dispersas.
 
-Si los responsables de negocios que dependen de la cadena de frío pueden conocer en tiempo real el estado y las principales variables de funcionamiento de sus equipos con un módulo de monitoreo en tiempo real conectado a sensores IoT y otras fuentes de datos.
+* **Hipótesis 5: Gestión y programación de mantenimientos**
+*Creemos que* reduciremos los costos por mantenimiento reactivo.
+*Si* los técnicos y proveedores planifican y hacen seguimiento de sus actividades mediante el módulo de gestión.
+*Sabremos que hemos tenido éxito cuando* el porcentaje de mantenimientos preventivos ejecutados a tiempo aumente al menos un 40% al finalizar el primer mes de uso.
 
-Sabremos que hemos tenido éxito cuando los usuarios consulten regularmente el estado de sus equipos y detecten anomalías antes de que generen una falla crítica o una pérdida de inventario.
 
-**Hipótesis 3: Alertas automáticas**
+* **Hipótesis 6: Informes de rendimiento**
+*Creemos que* mejoraremos la toma de decisiones sobre la infraestructura.
+*Si* los usuarios analizan reportes históricos comprensibles de rendimiento y cadena de frío.
+*Sabremos que hemos tenido éxito cuando* el 70% de los administradores utilicen los reportes mensuales exportados para justificar decisiones de mantenimiento o reemplazo de equipos.
 
-Creemos que lograremos reducir las pérdidas ocasionadas por fallas o condiciones anormales de los equipos.
+* **Hipótesis 7: Análisis del consumo energético**
+*Creemos que* disminuiremos los costos operativos de electricidad.
+*Si* los negocios identifican equipos con consumos ineficientes mediante el módulo de análisis energético.
+*Sabremos que hemos tenido éxito cuando* se detecten anomalías de consumo en la fase piloto que deriven en ajustes correctivos, logrando una baja estimada de al menos un 8% en la factura eléctrica del equipo intervenido en un plazo de 45 días.
 
-Si los responsables de negocios y técnicos especializados pueden recibir una notificación oportuna ante una anomalía o condición crítica con un sistema de alertas automáticas basado en los datos recopilados por la plataforma.
+* **Hipótesis 8: Gestión de usuarios, roles y ubicaciones**
+*Creemos que* facilitaremos la administración en organizaciones multisede.
+*Si* los administradores controlan los accesos y permisos según las responsabilidades de cada usuario.
+*Sabremos que hemos tenido éxito cuando* negocios con más de dos locales logren configurar y segregar sus equipos por sede en menos de 10 minutos sin asistencia técnica externa.
 
-Sabremos que hemos tenido éxito cuando los usuarios reciban las alertas, actúen ante ellas y logren resolver o mitigar incidentes antes de que produzcan pérdidas significativas.
 
-**Hipótesis 4: Historial técnico**
+* **Hipótesis 9: Plataforma multiplataforma (Web y Móvil)**
+*Creemos que* aumentaremos la frecuencia de uso y la supervisión en campo.
+*Si* los usuarios disponen de interfaces adaptadas tanto para la oficina (web) como para la movilidad del técnico (móvil).
+*Sabremos que hemos tenido éxito cuando* el 50% de las interacciones de los técnicos ocurran desde la interfaz móvil en campo durante la atención de sus órdenes.
 
-Creemos que lograremos mejorar la eficiencia del diagnóstico y mantenimiento de los equipos.
+Para garantizar que ningún supuesto quede sin validar y cumplir con la trazabilidad, establecemos la siguiente matriz de correlación:
 
-Si los técnicos y proveedores de servicios de refrigeración pueden consultar el comportamiento histórico, incidencias y mantenimientos realizados en cada equipo con un historial técnico centralizado y asociado a cada activo.
-
-Sabremos que hemos tenido éxito cuando los técnicos consulten el historial durante sus servicios y reduzcan el tiempo necesario para identificar las causas de los problemas.
-
-**Hipótesis 5: Gestión y programación de mantenimientos**
-
-Creemos que lograremos reducir los costos asociados al mantenimiento reactivo y mejorar la productividad de los técnicos.
-
-Si los técnicos y proveedores de servicios de refrigeración pueden planificar, organizar y realizar seguimiento de sus actividades de mantenimiento con un módulo de programación y gestión de mantenimientos.
-
-Sabremos que hemos tenido éxito cuando aumente el porcentaje de mantenimientos planificados y disminuya el tiempo promedio empleado en gestionar y atender servicios.
-
-**Hipótesis 6: Informes de rendimiento**
-
-Creemos que lograremos mejorar la toma de decisiones relacionada con el funcionamiento de los equipos.
-
-Si los responsables de negocios y proveedores pueden analizar el rendimiento de sus equipos mediante información histórica y reportes comprensibles con un módulo de generación de informes de rendimiento.
-
-Sabremos que hemos tenido éxito cuando los usuarios consulten los informes periódicamente y utilicen la información obtenida para realizar acciones de mantenimiento, optimización o reemplazo de equipos.
-
-**Hipótesis 7: Análisis del consumo energético**
-
-Creemos que lograremos disminuir los costos operativos asociados al consumo energético de los equipos de refrigeración.
-
-Si los responsables de negocios pueden identificar equipos con un consumo energético elevado o comportamientos ineficientes con un módulo de monitoreo y análisis del consumo energético.
-
-Sabremos que hemos tenido éxito cuando los usuarios identifiquen oportunidades de ahorro y se observe una reducción del consumo energético en los equipos intervenidos.
-
-**Hipótesis 8: Gestión de usuarios, roles y ubicaciones**
-
-Creemos que lograremos facilitar la administración de equipos en organizaciones con múltiples usuarios o establecimientos.
-
-Si los responsables de negocios y proveedores que gestionan múltiples usuarios, equipos o ubicaciones pueden controlar el acceso a la información según las responsabilidades de cada persona con un sistema de gestión de usuarios, roles y ubicaciones.
-
-Sabremos que hemos tenido éxito cuando las organizaciones puedan administrar diferentes usuarios y equipos desde una misma cuenta sin comprometer la seguridad ni la organización de la información.
-
-**Hipótesis 9: Plataforma multiplataforma**
-
-Creemos que lograremos aumentar la frecuencia de uso de IceTrack y facilitar la supervisión de los equipos fuera de las oficinas.
-
-Si los responsables de negocios y técnicos pueden consultar información y gestionar sus actividades desde diferentes ubicaciones con una plataforma disponible mediante interfaces web y móvil.
-
-Sabremos que hemos tenido éxito cuando los usuarios accedan a la plataforma tanto desde sus lugares de trabajo como durante sus actividades en campo.
+| Enunciado resumido del Supuesto | Hipótesis Relacionada | Experimento de Validación / Método | Métrica de Éxito del Experimento |
+| --- | --- | --- | --- |
+| Oportunidad de mercado y disposición a pagar | Hipótesis 1, 3 | Entrevistas de profundidad y prototipo de valor con 10 dueños de heladerías en Lima. | Al menos 6 de 10 negocios muestran intención clara de adopción del piloto. |
+| Necesidad de visualizar temperatura y alertas | Hipótesis 2, 3 | Prueba de concepto (PoC) con sensores IoT simulados y envío de alertas a dispositivos móviles de prueba. | 100% de entrega exitosa de alertas en menos de 70 segundos en condiciones de red estables. |
+| Técnicos requieren historial y organización | Hipótesis 4, 5 | Taller de validación de flujos (Prototype Walkthrough) con 3 técnicos de mantenimiento en Lima. | Reducción estimada del tiempo de registro administrativo validada positivamente por los técnicos. |
+| Valor de sensores IoT y Dashboard en tiempo real | Hipótesis 1, 2, 9 | Implementación piloto de 1 semana midiendo tasa de retención de apertura de la plataforma web/móvil. | Uso activo diario en al menos 5 de los 7 días de la prueba piloto. |
+| Utilidad del historial y programación de mantenimiento | Hipótesis 4, 5 | Simulación de asignación y cierre de 15 órdenes de servicio con técnicos reales. | Cero pérdida de registros de intervención y sincronización correcta de la cola offline. |
 
 #### 1.2.2.4. Lean UX Canvas.
 
