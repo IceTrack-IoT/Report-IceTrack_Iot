@@ -4836,7 +4836,37 @@ constexpr char DEVICE_ID[] = "ICE-0001";
 
 #### 6.2.1.1. Sprint Planning 1
 
+El Sprint Planning 1 es la reunión con la que el Scrum Team de IceTrack inicia su primer Sprint. Como punto de partida se usó el Product Backlog, del cual se tomaron los elementos de mayor prioridad que el equipo puede completar con su capacidad. El resultado de la reunión es un Sprint Goal compartido, medible y centrado en el valor para los usuarios, y el conjunto de User Stories y Technical Stories que lo hacen posible.
+
+Al ser el primer Sprint, el equipo no cuenta con un *Velocity* histórico. El *Velocity* del Sprint 1 se estableció a partir de la capacidad del equipo de siete integrantes y de la complejidad de los elementos priorizados, y será la referencia para calibrar la planificación de los siguientes Sprints.
+
+| **Sprint #** | Sprint 1 |
+| :--- | :--- |
+| **Sprint Planning Background** | |
+| Date | 2026-10-25 10:00 AM |
+| Location | Reunión virtual en Meet |
+| Prepared By | Jeremy Alexander Quijada Magro |
+| Attendees (to planning meeting) | Arostegui Alzamora Cesar Augusto, Cuentas Peña Joaquin Alberto, Fajardo Monrroy Walter Luis, Guillen Galindo Julio Adolfo, Jiménez Guerra Gianmarco Fabian, Quijada Magro Jeremy Alexander y Tenorio Medina, Piero Francesco |
+| Sprint 0 Review Summary | No aplica. Sprint 1 es el primer Sprint de implementación, por lo que no existe un Sprint anterior que revisar. |
+| Sprint 0 Retrospective Summary | No aplica.  |
+| **Sprint Goal & User Stories** | |
+| Sprint 1 Goal | Nuestro enfoque está en ofrecer a los propietarios de negocios y técnicos de la cadena de frío que visitan IceTrack una visión clara del valor, las soluciones y las funcionalidades clave de la plataforma, con un acceso directo a las aplicaciones web y móvil; ofrecer a los desarrolladores frontend y móvil los primeros endpoints RESTful seguros para registrar usuarios y gestionar solicitudes de servicio, intervenciones y evaluaciones de servicio; y ofrecer a los propietarios y técnicos el primer flujo de acceso (registro e inicio de sesión) en la aplicación web. <br><br>Creemos que esto entrega mayor confianza a los visitantes para evaluar IceTrack en su operación de refrigeración; una base de API extensible sobre la cual los equipos de frontend y móvil puedan construir las funcionalidades de propietarios y técnicos de los próximos Sprints sin depender del equipo de backend; y un primer camino funcional para que los nuevos usuarios se registren e ingresen a la plataforma. <br><br> Esto se confirmará cuando un visitante pueda encontrar la propuesta de valor, las soluciones por tipo de negocio, las funcionalidades clave y la misión y visión en la Landing Page desplegada en Vercel, y llegar al inicio de sesión de la aplicación web o a la descarga de la aplicación móvil con un solo clic; los endpoints de usuarios, solicitudes de servicio (creación y consulta de estado), intervenciones y evaluaciones de servicio estén desplegados en Render, documentados en Swagger y respondan correctamente a sus escenarios de aceptación (respuestas 201, 400, 404 y 409); y un nuevo usuario pueda registrarse e iniciar sesión desde la aplicación web, consumiendo la API desplegada. |
+| Sprint 1 Velocity | 42 Story Points |
+| Sum of Story Points | 42 Story Points |
+
 #### 6.2.1.2. Aspect Leaders and Collaborators
+
+Para el Sprint 1 el equipo organizó el trabajo en de la siguiente manera:
+
+| Team Member (Last Name, First Name) | GitHub Username | Landing Page | IAM API | Service Requests API | Interventions & Reviews API | Web App Authentication | Testing & API Documentation | Deployment & Configuration |
+| :--- | :--- | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
+| Arostegui Alzamora, Cesar Augusto | `[Legendnt1]` | C | - | - | - | - | - | L |
+| Cuentas Peña, Joaquin Alberto | `[JoaCupe]` | - | - | L | C | - | - | C |
+| Fajardo Monrroy, Walter Luis | `[WalterFajardo]` | L | - | - | - | C | - | - |
+| Guillen Galindo, Julio Adolfo | `[julio645]` | C | - | - | C | - | L | - |
+| Jiménez Guerra, Gianmarco Fabian | `[ZAICO21]` | - | C | - | L | C | - | - |
+| Quijada Magro, Jeremy Alexander | `jquijada-dev` | - | - | - | - | L | C | - |
+| Tenorio Medina, Piero Francesco | `[PieroTM2005]` | - | L | C | - | - | C | - |
 
 #### 6.2.1.3. Sprint Backlog 1
 
