@@ -6452,6 +6452,15 @@ Link de la aplicación web desplegada: https://frontend-ice-track-io-t-tan.verce
 
 #### 6.2.1.9. Team Collaboration Insights during Sprint
 
+<div align="center">
+  <img src="assets/chapter05/InsightsTP.png"
+  alt="Insights TP"
+  style="width: 100%; height: auto; border-radius: 8px; border: 1px solid #d0d7de; box-shadow: 0 4px 12px rgba(0,0,0,0.08);" />
+  <p><em><b>Figura N:</b> Insights TP</em></p>
+</div>
+
+
+
 # Conclusiones
 
 ## Conclusiones y Recomendaciones
