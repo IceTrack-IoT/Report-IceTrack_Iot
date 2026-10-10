@@ -3794,14 +3794,14 @@ Los wireframes de las aplicaciones web de IceTrack ilustran la organización de 
 **Vista de Dueños**
 
 <div align="center">
-  <img src="assets/chapter05/M16.png" alt="Figura 1: Sign in and register" style="width: 100%; max-width: 900px; aspect-ratio: 16/9; object-fit: cover; border-radius: 8px; border: 1px solid #d0d7de; box-shadow: 0 4px 12px rgba(0,0,0,0.08);" />
+  <img src="assets/chapter05/M016.png" alt="Figura 1: Sign in and register" style="width: 100%; max-width: 900px; aspect-ratio: 16/9; object-fit: cover; border-radius: 8px; border: 1px solid #d0d7de; box-shadow: 0 4px 12px rgba(0,0,0,0.08);" />
   <p><em><b>Figura 1:</b> Sign in and register</em></p>
 </div>
 
 ---
 
 <div align="center">
-  <img src="assets/chapter05/M17.png" alt="Figura 2: Notification center" style="width: 100%; max-width: 900px; aspect-ratio: 16/9; object-fit: cover; border-radius: 8px; border: 1px solid #d0d7de; box-shadow: 0 4px 12px rgba(0,0,0,0.08);" />
+  <img src="assets/chapter05/M017.png" alt="Figura 2: Notification center" style="width: 100%; max-width: 900px; aspect-ratio: 16/9; object-fit: cover; border-radius: 8px; border: 1px solid #d0d7de; box-shadow: 0 4px 12px rgba(0,0,0,0.08);" />
   <p><em><b>Figura 2:</b> Notification center</em></p>
 </div>
 
@@ -3871,42 +3871,42 @@ Los wireframes de las aplicaciones web de IceTrack ilustran la organización de 
 ---
 
 <div align="center">
-  <img src="assets/chapter05/M10.png" alt="Figura 12: Pre propulated corrective order" style="width: 100%; max-width: 900px; aspect-ratio: 16/9; object-fit: cover; border-radius: 8px; border: 1px solid #d0d7de; box-shadow: 0 4px 12px rgba(0,0,0,0.08);" />
+  <img src="assets/chapter05/M010.png" alt="Figura 12: Pre propulated corrective order" style="width: 100%; max-width: 900px; aspect-ratio: 16/9; object-fit: cover; border-radius: 8px; border: 1px solid #d0d7de; box-shadow: 0 4px 12px rgba(0,0,0,0.08);" />
   <p><em><b>Figura 12:</b> Pre propulated corrective order</em></p>
 </div>
 
 ---
 
 <div align="center">
-  <img src="assets/chapter05/M11.png" alt="Figura 13: Work orders" style="width: 100%; max-width: 900px; aspect-ratio: 16/9; object-fit: cover; border-radius: 8px; border: 1px solid #d0d7de; box-shadow: 0 4px 12px rgba(0,0,0,0.08);" />
+  <img src="assets/chapter05/M011.png" alt="Figura 13: Work orders" style="width: 100%; max-width: 900px; aspect-ratio: 16/9; object-fit: cover; border-radius: 8px; border: 1px solid #d0d7de; box-shadow: 0 4px 12px rgba(0,0,0,0.08);" />
   <p><em><b>Figura 13:</b> Work orders</em></p>
 </div>
 
 ---
 
 <div align="center">
-  <img src="assets/chapter05/M12.png" alt="Figura 14: Order details and progress" style="width: 100%; max-width: 900px; aspect-ratio: 16/9; object-fit: cover; border-radius: 8px; border: 1px solid #d0d7de; box-shadow: 0 4px 12px rgba(0,0,0,0.08);" />
+  <img src="assets/chapter05/M012.png" alt="Figura 14: Order details and progress" style="width: 100%; max-width: 900px; aspect-ratio: 16/9; object-fit: cover; border-radius: 8px; border: 1px solid #d0d7de; box-shadow: 0 4px 12px rgba(0,0,0,0.08);" />
   <p><em><b>Figura 14:</b> Order details and progress</em></p>
 </div>
 
 ---
 
 <div align="center">
-  <img src="assets/chapter05/M13.png" alt="Figura 15: Technician assignamnet" style="width: 100%; max-width: 900px; aspect-ratio: 16/9; object-fit: cover; border-radius: 8px; border: 1px solid #d0d7de; box-shadow: 0 4px 12px rgba(0,0,0,0.08);" />
+  <img src="assets/chapter05/M013.png" alt="Figura 15: Technician assignamnet" style="width: 100%; max-width: 900px; aspect-ratio: 16/9; object-fit: cover; border-radius: 8px; border: 1px solid #d0d7de; box-shadow: 0 4px 12px rgba(0,0,0,0.08);" />
   <p><em><b>Figura 15:</b> Technician assignamnet</em></p>
 </div>
 
 ---
 
 <div align="center">
-  <img src="assets/chapter05/M14.png" alt="Figura 16: Post service evaluation" style="width: 100%; max-width: 900px; aspect-ratio: 16/9; object-fit: cover; border-radius: 8px; border: 1px solid #d0d7de; box-shadow: 0 4px 12px rgba(0,0,0,0.08);" />
+  <img src="assets/chapter05/M014.png" alt="Figura 16: Post service evaluation" style="width: 100%; max-width: 900px; aspect-ratio: 16/9; object-fit: cover; border-radius: 8px; border: 1px solid #d0d7de; box-shadow: 0 4px 12px rgba(0,0,0,0.08);" />
   <p><em><b>Figura 16:</b> Post service evaluation</em></p>
 </div>
 
 ---
 
 <div align="center">
-  <img src="assets/chapter05/M15.png" alt="Figura 17: Complience and analitycs" style="width: 100%; max-width: 900px; aspect-ratio: 16/9; object-fit: cover; border-radius: 8px; border: 1px solid #d0d7de; box-shadow: 0 4px 12px rgba(0,0,0,0.08);" />
+  <img src="assets/chapter05/M015.png" alt="Figura 17: Complience and analitycs" style="width: 100%; max-width: 900px; aspect-ratio: 16/9; object-fit: cover; border-radius: 8px; border: 1px solid #d0d7de; box-shadow: 0 4px 12px rgba(0,0,0,0.08);" />
   <p><em><b>Figura 17:</b> Complience and analitycs</em></p>
 </div>
 
