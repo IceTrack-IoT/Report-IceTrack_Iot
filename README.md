@@ -59,23 +59,30 @@
 ## Project Report Collaboration Insights
 
 - **URL de la organización del proyecto:** 
-  https://github.com/IceTrack-IoT/Report-IceTrack_Iot
+  https://github.com/IceTrack-IoT
   <br>
-
 - **URL del repositorio del reporte:** 
-  https://github.com/IceTrack-IoT/Report-IceTrack
+  https://github.com/IceTrack-IoT/Report-IceTrack_Iot/
   <br>
-  
-- **URL del repositorio de la Landing Page:**
-  https://github.com/IceTrack-IoT/Landing-Page-IceTrack
+- **URL del repositorio de la Landing Page:** 
+  https://github.com/IceTrack-IoT/LandingPage-IceTrack_IoT
   <br>
-
 - **URL del repositorio del Frontend:** 
-  https://github.com/IceTrack-IoT/Frontend-IceTrack
+  https://github.com/IceTrack-IoT/Frontend-IceTrack_IoT
   <br>
 
-- **URL del repositorio del Backend:** 
-  https://github.com/IceTrack-IoT/Platform-IceTrack
+
+**AV1:** Durante el primer avance del proyecto se realizó la fase de análisis, definición y diseño de la solución IoT IceTrack. Se desarrollaron los artefactos de investigación y levantamiento de requisitos, incluyendo el análisis de la problemática, la definición de segmentos objetivo, entrevistas, User Personas, Empathy Maps, User Journey Maps y el proceso de Needfinding. Asimismo, se elaboró el Product Backlog, las User Stories con sus criterios de aceptación y los primeros artefactos de diseño de software, tales como el EventStorming, la definición del Ubiquitous Language, el Impact Mapping y la arquitectura inicial de la solución. Esto nos permitio establecer una visión clara del producto y sentar las bases para el posterior desarrollo de sus componentes web e IoT.
+
+<img src="assets/chapter06/Commits-AV1.png" alt="Avance 1" width="100%">
+
+---
+
+**TP1:** Durante el Trabajo Parcial se consolidó la transición del diseño a la implementación mediante el desarrollo de la primera versión funcional de la plataforma IceTrack. Se completó la Landing Page del proyecto, incorporando la información del modelo de negocio, propuesta de valor, características principales de la solución y elementos de navegación dirigidos a los distintos segmentos de usuarios. Asimismo, se desarrolló el Frontend de la aplicación web, implementando las principales interfaces de usuario definidas en los mockups y prototipos, así como la estructura de navegación necesaria para la interacción con los futuros servicios de la plataforma. Paralelamente, se configuró el entorno de desarrollo, el control de versiones mediante GitHub y la estrategia de despliegue, evidenciando una solución funcional que permite visualizar el avance real del producto y preparar la integración con los componentes backend e IoT en las siguientes iteraciones.
+
+<img src="assets/chapter06/Commits-TP.png" alt="Avance 1" width="100%">
+
+---
 
 ## Contenido
 
@@ -6425,14 +6432,14 @@ Se muestran los despliegues registrados en el entorno `github-pages`, ambos comp
   <img src="assets/chapter06/landing-despliegue-github.jpg"
   alt="Despliegues de la Landing Page de IceTrack en GitHub Pages"
   style="width: 100%; height: auto; border-radius: 8px; border: 1px solid #d0d7de; box-shadow: 0 4px 12px rgba(0,0,0,0.08);" />
-  <p><em><b>Figura N:</b> Despliegues de la Landing Page en GitHub Pages</em></p>
+  <p><em><b>Figura 20:</b> Despliegues de la Landing Page en GitHub Pages</em></p>
 </div>
 
 <div align="center">
   <img src="assets/chapter06/despliegue-landing.png"
   alt="Landing Page de IceTrack en producción"
   style="width: 100%; height: auto; border-radius: 8px; border: 1px solid #d0d7de; box-shadow: 0 4px 12px rgba(0,0,0,0.08);" />
-  <p><em><b>Figura N:</b> Landing Page de IceTrack en producción</em></p>
+  <p><em><b>Figura 21:</b> Landing Page de IceTrack en producción</em></p>
 </div>
 
 Link de la Landing Page desplegada: https://icetrack-iot.github.io/LandingPage-IceTrack_IoT/
@@ -6445,18 +6452,20 @@ La aplicación web se importó desde el repositorio `IceTrack-IoT/Frontend-IceTr
   <img src="assets/chapter06/despliegue front.png"
   alt="Aplicación web de IceTrack desplegada en Vercel"
   style="width: 100%; height: auto; border-radius: 8px; border: 1px solid #d0d7de; box-shadow: 0 4px 12px rgba(0,0,0,0.08);" />
-  <p><em><b>Figura N:</b> Aplicación web de IceTrack desplegada en Vercel</em></p>
+  <p><em><b>Figura 22:</b> Aplicación web de IceTrack desplegada en Vercel</em></p>
 </div>
 
 Link de la aplicación web desplegada: https://frontend-ice-track-io-t-tan.vercel.app
 
 #### 6.2.1.9. Team Collaboration Insights during Sprint
 
+Durante el sprint, el equipo mantuvo una colaboración constante y una comunicación efectiva para garantizar el cumplimiento de los objetivos establecidos. Se distribuyeron las responsabilidades de acuerdo con las competencias de cada integrante, permitiendo avanzar de manera simultánea en las actividades de diseño, desarrollo y documentación. A través de reuniones periódicas de seguimiento y del uso de herramientas de gestión y control de versiones, se logró coordinar la implementación de la Landing Page y del Frontend de la plataforma IceTrack, asegurando la integración de los aportes realizados por cada miembro. Esta dinámica de trabajo colaborativo facilitó la resolución oportuna de incidencias, la validación continua de los entregables y el cumplimiento de los hitos definidos para el Trabajo Parcial, fortaleciendo además la organización y el compromiso del equipo con el proyecto.
+
 <div align="center">
   <img src="assets/chapter05/InsightsTP.png"
   alt="Insights TP"
   style="width: 100%; height: auto; border-radius: 8px; border: 1px solid #d0d7de; box-shadow: 0 4px 12px rgba(0,0,0,0.08);" />
-  <p><em><b>Figura N:</b> Insights TP</em></p>
+  <p><em><b>Figura 23:</b> Insights TP</em></p>
 </div>
 
 
@@ -6512,19 +6521,16 @@ En cuanto al trabajo en equipo, como grupo consolidamos liderazgo conjunto, cola
 ## Recursos y enlaces del proyecto
   
 - **URL de la organización del proyecto:** 
-  https://github.com/1ASI0730-2520-7452-G1-FrostShield
+  https://github.com/IceTrack-IoT
   <br>
 - **URL del repositorio del reporte:** 
-  https://github.com/1ASI0730-2520-7452-G1-FrostShield/Report
+  https://github.com/IceTrack-IoT/Report-IceTrack_Iot/
   <br>
 - **URL del repositorio de la Landing Page:** 
-  https://github.com/1ASI0730-2520-7452-G1-FrostShield/IceTrack---Landing-Page
+  https://github.com/IceTrack-IoT/LandingPage-IceTrack_IoT
   <br>
 - **URL del repositorio del Frontend:** 
-  https://github.com/1ASI0730-2520-7452-G1-FrostShield/IceTrack-Frontend
-  <br>
-- **URL del repositorio del Backend:** 
-  https://github.com/1ASI0730-2520-7452-G1-FrostShield/IceTrack-Platform
+  https://github.com/IceTrack-IoT/Frontend-IceTrack_IoT
   <br>
 
 - **Enlace del Lucidchart:**
