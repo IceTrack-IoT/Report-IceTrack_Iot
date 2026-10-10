@@ -5779,7 +5779,7 @@ constexpr char DEVICE_ID[] = "ICE-0001";
 
 #### 6.2.1.1. Sprint Planning 1
 
-El Sprint Planning 1 es la reunión con la que el Scrum Team de IceTrack inicia su primer Sprint. Como punto de partida se usó el Product Backlog, del cual se tomaron los elementos de mayor prioridad que el equipo puede completar con su capacidad. El resultado de la reunión es un Sprint Goal compartido, medible y centrado en el valor para los usuarios, y el conjunto de User Stories y Technical Stories que lo hacen posible.
+El Sprint Planning 1 es la reunión con la que el Scrum Team de IceTrack inicia su primer Sprint. Como punto de partida se usó el Product Backlog, del cual se tomaron los elementos de mayor prioridad que el equipo puede completar con su capacidad. El resultado de la reunión es un Sprint Goal compartido, medible y centrado en el valor para los usuarios, y el conjunto de User Stories que lo hacen posible.
 
 Al ser el primer Sprint, el equipo no cuenta con un *Velocity* histórico. El *Velocity* del Sprint 1 se estableció a partir de la capacidad del equipo de siete integrantes y de la complejidad de los elementos priorizados, y será la referencia para calibrar la planificación de los siguientes Sprints.
 
@@ -5793,9 +5793,9 @@ Al ser el primer Sprint, el equipo no cuenta con un *Velocity* histórico. El *V
 | Sprint 0 Review Summary | No aplica. Sprint 1 es el primer Sprint de implementación, por lo que no existe un Sprint anterior que revisar. |
 | Sprint 0 Retrospective Summary | No aplica.  |
 | **Sprint Goal & User Stories** | |
-| Sprint 1 Goal | Nuestro enfoque está en ofrecer a los propietarios de negocios y técnicos de la cadena de frío que visitan IceTrack una visión clara del valor, las soluciones y las funcionalidades clave de la plataforma, con un acceso directo a las aplicaciones web y móvil; ofrecer a los desarrolladores frontend y móvil los primeros endpoints RESTful seguros para registrar usuarios y gestionar solicitudes de servicio, intervenciones y evaluaciones de servicio; y ofrecer a los propietarios y técnicos el primer flujo de acceso (registro e inicio de sesión) en la aplicación web. <br><br>Creemos que esto entrega mayor confianza a los visitantes para evaluar IceTrack en su operación de refrigeración; una base de API extensible sobre la cual los equipos de frontend y móvil puedan construir las funcionalidades de propietarios y técnicos de los próximos Sprints sin depender del equipo de backend; y un primer camino funcional para que los nuevos usuarios se registren e ingresen a la plataforma. <br><br> Esto se confirmará cuando un visitante pueda encontrar la propuesta de valor, las soluciones por tipo de negocio, las funcionalidades clave y la misión y visión en la Landing Page desplegada en Vercel, y llegar al inicio de sesión de la aplicación web o a la descarga de la aplicación móvil con un solo clic; los endpoints de usuarios, solicitudes de servicio (creación y consulta de estado), intervenciones y evaluaciones de servicio estén desplegados en Render, documentados en Swagger y respondan correctamente a sus escenarios de aceptación (respuestas 201, 400, 404 y 409); y un nuevo usuario pueda registrarse e iniciar sesión desde la aplicación web, consumiendo la API desplegada. |
-| Sprint 1 Velocity | 50 Story Points |
-| Sum of Story Points | 50 Story Points |
+| Sprint 1 Goal | Nuestro enfoque está en ofrecer a los propietarios de negocios de la cadena de frío que visitan IceTrack una visión clara del valor, las soluciones y las funcionalidades clave de la plataforma, con un acceso directo a las aplicaciones web y móvil; y construir en la aplicación web el primer recorrido funcional del propietario: registro e inicio de sesión, gestión de sitios y equipos, consulta y filtrado de activos y solicitud de servicios de mantenimiento. <br><br>Creemos que esto entrega mayor confianza a los visitantes para evaluar IceTrack en su operación de refrigeración y una base de interfaz sobre la cual seguir construyendo las funcionalidades del propietario en los próximos Sprints. <br><br> Esto se confirmará cuando un visitante pueda encontrar la propuesta de valor, las soluciones por tipo de negocio, las funcionalidades clave y la misión y visión en la Landing Page desplegada en Vercel, y llegar al inicio de sesión de la aplicación web o a la descarga de la aplicación móvil con un solo clic; y un propietario pueda registrarse, iniciar sesión, registrar sus sitios y equipos, consultar y filtrar sus activos y solicitar un servicio de mantenimiento desde la aplicación web. |
+| Sprint 1 Velocity | 40 Story Points |
+| Sum of Story Points | 40 Story Points |
 
 #### 6.2.1.2. Aspect Leaders and Collaborators
 
@@ -5813,7 +5813,7 @@ Para el Sprint 1 el equipo organizó el trabajo en de la siguiente manera:
 
 #### 6.2.1.3. Sprint Backlog 1
 
-El objetivo principal del **Sprint 1** consistió en consolidar la presencia digital del producto mediante el desarrollo completo de la **Landing Page** y en sentar las bases funcionales de la plataforma: los primeros servicios REST del Backend (registro de usuarios, solicitudes de servicio con consulta de estado, intervenciones y evaluaciones) y el primer flujo de registro e inicio de sesión en la aplicación web. Con ello se habilitó una base extensible sobre la API desplegada para que los equipos de Frontend y Móvil continúen construyendo en los siguientes Sprints.
+El objetivo principal del **Sprint 1** consistió en consolidar la presencia digital del producto mediante el desarrollo completo de la **Landing Page** y el flujo de la aplicación web. 
 
 | Sprint # | Sprint 1 |  |  |  |  |  |  |
 | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -5824,13 +5824,13 @@ El objetivo principal del **Sprint 1** consistió en consolidar la presencia dig
 | US-15 | Comprender las funcionalidades clave | UT-L3 | Sección de funcionalidades clave | Presentar las funcionalidades principales de la plataforma en la Landing Page. | 3 | Julio Guillén | Done |
 | US-16 | Conocer la misión y visión | UT-L4 | Sección institucional (misión y visión) | Redactar y maquetar los apartados de misión y visión en la Landing Page. | 2 | Julio Guillén | Done |
 | US-17 | Acceder a la plataforma desde el call to action | UT-L5 | Vinculación de CTAs | Enlazar los botones de la Landing Page con el inicio de sesión web y la descarga móvil. | 2 | Walter Fajardo | Done |
-| TS-04 | Registrar nuevo usuario a través de API RESTful | UT-B1 | API de registro de usuarios | Implementar y validar el endpoint de registro de usuarios (unicidad y formato). | 5 | Piero Tenorio | Done |
-| TS-01 | Creación de solicitudes de servicio por API RESTful | UT-B2 | API de creación de solicitudes | Implementar el endpoint de creación de solicitudes de servicio. | 8 | Joaquin Cuentas | Done |
-| TS-05 | Consulta del estado de una solicitud por API | UT-B3 | API de consulta de solicitudes | Implementar el endpoint de consulta del estado de una solicitud de servicio. | 8 | Joaquin Cuentas | Done |
-| TS-02 | Registro de intervenciones técnicas por API RESTful | UT-B4 | API de intervenciones técnicas | Implementar el endpoint de registro de intervenciones realizadas. | 5 | Gianmarco Jiménez | Done |
-| TS-03 | Gestión de evaluaciones de servicio vía API | UT-B5 | API de evaluaciones de servicio | Implementar los endpoints para registrar y actualizar evaluaciones de servicio. | 5 | Gianmarco Jiménez | Done |
+| US-20 | Registrar y consultar sitios | UT-A3 | Módulo de sitios | Implementar el registro y el listado de sitios del propietario en la aplicación web. | 5 | Walter Fajardo | Done |
+| US-03 | Registrar y actualizar equipos de refrigeración | UT-A4 | Módulo de equipos | Implementar el registro y la actualización de equipos de refrigeración en la aplicación web. | 5 | Jeremy Quijada | Done |
+| US-18 | Consultar el listado y detalle de equipos | UT-A5 | Listado y detalle de equipos | Implementar la consulta del listado y el detalle de equipos en la aplicación web. | 3 | Gianmarco Jiménez | Done |
+| US-11 | Filtrar equipos por sitio, tipo y estado | UT-A6 | Filtros de equipos | Implementar el filtrado de equipos por sitio, tipo y estado en la aplicación web. | 3 | Gianmarco Jiménez | Done |
+| US-04 | Solicitar un servicio de mantenimiento o reparación | UT-A7 | Solicitud de servicio | Implementar el formulario de solicitud de servicio de mantenimiento en la aplicación web. | 5 | Walter Fajardo | Done |
 | US-01 | Registro de usuario | UT-A1 | Flujo de registro en la app web | Implementar el flujo de registro (propietario/técnico) en la aplicación web. | 5 | Jeremy Quijada | Done |
-| US-02 | Inicio de sesión | UT-A2 | Flujo de inicio de sesión en la app web | Implementar el flujo de inicio de sesión consumiendo la API en la aplicación web. | 3 | Jeremy Quijada | Done |
+| US-02 | Inicio de sesión | UT-A2 | Flujo de inicio de sesión en la app web | Implementar el flujo de inicio de sesión en la aplicación web. | 3 | Jeremy Quijada | Done |
 
 <p align="center">
   <img src="assets/chapter06/Trello-Sprint-1.png" alt="trello1" width="1000">
@@ -5861,41 +5861,6 @@ En esta sección se explica y presenta los avances en implementación con relaci
 | IceTrack-IoT/Frontend-IceTrack_IoT | master | bb45db8 | feat: Enhance environment configuration script to validate target file existence and improve googleClientId injection message |  | 09/10/2026 |
 | IceTrack-IoT/LandingPage-IceTrack_IoT | master | 962f690 | Initial commit |  | 06/10/2026 |
 | IceTrack-IoT/LandingPage-IceTrack_IoT | master | dec31f5 | fix: remove unnecessary URL from doctype declaration |  | 06/10/2026 |
-| IceTrack-IoT/Platform-IceTrack_IoT | master | c3ea69d | Add initial project |  | 22/09/2026 |
-| IceTrack-IoT/Platform-IceTrack_IoT | master | d0c49e8 | feat: Update application properties for environment variable support and add README.md |  | 22/09/2026 |
-| IceTrack-IoT/Platform-IceTrack_IoT | feat/iam | 2166b33 | feat: Implement ExternalProfileService and ProfilesContextFacade for profile provisioning |  | 28/09/2026 |
-| IceTrack-IoT/Platform-IceTrack_IoT | feat/iam | 80f2cff | feat: Enhance user and profile management with role handling and new commands |  | 28/09/2026 |
-| IceTrack-IoT/Platform-IceTrack_IoT | feat/iam | 087755a | feat: Introduce queries and commands for owner and technician profiles, including integration events and persistence entities |  | 28/09/2026 |
-| IceTrack-IoT/Platform-IceTrack_IoT | feat/iam | 8f1d5a5 | feat: Standardize JSON field naming to snake_case across registration and profile resources |  | 28/09/2026 |
-| IceTrack-IoT/Platform-IceTrack_IoT | feat/monitoring | b617bfa | feat: Adding the Monitoring and Alerting BC |  | 28/09/2026 |
-| IceTrack-IoT/Platform-IceTrack_IoT | feat/iam | 489e0f5 | feat: Extend UserResource with provider and external ID fields for enhanced user information |  | 29/09/2026 |
-| IceTrack-IoT/Platform-IceTrack_IoT | feat/iam | 5cfae04 | feat: Implement refresh token functionality with session management and current user retrieval |  | 29/09/2026 |
-| IceTrack-IoT/Platform-IceTrack_IoT | feat/iam | c567bc3 | feat: Add refresh token reuse grace period and purge scheduler for expired tokens |  | 29/09/2026 |
-| IceTrack-IoT/Platform-IceTrack_IoT | feat/iam | 17c34a5 | feat: Enhance refresh token handling with improved error responses and rotation logic |  | 01/10/2026 |
-| IceTrack-IoT/Platform-IceTrack_IoT | develop | 1194ea2 | Merge pull request #1 from IceTrack-IoT/feat/monitoring | feat: Adding the Monitoring and Alerting BC | 02/10/2026 |
-| IceTrack-IoT/Platform-IceTrack_IoT | feat/monitoring | 4a84f60 | docs: Adding documentation |  | 02/10/2026 |
-| IceTrack-IoT/Platform-IceTrack_IoT | feat/-assets-managment | 5bddb2e | feat/ v1 |  | 02/10/2026 |
-| IceTrack-IoT/Platform-IceTrack_IoT | feat/-assets-managment | 426f184 | fix: schemas |  | 02/10/2026 |
-| IceTrack-IoT/Platform-IceTrack_IoT | develop | 472d5be | Merge branch 'feat/iam' into develop |  | 02/10/2026 |
-| IceTrack-IoT/Platform-IceTrack_IoT | feat/notifications | 1af7d2b | feat: Adding the initial Notifications BC structure |  | 04/10/2026 |
-| IceTrack-IoT/Platform-IceTrack_IoT | feat/-assets-managment | 22ba818 | Merge remote-tracking branch 'origin/feat/monitoring' into feat/-assets-managment |  | 04/10/2026 |
-| IceTrack-IoT/Platform-IceTrack_IoT | feat/notifications | 8fddca2 | Merge branch 'feat/-assets-managment' into feat/notifications |  | 04/10/2026 |
-| IceTrack-IoT/Platform-IceTrack_IoT | feat/notifications | db809a1 | feat: Adding to and combining with other BC |  | 04/10/2026 |
-| IceTrack-IoT/Platform-IceTrack_IoT | feat/iam | 42c358b | refactor: Add provider field to user resources and enhance user profile handling |  | 06/10/2026 |
-| IceTrack-IoT/Platform-IceTrack_IoT | feat/iam | 8a6fb23 | feat: Update AuthenticatedUserResource to include provider field in response example |  | 06/10/2026 |
-| IceTrack-IoT/Platform-IceTrack_IoT | feat/iam | c793657 | fix: change the correct AuthenticatedUserResourceFromEntityAssembler |  | 06/10/2026 |
-| IceTrack-IoT/Platform-IceTrack_IoT | develop | e2f9aa2 | Merge branch 'feat/iam' into develop |  | 08/10/2026 |
-| IceTrack-IoT/Platform-IceTrack_IoT | develop | 0033deb | Merge branch 'feat/assets-managment' of https://github.com/IceTrack-IoT/Platform-IceTrack_IoT into develop | # Conflicts:<br># src/main/java/pe/edu/upc/ice/track/platform/profiles/application/acl/ProfilesContextFacadeImpl.java<br># src/main/java/pe/edu/upc/ice/track/platform/profiles/interfaces/acl/ProfilesContextFacade.java | 08/10/2026 |
-| IceTrack-IoT/Platform-IceTrack_IoT | develop | f9b197c | feat: add method to fetch owner ID by user ID in ProfilesContextFacade |  | 08/10/2026 |
-| IceTrack-IoT/Platform-IceTrack_IoT | develop | c5e22e1 | Merge branch 'feat/notifications' of https://github.com/IceTrack-IoT/Platform-IceTrack_IoT into develop |  | 08/10/2026 |
-| IceTrack-IoT/Platform-IceTrack_IoT | feat/iam | f48f44a | refactor: add username param to CompleteGoogleOwnerRegistrationResource and CompleteGoogleTechnicianRegistrationCommandFromResourceAssembler |  | 08/10/2026 |
-| IceTrack-IoT/Platform-IceTrack_IoT | develop | 126b935 | feat: Implement dashboard configs |  | 08/10/2026 |
-| IceTrack-IoT/Platform-IceTrack_IoT | develop | 06fe834 | refactor: Enhance params by IoT standards on temperature ranges |  | 08/10/2026 |
-| IceTrack-IoT/Platform-IceTrack_IoT | develop | cb978d4 | fix: Refactor Assets Bounded Context with not isolated self schema |  | 08/10/2026 |
-| IceTrack-IoT/Platform-IceTrack_IoT | develop | ad1d2a8 | refactor: Remove AddCard functionality and introduce layout update for dashboard cards |  | 08/10/2026 |
-| IceTrack-IoT/Platform-IceTrack_IoT | feat/profiles | 5e7a2ff | refactor: Update Docker Compose configurations for database service |  | 09/10/2026 |
-| IceTrack-IoT/Platform-IceTrack_IoT | feat/profiles | ae24f96 | refactor: Add volume configuration for PostgreSQL data persistence |  | 09/10/2026 |
-| IceTrack-IoT/Platform-IceTrack_IoT | feat/profiles | 717b598 | refactor: Update server port configuration and modify OpenAPI server URLs for production |  | 09/10/2026 |
 
 #### 6.2.1.5. Testing Suite Evidence for Sprint Review
 
