@@ -59,30 +59,23 @@
 ## Project Report Collaboration Insights
 
 - **URL de la organización del proyecto:** 
-  https://github.com/IceTrack-IoT
+  https://github.com/IceTrack-IoT/Report-IceTrack_Iot
   <br>
+
 - **URL del repositorio del reporte:** 
-  https://github.com/IceTrack-IoT/Report-IceTrack_Iot/
+  https://github.com/IceTrack-IoT/Report-IceTrack
   <br>
-- **URL del repositorio de la Landing Page:** 
-  https://github.com/IceTrack-IoT/LandingPage-IceTrack_IoT
+  
+- **URL del repositorio de la Landing Page:**
+  https://github.com/IceTrack-IoT/Landing-Page-IceTrack
   <br>
+
 - **URL del repositorio del Frontend:** 
-  https://github.com/IceTrack-IoT/Frontend-IceTrack_IoT
+  https://github.com/IceTrack-IoT/Frontend-IceTrack
   <br>
 
-
-**AV1:** Durante el primer avance del proyecto se realizó la fase de análisis, definición y diseño de la solución IoT IceTrack. Se desarrollaron los artefactos de investigación y levantamiento de requisitos, incluyendo el análisis de la problemática, la definición de segmentos objetivo, entrevistas, User Personas, Empathy Maps, User Journey Maps y el proceso de Needfinding. Asimismo, se elaboró el Product Backlog, las User Stories con sus criterios de aceptación y los primeros artefactos de diseño de software, tales como el EventStorming, la definición del Ubiquitous Language, el Impact Mapping y la arquitectura inicial de la solución. Esto nos permitio establecer una visión clara del producto y sentar las bases para el posterior desarrollo de sus componentes web e IoT.
-
-<img src="assets/chapter06/Commits-AV1.png" alt="Avance 1" width="100%">
-
----
-
-**TP1:** Durante el Trabajo Parcial se consolidó la transición del diseño a la implementación mediante el desarrollo de la primera versión funcional de la plataforma IceTrack. Se completó la Landing Page del proyecto, incorporando la información del modelo de negocio, propuesta de valor, características principales de la solución y elementos de navegación dirigidos a los distintos segmentos de usuarios. Asimismo, se desarrolló el Frontend de la aplicación web, implementando las principales interfaces de usuario definidas en los mockups y prototipos, así como la estructura de navegación necesaria para la interacción con los futuros servicios de la plataforma. Paralelamente, se configuró el entorno de desarrollo, el control de versiones mediante GitHub y la estrategia de despliegue, evidenciando una solución funcional que permite visualizar el avance real del producto y preparar la integración con los componentes backend e IoT en las siguientes iteraciones.
-
-<img src="assets/chapter06/Commits-TP.png" alt="Avance 1" width="100%">
-
----
+- **URL del repositorio del Backend:** 
+  https://github.com/IceTrack-IoT/Platform-IceTrack
 
 ## Contenido
 
@@ -355,7 +348,7 @@
       - [Deployment Diagram (C4 Model)](#deployment-diagram-c4-model)
       - [1. Platform Database (PostgreSQL v18)](#1-platform-database-postgresql-v18)
       - [2. Web Services (Spring Boot en Render)](#2-web-services-spring-boot-en-render)
-      - [3. Web Application y Landing Page (Vercel)](#3-web-application-y-landing-page-vercel)
+      - [3. Web Application (Vercel) y Landing Page (GitHub Pages)](#3-web-application-vercel-y-landing-page-github-pages)
       - [4. Mobile Application (Flutter, Android)](#4-mobile-application-flutter-android)
       - [5. Edge API (Flask en el gateway del local)](#5-edge-api-flask-en-el-gateway-del-local)
       - [6. Embedded Application (ESP32)](#6-embedded-application-esp32)
@@ -2140,19 +2133,34 @@ Responsabilidades de los repositorios:
 
 **Modelo de tablas del esquema `profiles`**
 
+> Reconciliación clase → tabla → columna → tipo → clave → relación. La tabla base `Profile` (rotulada `UserProfile` en el diagrama) guarda los datos comunes; `OwnerProfile` y `TechnicianProfile` usan herencia `JOINED` con PK/FK al perfil base; `DashboardConfig` es un aggregate independiente con una fila por `user_id` (UNIQUE); `DashboardCard` es la tabla hija que materializa el `layout` (orden y visibilidad). Los Value Objects se mapean como `@Embeddable`/columnas: `Email` → `email`, `Phone` → `phone`, `Address` → `address`, `TemperatureRange` → `default_temp_range_value` + `default_temp_range_label`, `Locale` → `locale`, `DashboardCard` → tabla `DashboardCard`.
+
 | Tabla | Columna | Tipo | Descripción |
 | :--- | :--- | :--- | :--- |
-| `Profile` | `profile_id` | `VARCHAR` (PK) | Identificador del perfil. |
-| `Profile` | `full_name` | `VARCHAR(25)` | Nombre completo. |
-| `Profile` | `email` | `VARCHAR(30)` | Correo de contacto. |
-| `Profile` | `phone` | `CHAR` | Teléfono de contacto. |
-| `Profile` | `user_id` | `VARCHAR` (FK) | Usuario de IAM asociado. |
-| `OwnerProfile` | `profiles_id` | `VARCHAR` (PK/FK) | Referencia al perfil base. |
-| `OwnerProfile` | `ruc` | `VARCHAR(10)` | RUC del negocio. |
-| `TechnicianProfile` | `profile_id` | `VARCHAR` (PK/FK) | Referencia al perfil base. |
+| `Profile` | `profile_id` | `VARCHAR` (PK) | Identificador del perfil. Clase `Profile.id: UUID`. |
+| `Profile` | `full_name` | `VARCHAR(25)` | Nombre completo. Clase `Profile.fullName: String`. |
+| `Profile` | `email` | `VARCHAR(30)` | Correo de contacto. VO `Email`. |
+| `Profile` | `phone` | `VARCHAR(20)` | Teléfono de contacto. VO `Phone`. |
+| `Profile` | `address` | `VARCHAR(100)` | Dirección. VO `Address`. |
+| `Profile` | `user_id` | `VARCHAR` (FK → IAM `users.user_id`, UNIQUE, NOT NULL) | Usuario de IAM asociado. Clase `Profile.userId: UUID`. Relación 1:1 Profile—IAM. |
+| `OwnerProfile` | `profile_id` | `VARCHAR` (PK/FK → `Profile.profile_id`) | Referencia al perfil base. Herencia `JOINED`. |
+| `OwnerProfile` | `ruc` | `VARCHAR(11)` | RUC del negocio. Clase `OwnerProfile.ruc`. |
+| `TechnicianProfile` | `profile_id` | `VARCHAR` (PK/FK → `Profile.profile_id`) | Referencia al perfil base. Herencia `JOINED`. |
 | `TechnicianProfile` | `speciality` | `VARCHAR(30)` | Especialidad del técnico. |
 | `TechnicianProfile` | `certification_number` | `VARCHAR(30)` | Número de certificación. |
-| `TechnicianProfile` | `provider_profiles_id` | `VARCHAR` | Perfil del proveedor al que pertenece. |
+| `TechnicianProfile` | `provider_profile_id` | `VARCHAR` (FK → `Profile.profile_id` del proveedor) | Perfil del proveedor al que pertenece. En el diagrama figura como `provider_profiles_id`. |
+| `DashboardConfig` | `dashboard_config_id` | `VARCHAR` (PK) | Identificador. Clase `DashboardConfig.id: UUID`. |
+| `DashboardConfig` | `user_id` | `VARCHAR` (FK → IAM `users.user_id`, UNIQUE, NOT NULL) | Usuario propietario. Clase `DashboardConfig.userId: UUID`. Relación 1:1 con `Profile` vía `userId` (una configuración por usuario). |
+| `DashboardConfig` | `default_temp_range_value` | `VARCHAR(30)` | Valor del rango preferido. VO `TemperatureRange` (parte 1). |
+| `DashboardConfig` | `default_temp_range_label` | `VARCHAR(30)` | Etiqueta del rango. VO `TemperatureRange` (parte 2). |
+| `DashboardConfig` | `locale` | `VARCHAR(10)` | Idioma (ES/EN). VO `Locale`. En el diagrama actual figura como `site_id`; debe leerse como `locale`. |
+| `DashboardCard` | `card_id` | `VARCHAR` (PK) | Identificador de la tarjeta. VO `DashboardCard`. |
+| `DashboardCard` | `card_type` | `VARCHAR(30)` | Tipo de tarjeta. |
+| `DashboardCard` | `card_order` | `INTEGER` | Orden dentro del layout (en el diagrama figura como `order`; palabra reservada en SQL, persistir como `card_order`). |
+| `DashboardCard` | `is_visible` | `BOOLEAN` | Visibilidad de la tarjeta. |
+| `DashboardCard` | `dashboard_config_id` | `VARCHAR` (FK → `DashboardConfig.dashboard_config_id`, NOT NULL) | Configuración dueña. Relación 1:N `DashboardConfig`—`DashboardCard` con borrado en cascada. |
+
+Relaciones con destino explícito (ninguna flecha queda sin destino): `Profile.user_id` → IAM; `OwnerProfile.profile_id` → `Profile`; `TechnicianProfile.profile_id` → `Profile`; `TechnicianProfile.provider_profile_id` → `Profile` (proveedor); `DashboardConfig.user_id` → IAM / `Profile.userId`; `DashboardCard.dashboard_config_id` → `DashboardConfig`. La tabla `ProviderProfile` que aparece en el recorte del diagrama corresponde a un perfil de proveedor (un `Profile` con rol proveedor) y no es una tabla propia de este esquema.
 
 **Resumen de dependencias externas**
 
@@ -2173,13 +2181,13 @@ En esta sección presentamos los diagramas de nivel de código del bounded conte
 
 ##### 4.2.2.6.1. Bounded Context Domain Layer Class Diagrams.
 
-El siguiente diagrama de clases muestra el modelo de este contexto. El aggregate `Profile` es una clase abstracta que se especializa en `OwnerProfile` y `TechnicianProfile`, mientras que `DashboardConfig` agrupa la configuración del panel y del idioma de cada usuario. El diagrama incluye además los servicios de comandos y consultas, el controlador con su assembler y recursos, la fachada del contexto y los repositorios con su implementación JPA.
+El siguiente diagrama de clases muestra el modelo completo de este contexto y debe leerse junto con las tablas de 4.2.2.1 y 4.2.2.4. El aggregate `Profile` es una clase abstracta (`id: UUID`, `userId: UUID`, `fullName: String`, `email: Email`, `phone: Phone`, `address: Address`) que se especializa en `OwnerProfile` (`ruc`) y `TechnicianProfile` (`speciality`, `certificationNumber`, `providerProfileId`), con `UserProfileFactory` como creadora según el rol IAM. El aggregate independiente `DashboardConfig` (`id: UUID`, `userId: UUID`, `layout` materializado como lista de `DashboardCard`, `temperatureRange: TemperatureRange`, `locale: Locale`) gestiona tarjetas (agregar, quitar, cambiar visibilidad y reordenar) e idioma. Los Value Objects `Email`, `Phone`, `Address`, `TemperatureRange`, `Locale` y `DashboardCard` son parte normativa del modelo aunque el recorte del dibujo los simplifique (muestra solo `id`, `userId`/`user_id`, `fullName` y `layout`, y deja `OwnerProfile`/`TechnicianProfile` como referencias fuera del paquete): el diagrama completo debe dibujarlos con todos sus atributos, con la herencia `Profile` ← `OwnerProfile`/`TechnicianProfile` y la composición `DashboardConfig` ◆— `DashboardCard`. El diagrama incluye además los servicios de comandos y consultas, el controlador con su assembler y recursos, la fachada del contexto y los repositorios con su implementación JPA (`SpringDataJpaProfileRepository`, `SpringDataJpaDashboardConfigRepository`).
 
 ![IceTrack Bounded Context Domain Layer Class Diagram - Profiles and Preferences Management](assets/chapter04/diagrams/class/profileDiagramClass.png)
 
 ##### 4.2.2.6.2. Bounded Context Database Design Diagram.
 
-El siguiente diagrama presenta el diseño de la base de datos del esquema `profiles`. La tabla `Profile` guarda los datos comunes de cada persona, y las tablas `OwnerProfile` y `TechnicianProfile` almacenan los datos propios de cada tipo de perfil, como el RUC del negocio o la especialidad y la certificación del técnico.
+El siguiente diagrama presenta el diseño completo de la base de datos del esquema `profiles` (ver modelo reconciliado en 4.2.2.4). La tabla `Profile` (rotulada `UserProfile` en la imagen) guarda los datos comunes de cada persona (`profile_id` PK, `user_id` FK UNIQUE → IAM), y las tablas `OwnerProfile` (`profile_id` PK/FK → `Profile`, `ruc`) y `TechnicianProfile` (`profile_id` PK/FK → `Profile`, `speciality`, `certification_number`, `provider_profile_id` FK → perfil proveedor) almacenan los datos propios de cada tipo. La persistencia de `DashboardConfig` que faltaba se completa con las tablas `DashboardConfig` (`dashboard_config_id` PK, `user_id` FK UNIQUE → IAM, `default_temp_range_value/label`, `locale`) y su hija `DashboardCard` (`card_id` PK, `card_type`, `card_order`, `is_visible`, `dashboard_config_id` FK → `DashboardConfig`, 1:N con cascada). Todas las líneas discontinuas del recorte tienen destino explícito según el párrafo anterior; ninguna referencia queda sin destino visible.
 
 ![IceTrack Bounded Context Database Design Diagram - Profiles and Preferences Management](assets/chapter04/diagrams/database/profileDiagramDatabase.png)
 
@@ -3503,18 +3511,22 @@ Responsabilidades del repositorio:
 
 **Modelo de tabla del esquema `notifications`**
 
+> Reconciliación clase → columna → tipo → clave → relación. El aggregate `Notification` conserva todos sus atributos, incluidos `channel` y `deliveryStatus` que faltaban en la tabla. `type`/`severity` mapean los enums `NotificationType`/`NotificationSeverity`; `channel`/`deliveryStatus` se persisten como `VARCHAR` (canal: p. ej. `IN_APP`/`EMAIL`/`PUSH`; entrega: p. ej. `PENDING`/`SENT`/`FAILED`).
+
 | Tabla | Columna | Tipo | Descripción |
 | :--- | :--- | :--- | :--- |
-| `Notification` | `notification_id` | `VARCHAR` (PK) | Identificador de la notificación. |
-| `Notification` | `message` | `VARCHAR(50)` | Mensaje mostrado al destinatario. |
-| `Notification` | `type` | `VARCHAR(40)` | Tipo de notificación. |
-| `Notification` | `severity` | `VARCHAR(40)` | Severidad. |
-| `Notification` | `is_read` | `BOOLEAN` | Indica si fue leída. |
-| `Notification` | `dismissed_at` | `DATETIME` | Fecha de descarte. |
-| `Notification` | `user_id` | `VARCHAR` (FK) | Destinatario. |
-| `Notification` | `equipment_id` | `VARCHAR` (FK) | Equipo relacionado. |
-| `Notification` | `device_id` | `VARCHAR` (FK) | Dispositivo relacionado. |
-| `Notification` | `alert_id` | `VARCHAR` (FK) | Alerta relacionada. |
+| `Notification` | `notification_id` | `VARCHAR` (PK) | Identificador. Clase `Notification.id: UUID`. |
+| `Notification` | `message` | `VARCHAR(50)` | Mensaje mostrado al destinatario. Clase `message: String` (localizado según `Locale` de Profiles). |
+| `Notification` | `type` | `VARCHAR(40)` | Tipo. Enum `NotificationType`. |
+| `Notification` | `severity` | `VARCHAR(40)` | Severidad. Enum `NotificationSeverity`. |
+| `Notification` | `channel` | `VARCHAR(30)` | Canal de entrega. Clase `channel: String`. |
+| `Notification` | `delivery_status` | `VARCHAR(40)` | Estado de entrega. Clase `deliveryStatus: String`. |
+| `Notification` | `is_read` | `BOOLEAN` | Indica si fue leída. Clase `isRead: Boolean`. |
+| `Notification` | `dismissed_at` | `DATETIME` | Fecha de descarte. Clase `dismissedAt: DateTime`. |
+| `Notification` | `user_id` | `VARCHAR` (FK → IAM `users.user_id`, NOT NULL) | Destinatario. Clase `userId: UUID`. Relación N:1 hacia IAM. VO `Recipient` se resuelve vía Profiles y no se persiste aquí. |
+| `Notification` | `equipment_id` | `VARCHAR` (FK → Assets `equipment.equipment_id`, NULL) | Equipo relacionado. |
+| `Notification` | `device_id` | `VARCHAR` (FK → Device Management `devices.device_id`, NULL) | Dispositivo relacionado. |
+| `Notification` | `alert_id` | `VARCHAR` (FK → Monitoring `alerts.alert_id`, NULL) | Alerta relacionada. |
 
 **Adaptador hacia otro contexto**
 
@@ -3542,13 +3554,13 @@ En esta sección presentamos los diagramas de nivel de código del bounded conte
 
 ##### 4.2.7.6.1. Bounded Context Domain Layer Class Diagrams.
 
-El siguiente diagrama de clases representa la estructura del contexto organizada por capas. En el dominio se encuentra el aggregate `Notification` y las interfaces de los servicios de comandos y consultas. En la capa de aplicación se ubican sus implementaciones, en la capa de interfaces el controlador, el recurso de respuesta y la fachada del contexto, y en infraestructura la implementación JPA del repositorio.
+El siguiente diagrama de clases representa la estructura completa del contexto organizada por capas y debe leerse junto con 4.2.7.1 y 4.2.7.4. En el dominio el aggregate `Notification` conserva todos sus atributos normativos (`id: UUID`, `userId: UUID`, `message: String`, `type: NotificationType`, `severity: NotificationSeverity`, `channel: String`, `deliveryStatus: String`, `isRead: Boolean`, `dismissedAt: DateTime`, `equipmentId: UUID`, `deviceId: UUID`, `alertId: UUID`) más los enums/VO `NotificationType`, `NotificationSeverity` y `Recipient`, el domain service `RecipientResolver` y las interfaces `NotificationCommandService`/`NotificationQueryService` — aunque el dibujo actual solo muestra `id`, `userId`, `message` e `isRead`, el diagrama completo debe dibujar `channel`, `deliveryStatus`, `type`, `severity`, `dismissedAt` y las tres referencias de origen, además de los enums y el resolver. En la capa de aplicación se ubican sus implementaciones, en la capa de interfaces el controlador, el recurso de respuesta y la fachada del contexto, y en infraestructura la implementación JPA del repositorio.
 
 ![IceTrack Bounded Context Domain Layer Class Diagram - Notification Management](assets/chapter04/diagrams/class/notificationManagementDiagramClass.png)
 
 ##### 4.2.7.6.2. Bounded Context Database Design Diagram.
 
-El siguiente diagrama presenta el diseño de la base de datos del esquema `notifications`. La tabla `Notification` almacena el mensaje, su tipo y severidad, su estado de lectura y de descarte, y las referencias al usuario destinatario y al equipo, dispositivo o alerta que originó la notificación.
+El siguiente diagrama presenta el diseño completo de la base de datos del esquema `notifications` (ver modelo reconciliado en 4.2.7.4). La tabla `Notification` almacena el mensaje, su tipo y severidad, su canal (`channel`) y su estado de entrega (`delivery_status`), su estado de lectura (`is_read`) y de descarte (`dismissed_at`), y las referencias al usuario destinatario (`user_id` → IAM) y al equipo (`equipment_id` → Assets), dispositivo (`device_id` → Device Management) o alerta (`alert_id` → Monitoring and Alerting) que originó la notificación. Todas las líneas del recorte tienen los destinos explícitos indicados; ninguna referencia queda sin destino visible.
 
 ![IceTrack Bounded Context Database Design Diagram - Notification Management](assets/chapter04/diagrams/database/notificationDiagramDatabase.png)
 
@@ -5131,12 +5143,27 @@ JUnit se utiliza para implementar pruebas unitarias sobre los servicios desarrol
 
 ### Software Deployment
 
+#### Github Pages
+
+GitHub Pages se utiliza para desplegar la Landing Page de IceTrack, disponible públicamente en https://icetrack-iot.github.io/LandingPage-IceTrack_IoT/.
+
+- **Tipo:** Hosting estático.
+- **Propósito:** Despliegue de la Landing Page de IceTrack.
+- **URL de producción:** https://icetrack-iot.github.io/LandingPage-IceTrack_IoT/
+- **Nota:** La Landing es estática (HTML, CSS, JavaScript) y no llama a la API Cloud; por eso no requiere `CORS_ALLOWED_ORIGINS` ni credenciales OAuth.
+- **Ruta de referencia:** https://pages.github.com/
+
+<p align="center">
+  <img src="assets\chapter06\github_pages.png" alt="GitHubPages" width="300">
+</p>
+
+
 #### Vercel
 
-Vercel se utiliza para desplegar la Landing Page de IceTrack y la aplicación web desarrollada con Angular.
+Vercel se utiliza para desplegar la aplicación web desarrollada con Angular.
 
 - **Tipo:** SaaS / Cloud Platform
-- **Propósito:** Hosting y despliegue de la Landing Page y aplicación web.
+- **Propósito:** Hosting y despliegue de la aplicación web.
 - **Ruta de referencia:** https://vercel.com/
 
 <p align="center">
@@ -5666,13 +5693,13 @@ El equipo adopta las siguientes herramientas para verificar el estilo. Se config
 
 ### 6.1.4. Software Deployment Configuration
 
-Esta sección describe cómo se despliega cada producto digital de IceTrack a partir de su repositorio de código fuente. La solución se compone de seis productos que se despliegan en entornos distintos: la Landing Page y la aplicación web (Vercel), los servicios backend y la base de datos (Render), la aplicación móvil (instalable en Android), la Edge API (gateway en el local del cliente) y el firmware del ESP32 (placa instalada en el equipo de refrigeración).
+Esta sección describe cómo se despliega cada producto digital de IceTrack a partir de su repositorio de código fuente. La solución se compone de seis productos que se despliegan en entornos distintos: la Landing Page (GitHub Pages) y la aplicación web (Vercel), los servicios backend y la base de datos (Render), la aplicación móvil (instalable en Android), la Edge API (gateway en el local del cliente) y el firmware del ESP32 (placa instalada en el equipo de refrigeración).
 
 #### Deployment Overview
 
 | Producto | Repositorio | Tecnología | Plataforma de despliegue | Disparador |
 | :--- | :--- | :--- | :--- | :--- |
-| Landing Page | `LandingPage-IceTrack_IoT` | HTML, CSS, JavaScript | Vercel | Push a `master` |
+| Landing Page | `LandingPage-IceTrack_IoT` | HTML, CSS, JavaScript | GitHub Pages (https://icetrack-iot.github.io/LandingPage-IceTrack_IoT/) | Push a `master` |
 | Web Application (Owner) | `Frontend-IceTrack_IoT` | Angular, TypeScript | Vercel | Push a `master` |
 | Web Services (Cloud) | `Platform-IceTrack_IoT` | Spring Boot, Java | Render (Docker) | Push a `master` |
 | Platform Database | — | PostgreSQL v18 | Render (PostgreSQL) | Configuración inicial |
@@ -5702,7 +5729,8 @@ El Deployment Diagram del modelo C4 muestra los nodos de infraestructura donde s
 | :--- | :--- | :--- |
 | Dispositivo IoT (ESP32 con sensor DS18B20/DHT22) | Firmware de monitoreo | HTTP hacia la Edge API dentro de la red local del sitio, cada 10 segundos. No sale a internet. |
 | Gateway Edge (equipo en el local del cliente) | Edge API (Flask) y base de datos SQLite | HTTPS hacia la API Cloud con lotes agregados cada 60 segundos, autenticado con la API key del dispositivo. |
-| Vercel | Landing Page y aplicación web (Angular) | HTTPS hacia el navegador del usuario. La aplicación web consume la API Cloud con JWT y recibe telemetría en vivo por Server-Sent Events. |
+| Vercel | Aplicación web (Angular) | HTTPS hacia el navegador del usuario. La aplicación web consume la API Cloud con JWT y recibe telemetría en vivo por Server-Sent Events. |
+| GitHub Pages | Landing Page estática | HTTPS hacia el navegador del visitante. No consume la API Cloud (sin CORS ni JWT); los botones de acceso enlazan a la aplicación web en Vercel y al APK móvil. |
 | Render (Web Service) | Servicios backend Spring Boot (API Gateway y Bounded Contexts) | HTTPS hacia web y móvil. HTTPS hacia Google Identity Platform y hacia el proveedor de notificaciones push. |
 | Render (PostgreSQL) | Platform Database (PostgreSQL v18, un esquema por Bounded Context) | Conexión privada con el backend. |
 | Dispositivo Android del técnico | Aplicación móvil Flutter | HTTPS hacia la API Cloud con JWT. |
@@ -5763,9 +5791,9 @@ ENTRYPOINT ["java", "-jar", "app.jar"]
 4. Iniciar el despliegue. Render construye la imagen y publica el servicio en `https://<service-name>.onrender.com`.
 5. Verificar el despliegue abriendo la documentación Swagger/OpenAPI del servicio (por defecto, `/swagger-ui/index.html`) y probando el registro y el inicio de sesión (`POST /api/v1/users` y el endpoint de autenticación) con Postman.
 
-#### 3. Web Application y Landing Page (Vercel)
+#### 3. Web Application (Vercel) y Landing Page (GitHub Pages)
 
-Ambos productos se despliegan en Vercel, cada uno como un proyecto independiente conectado a su repositorio.
+La aplicación web se despliega en Vercel y la Landing Page en GitHub Pages, cada una desde su repositorio.
 
 **Web Application (Angular)**
 
@@ -5789,15 +5817,13 @@ Ambos productos se despliegan en Vercel, cada uno como un proyecto independiente
 }
 ```
 
-5. Registrar el dominio de Vercel en dos lugares: en `CORS_ALLOWED_ORIGINS` del backend y en los *Authorized JavaScript origins* y *redirect URIs* del cliente OAuth de Google Cloud.
+5. Registrar el dominio de Vercel (solo la aplicación web) en dos lugares: en `CORS_ALLOWED_ORIGINS` del backend y en los *Authorized JavaScript origins* y *redirect URIs* del cliente OAuth de Google Cloud. La Landing de GitHub Pages no se registra porque es estática y no llama a la API.
 
-**Landing Page**
+**Landing Page (GitHub Pages)**
 
-1. Importar `LandingPage-IceTrack_IoT` como un nuevo proyecto de Vercel con la rama `master` como producción.
-2. Si el sitio es estático (HTML, CSS y JavaScript), usar el preset **Other**, sin *Build Command* y con la raíz del repositorio como *Output Directory*. Si utiliza un bundler, el *Build Command* es `npm run build` y el directorio de salida es `dist`.
-3. Los botones de acceso (US-17) apuntan a la URL de la aplicación web de Vercel y al enlace de descarga de la aplicación móvil.
-
-**Verificación.** Abrir cada URL de producción, comprobar el inicio de sesión desde la aplicación web (incluido el botón «Continuar con Google») y confirmar que la recarga de una ruta interna no devuelve 404.
+1. En el repositorio `LandingPage-IceTrack_IoT`, rama `master` como producción, activar **Settings → Pages → Deploy from a branch → `master` / `/ (root)`**.
+2. El sitio es estático (HTML, CSS y JavaScript), sin *Build Command*.
+3. Los botones de acceso (US-17) apuntan a la URL de la aplicación web de Vercel y al enlace de descarga de la aplicación móvil. Al ser enlaces simples, no requieren CORS.
 
 #### 4. Mobile Application (Flutter, Android)
 
@@ -5931,7 +5957,8 @@ constexpr char DEVICE_ID[] = "ICE-0001";
 
 | Producto | Procedimiento |
 | :--- | :--- |
-| Landing Page y Web Application | En Vercel, promover un despliegue anterior a producción desde la pestaña *Deployments*. |
+| Landing Page | En GitHub Pages, redesplegar desde `master` (Settings → Pages) o revertir el commit y volver a publicar. |
+| Web Application | En Vercel, promover un despliegue anterior a producción desde la pestaña *Deployments*. |
 | Web Services | En Render, volver a desplegar la versión previa desde el historial de *Deploys*. |
 | Edge API | `git checkout <previous-tag>` en `/opt/icetrack/edge-api` y `sudo systemctl restart icetrack-edge`. |
 | ESP32 | Volver a cargar el firmware del tag anterior desde Arduino IDE. |
@@ -5957,7 +5984,7 @@ Al ser el primer Sprint, el equipo no cuenta con un *Velocity* histórico. El *V
 | Sprint 0 Review Summary | No aplica. Sprint 1 es el primer Sprint de implementación, por lo que no existe un Sprint anterior que revisar. |
 | Sprint 0 Retrospective Summary | No aplica.  |
 | **Sprint Goal & User Stories** | |
-| Sprint 1 Goal | Nuestro enfoque está en ofrecer a los propietarios de negocios de la cadena de frío que visitan IceTrack una visión clara del valor, las soluciones y las funcionalidades clave de la plataforma, con un acceso directo a las aplicaciones web y móvil; y construir en la aplicación web el primer recorrido funcional del propietario: registro e inicio de sesión, gestión de sitios y equipos, consulta y filtrado de activos y solicitud de servicios de mantenimiento. <br><br>Creemos que esto entrega mayor confianza a los visitantes para evaluar IceTrack en su operación de refrigeración y una base de interfaz sobre la cual seguir construyendo las funcionalidades del propietario en los próximos Sprints. <br><br> Esto se confirmará cuando un visitante pueda encontrar la propuesta de valor, las soluciones por tipo de negocio, las funcionalidades clave y la misión y visión en la Landing Page desplegada en Vercel, y llegar al inicio de sesión de la aplicación web o a la descarga de la aplicación móvil con un solo clic; y un propietario pueda registrarse, iniciar sesión, registrar sus sitios y equipos, consultar y filtrar sus activos y solicitar un servicio de mantenimiento desde la aplicación web. |
+| Sprint 1 Goal | Nuestro enfoque está en ofrecer a los propietarios de negocios de la cadena de frío que visitan IceTrack una visión clara del valor, las soluciones y las funcionalidades clave de la plataforma, con un acceso directo a las aplicaciones web y móvil; y construir en la aplicación web el primer recorrido funcional del propietario: registro e inicio de sesión, gestión de sitios y equipos, consulta y filtrado de activos y solicitud de servicios de mantenimiento. <br><br>Creemos que esto entrega mayor confianza a los visitantes para evaluar IceTrack en su operación de refrigeración y una base de interfaz sobre la cual seguir construyendo las funcionalidades del propietario en los próximos Sprints. <br><br> Esto se confirmará cuando un visitante pueda encontrar la propuesta de valor, las soluciones por tipo de negocio, las funcionalidades clave y la misión y visión en la Landing Page desplegada en GitHub Pages, y llegar al inicio de sesión de la aplicación web o a la descarga de la aplicación móvil con un solo clic; y un propietario pueda registrarse, iniciar sesión, registrar sus sitios y equipos, consultar y filtrar sus activos y solicitar un servicio de mantenimiento desde la aplicación web. |
 | Sprint 1 Velocity | 40 Story Points |
 | Sum of Story Points | 40 Story Points |
 
@@ -6432,14 +6459,14 @@ Se muestran los despliegues registrados en el entorno `github-pages`, ambos comp
   <img src="assets/chapter06/landing-despliegue-github.jpg"
   alt="Despliegues de la Landing Page de IceTrack en GitHub Pages"
   style="width: 100%; height: auto; border-radius: 8px; border: 1px solid #d0d7de; box-shadow: 0 4px 12px rgba(0,0,0,0.08);" />
-  <p><em><b>Figura 20:</b> Despliegues de la Landing Page en GitHub Pages</em></p>
+  <p><em><b>Figura N:</b> Despliegues de la Landing Page en GitHub Pages</em></p>
 </div>
 
 <div align="center">
   <img src="assets/chapter06/despliegue-landing.png"
   alt="Landing Page de IceTrack en producción"
   style="width: 100%; height: auto; border-radius: 8px; border: 1px solid #d0d7de; box-shadow: 0 4px 12px rgba(0,0,0,0.08);" />
-  <p><em><b>Figura 21:</b> Landing Page de IceTrack en producción</em></p>
+  <p><em><b>Figura N:</b> Landing Page de IceTrack en producción</em></p>
 </div>
 
 Link de la Landing Page desplegada: https://icetrack-iot.github.io/LandingPage-IceTrack_IoT/
@@ -6452,20 +6479,18 @@ La aplicación web se importó desde el repositorio `IceTrack-IoT/Frontend-IceTr
   <img src="assets/chapter06/despliegue front.png"
   alt="Aplicación web de IceTrack desplegada en Vercel"
   style="width: 100%; height: auto; border-radius: 8px; border: 1px solid #d0d7de; box-shadow: 0 4px 12px rgba(0,0,0,0.08);" />
-  <p><em><b>Figura 22:</b> Aplicación web de IceTrack desplegada en Vercel</em></p>
+  <p><em><b>Figura N:</b> Aplicación web de IceTrack desplegada en Vercel</em></p>
 </div>
 
 Link de la aplicación web desplegada: https://frontend-ice-track-io-t-tan.vercel.app
 
 #### 6.2.1.9. Team Collaboration Insights during Sprint
 
-Durante el sprint, el equipo mantuvo una colaboración constante y una comunicación efectiva para garantizar el cumplimiento de los objetivos establecidos. Se distribuyeron las responsabilidades de acuerdo con las competencias de cada integrante, permitiendo avanzar de manera simultánea en las actividades de diseño, desarrollo y documentación. A través de reuniones periódicas de seguimiento y del uso de herramientas de gestión y control de versiones, se logró coordinar la implementación de la Landing Page y del Frontend de la plataforma IceTrack, asegurando la integración de los aportes realizados por cada miembro. Esta dinámica de trabajo colaborativo facilitó la resolución oportuna de incidencias, la validación continua de los entregables y el cumplimiento de los hitos definidos para el Trabajo Parcial, fortaleciendo además la organización y el compromiso del equipo con el proyecto.
-
 <div align="center">
   <img src="assets/chapter05/InsightsTP.png"
   alt="Insights TP"
   style="width: 100%; height: auto; border-radius: 8px; border: 1px solid #d0d7de; box-shadow: 0 4px 12px rgba(0,0,0,0.08);" />
-  <p><em><b>Figura 23:</b> Insights TP</em></p>
+  <p><em><b>Figura N:</b> Insights TP</em></p>
 </div>
 
 
@@ -6521,16 +6546,19 @@ En cuanto al trabajo en equipo, como grupo consolidamos liderazgo conjunto, cola
 ## Recursos y enlaces del proyecto
   
 - **URL de la organización del proyecto:** 
-  https://github.com/IceTrack-IoT
+  https://github.com/1ASI0730-2520-7452-G1-FrostShield
   <br>
 - **URL del repositorio del reporte:** 
-  https://github.com/IceTrack-IoT/Report-IceTrack_Iot/
+  https://github.com/1ASI0730-2520-7452-G1-FrostShield/Report
   <br>
 - **URL del repositorio de la Landing Page:** 
-  https://github.com/IceTrack-IoT/LandingPage-IceTrack_IoT
+  https://github.com/1ASI0730-2520-7452-G1-FrostShield/IceTrack---Landing-Page
   <br>
 - **URL del repositorio del Frontend:** 
-  https://github.com/IceTrack-IoT/Frontend-IceTrack_IoT
+  https://github.com/1ASI0730-2520-7452-G1-FrostShield/IceTrack-Frontend
+  <br>
+- **URL del repositorio del Backend:** 
+  https://github.com/1ASI0730-2520-7452-G1-FrostShield/IceTrack-Platform
   <br>
 
 - **Enlace del Lucidchart:**
