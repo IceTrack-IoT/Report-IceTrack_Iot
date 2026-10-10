@@ -5880,6 +5880,200 @@ Durante este sprint, el equipo centró la validación en la especificación y di
 
 #### 6.2.1.7. Services Documentation Evidence for Sprint Review
 
+##### Introducción
+
+Durante el Sprint se consolidó la documentación OpenAPI de IceTrack Platform API mediante anotaciones `@Operation`, `@ApiResponses`, `@Schema` y seguridad Bearer JWT. El alcance reciente incluye Dashboard Configs, Assets Management, Notifications e IAM, además de los contratos ya integrados para Monitoring.
+
+La documentación está disponible mediante:
+
+- Swagger UI local: `http://localhost:8080/swagger-ui/index.html`
+- Especificación OpenAPI local: `http://localhost:8080/v3/api-docs`
+- Swagger UI productivo configurado: `https://platform-icetrackiot-production.up.railway.app/swagger-ui/index.html`
+- Repositorio: [IceTrack-IoT/Platform-IceTrack_IoT](https://github.com/IceTrack-IoT/Platform-IceTrack_IoT)
+
+Salvo los endpoints de autenticación, todos requieren `Authorization: Bearer <JWT>`. Los cuerpos JSON usan convención `snake_case`.
+
+##### Relación de endpoints documentados
+
+| Contexto | Acción y sintaxis | Parámetros / cuerpo principal | Response y evidencia OpenAPI |
+|---|---|---|---|
+| IAM | `POST /api/v1/authentication/sign-in/local` | `username`, `password` | `200 AuthenticatedUserResponse`: usuario, rol, proveedor, JWT y refresh token. |
+| IAM | `POST /api/v1/authentication/sign-up/owner` | Datos de cuenta y perfil: `username`, `email`, `full_name`, dirección, `ruc` | `201 UserResource`; crea cuenta y perfil OWNER atómicamente. |
+| IAM | `POST /api/v1/authentication/sign-up/technician` | Datos de cuenta, `speciality`, `certification_number` | `201 UserResource`; crea cuenta y perfil TECHNICIAN. |
+| IAM | `POST /api/v1/authentication/google/verify` | `id_token` | `200 AuthenticatedUserResponse`; `404 GOOGLE_ACCOUNT_NOT_FOUND` si falta completar onboarding. |
+| IAM | `POST /api/v1/authentication/google/complete-registration/{owner\|technician}` | `id_token` y datos de perfil del rol | `201 AuthenticatedUserResponse`; registra y autentica la cuenta federada. |
+| IAM | `POST /api/v1/authentication/refresh-token` | `refresh_token` | `200 AuthenticatedUserResponse`; rota ambos tokens. `401` informa códigos de rechazo. |
+| IAM | `POST /api/v1/authentication/logout` | `refresh_token` opcional | `204`; revoca el refresh token. |
+| IAM | `GET /api/v1/authentication/me` | Bearer JWT | `200 CurrentUserResource`; identidad y roles del token. |
+| Assets | `POST /api/v1/sites` | `name`, `address`, `contact_name`, `phone` | `201 SiteResource`; crea una sede para el owner autenticado. |
+| Assets | `GET /api/v1/sites` | Bearer JWT | `200 SiteResource[]`; lista las sedes propias. |
+| Assets | `GET /api/v1/sites/{siteId}` | Path: `siteId` | `200 SiteResource`; `404` si no es accesible por el owner. |
+| Assets | `GET /api/v1/sites/{siteId}/equipments` | Path: `siteId` | `200 EquipmentResource[]`; equipos instalados en la sede. |
+| Assets | `PUT /api/v1/sites/{siteId}` | Path: `siteId`; cuerpo completo de sede | `200 SiteResource`; reemplaza datos editables sin cambiar propietario. |
+| Assets | `POST /api/v1/equipments` | `site_id`, `uid`, `name`, `equipment_type`, `min_celsius`, `max_celsius`, `reminder_interval_days` | `201 EquipmentResource`; registra equipo AVAILABLE. `409` si el `uid` ya existe. |
+| Assets | `GET /api/v1/equipments` | Query opcional: `status`, `equipmentType`, `siteId`, `page`, `size` | `200 EquipmentResource[]` o página de resultados filtrada. |
+| Assets | `GET /api/v1/equipments/{equipmentId}` | Path: `equipmentId` | `200 EquipmentResource`; detalle del equipo propio. |
+| Assets | `PUT /api/v1/equipments/{equipmentId}` | Path: `equipmentId`; `name`, `equipment_type`, `reminder_interval_days` | `200 EquipmentResource`; actualiza información operativa. |
+| Assets | `PUT /api/v1/equipments/{equipmentId}/threshold` | `min_celsius`, `max_celsius` | `200 EquipmentResource`; actualiza rango térmico; `400` si mínimo no es menor que máximo. |
+| Assets | `PUT /api/v1/equipments/{equipmentId}/status` | `new_status` | `200 EquipmentResource`; cambia estado. `409` ante transición no permitida. |
+| Dashboard | `GET /api/v1/profiles/dashboard-configs/user/{userId}` | Path: `userId` | `200 DashboardConfigResource`; configuración y tarjetas del propio usuario. |
+| Dashboard | `POST /api/v1/profiles/dashboard-configs` | `user_id`, `default_site_id`, `default_temperature_range` | `201 DashboardConfigResource`; crea las cuatro tarjetas predeterminadas. |
+| Dashboard | `PUT /api/v1/profiles/dashboard-configs/user/{userId}/layout` | `cards[]`: `card_id`, `order`, `is_visible` | `200 DashboardConfigResource`; reemplaza el layout completo. |
+| Dashboard | `PATCH /api/v1/profiles/dashboard-configs/user/{userId}/cards/{cardId}/visibility` | Paths: `userId`, `cardId` | `200 DashboardConfigResource`; alterna visibilidad sin perder posición ni datos. |
+| Dashboard | `POST /api/v1/profiles/dashboard-configs/user/{userId}/reset-defaults` | Path: `userId` | `200 DashboardConfigResource`; restablece orden y visibilidad por defecto. |
+| Dashboard | `PUT /api/v1/profiles/dashboard-configs/user/{userId}/defaults` | `default_site_id`, `default_temperature_range` | `200 DashboardConfigResource`; actualiza valores iniciales del dashboard. |
+| Monitoring | `POST /api/v1/telemetry` | `reading_uid`, `equipment_id`, temperaturas, `humidity`, `sample_count`, `recorded_at` | `200 SensorReadingResource`; `204` si es reenvío duplicado. |
+| Monitoring | `GET /api/v1/telemetry/equipment/{equipmentId}?from=...&to=...` | Path: `equipmentId`; query ISO-8601 `from`, `to` | `200 SensorReadingResource[]`; historial en el rango solicitado. |
+| Monitoring | `GET /api/v1/alerts/{alertId}` | Path: `alertId` | `200 AlertResource`; incluye tipo, severidad, estado y temperatura pico. |
+| Monitoring | `GET /api/v1/alerts/equipment/{equipmentId}/open` | Path: `equipmentId` | `200 AlertResource[]`; alertas OPEN o ACKNOWLEDGED. |
+| Monitoring | `PUT /api/v1/alerts/{alertId}/{acknowledge\|resolve\|dismiss}` | Path: `alertId` | `200 AlertResource`; ejecuta la transición del ciclo de vida. |
+| Monitoring | `GET /api/v1/alert-policies/equipment/{equipmentId}` | Path: `equipmentId` | `200 AlertPolicyResource`; retorna política específica o global. |
+| Monitoring | `PUT /api/v1/alert-policies` | `equipment_id` opcional, minutos de excursión, histéresis, ventanas offline | `200 AlertPolicyResource`; crea o actualiza la política. |
+| Notifications | `GET /api/v1/notifications?recipientUserId={id}&onlyUnread={bool}` | Query: destinatario obligatorio; filtro opcional | `200 NotificationResource[]`; lista notificaciones del usuario. |
+| Notifications | `GET /api/v1/notifications/{notificationId}` | Path: `notificationId` | `200 NotificationResource`; `404` si no existe. |
+| Notifications | `PUT /api/v1/notifications/{notificationId}/read` | Path: `notificationId` | `200 NotificationResource`; marca la notificación como leída. |
+| Notifications | `PUT /api/v1/notifications/{notificationId}/dismiss` | Path: `notificationId` | `200 NotificationResource`; la descarta registrando su fecha. |
+
+Los demás endpoints de Users, Roles, perfiles Owner y perfiles Technician permanecen documentados en Swagger UI y conservan el mismo patrón: verbo HTTP, parámetros tipados, ejemplos `@Schema`, respuesta esperada y códigos de error.
+
+##### Interacciones de muestra
+
+##### 1. Registrar lectura de telemetría
+
+```http
+POST /api/v1/telemetry
+Content-Type: application/json
+Authorization: Bearer <JWT>
+
+{
+  "reading_uid": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+  "equipment_id": 1,
+  "device_id": 7,
+  "min_temperature": -18.4,
+  "max_temperature": -17.1,
+  "avg_temperature": -17.8,
+  "humidity": 62.0,
+  "sample_count": 12,
+  "recorded_at": "2026-10-09T08:30:00"
+}
+```
+
+```json
+{
+  "id": 501,
+  "equipment_id": 1,
+  "device_id": 7,
+  "min_temperature": -18.4,
+  "max_temperature": -17.1,
+  "avg_temperature": -17.8,
+  "humidity": 62.0,
+  "recorded_at": "2026-10-09T08:30:00"
+}
+```
+
+La respuesta `200` confirma que se almacenó la lectura agregada y permite alimentar consultas históricas y evaluación de alertas. Si el mismo `reading_uid` se reenvía, el servicio responde `204` para evitar duplicidad.
+
+##### 2. Crear configuración de dashboard
+
+```http
+POST /api/v1/profiles/dashboard-configs
+Content-Type: application/json
+Authorization: Bearer <JWT>
+
+{
+  "user_id": 42,
+  "default_site_id": 3,
+  "default_temperature_range": {
+    "min": -22,
+    "max": -18,
+    "unit": "C",
+    "label": "-18°C to -22°C"
+  }
+}
+```
+
+```json
+{
+  "id": 1,
+  "user_id": 42,
+  "default_site_id": 3,
+  "default_temperature_range": {
+    "min": -22,
+    "max": -18,
+    "unit": "C",
+    "label": "-18°C to -22°C"
+  },
+  "cards": [
+    { "card_id": 7, "card_type": "MONITORED_EQUIPMENT", "order": 1, "is_visible": true },
+    { "card_id": 8, "card_type": "OPEN_ALERTS", "order": 2, "is_visible": true }
+  ]
+}
+```
+
+La respuesta `201` demuestra la creación de una configuración individual y el establecimiento de tarjetas visibles por defecto.
+
+##### 3. Actualizar el rango térmico de un equipo
+
+```http
+PUT /api/v1/equipments/1/threshold
+Content-Type: application/json
+Authorization: Bearer <JWT>
+
+{
+  "min_celsius": -22.0,
+  "max_celsius": -12.0
+}
+```
+
+```json
+{
+  "id": 1,
+  "uid": "ESP32-0001",
+  "name": "Congelador 1",
+  "min_celsius": -22.0,
+  "max_celsius": -12.0,
+  "status": "AVAILABLE"
+}
+```
+
+La respuesta `200` confirma el rango operativo actualizado. Si `min_celsius >= max_celsius`, el contrato especifica `400 Bad Request`.
+
+##### 4. Marcar una notificación como leída
+
+```http
+PUT /api/v1/notifications/25/read
+Authorization: Bearer <JWT>
+```
+
+```json
+{
+  "id": 25,
+  "equipment_id": 1,
+  "source_alert_id": 301,
+  "message": "Temperatura fuera del rango configurado",
+  "type": "ALERT",
+  "severity": "WARNING",
+  "is_read": true,
+  "read_at": "2026-10-09T08:35:00",
+  "dismissed_at": null
+}
+```
+
+La respuesta `200` evidencia el cambio de estado sin eliminar el historial de la notificación.
+
+##### Commits relacionados con el Sprint
+
+| Commit | Relación |
+|---|---|
+| [`717b598`](https://github.com/IceTrack-IoT/Platform-IceTrack_IoT/commit/717b5980336a9c8309b224d6b43ca5b50538b4d0) | Actualiza puerto y URLs de servidores OpenAPI, incluyendo producción Railway. |
+| [`ad1d2a8`](https://github.com/IceTrack-IoT/Platform-IceTrack_IoT/commit/ad1d2a8075b0623f80e8f4380a06537a05e7ffce) | Reemplaza acciones de tarjetas por actualización de layout del dashboard. |
+| [`126b935`](https://github.com/IceTrack-IoT/Platform-IceTrack_IoT/commit/126b935ff66331f4ce1ff241b57e8df1ce4dd889) | Implementa Dashboard Configs y sus endpoints documentados. |
+| [`06fe834`](https://github.com/IceTrack-IoT/Platform-IceTrack_IoT/commit/06fe8342923cdc00d956017d04f86eb332e69ceb) | Mejora parámetros IoT de rangos de temperatura. |
+| [`cb978d4`](https://github.com/IceTrack-IoT/Platform-IceTrack_IoT/commit/cb978d45b21fcd4c032e88e54717f0494ac9ddb5) | Ajusta Assets Management y contratos REST asociados. |
+| [`c5e22e1`](https://github.com/IceTrack-IoT/Platform-IceTrack_IoT/commit/c5e22e1c5daff1ca630a54f7882742e0239bdf41) | Integra Notifications en `develop`. |
+| [`e2f9aa2`](https://github.com/IceTrack-IoT/Platform-IceTrack_IoT/commit/e2f9aa2e10f229f7d0ec7c502f6bbe02893bb16d) | Integra IAM en `develop`. |
+
+
 #### 6.2.1.8. Software Deployment Evidence for Sprint Review
 
 #### 6.2.1.9. Team Collaboration Insights during Sprint
