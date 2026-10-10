@@ -5878,6 +5878,188 @@ Durante este sprint, el equipo centró la validación en la especificación y di
 
 #### 6.2.1.6. Execution Evidence for Sprint Review
 
+Durante el Sprint 1 se completó la implementación de las funcionalidades priorizadas para la Landing Page y el primer flujo funcional del propietario dentro de la aplicación web IceTrack. Como resultado, se habilitaron el registro e inicio de sesión de usuarios, la gestión de sedes y equipos de refrigeración, la consulta y filtrado de los activos registrados y la generación de solicitudes de servicio de mantenimiento. Asimismo, se implementaron en la Landing Page la propuesta de valor del producto, las soluciones orientadas a los distintos tipos de negocio, las funcionalidades principales, la misión y visión de IceTrack y los accesos hacia las aplicaciones de la plataforma. Estas funcionalidades corresponden a los elementos definidos y completados en el Sprint Backlog 1.
+
+#### Landing Page
+
+Figura 1 <br>
+Interfaz principal de la Landing Page de IceTrack y presentación de su propuesta de valor
+
+<p align="center">
+  <img src="assets\chapter06\sprint-1\landingPage-1.png" alt="landingPage1" width="1000">
+</p>
+
+Nota. Se presenta la sección principal de la Landing Page de IceTrack, donde se comunica la propuesta de valor de la plataforma, orientada a la protección de equipos de refrigeración mediante tecnologías IoT, monitoreo continuo de temperaturas y detección automatizada de anomalías. Elaboración propia.
+
+
+Figura 2 <br>
+Sección de soluciones especializadas para la gestión de la cadena de frío en la Landing Page de IceTrack
+
+<p align="center">
+  <img src="assets\chapter06\sprint-1\landingPage-2.png" alt="landingPage2" width="1000">
+</p>
+
+Nota. Se presenta la sección de soluciones especializadas de IceTrack, orientada a diferentes perfiles de usuarios, como propietarios y administradores de establecimientos, así como técnicos de mantenimiento de equipos de refrigeración. La interfaz permite seleccionar el tipo de solución y visualizar sus principales beneficios. Elaboración propia.
+
+Figura 3 <br>
+Sección de funcionalidades principales y flujo de procesamiento de datos IoT en la Landing Page de IceTrack
+
+<p align="center">
+  <img src="assets\chapter06\sprint-1\landingPage-3.png" alt="landingPage3" width="1000">
+</p>
+
+Nota. Se presenta la sección de funcionalidades principales de IceTrack, donde se describe el flujo de información desde los sensores IoT hasta los usuarios de la plataforma. Elaboración propia.
+
+Figura 4 <br>
+Sección de misión y visión institucional de IceTrack en la Landing Page
+
+<p align="center">
+  <img src="assets\chapter06\sprint-1\landingPage-4.png" alt="landingPage4" width="1000">
+</p>
+
+Nota. Se presenta la sección de misión y visión de IceTrack, donde se describe el propósito y la proyección estratégica de la plataforma. Elaboración propia.
+
+Figura 5 <br>
+Sección de hardware IoT y ecosistema de monitoreo de IceTrack en la Landing Page
+
+<p align="center">
+  <img src="assets\chapter06\sprint-1\landingPage-5.png" alt="landingPage5" width="1000">
+</p>
+
+Nota. Se presenta la sección de hardware IoT y ecosistema de IceTrack, donde se describe la integración de sensores industriales, dispositivos de comunicación y herramientas de monitoreo. La interfaz destaca el uso de sensores PT100, NTC y controladores OEM para la recopilación periódica de temperaturas, así como gateways compatibles con MQTT y BLE que permiten transmitir información y almacenar datos temporalmente ante interrupciones de conectividad. Elaboración propia.
+
+Figura 6 <br>
+Sección de acceso a las plataformas y pie de página de la Landing Page de IceTrack
+
+<p align="center">
+  <img src="assets\chapter06\sprint-1\landingPage-6.png" alt="landingPage6" width="1000">
+</p>
+
+Nota. Se presenta la sección final de la Landing Page de IceTrack, donde se muestran las opciones de acceso a la plataforma según el perfil del usuario. Por un lado, los administradores y responsables de instalaciones de refrigeración pueden registrarse en la plataforma web para centralizar el monitoreo de equipos, consultar registros de cumplimiento y gestionar alertas. Elaboración propia.
+
+Enlace de la explicacion: [https://upcedupe-my.sharepoint.com/:v:/g/personal/u20241a352_upc_edu_pe/IQDiiHVYo1-hQIWn4Trt1BDHAZL-xDT31kuh7ihkH5N6qtY?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJPbmVEcml2ZUZvckJ1c2luZXNzIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXciLCJyZWZlcnJhbFZpZXciOiJNeUZpbGVzTGlua0NvcHkifX0&e=QhizIK](https://upcedupe-my.sharepoint.com/:v:/g/personal/u20241a352_upc_edu_pe/IQDiiHVYo1-hQIWn4Trt1BDHAZL-xDT31kuh7ihkH5N6qtY?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJPbmVEcml2ZUZvckJ1c2luZXNzIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXciLCJyZWZlcnJhbFZpZXciOiJNeUZpbGVzTGlua0NvcHkifX0&e=QhizIK)
+
+#### Aplicacion Web
+
+Figura 7 <br>
+Interfaz de inicio de sesión y acceso al registro de IceTrack
+
+<p align="center">
+  <img src="assets\chapter06\sprint-1\aplicacionWeb-1.png" alt="aplicacionWeb1" width="1000">
+</p>
+
+Nota. Se presenta la interfaz de acceso a IceTrack, desde la cual el usuario puede iniciar sesión mediante sus credenciales o una cuenta de Google. Asimismo, la vista incorpora la opción para iniciar el proceso de registro de un nuevo usuario en la plataforma. Elaboración propia.
+
+Figura 8 <br>
+Interfaz de registro de una cuenta empresarial en IceTrack
+
+<p align="center">
+  <img src="assets\chapter06\sprint-1\aplicacionWeb-2.png" alt="aplicacionWeb2" width="1000">
+</p>
+
+Nota. Se presenta la interfaz implementada para el registro de una cuenta de propietario en IceTrack, en la cual se ingresan los datos personales y empresariales requeridos para la creación de la cuenta. Esta vista evidencia la implementación del flujo correspondiente al registro de usuarios desarrollado durante el Sprint 1. Elaboración propia.
+
+Figura 9 <br>
+Confirmación del registro de una cuenta de propietario
+
+<p align="center">
+  <img src="assets\chapter06\sprint-1\aplicacionWeb-3.png" alt="aplicacionWeb3" width="1000">
+</p>
+
+Nota. Se presenta la confirmación mostrada al finalizar satisfactoriamente el proceso de registro de una cuenta de propietario, permitiendo al usuario continuar hacia el inicio de sesión de la plataforma. Elaboración propia.
+
+Figura 10 <br>
+Vista inicial del panel principal de IceTrack
+
+<p align="center">
+  <img src="assets\chapter06\sprint-1\aplicacionWeb-4.png" alt="aplicacionWeb4" width="1000">
+</p>
+
+Nota. Se presenta una vista inicial del panel principal de IceTrack durante el proceso de implementación, en la cual se evidencia la estructura base de navegación de la aplicación web mediante el menú lateral y el acceso a los principales módulos del sistema. Esta captura permite mostrar el avance progresivo de la interfaz antes de la incorporación de los componentes funcionales de monitoreo. Elaboración propia.
+
+Figura 11 <br>
+Vista general del monitoreo de equipos de refrigeración
+
+<p align="center">
+  <img src="assets\chapter06\sprint-1\aplicacionWeb-5.png" alt="aplicacionWeb5" width="1000">
+</p>
+
+Nota. Se presenta la vista general de monitoreo de IceTrack, donde el usuario puede visualizar el estado actual de la cadena de frío mediante indicadores de sedes, equipos monitoreados, alertas abiertas y solicitudes de servicio activas. Asimismo, se muestran las temperaturas actuales de los equipos y las principales alertas detectadas. Elaboración propia.
+
+Figura 12 <br>
+Interfaz de gestión y seguimiento de alertas de IceTrack
+
+<p align="center">
+  <img src="assets\chapter06\sprint-1\aplicacionWeb-6.png" alt="aplicacionWeb6" width="1000">
+</p>
+
+Nota. Se presenta el módulo de gestión de alertas de IceTrack, donde el usuario puede visualizar incidencias relacionadas con temperaturas fuera de los rangos establecidos y pérdida de conexión de los dispositivos. La interfaz permite filtrar las alertas según su estado, severidad y tipo, así como consultar sus detalles, reconocerlas, descartarlas o generar solicitudes de servicio. Elaboración propia.
+
+Figura 13 <br>
+Interfaz de gestión de sedes registradas en IceTrack
+
+<p align="center">
+  <img src="assets\chapter06\sprint-1\aplicacionWeb-7.png" alt="aplicacionWeb7" width="1000">
+</p>
+
+Nota. Se presenta el módulo de gestión de sedes de IceTrack, donde el usuario puede visualizar las ubicaciones registradas, sus datos de contacto y la cantidad de equipos de refrigeración asociados a cada una. Asimismo, la interfaz permite registrar nuevas sedes, consultar los equipos vinculados y actualizar la información de contacto. Elaboración propia.
+
+Figura 14 <br>
+Interfaz de consulta y filtrado de equipos de refrigeración en IceTrack
+
+<p align="center">
+  <img src="assets\chapter06\sprint-1\aplicacionWeb-8.png" alt="aplicacionWeb8" width="1000">
+</p>
+
+Nota. Se presenta el módulo de gestión de equipos de refrigeración de IceTrack, donde el usuario puede consultar el inventario de equipos registrados, incluyendo su tipo, sede asociada, estado operativo, conectividad y última temperatura registrada. Asimismo, la interfaz permite realizar búsquedas y aplicar filtros por sede, tipo de equipo y estado, facilitando la localización y supervisión de los activos. Elaboración propia.
+
+Figura 15 <br>
+Interfaz de gestión de dispositivos de monitoreo en IceTrack
+
+<p align="center">
+  <img src="assets\chapter06\sprint-1\aplicacionWeb-9.png" alt="aplicacionWeb9" width="1000">
+</p>
+
+Nota. Se presenta el módulo de gestión de dispositivos de monitoreo de IceTrack, donde el usuario puede visualizar los dispositivos registrados, su estado de conectividad, los equipos de refrigeración asociados, las credenciales activas y la última lectura reportada. Asimismo, la interfaz permite vincular y desvincular dispositivos, renovar o revocar sus claves de acceso y filtrar los registros según su estado de vinculación. Elaboración propia.
+
+Figura 16 <br>
+Interfaz de gestión y seguimiento de solicitudes de servicio en IceTrack
+
+<p align="center">
+  <img src="assets/chapter06/sprint-1/aplicacionWeb-10.png" alt="aplicacionWeb10" width="1000">
+</p>
+
+Nota. Se presenta el módulo de gestión de solicitudes de servicio de IceTrack, donde el usuario puede registrar y consultar solicitudes de mantenimiento preventivo, inspección y reparación de equipos de refrigeración. La interfaz permite visualizar los equipos asociados, técnicos responsables, niveles de prioridad y estados de atención, así como filtrar las solicitudes, asignar técnicos y calificar los servicios completados. Elaboración propia.
+
+Figura 17
+Interfaz de generación y consulta de reportes en IceTrack
+
+<p align="center">
+  <img src="assets/chapter06/sprint-1/aplicacionWeb-11.png" alt="aplicacionWeb11" width="1000">
+</p>
+
+Nota. Se presenta el módulo de gestión de reportes de IceTrack, donde el usuario puede generar y consultar informes relacionados con la disponibilidad de equipos, cumplimiento de la cadena de frío, desempeño de técnicos y mantenimiento. La interfaz permite buscar y filtrar los reportes por tipo, estado y fecha de solicitud, así como visualizar su estado de generación y descargar los archivos disponibles en diferentes formatos. Elaboración propia.
+
+Figura 18
+Interfaz del centro de notificaciones de IceTrack
+
+<p align="center">
+  <img src="assets/chapter06/sprint-1/aplicacionWeb-12.png" alt="aplicacionWeb12" width="1000">
+</p>
+
+Nota. Se presenta el centro de notificaciones de IceTrack, donde el usuario puede consultar avisos relacionados con temperaturas fuera de los rangos establecidos, pérdida de conexión de dispositivos y actualizaciones de solicitudes de servicio. La interfaz permite filtrar las notificaciones por severidad, tipo y estado de lectura, así como acceder a las alertas y equipos asociados, marcar las notificaciones como leídas o descartarlas. Elaboración propia.
+
+Figura 19
+Interfaz de monitoreo de equipos de refrigeración en idioma español de IceTrack
+
+<p align="center">
+  <img src="assets/chapter06/sprint-1/aplicacionWeb-13.png" alt="aplicacionWeb13" width="1000">
+</p>
+
+Nota. Se presenta la interfaz de monitoreo de IceTrack configurada en idioma español, evidenciando la disponibilidad de una interfaz multilingüe para facilitar la interacción de los usuarios con la plataforma. La vista permite consultar los indicadores generales de sedes, equipos monitoreados, alertas abiertas y solicitudes de servicio activas, así como visualizar las temperaturas actuales y los estados de los equipos de refrigeración. Elaboración propia.
+
+Enlace de la explicacion: [https://upcedupe-my.sharepoint.com/:v:/g/personal/u20241a352_upc_edu_pe/IQCk87uJocK0TYGryRnPv3-MAcxhChLT5c8yXB3yqh8LX5w?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJPbmVEcml2ZUZvckJ1c2luZXNzIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXciLCJyZWZlcnJhbFZpZXciOiJNeUZpbGVzTGlua0NvcHkifX0&e=iALJv1](https://upcedupe-my.sharepoint.com/:v:/g/personal/u20241a352_upc_edu_pe/IQCk87uJocK0TYGryRnPv3-MAcxhChLT5c8yXB3yqh8LX5w?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJPbmVEcml2ZUZvckJ1c2luZXNzIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXciLCJyZWZlcnJhbFZpZXciOiJNeUZpbGVzTGlua0NvcHkifX0&e=iALJv1)
+
 #### 6.2.1.7. Services Documentation Evidence for Sprint Review
 
 ##### Introducción
