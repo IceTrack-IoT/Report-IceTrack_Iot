@@ -5899,6 +5899,23 @@ En esta sección se explica y presenta los avances en implementación con relaci
 
 #### 6.2.1.5. Testing Suite Evidence for Sprint Review
 
+Durante este sprint, el equipo centró la validación en la especificación y diseño de las pruebas de aceptación escritas en Gherkin (12 .feature, uno por cada User Story y Technical Story del Sprint Backlog 1). 
+
+| Repository | Branch | Commit Id | Commit Message | Commit Message Body | Commited on (Date) |
+|---|---|---|---|---|---|
+| IceTrack-IoT/Pruebas-Gherkin | feature/gherkin-sprint-1 | e476a10 | test: add feature for US01 user registration | Cubre la creacion exitosa de cuenta para ONWNER_ROLE y TECHNICIAN_ROLE, el rechazo de un nombre de usuario ya registrado y la validacion de la politica de contrasena. | 09/10/2026 |
+| IceTrack-IoT/Pruebas-Gherkin | feature/gherkin-sprint-1 | bdaaab1 | test: add feature for US02 user login | Cubre el inicio de sesion exitoso con JWT de 60 minutos y redireccion por rol (Owner/Technician), el rechazo uniforme de credenciales incorrectas (401) y la validacion de campos vacios (400). | 09/10/2026 |
+| IceTrack-IoT/Pruebas-Gherkin | feature/gherkin-sprint-1 | ce7b769 | test: add feature for US13 main value proposition | Cubre la propuesta de valor visible al cargar la pagina principal y el contenido orientado a la cadena de frio (monitoreo inteligente y proteccion del inventario refrigerado). | 09/10/2026 |
+| IceTrack-IoT/Pruebas-Gherkin | feature/gherkin-sprint-1 | b87b16c | test: add feature for US14 explore solutions by business | Cubre las soluciones para negocios que dependen de la cadena de frio y la informacion dirigida a tecnicos y proveedores de mantenimiento. | 09/10/2026 |
+| IceTrack-IoT/Pruebas-Gherkin | feature/gherkin-sprint-1 | 3c5e3f2 | test: add feature for US15 key functionalities | Cubre el acceso a la lista de funcionalidades (monitoreo en tiempo real, automatizacion de alertas y gestion de mantenimientos) y las descripciones orientadas al valor. | 09/10/2026 |
+| IceTrack-IoT/Pruebas-Gherkin | feature/gherkin-sprint-1 | 470bea9 | test: add feature for US16 mission and vision | Cubre el acceso a la mision en el contenido corporativo y el acceso a la vision a futuro en el contenido estrategico de la pagina institucional. | 09/10/2026 |
+| IceTrack-IoT/Pruebas-Gherkin | feature/gherkin-sprint-1 | f899818 | test: add feature for US17 call to action access | Cubre el acceso a la pantalla de inicio de sesion web para el segmento propietario y el acceso al punto de descarga movil para el segmento tecnico. | 09/10/2026 |
+| IceTrack-IoT/Pruebas-Gherkin | feature/gherkin-sprint-1 | 42f67bf | test: add feature for TS01 service request creation API | Cubre la creacion exitosa (201, estado PENDING con identificador), la validacion de campo obligatorio faltante (400 VALIDATION_ERROR) y el rechazo de equipo ajeno (404 NOT_FOUND). | 09/10/2026 |
+| IceTrack-IoT/Pruebas-Gherkin | feature/gherkin-sprint-1 | 0ce1bcb | test: add feature for TS02 interventions registration API | Cubre el registro exitoso de una intervencion (201, orden padre a COMPLETED) y el rechazo por tecnico inexistente (404 Technician not found). | 09/10/2026 |
+| IceTrack-IoT/Pruebas-Gherkin | feature/gherkin-sprint-1 | bc8ef21 | test: add feature for TS03 service reviews API | Cubre la evaluacion inicial con puntuaciones de 1 a 5 (201, fecha limite de edicion) y el rechazo de edicion fuera del plazo de 48 horas (409 Review edit window expired). | 09/10/2026 |
+| IceTrack-IoT/Pruebas-Gherkin | feature/gherkin-sprint-1 | 4f892e3 | test: add feature for TS04 user registration API | Cubre el registro exitoso sin exponer la contrasena ni su hash (201), el rechazo de nombre de usuario ya registrado (409) y la validacion de formato y politica (400 VALIDATION_ERROR). | 09/10/2026 |
+| IceTrack-IoT/Pruebas-Gherkin | feature/gherkin-sprint-1 | abaaec5 | test: add feature for TS05 service request status query API | Cubre la consulta exitosa del estado de una solicitud con su historial de transiciones (200) y el rechazo por identificador inexistente (404 Service request not found). | 09/10/2026 |
+
 #### 6.2.1.6. Execution Evidence for Sprint Review
 
 #### 6.2.1.7. Services Documentation Evidence for Sprint Review
