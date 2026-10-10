@@ -51,6 +51,7 @@
 | 1.7     | 20/09/2026 | Joaquin Cuentas       | Desarrollo del Software Architecture y C4 diagrams       |
 | 2.0     | 8/10/2026 | Piero Tenorio Medina    | Desarrollo de la primera versión Style Guidelines| 
 | 2.1     | 8/10/2026 | Joaquin Cuentas   | Desarrollo de wireframes, mockups y userflow | 
+| 2.0     | 9/10/2026 | Cesar Arostegui       | Desarrollo de la primera versión del Web Services y Web Application |
 
 
 
