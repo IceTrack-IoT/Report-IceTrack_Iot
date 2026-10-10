@@ -59,23 +59,30 @@
 ## Project Report Collaboration Insights
 
 - **URL de la organización del proyecto:** 
-  https://github.com/IceTrack-IoT/Report-IceTrack_Iot
+  https://github.com/IceTrack-IoT
   <br>
-
 - **URL del repositorio del reporte:** 
-  https://github.com/IceTrack-IoT/Report-IceTrack
+  https://github.com/IceTrack-IoT/Report-IceTrack_Iot/
   <br>
-  
-- **URL del repositorio de la Landing Page:**
-  https://github.com/IceTrack-IoT/Landing-Page-IceTrack
+- **URL del repositorio de la Landing Page:** 
+  https://github.com/IceTrack-IoT/LandingPage-IceTrack_IoT
   <br>
-
 - **URL del repositorio del Frontend:** 
-  https://github.com/IceTrack-IoT/Frontend-IceTrack
+  https://github.com/IceTrack-IoT/Frontend-IceTrack_IoT
   <br>
 
-- **URL del repositorio del Backend:** 
-  https://github.com/IceTrack-IoT/Platform-IceTrack
+
+**AV1:** Durante el primer avance del proyecto se realizó la fase de análisis, definición y diseño de la solución IoT IceTrack. Se desarrollaron los artefactos de investigación y levantamiento de requisitos, incluyendo el análisis de la problemática, la definición de segmentos objetivo, entrevistas, User Personas, Empathy Maps, User Journey Maps y el proceso de Needfinding. Asimismo, se elaboró el Product Backlog, las User Stories con sus criterios de aceptación y los primeros artefactos de diseño de software, tales como el EventStorming, la definición del Ubiquitous Language, el Impact Mapping y la arquitectura inicial de la solución. Esto nos permitio establecer una visión clara del producto y sentar las bases para el posterior desarrollo de sus componentes web e IoT.
+
+<img src="assets/chapter06/Commits-AV1.png" alt="Avance 1" width="100%">
+
+---
+
+**TP1:** Durante el Trabajo Parcial se consolidó la transición del diseño a la implementación mediante el desarrollo de la primera versión funcional de la plataforma IceTrack. Se completó la Landing Page del proyecto, incorporando la información del modelo de negocio, propuesta de valor, características principales de la solución y elementos de navegación dirigidos a los distintos segmentos de usuarios. Asimismo, se desarrolló el Frontend de la aplicación web, implementando las principales interfaces de usuario definidas en los mockups y prototipos, así como la estructura de navegación necesaria para la interacción con los futuros servicios de la plataforma. Paralelamente, se configuró el entorno de desarrollo, el control de versiones mediante GitHub y la estrategia de despliegue, evidenciando una solución funcional que permite visualizar el avance real del producto y preparar la integración con los componentes backend e IoT en las siguientes iteraciones.
+
+<img src="assets/chapter06/Commits-TP.png" alt="Avance 1" width="100%">
+
+---
 
 ## Contenido
 
