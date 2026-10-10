@@ -3937,113 +3937,120 @@ Los wireframes de las aplicaciones web de IceTrack ilustran la organización de 
 **Vista de Dueños**
 
 <div align="center">
-  <img src="assets/chapter05/F11.png" alt="Figura 1: Registro de Cuenta y Rol Operativo" style="width: 100%; max-width: 900px; aspect-ratio: 16/9; object-fit: cover; border-radius: 8px; border: 1px solid #d0d7de; box-shadow: 0 4px 12px rgba(0,0,0,0.08);" />
-  <p><em><b>Figura 1:</b> Wireframe de Registro de Cuenta y Rol Operativo</em></p>
+  <img src="assets/chapter05/M016.png" alt="Figura 1: Sign in and register" style="width: 100%; max-width: 900px; aspect-ratio: 16/9; object-fit: cover; border-radius: 8px; border: 1px solid #d0d7de; box-shadow: 0 4px 12px rgba(0,0,0,0.08);" />
+  <p><em><b>Figura 1:</b> Sign in and register</em></p>
 </div>
 
 ---
 
 <div align="center">
-  <img src="assets/chapter05/F12.png" alt="Figura 2: Autenticación e Inicio de Sesión" style="width: 100%; max-width: 900px; aspect-ratio: 16/9; object-fit: cover; border-radius: 8px; border: 1px solid #d0d7de; box-shadow: 0 4px 12px rgba(0,0,0,0.08);" />
-  <p><em><b>Figura 2:</b> Wireframe de Autenticación e Inicio de Sesión</em></p>
+  <img src="assets/chapter05/M017.png" alt="Figura 2: Notification center" style="width: 100%; max-width: 900px; aspect-ratio: 16/9; object-fit: cover; border-radius: 8px; border: 1px solid #d0d7de; box-shadow: 0 4px 12px rgba(0,0,0,0.08);" />
+  <p><em><b>Figura 2:</b> Notification center</em></p>
 </div>
 
 ---
 
 <div align="center">
-  <img src="assets/chapter05/F13.png" alt="Figura 3: Preferencias de Idioma, Región y Formato de Telemetría" style="width: 100%; max-width: 900px; aspect-ratio: 16/9; object-fit: cover; border-radius: 8px; border: 1px solid #d0d7de; box-shadow: 0 4px 12px rgba(0,0,0,0.08);" />
-  <p><em><b>Figura 3:</b> Wireframe de Preferencias de Idioma, Región y Formato de Telemetría</em></p>
+  <img src="assets/chapter05/M01.png" alt="Figura 3: Executive real time-dashboard" style="width: 100%; max-width: 900px; aspect-ratio: 16/9; object-fit: cover; border-radius: 8px; border: 1px solid #d0d7de; box-shadow: 0 4px 12px rgba(0,0,0,0.08);" />
+  <p><em><b>Figura 3:</b> Executive real time-dashboard</em></p>
 </div>
 
 ---
 
 <div align="center">
-  <img src="assets/chapter05/F20.png" alt="Figura 4: Inventario Global de Sedes y Equipos" style="width: 100%; max-width: 900px; aspect-ratio: 16/9; object-fit: cover; border-radius: 8px; border: 1px solid #d0d7de; box-shadow: 0 4px 12px rgba(0,0,0,0.08);" />
-  <p><em><b>Figura 4:</b> Wireframe de Inventario Global de Sedes y Equipos</em></p>
+  <img src="assets/chapter05/M02.png" alt="Figura 4: Customize dashboard-layout" style="width: 100%; max-width: 900px; aspect-ratio: 16/9; object-fit: cover; border-radius: 8px; border: 1px solid #d0d7de; box-shadow: 0 4px 12px rgba(0,0,0,0.08);" />
+  <p><em><b>Figura 4:</b> Customize dashboard-layout</em></p>
 </div>
 
 ---
 
 <div align="center">
-  <img src="assets/chapter05/F21.png" alt="Figura 5: Ficha Técnica del Activo, Parámetros Térmicos y Sensores IoT" style="width: 100%; max-width: 900px; aspect-ratio: 16/9; object-fit: cover; border-radius: 8px; border: 1px solid #d0d7de; box-shadow: 0 4px 12px rgba(0,0,0,0.08);" />
-  <p><em><b>Figura 5:</b> Wireframe de Ficha Técnica del Activo, Parámetros Térmicos y Sensores IoT</em></p>
+  <img src="assets/chapter05/M03.png" alt="Figura 5: Sites and regrigeration assets" style="width: 100%; max-width: 900px; aspect-ratio: 16/9; object-fit: cover; border-radius: 8px; border: 1px solid #d0d7de; box-shadow: 0 4px 12px rgba(0,0,0,0.08);" />
+  <p><em><b>Figura 5:</b> Sites and regrigeration assets</em></p>
 </div>
 
 ---
 
 <div align="center">
-  <img src="assets/chapter05/F22.png" alt="Figura 6: Dashboard Ejecutivo y Monitoreo Multizona en Tiempo Real" style="width: 100%; max-width: 900px; aspect-ratio: 16/9; object-fit: cover; border-radius: 8px; border: 1px solid #d0d7de; box-shadow: 0 4px 12px rgba(0,0,0,0.08);" />
-  <p><em><b>Figura 6:</b> Wireframe de Dashboard Ejecutivo y Monitoreo Multizona en Tiempo Real</em></p>
+  <img src="assets/chapter05/M04.png" alt="Figura 6: Filtered - empty state" style="width: 100%; max-width: 900px; aspect-ratio: 16/9; object-fit: cover; border-radius: 8px; border: 1px solid #d0d7de; box-shadow: 0 4px 12px rgba(0,0,0,0.08);" />
+  <p><em><b>Figura 6:</b> Filtered - empty state</em></p>
 </div>
 
 ---
 
 <div align="center">
-  <img src="assets/chapter05/F23.png" alt="Figura 7: Centro de Notificaciones y Reglas de Despacho" style="width: 100%; max-width: 900px; aspect-ratio: 16/9; object-fit: cover; border-radius: 8px; border: 1px solid #d0d7de; box-shadow: 0 4px 12px rgba(0,0,0,0.08);" />
-  <p><em><b>Figura 7:</b> Wireframe de Centro de Notificaciones y Reglas de Despacho</em></p>
+  <img src="assets/chapter05/M05.png" alt="Figura 7: Deep device-device offline" style="width: 100%; max-width: 900px; aspect-ratio: 16/9; object-fit: cover; border-radius: 8px; border: 1px solid #d0d7de; box-shadow: 0 4px 12px rgba(0,0,0,0.08);" />
+  <p><em><b>Figura 7:</b> Deep device-device offline </em></p>
 </div>
 
 ---
 
 <div align="center">
-  <img src="assets/chapter05/F31.png" alt="Figura 8: Monitor y Gestión Global de Órdenes de Servicio" style="width: 100%; max-width: 900px; aspect-ratio: 16/9; object-fit: cover; border-radius: 8px; border: 1px solid #d0d7de; box-shadow: 0 4px 12px rgba(0,0,0,0.08);" />
-  <p><em><b>Figura 8:</b> Wireframe de Monitor y Gestión Global de Órdenes de Servicio</em></p>
+  <img src="assets/chapter05/M06.png" alt="Figura 8: Deep device-device offline" style="width: 100%; max-width: 900px; aspect-ratio: 16/9; object-fit: cover; border-radius: 8px; border: 1px solid #d0d7de; box-shadow: 0 4px 12px rgba(0,0,0,0.08);" />
+  <p><em><b>Figura 8:</b> Deep device-device offline</em></p>
 </div>
 
 ---
 
 <div align="center">
-  <img src="assets/chapter05/F32.png" alt="Figura 9: Alta y Emisión de Solicitud de Servicio Técnico" style="width: 100%; max-width: 900px; aspect-ratio: 16/9; object-fit: cover; border-radius: 8px; border: 1px solid #d0d7de; box-shadow: 0 4px 12px rgba(0,0,0,0.08);" />
-  <p><em><b>Figura 9:</b> Wireframe de Alta y Emisión de Solicitud de Servicio Técnico</em></p>
+  <img src="assets/chapter05/M07.png" alt="Figura 9: New Api key" style="width: 100%; max-width: 900px; aspect-ratio: 16/9; object-fit: cover; border-radius: 8px; border: 1px solid #d0d7de; box-shadow: 0 4px 12px rgba(0,0,0,0.08);" />
+  <p><em><b>Figura 9:</b>  New Api key</em></p>
 </div>
 
 ---
 
 <div align="center">
-  <img src="assets/chapter05/F41.png" alt="Figura 10: Despacho y Asignación Pericial de Técnico Especialista" style="width: 100%; max-width: 900px; aspect-ratio: 16/9; object-fit: cover; border-radius: 8px; border: 1px solid #d0d7de; box-shadow: 0 4px 12px rgba(0,0,0,0.08);" />
-  <p><em><b>Figura 10:</b> Wireframe de Despacho y Asignación Pericial de Técnico Especialista</em></p>
+  <img src="assets/chapter05/M08.png" alt="Figura 10: Thermal alert console" style="width: 100%; max-width: 900px; aspect-ratio: 16/9; object-fit: cover; border-radius: 8px; border: 1px solid #d0d7de; box-shadow: 0 4px 12px rgba(0,0,0,0.08);" />
+  <p><em><b>Figura 10:</b> Thermal alert console</em></p>
 </div>
 
 ---
 
 <div align="center">
-  <img src="assets/chapter05/F42.png" alt="Figura 11: Seguimiento en Vivo de la Intervención Técnica en Campo" style="width: 100%; max-width: 900px; aspect-ratio: 16/9; object-fit: cover; border-radius: 8px; border: 1px solid #d0d7de; box-shadow: 0 4px 12px rgba(0,0,0,0.08);" />
-  <p><em><b>Figura 11:</b> Wireframe de Seguimiento en Vivo de la Intervención Técnica en Campo</em></p>
+  <img src="assets/chapter05/M09.png" alt="Figura 11: Dismiss false alarm" style="width: 100%; max-width: 900px; aspect-ratio: 16/9; object-fit: cover; border-radius: 8px; border: 1px solid #d0d7de; box-shadow: 0 4px 12px rgba(0,0,0,0.08);" />
+  <p><em><b>Figura 11:</b> Dismiss false alarms</em></p>
 </div>
 
 ---
 
 <div align="center">
-  <img src="assets/chapter05/F43.png" alt="Figura 12: Justificación Oficial y Dictamen de Descarte de Incidencia" style="width: 100%; max-width: 900px; aspect-ratio: 16/9; object-fit: cover; border-radius: 8px; border: 1px solid #d0d7de; box-shadow: 0 4px 12px rgba(0,0,0,0.08);" />
-  <p><em><b>Figura 12:</b> Wireframe de Justificación Oficial y Dictamen de Descarte de Incidencia</em></p>
+  <img src="assets/chapter05/M010.png" alt="Figura 12: Pre propulated corrective order" style="width: 100%; max-width: 900px; aspect-ratio: 16/9; object-fit: cover; border-radius: 8px; border: 1px solid #d0d7de; box-shadow: 0 4px 12px rgba(0,0,0,0.08);" />
+  <p><em><b>Figura 12:</b> Pre propulated corrective order</em></p>
 </div>
 
 ---
 
 <div align="center">
-  <img src="assets/chapter05/F44.png" alt="Figura 13: Directorio de Especialistas y Evaluación de Calidad de Servicio" style="width: 100%; max-width: 900px; aspect-ratio: 16/9; object-fit: cover; border-radius: 8px; border: 1px solid #d0d7de; box-shadow: 0 4px 12px rgba(0,0,0,0.08);" />
-  <p><em><b>Figura 13:</b> Wireframe de Directorio de Especialistas y Evaluación de Calidad de Servicio</em></p>
+  <img src="assets/chapter05/M011.png" alt="Figura 13: Work orders" style="width: 100%; max-width: 900px; aspect-ratio: 16/9; object-fit: cover; border-radius: 8px; border: 1px solid #d0d7de; box-shadow: 0 4px 12px rgba(0,0,0,0.08);" />
+  <p><em><b>Figura 13:</b> Work orders</em></p>
 </div>
 
 ---
 
 <div align="center">
-  <img src="assets/chapter05/F45.png" alt="Figura 14: Bitácora Histórica de Intervenciones y Mantenimientos del Activo" style="width: 100%; max-width: 900px; aspect-ratio: 16/9; object-fit: cover; border-radius: 8px; border: 1px solid #d0d7de; box-shadow: 0 4px 12px rgba(0,0,0,0.08);" />
-  <p><em><b>Figura 14:</b> Wireframe de Bitácora Histórica de Intervenciones y Mantenimientos del Activo</em></p>
+  <img src="assets/chapter05/M012.png" alt="Figura 14: Order details and progress" style="width: 100%; max-width: 900px; aspect-ratio: 16/9; object-fit: cover; border-radius: 8px; border: 1px solid #d0d7de; box-shadow: 0 4px 12px rgba(0,0,0,0.08);" />
+  <p><em><b>Figura 14:</b> Order details and progress</em></p>
 </div>
 
 ---
 
 <div align="center">
-  <img src="assets/chapter05/F46.png" alt="Figura 15: Centro de Auditoría Regulatoria y Certificación de Cadena de Frío" style="width: 100%; max-width: 900px; aspect-ratio: 16/9; object-fit: cover; border-radius: 8px; border: 1px solid #d0d7de; box-shadow: 0 4px 12px rgba(0,0,0,0.08);" />
-  <p><em><b>Figura 15:</b> Wireframe de Centro de Auditoría Regulatoria y Certificación de Cadena de Frío</em></p>
+  <img src="assets/chapter05/M013.png" alt="Figura 15: Technician assignamnet" style="width: 100%; max-width: 900px; aspect-ratio: 16/9; object-fit: cover; border-radius: 8px; border: 1px solid #d0d7de; box-shadow: 0 4px 12px rgba(0,0,0,0.08);" />
+  <p><em><b>Figura 15:</b> Technician assignamnet</em></p>
 </div>
 
 ---
 
 <div align="center">
-  <img src="assets/chapter05/F51.png" alt="Figura 16: Centro de Reportes y Auditoría Regulatoria" style="width: 100%; max-width: 900px; aspect-ratio: 16/9; object-fit: cover; border-radius: 8px; border: 1px solid #d0d7de; box-shadow: 0 4px 12px rgba(0,0,0,0.08);" />
-  <p><em><b>Figura 16:</b> Wireframe de Centro de Reportes y Auditoría Regulatoria</em></p>
+  <img src="assets/chapter05/M014.png" alt="Figura 16: Post service evaluation" style="width: 100%; max-width: 900px; aspect-ratio: 16/9; object-fit: cover; border-radius: 8px; border: 1px solid #d0d7de; box-shadow: 0 4px 12px rgba(0,0,0,0.08);" />
+  <p><em><b>Figura 16:</b> Post service evaluation</em></p>
+</div>
+
+---
+
+<div align="center">
+  <img src="assets/chapter05/M015.png" alt="Figura 17: Complience and analitycs" style="width: 100%; max-width: 900px; aspect-ratio: 16/9; object-fit: cover; border-radius: 8px; border: 1px solid #d0d7de; box-shadow: 0 4px 12px rgba(0,0,0,0.08);" />
+  <p><em><b>Figura 17:</b> Complience and analitycs</em></p>
 </div>
 
 ---
