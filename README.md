@@ -5801,15 +5801,15 @@ Al ser el primer Sprint, el equipo no cuenta con un *Velocity* histórico. El *V
 
 Para el Sprint 1 el equipo organizó el trabajo en de la siguiente manera:
 
-| Team Member (Last Name, First Name) | GitHub Username | Landing Page | IAM API | Service Requests API | Interventions & Reviews API | Web App Authentication | Testing & API Documentation | Deployment & Configuration |
-| :--- | :--- | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
-| Arostegui Alzamora, Cesar Augusto | `[Legendnt1]` | C | - | - | - | - | - | L |
-| Cuentas Peña, Joaquin Alberto | `[JoaCupe]` | - | - | L | C | - | - | C |
-| Fajardo Monrroy, Walter Luis | `[WalterFajardo]` | L | - | - | - | C | - | - |
-| Guillen Galindo, Julio Adolfo | `[julio645]` | C | - | - | C | - | L | - |
-| Jiménez Guerra, Gianmarco Fabian | `[ZAICO21]` | - | C | - | L | C | - | - |
-| Quijada Magro, Jeremy Alexander | `jquijada-dev` | - | - | - | - | L | C | - |
-| Tenorio Medina, Piero Francesco | `[PieroTM2005]` | - | L | C | - | - | C | - |
+| Team Member (Last Name, First Name) | GitHub Username | Landing Page | Web App Authentication | Testing & Documentation | Deployment & Configuration |
+| :--- | :--- | :---: | :---: | :---: | :---: |
+| Arostegui Alzamora, Cesar Augusto | `[Legendnt1]` | C | - | - | L |
+| Cuentas Peña, Joaquin Alberto | `[JoaCupe]` | - | - | - | C |
+| Fajardo Monrroy, Walter Luis | `[WalterFajardo]` | L | C | - | - |
+| Guillen Galindo, Julio Adolfo | `[julio645]` | C | - | L | - |
+| Jiménez Guerra, Gianmarco Fabian | `[ZAICO21]` | - | C | - | - |
+| Quijada Magro, Jeremy Alexander | `jquijada-dev` | - | L | C | - |
+| Tenorio Medina, Piero Francesco | `[PieroTM2005]` | - | - | C | - |
 
 #### 6.2.1.3. Sprint Backlog 1
 
@@ -5864,7 +5864,7 @@ En esta sección se explica y presenta los avances en implementación con relaci
 
 #### 6.2.1.5. Testing Suite Evidence for Sprint Review
 
-Durante este sprint, el equipo centró la validación en la especificación y diseño de las pruebas de aceptación escritas en Gherkin (12 .feature, uno por cada User Story y Technical Story del Sprint Backlog 1). 
+Durante este sprint, el equipo centró la validación en la especificación y diseño de las pruebas de aceptación escritas en Gherkin (.feature, uno por cada User Story). 
 
 | Repository | Branch | Commit Id | Commit Message | Commit Message Body | Commited on (Date) |
 |---|---|---|---|---|---|
@@ -5875,11 +5875,6 @@ Durante este sprint, el equipo centró la validación en la especificación y di
 | IceTrack-IoT/Pruebas-Gherkin | feature/gherkin-sprint-1 | 3c5e3f2 | test: add feature for US15 key functionalities | Cubre el acceso a la lista de funcionalidades (monitoreo en tiempo real, automatizacion de alertas y gestion de mantenimientos) y las descripciones orientadas al valor. | 09/10/2026 |
 | IceTrack-IoT/Pruebas-Gherkin | feature/gherkin-sprint-1 | 470bea9 | test: add feature for US16 mission and vision | Cubre el acceso a la mision en el contenido corporativo y el acceso a la vision a futuro en el contenido estrategico de la pagina institucional. | 09/10/2026 |
 | IceTrack-IoT/Pruebas-Gherkin | feature/gherkin-sprint-1 | f899818 | test: add feature for US17 call to action access | Cubre el acceso a la pantalla de inicio de sesion web para el segmento propietario y el acceso al punto de descarga movil para el segmento tecnico. | 09/10/2026 |
-| IceTrack-IoT/Pruebas-Gherkin | feature/gherkin-sprint-1 | 42f67bf | test: add feature for TS01 service request creation API | Cubre la creacion exitosa (201, estado PENDING con identificador), la validacion de campo obligatorio faltante (400 VALIDATION_ERROR) y el rechazo de equipo ajeno (404 NOT_FOUND). | 09/10/2026 |
-| IceTrack-IoT/Pruebas-Gherkin | feature/gherkin-sprint-1 | 0ce1bcb | test: add feature for TS02 interventions registration API | Cubre el registro exitoso de una intervencion (201, orden padre a COMPLETED) y el rechazo por tecnico inexistente (404 Technician not found). | 09/10/2026 |
-| IceTrack-IoT/Pruebas-Gherkin | feature/gherkin-sprint-1 | bc8ef21 | test: add feature for TS03 service reviews API | Cubre la evaluacion inicial con puntuaciones de 1 a 5 (201, fecha limite de edicion) y el rechazo de edicion fuera del plazo de 48 horas (409 Review edit window expired). | 09/10/2026 |
-| IceTrack-IoT/Pruebas-Gherkin | feature/gherkin-sprint-1 | 4f892e3 | test: add feature for TS04 user registration API | Cubre el registro exitoso sin exponer la contrasena ni su hash (201), el rechazo de nombre de usuario ya registrado (409) y la validacion de formato y politica (400 VALIDATION_ERROR). | 09/10/2026 |
-| IceTrack-IoT/Pruebas-Gherkin | feature/gherkin-sprint-1 | abaaec5 | test: add feature for TS05 service request status query API | Cubre la consulta exitosa del estado de una solicitud con su historial de transiciones (200) y el rechazo por identificador inexistente (404 Service request not found). | 09/10/2026 |
 
 #### 6.2.1.6. Execution Evidence for Sprint Review
 
