@@ -9,7 +9,7 @@
   <h2>NRC: 8740</h2>
   <h2>Profesor: David Carlos Olivera</h2>
 <br>
- <h1>Informe del Avance Parcial</h1>
+ <h1>Informe del Avance 2</h1>
   <h2>Startup: Frostshield </h2>
   <h2>Producto: IceTrack </h2>
 <br>
@@ -31,7 +31,7 @@
 
 <br>
 
-   <h3>Septiembre 2026</h3>
+   <h3>Noviembre 2026</h3>
 
 </div>
 
@@ -243,8 +243,25 @@
         - [Commits relacionados con el Sprint](#commits-relacionados-con-el-sprint)
       - [6.2.1.8. Software Deployment Evidence for Sprint Review](#6218-software-deployment-evidence-for-sprint-review)
       - [6.2.1.9. Team Collaboration Insights during Sprint](#6219-team-collaboration-insights-during-sprint)
+    - [6.2.2. Sprint 2](#622-sprint-2)
+      - [6.2.2.1. Sprint Planning 2](#6221-sprint-planning-1)
+      - [6.2.2.2. Aspect Leaders and Collaborators](#6222-aspect-leaders-and-collaborators)
+      - [6.2.2.3. Sprint Backlog 2](#6223-sprint-backlog-2)
+      - [6.2.2.4. Development Evidence for Sprint Review](#6224-development-evidence-for-sprint-review)
+      - [6.2.2.5. Testing Suite Evidence for Sprint Review](#6225-testing-suite-evidence-for-sprint-review)
+      - [6.2.2.6. Execution Evidence for Sprint Review](#6226-execution-evidence-for-sprint-review)
+      - [6.2.2.7. Services Documentation Evidence for Sprint Review](#6227-services-documentation-evidence-for-sprint-review)
+      - [6.2.1.8. Software Deployment Evidence for Sprint Review](#6228-software-deployment-evidence-for-sprint-review)
+      - [6.2.1.9. Team Collaboration Insights during Sprint](#6229-team-collaboration-insights-during-sprint)
+  - [6.3. Validation Interviews](#63-validation-interviews)
+    - [6.3.1. Diseño de Entrevistas](#631-diseño-de-entrevistas)
+    - [6.3.2. Registro de Entrevistas](#632-registro-de-entrevistas)
+    - [6.3.3. Evaluación según heuristicas](#633-evaluación-según-heurísticas)
+  - [6.4. Video About-the-Product](#634-video-about-the-product)
+ 
 - [Conclusiones](#conclusiones)
   - [Conclusiones y Recomendaciones](#conclusiones-y-recomendaciones)
+- [Video About-the-Team](#video-about-the-team)
 - [Bibliografía](#bibliografía)
 - [Anexos](#anexos)
   - [Recursos y enlaces del proyecto](#recursos-y-enlaces-del-proyecto)
@@ -6403,7 +6420,22 @@ Durante el sprint, el equipo mantuvo una colaboración constante y una comunicac
   <p><em><b>Figura N:</b> Insights TP</em></p>
 </div>
 
+### 6.2.2. Sprint 2
+#### 6.2.2.1. Sprint Planning 2
+#### 6.2.2.2. Aspect Leaders and Collaborators
+#### 6.2.2.3. Sprint Backlog 2 
+#### 6.2.2.4. Development Evidence for Sprint Review
+#### 6.2.2.5. Testing Suite Evidence for Sprint Review
+#### 6.2.2.6. Execution Evidence for Sprint Review
+#### 6.2.2.7. Services Documentation Evidence for Sprint Review
+#### 6.2.2.8. Software Deployment Evidence for Sprint Review
+#### 6.2.2.9. Team Collaboration Insights during Sprint
 
+## 6.3. Validation Interviews
+### 6.3.1. Diseño de Entrevistas
+### 6.3.2. Registro de Entrevistas
+### 6.3.3. Evaluación según heurísticas
+### 6.3.4. Video About-the-Product
 
 # Conclusiones
 
@@ -6422,6 +6454,8 @@ En cuanto al trabajo en equipo, como grupo consolidamos liderazgo conjunto, cola
 **Recomendación**
 
 - Recomendamos construir primero un flujo completo y mínimo del Core Domain, que va desde el envío de la telemetría por el ESP32 hasta la generación de una alerta y su visualización en el dashboard, e implementarlo con las historias de mayor prioridad del backlog. Una vez funcionando, conviene validarlo con una prueba piloto en una o dos heladerías de Lima antes de desarrollar los contextos de soporte, como Reporting and Analytics. Esto permitirá confirmar con usuarios reales las hipótesis sobre alertas y umbrales, y ajustar las reglas de evaluación con datos reales de operación. Así reducimos el riesgo de invertir esfuerzo en funciones que los usuarios no necesiten.
+
+# Video About-the-Team
 
 # Bibliografía
 
