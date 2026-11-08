@@ -6421,7 +6421,10 @@ Durante el sprint, el equipo mantuvo una colaboración constante y una comunicac
 </div>
 
 ### 6.2.2. Sprint 2
+
 #### 6.2.2.1. Sprint Planning 2
+
+En esta sección se detalla lo acordado durante el Sprint Planning de nuestro segundo Sprint. Tras haber alcanzado y desarrollado una capa visual base para nuestra solución y haber desarrollado una prototipo de la solución IoT, el equipo ahora se enfocará en complementar y desarrollar a profundidad  la solución, abarcando áreas ya trabajadas anteriormente y brindandoles mucha más profundidad y pulido de lo que anteriormente estaba.  
 
 | **Sprint #** | Sprint 2 |
 | :--- | :--- |
@@ -6430,12 +6433,12 @@ Durante el sprint, el equipo mantuvo una colaboración constante y una comunicac
 | Location | Reunión virtual en Meet |
 | Prepared By | Jeremy Alexander Quijada Magro |
 | Attendees (to planning meeting) | Arostegui Alzamora Cesar Augusto, Cuentas Peña Joaquin Alberto, Fajardo Monrroy Walter Luis, Guillen Galindo Julio Adolfo, Jiménez Guerra Gianmarco Fabian, Quijada Magro Jeremy Alexander y Tenorio Medina, Piero Francesco |
-| Sprint 1 Review Summary | - |
-| Sprint 1 Retrospective Summary | -  |
+| Sprint 1 Review Summary | Durante el primer sprint logramos consolidar con éxito la fase de diseño e implementación inicial de IceTrack. Se desarrolló la Laning-Page corporativa con la propuesta de valor e información por cada segmento, estructuramos los diagramas de arquitectura de software y modeloamos un total de 8 Bounded Context mediante Domain-Driven-Design (DDD) y artefactos C4. Además se desarrollo e implementó distintos apartados dentro de la solución como lo es el Frontend y Backend de la aplicación final.   |
+| Sprint 1 Retrospective Summary | El equipo se sintió muy cómodo, sincronizado y ágil estructurando los diagramas de dominio, el diseño UX/UI y la base del código alojado en GitHub. Sin embargo, se notó que hubo ciertos desafíos a la hora de estructurar de manera concisa los distintos Bounded Context debido a su complejidad. Para evitar que esto afecte al desarrollo de nuevo, se acordó con el grupo reuniones con mayor frecuencia para poder estructurar de manera organizada los distintos apartados a trabajar e implementar por parte de cada uno de los integrantes dentro del grupo.   |
 | **Sprint Goal & User Stories** | |
 | Sprint 2 Goal | - |
-| Sprint 2 Velocity |  Story Points |
-| Sum of Story Points |  Story Points |
+| Sprint 2 Velocity |  # Story Points |
+| Sum of Story Points | # Story Points |
 
 #### 6.2.2.2. Aspect Leaders and Collaborators
 
