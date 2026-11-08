@@ -6422,10 +6422,59 @@ Durante el sprint, el equipo mantuvo una colaboración constante y una comunicac
 
 ### 6.2.2. Sprint 2
 #### 6.2.2.1. Sprint Planning 2
+
+| **Sprint #** | Sprint 2 |
+| :--- | :--- |
+| **Sprint Planning Background** | |
+| Date | 2026-11-  |
+| Location | Reunión virtual en Meet |
+| Prepared By | Jeremy Alexander Quijada Magro |
+| Attendees (to planning meeting) | Arostegui Alzamora Cesar Augusto, Cuentas Peña Joaquin Alberto, Fajardo Monrroy Walter Luis, Guillen Galindo Julio Adolfo, Jiménez Guerra Gianmarco Fabian, Quijada Magro Jeremy Alexander y Tenorio Medina, Piero Francesco |
+| Sprint 1 Review Summary | - |
+| Sprint 1 Retrospective Summary | -  |
+| **Sprint Goal & User Stories** | |
+| Sprint 2 Goal | - |
+| Sprint 2 Velocity |  Story Points |
+| Sum of Story Points |  Story Points |
+
 #### 6.2.2.2. Aspect Leaders and Collaborators
+
+Para el Sprint 2 el equipo organizó el trabajo en de la siguiente manera:
+
+| Team Member (Last Name, First Name) | GitHub Username | Landing Page | Web App Authentication | Testing & Documentation | Deployment & Configuration |
+| :--- | :--- | :---: | :---: | :---: | :---: |
+| Arostegui Alzamora, Cesar Augusto | `[Legendnt1]` | C | - | - | L |
+| Cuentas Peña, Joaquin Alberto | `[JoaCupe]` | - | - | - | C |
+| Fajardo Monrroy, Walter Luis | `[WalterFajardo]` | L | C | - | - |
+| Guillen Galindo, Julio Adolfo | `[julio645]` | C | - | L | - |
+| Jiménez Guerra, Gianmarco Fabian | `[ZAICO21]` | - | C | - | - |
+| Quijada Magro, Jeremy Alexander | `jquijada-dev` | - | L | C | - |
+| Tenorio Medina, Piero Francesco | `[PieroTM2005]` | - | - | C | - |
+
 #### 6.2.2.3. Sprint Backlog 2 
+
+| Sprint # | Sprint 2 |  |  |  |  |  |  |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| **User Story** |  | **Work-Item / Task** |  |  |  |  |  |
+| **Story Id** | **Story Title** | **Task Id** | **Task Title** | **Task Description** | **Estimation (Story Points)** | **Assigned To** | **Status (To-do / In-Process / To-Review / Done)** |
+| US-13 | Visualizar la propuesta de valor principal | UT-L1 | Sección de propuesta de valor | Maquetar la propuesta de valor de IceTrack en la Landing Page. | 2 | Walter Fajardo | Done |
+
 #### 6.2.2.4. Development Evidence for Sprint Review
+
+En esta sección se explica y presenta los avances en implementación con relación a los productos de Icetrack: Landing Page, FrontEnd y Backend.
+
+| Repository | Branch | Commit Id | Commit Message | Commit Message Body | Commited on (Date) |
+| --- | --- | --- | --- | --- | --- |
+| IceTrack-IoT/Frontend-IceTrack_IoT | master | 039ba80 | initial commit |  | 27/09/2026 |
+
 #### 6.2.2.5. Testing Suite Evidence for Sprint Review
+
+Durante el desarrollo del sprint 2, al igual que el sprint anterior, el equipo centró la validación en la especificación y diseño de las pruebas de aceptación escritas en Gherkin (.feature, uno por cada User Story). 
+
+| Repository | Branch | Commit Id | Commit Message | Commit Message Body | Commited on (Date) |
+|---|---|---|---|---|---|
+| IceTrack-IoT/Pruebas-Gherkin | feature/gherkin-sprint-1 | e476a10 | test: add feature for US01 user registration | Cubre la creacion exitosa de cuenta para ONWNER_ROLE y TECHNICIAN_ROLE, el rechazo de un nombre de usuario ya registrado y la validacion de la politica de contrasena. | 09/10/2026 |
+
 #### 6.2.2.6. Execution Evidence for Sprint Review
 #### 6.2.2.7. Services Documentation Evidence for Sprint Review
 #### 6.2.2.8. Software Deployment Evidence for Sprint Review
@@ -6433,8 +6482,47 @@ Durante el sprint, el equipo mantuvo una colaboración constante y una comunicac
 
 ## 6.3. Validation Interviews
 ### 6.3.1. Diseño de Entrevistas
+
+**Preguntas para el Segmento Objetivo 1 - Heladerías con equipos de refrigeración:**
+
+---
+
+**Preguntas para el Segmento Objetivo 2 - Técnicos y empresas de mantenimiento de refrigeración:**
+
 ### 6.3.2. Registro de Entrevistas
+
+## Segmento objetivo #1: Heladerías con equipos de refrigeración
+
+#### Entrevista 1:
+
+- **Nombres y apellidos:** 
+- **Edad:** 
+- **Distrito:** 
+
+- **Inicio:** 00:00 min
+- **Duración:** 
+- **URL:** [-](-)
+
+- **Resumen:**
+
+---
+
+## Segmento Objetivo 2 - Técnicos y empresas de mantenimiento de refrigeración:
+
+- **Nombres y apellidos:** 
+- **Edad:** 
+- **Distrito:** 
+
+- **Inicio:** 00:00 min
+- **Duración:** 
+- **URL:** [-](-)
+
+- **Resumen:**
+
+---
+
 ### 6.3.3. Evaluación según heurísticas
+
 ### 6.3.4. Video About-the-Product
 
 # Conclusiones
