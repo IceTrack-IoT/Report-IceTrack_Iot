@@ -6429,16 +6429,16 @@ En esta sección se detalla lo acordado durante el Sprint Planning de nuestro se
 | **Sprint #** | Sprint 2 |
 | :--- | :--- |
 | **Sprint Planning Background** | |
-| Date | 2026-11-  |
+| Date | 2026-11-8 10:00 AM  |
 | Location | Reunión virtual en Meet |
 | Prepared By | Jeremy Alexander Quijada Magro |
 | Attendees (to planning meeting) | Arostegui Alzamora Cesar Augusto, Cuentas Peña Joaquin Alberto, Fajardo Monrroy Walter Luis, Guillen Galindo Julio Adolfo, Jiménez Guerra Gianmarco Fabian, Quijada Magro Jeremy Alexander y Tenorio Medina, Piero Francesco |
 | Sprint 1 Review Summary | Durante el primer sprint logramos consolidar con éxito la fase de diseño e implementación inicial de IceTrack. Se desarrolló la Laning-Page corporativa con la propuesta de valor e información por cada segmento, estructuramos los diagramas de arquitectura de software y modeloamos un total de 8 Bounded Context mediante Domain-Driven-Design (DDD) y artefactos C4. Además se desarrollo e implementó distintos apartados dentro de la solución como lo es el Frontend y Backend de la aplicación final.   |
 | Sprint 1 Retrospective Summary | El equipo se sintió muy cómodo, sincronizado y ágil estructurando los diagramas de dominio, el diseño UX/UI y la base del código alojado en GitHub. Sin embargo, se notó que hubo ciertos desafíos a la hora de estructurar de manera concisa los distintos Bounded Context debido a su complejidad. Para evitar que esto afecte al desarrollo de nuevo, se acordó con el grupo reuniones con mayor frecuencia para poder estructurar de manera organizada los distintos apartados a trabajar e implementar por parte de cada uno de los integrantes dentro del grupo.   |
 | **Sprint Goal & User Stories** | |
-| Sprint 2 Goal | - |
-| Sprint 2 Velocity |  # Story Points |
-| Sum of Story Points | # Story Points |
+| Sprint 2 Goal | El objetivo de esta entrega se enfoca en implementar un avance mucho más pulido para IceTrack agregando funcionalidades clave para la solución: Integración con la autenticación con Google, el ciclo de atención para los servicios entre propietarios y técnicos, gestionar los dispositivos de monitoreo y los umbrales que manejan, monitoreo de la telemetría con alertas automáticas, sistema de notificaciones para el usuario y generación de reportes. Creemos que lo implementado brindará una mayor profundidad al proyecto con respecto al Sprint 1 y convierte a IceTrack en una solución que adquiere mucho más valor.  |
+| Sprint 2 Velocity |  148 Story Points |
+| Sum of Story Points | 148 Story Points |
 
 #### 6.2.2.2. Aspect Leaders and Collaborators
 
@@ -6456,11 +6456,46 @@ Para el Sprint 2 el equipo organizó el trabajo en de la siguiente manera:
 
 #### 6.2.2.3. Sprint Backlog 2 
 
+ El objetivo de este **Sprint 2** fué de consolidar las principales funcionalidades de IceTrack abarcando distintos apartados como el **Backend** y **Frontend** de la aplicación.
+
 | Sprint # | Sprint 2 |  |  |  |  |  |  |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | **User Story** |  | **Work-Item / Task** |  |  |  |  |  |
 | **Story Id** | **Story Title** | **Task Id** | **Task Title** | **Task Description** | **Estimation (Story Points)** | **Assigned To** | **Status (To-do / In-Process / To-Review / Done)** |
-| US-13 | Visualizar la propuesta de valor principal | UT-L1 | Sección de propuesta de valor | Maquetar la propuesta de valor de IceTrack en la Landing Page. | 2 | Walter Fajardo | Done |
+| US-34 | Iniciar sesión con Google mediante OAuth 2.0 | UT-B1 | Autenticación con Google | Implementar la verificación del ID Token de Google, la vinculación de cuenta y el registro de propietario o técnico. | 5 | Jeremy Quijada | Done |
+| US-46 | Iniciar sesión en la aplicación móvil | UT-B2 | Login Google en móvil | Implementar el completado de registro del técnico con su cuenta de Google. | 3 | Jeremy Quijada | Done |
+| US-07 | Actualizar el perfil profesional del técnico | UT-B3 | Perfil del técnico | Implementar la actualización de contacto, especialidad y certificación del técnico. | 5 | Julio Guillén | Done |
+| US-08 | Consultar el perfil de un técnico | UT-B4 | Perfil público del técnico | Exponer especialidad, servicios completados y calificación promedio al propietario. | 3 | Julio Guillén | Done |
+| US-35 | Configurar las tarjetas del dashboard | UT-B5 | Configuración del dashboard | Implementar el orden, la visibilidad y el restablecimiento de las tarjetas. | 5 | Julio Guillén | Done |
+| US-50 | Verificar la dirección de un sitio con Google Maps | UT-B6 | Validación de dirección | Validar y geocodificar la dirección antes de guardar el sitio. | 5 | Walter Fajardo | Done |
+| US-36 | Configurar el umbral de temperatura de un equipo | UT-B7 | Umbral de temperatura | Implementar la temperatura mínima y máxima por equipo. | 5 | Walter Fajardo | Done |
+| US-47 | Ver la ubicación de la sede y navegar hasta ella | UT-B8 | Ubicación de la sede | Exponer las coordenadas del sitio para el mapa y la navegación del técnico. | 5 | Walter Fajardo | Done |
+| US-37 | Emparejar un dispositivo de monitoreo con un equipo | UT-B9 | Emparejamiento de dispositivos | Registrar y vincular un dispositivo a un equipo, emitiendo su API key. | 8 | Gianmarco Jiménez | Done |
+| US-38 | Rotar o revocar la credencial de un dispositivo | UT-B10 | Credenciales del dispositivo | Implementar la rotación de API key, el desemparejamiento y el cambio de estado. | 5 | Gianmarco Jiménez | Done |
+| US-27 | Visualizar la telemetría histórica y actual de un equipo | UT-B11 | Telemetría histórica y en vivo | Implementar la consulta de lecturas por equipo y el stream SSE. | 8 | Piero Tenorio | Done |
+| US-28 | Generar alertas automáticas por excursión térmica sostenida | UT-B12 | Alertas por excursión térmica | Evaluar la excursión sostenida con histéresis y abrir la alerta. | 8 | Piero Tenorio | Done |
+| US-41 | Gestionar el ciclo de vida de una alerta | UT-B13 | Ciclo de vida de la alerta | Implementar el reconocimiento, la resolución y el descarte de alertas. | 5 | Piero Tenorio | Done |
+| US-42 | Detectar un equipo que dejó de reportar | UT-B14 | Detección de equipo sin señal | Abrir una alerta DEVICE_OFFLINE tras varias ventanas de sincronización perdidas. | 8 | César Arostegui | Done |
+| US-21 | Consultar y filtrar las solicitudes de servicio | UT-B15 | Listado y filtros de solicitudes | Implementar el listado paginado de solicitudes con filtros. | 5 | Walter Fajardo | Done |
+| US-05 | Dar seguimiento al progreso de un servicio | UT-B16 | Historial de estados | Registrar y exponer cada transición de estado de la solicitud. | 3 | Gianmarco Jiménez | Done |
+| US-06 | Cancelar una solicitud de servicio | UT-B17 | Cancelación con motivo | Implementar la cancelación de una solicitud indicando el motivo. | 3 | Joaquín Cuentas | Done |
+| US-09 | Asignar o reasignar un técnico a una solicitud | UT-B18 | Asignación de técnico | Implementar la asignación y la reasignación del técnico por el propietario. | 8 | Jeremy Quijada | Done |
+| US-30 | Recibir, aceptar o rechazar una asignación en el móvil | UT-B19 | Aceptar o rechazar asignación | Implementar la aceptación y el rechazo de la orden por el técnico. | 5 | César Arostegui | Done |
+| US-33 | Actualizar el estado del servicio y consultar telemetría en campo | UT-B20 | Estado de la orden en campo | Implementar el inicio de la orden y la consulta de telemetría por el técnico. | 5 | Joaquín Cuentas | Done |
+| US-31 | Registrar intervención sin conexión | UT-B21 | Intervención idempotente | Registrar la intervención de forma idempotente y cerrar la orden en una sola operación. | 8 | Jeremy Quijada | Done |
+| US-10 | Consultar el historial de intervenciones de un equipo | UT-B22 | Historial de intervenciones | Exponer las intervenciones realizadas sobre cada equipo. | 5 | Gianmarco Jiménez | Done |
+| US-12 | Evaluar un servicio completado | UT-B23 | Evaluación del servicio | Implementar el registro y la edición de la evaluación en tres dimensiones. | 5 | Julio Guillén | Done |
+| US-43 | Consultar el centro de notificaciones | UT-B24 | Centro de notificaciones | Implementar el listado, el contador de no leídas y el marcado como leída o descartada. | 5 | César Arostegui | Done |
+| US-44 | Recibir la notificación correcta según mi rol | UT-B25 | Notificaciones por rol | Enrutar cada notificación al propietario o al técnico que corresponde. | 5 | César Arostegui | Done |
+| US-32 | Recibir alertas push de anomalías térmicas en el móvil | UT-B26 | Push con Firebase | Registrar el token del dispositivo y enviar el push mediante FCM. | 5 | Joaquín Cuentas | Done |
+| US-45 | Generar el reporte de excursiones térmicas | UT-B27 | Reporte de excursiones | Implementar la generación asíncrona del reporte y su descarga. | 8 | Joaquín Cuentas | Done |
+
+<p align="center">
+  <img src="assets/chapter06/Trello-Sprint-2.png" alt="trello2" width="1000">
+</p>
+
+* **URL pública del Board de Trello:** https://trello.com/invite/b/6ac91c87c32b30e15cf90b14/ATTI800b8473167aaf37736c6f13443d013550F75477/icetrack-iot
+
 
 #### 6.2.2.4. Development Evidence for Sprint Review
 
