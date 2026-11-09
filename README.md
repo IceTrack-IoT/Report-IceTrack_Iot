@@ -6503,7 +6503,76 @@ En esta sección se explica y presenta los avances en implementación con relaci
 
 | Repository | Branch | Commit Id | Commit Message | Commit Message Body | Commited on (Date) |
 | --- | --- | --- | --- | --- | --- |
-| IceTrack-IoT/Frontend-IceTrack_IoT | master | 039ba80 | initial commit |  | 27/09/2026 |
+| IceTrack-IoT/Frontend-IceTrack_IoT | feat/assets-management | 3636979 | feat: Add new dashboard cards for open alerts, active orders, monitored equipment, and equipment status with corresponding styles|  | 10/09/2026 |
+| IceTrack-IoT/Frontend-IceTrack_IoT | feat/assets-management | 05e861f | feat: Implement owner profile settings view with profile loading and error handling |  | 10/09/2026 |
+| IceTrack-IoT/Frontend-IceTrack_IoT | feat/assets-management | 18cba3d | feat: Clear googleClientId in environment configuration for security reasons |  | 08/11/2026 |
+| IceTrack-IoT/Frontend-IceTrack_IoT | feat/assets-management | a12f32a | feat(iam): align authentication with the backend contract |  | 09/11/2026 |
+| IceTrack-IoT/Frontend-IceTrack_IoT | feat/assets-management | 7d46ab2 | feat(assets): expose a read-only site directory port |  | 09/11/2026 |
+| IceTrack-IoT/Frontend-IceTrack_IoT | feat/assets-management | 6772da0 | feat(profiles): integrate owner profile, dashboard and technicians |  | 09/11/2026 |
+| IceTrack-IoT/Frontend-IceTrack_IoT | feat/assets-management | c1723c0 | feat(assets): expose equipment directory port |  | 09/11/2026 |
+| IceTrack-IoT/Frontend-IceTrack_IoT | feat/assets-management | 5c1d367 | feat(service): implement service request management |  | 09/11/2026 |
+| IceTrack-IoT/Frontend-IceTrack_IoT | feat/assets-management | 18235cb | feat(assets): model sites and equipment after the backend contracts |  | 09/11/2026 |
+| IceTrack-IoT/Frontend-IceTrack_IoT | feat/assets-management | 6ba83a0 | feat(assets): add application ports, use cases and assets store |  | 09/11/2026 |
+| IceTrack-IoT/Frontend-IceTrack_IoT | feat/assets-management | e4a1c02 | feat(assets): integrate site and equipment endpoints |  | 09/11/2026 |
+| IceTrack-IoT/Frontend-IceTrack_IoT | feat/assets-management | a33aad0 | feat(assets): translate site and equipment flows |  | 09/11/2026 |
+| IceTrack-IoT/Frontend-IceTrack_IoT | feat/assets-management | a2a847b | feat(assets): replace mocked views with the assets store |  | 09/11/2026 |
+| IceTrack-IoT/Frontend-IceTrack_IoT | feat/iam | 3636979 | feat: Add new dashboard cards for open alerts, active orders, monitored equipment, and equipment status with corresponding styles |  | 10/10/2026 |
+| IceTrack-IoT/Frontend-IceTrack_IoT | feat/iam | 05e861f | feat: Implement owner profile settings view with profile loading and error handling |  | 10/10/2026 |
+| IceTrack-IoT/Frontend-IceTrack_IoT | feat/iam | 18cba3d | feat: Clear googleClientId in environment configuration for security reasons |  | 08/11/2026 |
+| IceTrack-IoT/Frontend-IceTrack_IoT | feat/profiles | 6772da0 | feat(profiles): integrate owner profile, dashboard and technicians |  | 09/11/2026 |
+| IceTrack-IoT/Frontend-IceTrack_IoT | feat/profiles | 7d46ab2 | feat(assets): expose a read-only site directory port |  | 09/11/2026 |
+| IceTrack-IoT/Frontend-IceTrack_IoT | feat/profiles | a12f32a | feat(iam): align authentication with the backend contract |  | 09/11/2026 |
+| IceTrack-IoT/Frontend-IceTrack_IoT | feat/service-request | 5c1d367 | feat(service): implement service request management |  | 09/11/2026 |
+| IceTrack-IoT/Frontend-IceTrack_IoT | feat/service-request | c1723c0 | feat(assets): expose equipment directory port |  | 09/11/2026 |
+| IceTrack-IoT/Platform-IceTrack_IoT | develop | f2423a7 | feat: Adding the initial content to Reporting BC |  | 20/10/2026 |
+| IceTrack-IoT/Platform-IceTrack_IoT | develop | eeee6e1 | feat: implement device management |  | 20/10/2026 |
+| IceTrack-IoT/Platform-IceTrack_IoT | develop | f19596f | feat: Implement geocoding status management and address update functionality for sites |  | 21/10/2026 |
+| IceTrack-IoT/Platform-IceTrack_IoT | develop | 57cedbc | feat: Add duplicate resource conflict handling and corresponding error messages |  | 21/10/2026 |
+| IceTrack-IoT/Platform-IceTrack_IoT | develop | dfe9e4f | feat: Introduce CallerRole for ownership resolution and technician access in equipment commands and queries |  | 22/10/2026 |
+| IceTrack-IoT/Platform-IceTrack_IoT | develop | a40174d | feat: Add Service Request Management Bounded Context |  | 23/10/2026 |
+| IceTrack-IoT/Platform-IceTrack_IoT | develop | ea1d7b8 | feat: partially refactor device management ownership flow |  | 24/10/2026 |
+| IceTrack-IoT/Platform-IceTrack_IoT | develop | f97dfa7 | feat: Adding Google Cloud Storage as a service into Reporting BC |  | 25/10/2026 |
+| IceTrack-IoT/Platform-IceTrack_IoT | develop | 5c64ef4 | feat: Adding Firebase Cloud Messaging in Notification BC |  | 27/10/2026 |
+| IceTrack-IoT/Platform-IceTrack_IoT | develop | dd73d72 | feat: Enhance API schema documentation with examples for various resources |  | 4/11/2026 |
+| IceTrack-IoT/Platform-IceTrack_IoT | develop | c9239c0 | feat: Update docker-compose to use local credential files for FCM and GCS |  | 4/11/2026 |
+| IceTrack-IoT/Platform-IceTrack_IoT | develop | 5b1cdd3 | feat(service-request): expose ACL facade and replace JPQL with projections |  | 5/11/2026 |
+| IceTrack-IoT/Platform-IceTrack_IoT | develop | b4e0054 | feat(assets): limit thresholds to 0-30 C and align equipment states |  | 7/11/2026 |
+| IceTrack-IoT/Platform-IceTrack_IoT | develop | aef0103 | feat(security): authenticate edge routes by device API key only |  | 7/11/2026 |
+| IceTrack-IoT/Platform-IceTrack_IoT | develop | 0b39ea2 | feat(monitoring): validate sensor bounds and record calibrated readings |  | 7/11/2026 |
+| IceTrack-IoT/Platform-IceTrack_IoT | develop | 4f46d34 | feat(i18n): add messages for device, reading and threshold errors |  | 7/11/2026 |
+| IceTrack-IoT/Platform-IceTrack_IoT | develop | 7c69dfb | feat(iam): enforce client channels and uniform credential failures |  | 7/11/2026 |
+| IceTrack-IoT/Platform-IceTrack_IoT | develop | a23a611 | feat(iam): throttle failed sign-in attempts per address and account |  | 7/11/2026 |
+| IceTrack-IoT/Platform-IceTrack_IoT | develop | 4bb5388 | feat(monitoring): record alert lifecycle actors and dismissal reasons |  | 7/11/2026 |
+| IceTrack-IoT/Platform-IceTrack_IoT | develop | a67c0ed | feat(notifications): paginate the inbox and add an unread counter |  | 7/11/2026 |
+| IceTrack-IoT/Platform-IceTrack_IoT | develop | 0a217ce | feat(equipment): implement edge configuration version management for equipment updates |  | 7/11/2026 |
+| IceTrack-IoT/Platform-IceTrack_IoT | develop | e127b56 | feat(service-request): issue and revoke edge grants for accepted requests |  | 7/11/2026 |
+| IceTrack-IoT/Platform-IceTrack_IoT | develop | 783aafc | feat(assets): bump edge configuration version on policy and grant events |  | 7/11/2026 |
+| IceTrack-IoT/Platform-IceTrack_IoT | develop | 38a6189 | feat(monitoring): open and resolve excursion alerts from edge events |  | 7/11/2026 |
+| IceTrack-IoT/Platform-IceTrack_IoT | develop | 44ff1c1 | feat(device): serve edge configuration with ETag polling |  | 7/11/2026 |
+| IceTrack-IoT/Platform-IceTrack_IoT | develop | d205c33 | feat(outbox): add transactional outbox for integration events |  | 7/11/2026 |
+| IceTrack-IoT/Platform-IceTrack_IoT | develop | f4a8acc | feat(monitoring): add maintenance windows from edge gateway events |  | 7/11/2026 |
+| IceTrack-IoT/Platform-IceTrack_IoT | develop | 1820f1d | feat(assets): move equipment to MAINTENANCE while a window is open |  | 7/11/2026 |
+| IceTrack-IoT/Platform-IceTrack_IoT | develop | 9619f42 | feat(service-request): link maintenance windows and publish events via outbox |  | 7/11/2026 |
+| IceTrack-IoT/Platform-IceTrack_IoT | develop | 6f1ce89 | feat(profiles): project technician metrics and expose public profile |  | 7/11/2026 |
+| IceTrack-IoT/Platform-IceTrack_IoT | develop | a1a0aa3 | feat(notifications): notify technicians and owners of service and window events |  | 7/11/2026 |
+| IceTrack-IoT/Platform-IceTrack_IoT | develop | 87dcd9f | feat(assets): verify site addresses before saving a site |  | 7/11/2026 |
+| IceTrack-IoT/Platform-IceTrack_IoT | develop | 1c3ff46 | feat(monitoring): exclude maintenance windows from alert metrics |  | 7/11/2026 |
+| IceTrack-IoT/Platform-IceTrack_IoT | develop | 7dba3ca | feat(reporting): generate reports asynchronously with thermal metrics |  | 7/11/2026 |
+| IceTrack-IoT/Platform-IceTrack_IoT | develop | 08ba07d | feat(api): answer a missing required query parameter with 400 |  | 7/11/2026 |
+| IceTrack-IoT/Platform-IceTrack_IoT | develop | 1f09244 | feat(api): use snake_case query parameter names |  | 7/11/2026 |
+| IceTrack-IoT/Platform-IceTrack_IoT | develop | 331c94c | feat(openapi): document the standard error responses on every operation |  | 7/11/2026 |
+| IceTrack-IoT/Platform-IceTrack_IoT | develop | 44c1a79 | feat(security): answer an unauthenticated request with the JSON error body |  | 7/11/2026 |
+| IceTrack-IoT/Platform-IceTrack_IoT | develop | 98f9910 | feat(monitoring): publish reading and alert status domain events |  | 7/11/2026 |
+| IceTrack-IoT/Platform-IceTrack_IoT | develop | 79cdf0a | feat(monitoring): stream telemetry to owner dashboards over SSE |  | 7/11/2026 |
+| IceTrack-IoT/Platform-IceTrack_IoT | develop | aa93a5f | feat(monitoring): report equipment connectivity and detect offline units |  | 8/11/2026 |
+| IceTrack-IoT/IceTrack-mobile-app | main | 7b99244 | chore: initial Flutter project setup |  | 09/10/2026 |
+| IceTrack-IoT/IceTrack-mobile-app | main | 4e91065 | feat: add IceTrack theme, tokens and shared widgets |  | 09/10/2026 |
+| IceTrack-IoT/IceTrack-mobile-app | main | c61ba27 | feat: add domain models, mock data, app state and es/en strings |  | 09/10/2026 |
+| IceTrack-IoT/IceTrack-mobile-app | main | f55bce0 | feat: add sign in, orders, order detail and intervention screens |  | 09/10/2026 |
+| IceTrack-IoT/IceTrack-mobile-app | main | b724be6 | feat: add monitoring, notifications and profile screens |  | 09/10/2026 |
+| IceTrack-IoT/IceTrack-edge-service | main | f5d2bc7 | Initial commit |  | 23/10/2026 |
+| IceTrack-IoT/IceTrack-edge-service | main | afa2aee | feat: add docker configuration |  | 23/10/2026 |
+
 
 #### 6.2.2.5. Testing Suite Evidence for Sprint Review
 
