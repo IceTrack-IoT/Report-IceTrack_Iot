@@ -6584,6 +6584,271 @@ Durante el desarrollo del sprint 2, al igual que el sprint anterior, el equipo c
 
 #### 6.2.2.6. Execution Evidence for Sprint Review
 #### 6.2.2.7. Services Documentation Evidence for Sprint Review
+
+Durante el Sprint 2 se extendió la documentación OpenAPI de IceTrack Platform API mediante anotaciones `@Operation`, `@ApiResponses`, `@Schema` y seguridad Bearer JWT. El alcance incluye Service Request Management (solicitudes, asignación, intervenciones y evaluaciones), Profiles (perfil del técnico), Assets Management (validación de dirección y umbral térmico), Device Management (emparejamiento y credenciales), Monitoring (telemetría en vivo y ciclo de vida de alertas), Notifications (centro de notificaciones y push), Reporting (reporte de excursiones térmicas) e IAM (autenticación con Google).
+
+La documentación está disponible mediante:
+
+- Swagger UI local: `http://localhost:8080/swagger-ui/index.html`
+- Especificación OpenAPI local: `http://localhost:8080/v3/api-docs`
+- Swagger UI productivo configurado: `https://platform-icetrackiot-production.up.railway.app/swagger-ui/index.html`
+- Repositorio: [IceTrack-IoT/Platform-IceTrack_IoT](https://github.com/IceTrack-IoT/Platform-IceTrack_IoT)
+
+Salvo los endpoints de autenticación, todos requieren `Authorization: Bearer <JWT>`. La excepción es `GET /api/v1/telemetry/stream`, que se abre con un ticket de un solo uso emitido por `POST /api/v1/telemetry/stream-ticket`. Los cuerpos JSON usan convención `snake_case`.
+
+##### Relación de endpoints documentados
+
+| Contexto (US) | Acción y sintaxis | Parámetros / cuerpo principal | Response y evidencia OpenAPI |
+|---|---|---|---|
+| IAM  | `POST /api/v1/authentication/google/verify` | `id_token`, `channel` | `200 AuthenticatedUserResponse`; `404 GOOGLE_ACCOUNT_NOT_FOUND` si falta completar el registro. |
+| IAM  | `POST /api/v1/authentication/google/link` | `id_token`, `password`, `channel` | `200 AuthenticatedUserResponse`; vincula la cuenta de Google a una cuenta local existente. |
+| IAM  | `POST /api/v1/authentication/google/complete-registration/owner` | `id_token`, `username`, `phone`, dirección, `ruc` | `201 AuthenticatedUserResponse`; registra y autentica a un propietario federado. |
+| IAM  | `POST /api/v1/authentication/google/complete-registration/technician` | `id_token`, `username`, `phone`, dirección, `speciality`, `certification_number` | `201 AuthenticatedUserResponse`; registra y autentica a un técnico desde la app móvil. |
+| Profiles  | `PUT /api/v1/profiles/technicians/{technicianId}` | Path: `technicianId`; `full_name`, `phone`, dirección, `speciality`, `certification_number` | `200 TechnicianProfileResource`; actualiza el perfil profesional del técnico. |
+| Profiles  | `GET /api/v1/profiles/technicians/{technicianId}/public` | Path: `technicianId` | `200 TechnicianPublicProfileResource`: especialidad, servicios completados y calificación promedio. |
+| Assets  | `POST /api/v1/assets/sites/validate-address` | `address`, `place_id` opcional | `200 AddressValidationResource` con coordenadas y `validation_token`; `422 ADDRESS_NOT_VERIFIED` con hasta cinco candidatos; `429` si supera 20 validaciones por minuto; `503` si falla el servicio de mapas. |
+| Assets  | `GET /api/v1/assets/sites/{siteId}` | Path: `siteId` | `200 SiteResource` con `geocoding_status`, `location` y `navigation_url` para navegar hasta la sede. |
+| Assets  | `PUT /api/v1/assets/equipments/{equipmentId}/threshold` | `min_celsius`, `max_celsius` | `200 EquipmentResource`; `400` si el mínimo no es menor que el máximo. |
+| Device  | `POST /api/v1/devices` | `equipment_id`, `device_uid`, `board_model`, `firmware_version` | `201 DeviceCredentialResource`; la `api_key` se muestra solo una vez. `409` si el equipo ya tiene un dispositivo. |
+| Device  | `GET /api/v1/devices` y `GET /api/v1/devices/{deviceId}` | Path opcional: `deviceId` | `200 DeviceResource[]` o `200 DeviceResource`; `404` si no es accesible por el propietario. |
+| Device  | `POST /api/v1/devices/{deviceId}/rotate-api-key` | Path: `deviceId` | `200 DeviceCredentialResource`; emite una nueva `api_key` e invalida la anterior. |
+| Device  | `POST /api/v1/devices/{deviceId}/unpair` | Path: `deviceId` | `200 DeviceResource`; desempareja el dispositivo y lo deja sin equipo. |
+| Device  | `PUT /api/v1/devices/{deviceId}/status` | `new_status` | `200 DeviceResource`; `409` ante una transición no permitida. |
+| Service Request  | `GET /api/v1/service-requests?status=&assigned_to=&page=&size=` | Query opcional: `status` (lista separada por comas), `assigned_to=me`, `page`, `size` (1 a 100) | `200 PagedServiceRequestResource`; `400` ante un filtro inválido. |
+| Service Request  | `GET /api/v1/service-requests/{serviceRequestId}` | Path: `serviceRequestId` | `200 ServiceRequestResource` con `history` de transiciones, `intervention` y `maintenance_windows`. |
+| Service Request  | `PUT /api/v1/service-requests/{serviceRequestId}/assign` | `technician_id` | `200 ServiceRequestResource`; `409 TECHNICIAN_NOT_ELIGIBLE` o `INVALID_STATUS_TRANSITION`. |
+| Service Request  | `PUT /api/v1/service-requests/{serviceRequestId}/accept` | Path: `serviceRequestId` | `200 ServiceRequestResource` en estado `ACCEPTED`; `409` ante una transición inválida. |
+| Service Request  | `PUT /api/v1/service-requests/{serviceRequestId}/reject` | `reason` | `200 ServiceRequestResource`; `400` si falta el motivo. |
+| Service Request  | `PUT /api/v1/service-requests/{serviceRequestId}/start` | `started_at` opcional | `200 ServiceRequestResource` en estado `IN_PROGRESS`; `400` si el inicio está en el futuro. |
+| Service Request  | `POST /api/v1/service-requests/{serviceRequestId}/edge-grant` | Path: `serviceRequestId` | `200 IssuedEdgeGrantResource`; regenera la credencial de acceso al dispositivo del equipo. |
+| Service Request  | `PUT /api/v1/service-requests/{serviceRequestId}/cancel` | `reason` | `200 ServiceRequestResource` en estado `CANCELED`; `400` si falta el motivo. |
+| Service Request  | `POST /api/v1/interventions` | `service_request_id`, `client_generated_id`, `diagnosis`, `actions_taken`, `spare_parts`, `photo_evidence`, `started_at`, `completed_at` | `201 InterventionResource`; `200` si es un reenvío del mismo `client_generated_id`. |
+| Service Request  | `GET /api/v1/assets/equipments/{equipmentId}/interventions` | Path: `equipmentId` | `200 InterventionResource[]`; historial de intervenciones del equipo. |
+| Service Request  | `POST /api/v1/reviews` | `service_request_id`, `communication`, `efficacy`, `performance`, `comment` | `201 ReviewResource`; `409 REVIEW_NOT_ALLOWED` si el servicio no está completado. |
+| Service Request  | `PUT /api/v1/reviews/{reviewId}` | `communication`, `efficacy`, `performance`, `comment` | `200 ReviewResource`; `409 REVIEW_NOT_ALLOWED` si la ventana de edición cerró. |
+| Service Request  | `GET /api/v1/service-requests/{serviceRequestId}/review` | Path: `serviceRequestId` | `200 ReviewResource`; `404` si el servicio no tiene evaluación. |
+| Monitoring  | `GET /api/v1/telemetry/equipment/{equipmentId}?from=...&to=...` | Path: `equipmentId`; query ISO-8601 `from`, `to` | `200 SensorReadingResource[]`; historial en el rango solicitado. |
+| Monitoring  | `POST /api/v1/telemetry/stream-ticket` | Bearer JWT | `200 StreamTicketResponse` con `ticket` y `expires_in`; la respuesta no se almacena en caché. |
+| Monitoring  | `GET /api/v1/telemetry/stream?ticket=...` | Query: `ticket` | Stream SSE con lecturas y cambios de estado de alertas de los equipos del propietario. |
+| Monitoring  | `PUT /api/v1/alert-policies` | `equipment_id` opcional, `sustained_excursion_minutes`, `hysteresis_margin_celsius`, `missed_sync_windows_for_offline` | `200 AlertPolicyResource`; define cuándo se abre una alerta por excursión o por equipo sin señal. |
+| Monitoring  | `PUT /api/v1/alerts/{alertId}/{acknowledge\|resolve\|dismiss}` | Path: `alertId`; `reason` en `dismiss` | `200 AlertResource`; ejecuta la transición del ciclo de vida de la alerta. |
+| Notifications  | `GET /api/v1/notifications?page=&size=&unread_only=` | Query opcional: `page`, `size`, `unread_only` | `200 PagedNotificationResource`; notificaciones del usuario autenticado. |
+| Notifications  | `GET /api/v1/notifications/unread-count` | Bearer JWT | `200 UnreadNotificationCountResource`; cantidad de notificaciones sin leer. |
+| Notifications  | `PUT /api/v1/notifications/{notificationId}/{read\|dismiss}` | Path: `notificationId` | `200 NotificationResource`; marca la notificación como leída o descartada. |
+| Notifications  | `PUT /api/v1/notifications/device-tokens` | `token`, `platform` | `204`; registra el token FCM del dispositivo móvil. |
+| Notifications  | `DELETE /api/v1/notifications/device-tokens` | `token` | `204`; elimina el token, o no hace nada si no estaba registrado. |
+| Reporting  | `POST /api/v1/reports` | `name`, `type`, `format`, `filters`: `site_id`, `equipment_id`, `technician_id`, `from`, `to` | `202 ReportResource`; el reporte queda en cola para su generación. `404` si la sede o el equipo no es accesible. |
+| Reporting  | `GET /api/v1/reports/{reportId}` | Path: `reportId` | `200 ReportResource` con `status` y `download_url`; `404 REPORT_NOT_FOUND`. |
+| Reporting  | `GET /api/v1/reports` | Bearer JWT | `200 ReportResource[]`; reportes del usuario autenticado. |
+
+Los demás endpoints de Users, Roles, perfiles Owner y Maintenance Windows permanecen documentados en Swagger UI y conservan el mismo patrón: verbo HTTP, parámetros tipados, ejemplos `@Schema`, respuesta esperada y códigos de error.
+
+##### Interacciones de muestra
+
+##### 1. Validar la dirección de una sede
+
+```http
+POST /api/v1/assets/sites/validate-address
+Content-Type: application/json
+Authorization: Bearer <JWT>
+
+{
+  "address": "Av. Primavera 123, Santiago de Surco"
+}
+```
+
+```json
+{
+  "formatted_address": "Av. Primavera 123, Santiago de Surco, Lima, Peru",
+  "latitude": -12.0931,
+  "longitude": -77.0465,
+  "place_id": "ChIJ8e8c9yLIBZERt0P0wP0xV5A",
+  "district": "Santiago de Surco",
+  "area": "LIMA_METROPOLITANA",
+  "validation_token": "eyJhbGciOiJIUzI1NiJ9.e30.signature"
+}
+```
+
+La respuesta `200` devuelve la dirección normalizada y sus coordenadas. Si la dirección no se puede verificar, el servicio responde `422 ADDRESS_NOT_VERIFIED` con hasta cinco candidatos para que el propietario elija.
+
+##### 2. Emparejar un dispositivo con un equipo
+
+```http
+POST /api/v1/devices
+Content-Type: application/json
+Authorization: Bearer <JWT>
+
+{
+  "equipment_id": 21,
+  "device_uid": "ESP32-ICE-001",
+  "board_model": "ESP32-DevKitC",
+  "firmware_version": "1.0.0"
+}
+```
+
+```json
+{
+  "device": {
+    "id": 7,
+    "device_uid": "ESP32-ICE-001",
+    "board_model": "ESP32-DevKitC",
+    "firmware_version": "1.0.0",
+    "status": "PAIRED",
+    "paired_equipment_id": 21,
+    "last_seen_at": null
+  },
+  "api_key": "<mostrada-una-sola-vez>"
+}
+```
+
+La respuesta `201` entrega la credencial del dispositivo. La `api_key` solo aparece en esta respuesta; si se pierde, se emite una nueva con `POST /api/v1/devices/7/rotate-api-key`.
+
+##### 3. Asignar un técnico a una solicitud
+
+```http
+PUT /api/v1/service-requests/42/assign
+Content-Type: application/json
+Authorization: Bearer <JWT>
+
+{
+  "technician_id": 7
+}
+```
+
+```json
+{
+  "id": 42,
+  "owner_id": 3,
+  "equipment_id": 10,
+  "site_id": 1,
+  "technician_id": 7,
+  "type": "REPAIR",
+  "priority": "HIGH",
+  "description": "The display case does not hold 2 to 8 °C",
+  "status": "PENDING",
+  "created_at": "2026-10-23T13:00:00Z",
+  "assigned_at": "2026-10-23T13:10:00Z",
+  "started_at": null,
+  "completed_at": null,
+  "canceled_at": null,
+  "cancel_reason": null
+}
+```
+
+La respuesta `200` muestra la solicitud con el técnico asignado y el campo `history` actualizado. Si el técnico no cumple las condiciones para el servicio, el contrato especifica `409 TECHNICIAN_NOT_ELIGIBLE`.
+
+##### 4. Registrar una intervención sin conexión
+
+```http
+POST /api/v1/interventions
+Content-Type: application/json
+Authorization: Bearer <JWT>
+
+{
+  "service_request_id": 42,
+  "client_generated_id": "3f2b8c1e-6a4d-4e0b-9a51-2c7d8e9f0a1b",
+  "diagnosis": "Compressor relay burnt",
+  "actions_taken": "Replaced the start relay and tested the cycle",
+  "spare_parts": ["Start relay"],
+  "photo_evidence": [],
+  "started_at": "2026-10-23T14:05:00Z",
+  "completed_at": "2026-10-23T16:30:00Z"
+}
+```
+
+```json
+{
+  "service_request_id": 42,
+  "client_generated_id": "3f2b8c1e-6a4d-4e0b-9a51-2c7d8e9f0a1b",
+  "technician_id": 7,
+  "equipment_id": 10,
+  "diagnosis": "Compressor relay burnt",
+  "actions_taken": "Replaced the start relay and tested the cycle",
+  "spare_parts": ["Start relay"],
+  "photo_evidence": [],
+  "started_at": "2026-10-23T14:05:00Z",
+  "completed_at": "2026-10-23T16:30:00Z",
+  "duration_seconds": 8700
+}
+```
+
+La respuesta `201` registra la intervención y cierra la orden en una sola operación. Si el móvil reenvía el mismo `client_generated_id` tras recuperar la conexión, el servicio responde `200` con el mismo resultado, sin duplicar el registro.
+
+##### 5. Evaluar un servicio completado
+
+```http
+POST /api/v1/reviews
+Content-Type: application/json
+Authorization: Bearer <JWT>
+
+{
+  "service_request_id": 42,
+  "communication": 5,
+  "efficacy": 4,
+  "performance": 5,
+  "comment": "Quick and clear"
+}
+```
+
+```json
+{
+  "id": 5,
+  "service_request_id": 42,
+  "owner_id": 3,
+  "technician_id": 7,
+  "communication": 5,
+  "efficacy": 4,
+  "performance": 5,
+  "average_rating": 4.67,
+  "comment": "Quick and clear",
+  "created_at": "2026-10-23T17:00:00Z",
+  "editable_until": "2026-10-25T17:00:00Z"
+}
+```
+
+La respuesta `201` calcula el promedio de las tres dimensiones y fija el plazo de edición. Un puntaje fuera del rango de 1 a 5 produce `400`, y evaluar un servicio no completado produce `409 REVIEW_NOT_ALLOWED`.
+
+##### 6. Solicitar el reporte de excursiones térmicas
+
+```http
+POST /api/v1/reports
+Content-Type: application/json
+Authorization: Bearer <JWT>
+
+{
+  "name": "Excursions - October",
+  "type": "TEMPERATURE_EXCURSION",
+  "format": "PDF",
+  "filters": {
+    "site_id": 1,
+    "from": "2026-10-01T00:00:00Z",
+    "to": "2026-10-31T23:59:59Z"
+  }
+}
+```
+
+```json
+{
+  "id": 8,
+  "name": "Excursions - October",
+  "type": "TEMPERATURE_EXCURSION",
+  "format": "PDF",
+  "status": "PENDING",
+  "failure_reason": null,
+  "user_id": 42,
+  "site_id": 1,
+  "from": "2026-10-01T00:00:00Z",
+  "to": "2026-10-31T23:59:59Z",
+  "requested_at": "2026-11-01T08:00:00Z",
+  "completed_at": null,
+  "download_url": null
+}
+```
+
+La respuesta `202` confirma que el reporte quedó en cola. Al consultar `GET /api/v1/reports/8`, el `status` pasa a `COMPLETED` y se incluye el `download_url` para descargarlo.
+
+##### Commits relacionados con el Sprint
+
 #### 6.2.2.8. Software Deployment Evidence for Sprint Review
 #### 6.2.2.9. Team Collaboration Insights during Sprint
 
