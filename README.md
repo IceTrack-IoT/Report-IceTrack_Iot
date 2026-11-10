@@ -6875,7 +6875,18 @@ La respuesta `202` confirma que el reporte quedó en cola. Al consultar `GET /ap
 
 ##### Commits relacionados con el Sprint
 
+| Commit | Relación |
+|---|---|
+| [`5c64ef4`](https://github.com/IceTrack-IoT/Platform-IceTrack_IoT/commit/5c64ef4ad4a6519e1fc8ebdcd4b4ed4208036a91) | Se integra servicios de Firebase Cloud Messaging. |
+| [`c9239c0`](https://github.com/IceTrack-IoT/Platform-IceTrack_IoT/commit/c9239c0f66b475704bc10bba4c4501d68df4f90b) | Actualiza las credenciales para un despliegue local. |
+| [`b4e0054`](https://github.com/IceTrack-IoT/Platform-IceTrack_IoT/commit/b4e0054e6429a6b64c4068048c99770e70d8c0d5) | Ajustes de parametros para los componentes IoT. |
+| [`0a217ce`](https://github.com/IceTrack-IoT/Platform-IceTrack_IoT/commit/0a217ceb2e5b633a057e95591a0766367b793d7f) | Implementación de configuración a la capa edge para la actualizacón de equipamientos. |
+| [`a1a0aa3`](https://github.com/IceTrack-IoT/Platform-IceTrack_IoT/commit/a1a0aa3c0e226afe9c91de195a40544d7c22ee9e) | Notificaciones para dueños y técnicos. |
+| [`aa93a5f`](https://github.com/IceTrack-IoT/Platform-IceTrack_IoT/commit/aa93a5f522ac07dfe9191a457885a970124ee54b) | Implementación de reportes para la conectividad de equipos. |
+
+
 #### 6.2.2.8. Software Deployment Evidence for Sprint Review
+
 #### 6.2.2.9. Team Collaboration Insights during Sprint
 
 Durante el desarrollo del Sprint 2, el equipo ha mantenido ciertas desciciones en temas de organización que se sugirieron durante el Sprint 1. Se distribuyeron responsabilidades durante reuniones periodicas con los integrantes, tanto de manera virtual como de manera presencial. Estas responsabilidades abarcan tanto en el lado frontend, backend, dispositivos IoT y apartados móviles, donde se evaluó a cada integrante y sus capacidades para poder dearrollar ciertas tareas en el tiempo estimado. Durante el Sprint 2, se implementaron funcionalidades clave, como desplegar ciertos apartados que son necesarios para el desarrollo de IceTrack como producto como el apartado móvil o el lado Iot de la solución. Esta forma de organizar facilita la integración de tareas con anticipación por cada integrante, aportando valor a la solución y un grado de calidad que estamos buscando para IceTrack. A continuación se evidencia la contribución de los integrantes del equipo en los diversos entregables del trabajo hasta la fecha:
