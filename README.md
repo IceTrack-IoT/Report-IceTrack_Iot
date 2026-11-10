@@ -6878,6 +6878,15 @@ La respuesta `202` confirma que el reporte quedó en cola. Al consultar `GET /ap
 #### 6.2.2.8. Software Deployment Evidence for Sprint Review
 #### 6.2.2.9. Team Collaboration Insights during Sprint
 
+Durante el desarrollo del Sprint 2, el equipo ha mantenido ciertas desciciones en temas de organización que se sugirieron durante el Sprint 1. Se distribuyeron responsabilidades durante reuniones periodicas con los integrantes, tanto de manera virtual como de manera presencial. Estas responsabilidades abarcan tanto en el lado frontend, backend, dispositivos IoT y apartados móviles, donde se evaluó a cada integrante y sus capacidades para poder dearrollar ciertas tareas en el tiempo estimado. Durante el Sprint 2, se implementaron funcionalidades clave, como desplegar ciertos apartados que son necesarios para el desarrollo de IceTrack como producto como el apartado móvil o el lado Iot de la solución. Esta forma de organizar facilita la integración de tareas con anticipación por cada integrante, aportando valor a la solución y un grado de calidad que estamos buscando para IceTrack. A continuación se evidencia la contribución de los integrantes del equipo en los diversos entregables del trabajo hasta la fecha:
+
+<div align="center">
+  <img src=""
+  alt="InsightsAV2"
+  style="width: 100%; height: auto; border-radius: 8px; border: 1px solid #d0d7de; box-shadow: 0 4px 12px rgba(0,0,0,0.08);" />
+</div>
+
+
 ## 6.3. Validation Interviews
 ### 6.3.1. Diseño de Entrevistas
 
