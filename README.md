@@ -5931,22 +5931,22 @@ Para el Sprint 1 el equipo organizó el trabajo en de la siguiente manera:
 
 El objetivo principal del **Sprint 1** consistió en consolidar la presencia digital del producto mediante el desarrollo completo de la **Landing Page** y el flujo de la aplicación web. 
 
-| Sprint # | Sprint 1 |  |  |  |  |  |  |
-| --- | --- | --- | --- | --- | --- | --- | --- |
+| Sprint # | Sprint 1 |  |  |  |  |   |  |  |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | **User Story** |  | **Work-Item / Task** |  |  |  |  |  |
-| **Story Id** | **Story Title** | **Task Id** | **Task Title** | **Task Description** | **Estimation (Story Points)** | **Assigned To** | **Status (To-do / In-Process / To-Review / Done)** |
-| US-13 | Visualizar la propuesta de valor principal | UT-L1 | Sección de propuesta de valor | Maquetar la propuesta de valor de IceTrack en la Landing Page. | 2 | Walter Fajardo | Done |
-| US-14 | Explorar soluciones específicas para mi rubro | UT-L2 | Sección de soluciones por rubro | Diseñar la sección de soluciones para negocios de cadena de frío y proveedores técnicos. | 2 | Walter Fajardo | Done |
-| US-15 | Comprender las funcionalidades clave | UT-L3 | Sección de funcionalidades clave | Presentar las funcionalidades principales de la plataforma en la Landing Page. | 3 | Julio Guillén | Done |
-| US-16 | Conocer la misión y visión | UT-L4 | Sección institucional (misión y visión) | Redactar y maquetar los apartados de misión y visión en la Landing Page. | 2 | Julio Guillén | Done |
-| US-17 | Acceder a la plataforma desde el call to action | UT-L5 | Vinculación de CTAs | Enlazar los botones de la Landing Page con el inicio de sesión web y la descarga móvil. | 2 | Walter Fajardo | Done |
-| US-20 | Registrar y consultar sitios | UT-A3 | Módulo de sitios | Implementar el registro y el listado de sitios del propietario en la aplicación web. | 5 | Walter Fajardo | Done |
-| US-03 | Registrar y actualizar equipos de refrigeración | UT-A4 | Módulo de equipos | Implementar el registro y la actualización de equipos de refrigeración en la aplicación web. | 5 | Jeremy Quijada | Done |
-| US-18 | Consultar el listado y detalle de equipos | UT-A5 | Listado y detalle de equipos | Implementar la consulta del listado y el detalle de equipos en la aplicación web. | 3 | Gianmarco Jiménez | Done |
-| US-11 | Filtrar equipos por sitio, tipo y estado | UT-A6 | Filtros de equipos | Implementar el filtrado de equipos por sitio, tipo y estado en la aplicación web. | 3 | Gianmarco Jiménez | Done |
-| US-04 | Solicitar un servicio de mantenimiento o reparación | UT-A7 | Solicitud de servicio | Implementar el formulario de solicitud de servicio de mantenimiento en la aplicación web. | 5 | Walter Fajardo | Done |
-| US-01 | Registro de usuario | UT-A1 | Flujo de registro en la app web | Implementar el flujo de registro (propietario/técnico) en la aplicación web. | 5 | Jeremy Quijada | Done |
-| US-02 | Inicio de sesión | UT-A2 | Flujo de inicio de sesión en la app web | Implementar el flujo de inicio de sesión en la aplicación web. | 3 | Jeremy Quijada | Done |
+| **Story Id** | **Story Title** | **Task Id** | **Task Title** | **Task Description** | **Estimation (Story Points)**|**Estimation (Hours)** | **Assigned To** | **Status (To-do / In-Process / To-Review / Done)** |
+| US-13 | Visualizar la propuesta de valor principal | UT-L1 | Sección de propuesta de valor | Maquetar la propuesta de valor de IceTrack en la Landing Page. | 2 |2 | Walter Fajardo | Done |
+| US-14 | Explorar soluciones específicas para mi rubro | UT-L2 | Sección de soluciones por rubro | Diseñar la sección de soluciones para negocios de cadena de frío y proveedores técnicos. | 2 |2| Walter Fajardo | Done |
+| US-15 | Comprender las funcionalidades clave | UT-L3 | Sección de funcionalidades clave | Presentar las funcionalidades principales de la plataforma en la Landing Page. | 3 |2 |Julio Guillén | Done |
+| US-16 | Conocer la misión y visión | UT-L4 | Sección institucional (misión y visión) | Redactar y maquetar los apartados de misión y visión en la Landing Page. | 2 |2| Julio Guillén | Done |
+| US-17 | Acceder a la plataforma desde el call to action | UT-L5 | Vinculación de CTAs | Enlazar los botones de la Landing Page con el inicio de sesión web y la descarga móvil. | 2 |2 |Walter Fajardo | Done |
+| US-20 | Registrar y consultar sitios | UT-A3 | Módulo de sitios | Implementar el registro y el listado de sitios del propietario en la aplicación web. | 5 | 4 |Walter Fajardo | Done |
+| US-03 | Registrar y actualizar equipos de refrigeración | UT-A4 | Módulo de equipos | Implementar el registro y la actualización de equipos de refrigeración en la aplicación web. | 5 | 6 |Jeremy Quijada | Done |
+| US-18 | Consultar el listado y detalle de equipos | UT-A5 | Listado y detalle de equipos | Implementar la consulta del listado y el detalle de equipos en la aplicación web. | 3 | 4 |Gianmarco Jiménez | Done |
+| US-11 | Filtrar equipos por sitio, tipo y estado | UT-A6 | Filtros de equipos | Implementar el filtrado de equipos por sitio, tipo y estado en la aplicación web. | 3 | 5 |Gianmarco Jiménez | Done |
+| US-04 | Solicitar un servicio de mantenimiento o reparación | UT-A7 | Solicitud de servicio | Implementar el formulario de solicitud de servicio de mantenimiento en la aplicación web. | 5 | 6 |Walter Fajardo | Done |
+| US-01 | Registro de usuario | UT-A1 | Flujo de registro en la app web | Implementar el flujo de registro (propietario/técnico) en la aplicación web. | 5 | 5 |Jeremy Quijada | Done |
+| US-02 | Inicio de sesión | UT-A2 | Flujo de inicio de sesión en la app web | Implementar el flujo de inicio de sesión en la aplicación web. | 3 | 6 |Jeremy Quijada | Done |
 
 <p align="center">
   <img src="assets/chapter06/Trello-Sprint-1.png" alt="trello1" width="1000">
@@ -6458,37 +6458,37 @@ Para el Sprint 2 el equipo organizó el trabajo en de la siguiente manera:
 
  El objetivo de este **Sprint 2** fué de consolidar las principales funcionalidades de IceTrack abarcando distintos apartados como el **Backend** y **Frontend** de la aplicación.
 
-| Sprint # | Sprint 2 |  |  |  |  |  |  |
-| --- | --- | --- | --- | --- | --- | --- | --- |
+| Sprint # | Sprint 2 |  |  |  |  | | |  |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | **User Story** |  | **Work-Item / Task** |  |  |  |  |  |
-| **Story Id** | **Story Title** | **Task Id** | **Task Title** | **Task Description** | **Estimation (Story Points)** | **Assigned To** | **Status (To-do / In-Process / To-Review / Done)** |
-| US-34 | Iniciar sesión con Google mediante OAuth 2.0 | UT-B1 | Autenticación con Google | Implementar la verificación del ID Token de Google, la vinculación de cuenta y el registro de propietario o técnico. | 5 | Jeremy Quijada | Done |
-| US-46 | Iniciar sesión en la aplicación móvil | UT-B2 | Login Google en móvil | Implementar el completado de registro del técnico con su cuenta de Google. | 3 | Jeremy Quijada | Done |
-| US-07 | Actualizar el perfil profesional del técnico | UT-B3 | Perfil del técnico | Implementar la actualización de contacto, especialidad y certificación del técnico. | 5 | Julio Guillén | Done |
-| US-08 | Consultar el perfil de un técnico | UT-B4 | Perfil público del técnico | Exponer especialidad, servicios completados y calificación promedio al propietario. | 3 | Julio Guillén | Done |
-| US-35 | Configurar las tarjetas del dashboard | UT-B5 | Configuración del dashboard | Implementar el orden, la visibilidad y el restablecimiento de las tarjetas. | 5 | Julio Guillén | Done |
-| US-50 | Verificar la dirección de un sitio con Google Maps | UT-B6 | Validación de dirección | Validar y geocodificar la dirección antes de guardar el sitio. | 5 | Walter Fajardo | Done |
-| US-36 | Configurar el umbral de temperatura de un equipo | UT-B7 | Umbral de temperatura | Implementar la temperatura mínima y máxima por equipo. | 5 | Walter Fajardo | Done |
-| US-47 | Ver la ubicación de la sede y navegar hasta ella | UT-B8 | Ubicación de la sede | Exponer las coordenadas del sitio para el mapa y la navegación del técnico. | 5 | Walter Fajardo | Done |
-| US-37 | Emparejar un dispositivo de monitoreo con un equipo | UT-B9 | Emparejamiento de dispositivos | Registrar y vincular un dispositivo a un equipo, emitiendo su API key. | 8 | Gianmarco Jiménez | Done |
-| US-38 | Rotar o revocar la credencial de un dispositivo | UT-B10 | Credenciales del dispositivo | Implementar la rotación de API key, el desemparejamiento y el cambio de estado. | 5 | Gianmarco Jiménez | Done |
-| US-27 | Visualizar la telemetría histórica y actual de un equipo | UT-B11 | Telemetría histórica y en vivo | Implementar la consulta de lecturas por equipo y el stream SSE. | 8 | Piero Tenorio | Done |
-| US-28 | Generar alertas automáticas por excursión térmica sostenida | UT-B12 | Alertas por excursión térmica | Evaluar la excursión sostenida con histéresis y abrir la alerta. | 8 | Piero Tenorio | Done |
-| US-41 | Gestionar el ciclo de vida de una alerta | UT-B13 | Ciclo de vida de la alerta | Implementar el reconocimiento, la resolución y el descarte de alertas. | 5 | Piero Tenorio | Done |
-| US-42 | Detectar un equipo que dejó de reportar | UT-B14 | Detección de equipo sin señal | Abrir una alerta DEVICE_OFFLINE tras varias ventanas de sincronización perdidas. | 8 | César Arostegui | Done |
-| US-21 | Consultar y filtrar las solicitudes de servicio | UT-B15 | Listado y filtros de solicitudes | Implementar el listado paginado de solicitudes con filtros. | 5 | Walter Fajardo | Done |
-| US-05 | Dar seguimiento al progreso de un servicio | UT-B16 | Historial de estados | Registrar y exponer cada transición de estado de la solicitud. | 3 | Gianmarco Jiménez | Done |
-| US-06 | Cancelar una solicitud de servicio | UT-B17 | Cancelación con motivo | Implementar la cancelación de una solicitud indicando el motivo. | 3 | Joaquín Cuentas | Done |
-| US-09 | Asignar o reasignar un técnico a una solicitud | UT-B18 | Asignación de técnico | Implementar la asignación y la reasignación del técnico por el propietario. | 8 | Jeremy Quijada | Done |
-| US-30 | Recibir, aceptar o rechazar una asignación en el móvil | UT-B19 | Aceptar o rechazar asignación | Implementar la aceptación y el rechazo de la orden por el técnico. | 5 | César Arostegui | Done |
-| US-33 | Actualizar el estado del servicio y consultar telemetría en campo | UT-B20 | Estado de la orden en campo | Implementar el inicio de la orden y la consulta de telemetría por el técnico. | 5 | Joaquín Cuentas | Done |
-| US-31 | Registrar intervención sin conexión | UT-B21 | Intervención idempotente | Registrar la intervención de forma idempotente y cerrar la orden en una sola operación. | 8 | Jeremy Quijada | Done |
-| US-10 | Consultar el historial de intervenciones de un equipo | UT-B22 | Historial de intervenciones | Exponer las intervenciones realizadas sobre cada equipo. | 5 | Gianmarco Jiménez | Done |
-| US-12 | Evaluar un servicio completado | UT-B23 | Evaluación del servicio | Implementar el registro y la edición de la evaluación en tres dimensiones. | 5 | Julio Guillén | Done |
-| US-43 | Consultar el centro de notificaciones | UT-B24 | Centro de notificaciones | Implementar el listado, el contador de no leídas y el marcado como leída o descartada. | 5 | César Arostegui | Done |
-| US-44 | Recibir la notificación correcta según mi rol | UT-B25 | Notificaciones por rol | Enrutar cada notificación al propietario o al técnico que corresponde. | 5 | César Arostegui | Done |
-| US-32 | Recibir alertas push de anomalías térmicas en el móvil | UT-B26 | Push con Firebase | Registrar el token del dispositivo y enviar el push mediante FCM. | 5 | Joaquín Cuentas | Done |
-| US-45 | Generar el reporte de excursiones térmicas | UT-B27 | Reporte de excursiones | Implementar la generación asíncrona del reporte y su descarga. | 8 | Joaquín Cuentas | Done |
+| **Story Id** | **Story Title** | **Task Id** | **Task Title** | **Task Description** | **Estimation (Story Points)**| **Estimation (Hours)**| **Assigned To** | **Status (To-do / In-Process / To-Review / Done)** |
+| US-34 | Iniciar sesión con Google mediante OAuth 2.0 | UT-B1 | Autenticación con Google | Implementar la verificación del ID Token de Google, la vinculación de cuenta y el registro de propietario o técnico. | 5 | 8 | Jeremy Quijada | Done |
+| US-46 | Iniciar sesión en la aplicación móvil | UT-B2 | Login Google en móvil | Implementar el completado de registro del técnico con su cuenta de Google. | 3 | 6 |Jeremy Quijada | Done |
+| US-07 | Actualizar el perfil profesional del técnico | UT-B3 | Perfil del técnico | Implementar la actualización de contacto, especialidad y certificación del técnico. | 5 | 7 |Julio Guillén | Done |
+| US-08 | Consultar el perfil de un técnico | UT-B4 | Perfil público del técnico | Exponer especialidad, servicios completados y calificación promedio al propietario. | 3 | 6 |Julio Guillén | Done |
+| US-35 | Configurar las tarjetas del dashboard | UT-B5 | Configuración del dashboard | Implementar el orden, la visibilidad y el restablecimiento de las tarjetas. | 5 | 5 |Julio Guillén | Done |
+| US-50 | Verificar la dirección de un sitio con Google Maps | UT-B6 | Validación de dirección | Validar y geocodificar la dirección antes de guardar el sitio. | 5 |8 |Walter Fajardo | Done |
+| US-36 | Configurar el umbral de temperatura de un equipo | UT-B7 | Umbral de temperatura | Implementar la temperatura mínima y máxima por equipo. | 5 | 6 |Walter Fajardo | Done |
+| US-47 | Ver la ubicación de la sede y navegar hasta ella | UT-B8 | Ubicación de la sede | Exponer las coordenadas del sitio para el mapa y la navegación del técnico. | 5 | 6 |Walter Fajardo | Done |
+| US-37 | Emparejar un dispositivo de monitoreo con un equipo | UT-B9 | Emparejamiento de dispositivos | Registrar y vincular un dispositivo a un equipo, emitiendo su API key. | 8 | 10 |Gianmarco Jiménez | Done |
+| US-38 | Rotar o revocar la credencial de un dispositivo | UT-B10 | Credenciales del dispositivo | Implementar la rotación de API key, el desemparejamiento y el cambio de estado. | 5 | 7 |Gianmarco Jiménez | Done |
+| US-27 | Visualizar la telemetría histórica y actual de un equipo | UT-B11 | Telemetría histórica y en vivo | Implementar la consulta de lecturas por equipo y el stream SSE. | 8 | 10 |Piero Tenorio | Done |
+| US-28 | Generar alertas automáticas por excursión térmica sostenida | UT-B12 | Alertas por excursión térmica | Evaluar la excursión sostenida con histéresis y abrir la alerta. | 8 | 10 |Piero Tenorio | Done |
+| US-41 | Gestionar el ciclo de vida de una alerta | UT-B13 | Ciclo de vida de la alerta | Implementar el reconocimiento, la resolución y el descarte de alertas. | 5 | 7 |Piero Tenorio | Done |
+| US-42 | Detectar un equipo que dejó de reportar | UT-B14 | Detección de equipo sin señal | Abrir una alerta DEVICE_OFFLINE tras varias ventanas de sincronización perdidas. | 8 | 8 |César Arostegui | Done |
+| US-21 | Consultar y filtrar las solicitudes de servicio | UT-B15 | Listado y filtros de solicitudes | Implementar el listado paginado de solicitudes con filtros. | 5 | 5 |Walter Fajardo | Done |
+| US-05 | Dar seguimiento al progreso de un servicio | UT-B16 | Historial de estados | Registrar y exponer cada transición de estado de la solicitud. | 3 | 4 |Gianmarco Jiménez | Done |
+| US-06 | Cancelar una solicitud de servicio | UT-B17 | Cancelación con motivo | Implementar la cancelación de una solicitud indicando el motivo. | 3 | 3 |Joaquín Cuentas | Done |
+| US-09 | Asignar o reasignar un técnico a una solicitud | UT-B18 | Asignación de técnico | Implementar la asignación y la reasignación del técnico por el propietario. | 8 | 10 |Jeremy Quijada | Done |
+| US-30 | Recibir, aceptar o rechazar una asignación en el móvil | UT-B19 | Aceptar o rechazar asignación | Implementar la aceptación y el rechazo de la orden por el técnico. | 5 | 5 |César Arostegui | Done |
+| US-33 | Actualizar el estado del servicio y consultar telemetría en campo | UT-B20 | Estado de la orden en campo | Implementar el inicio de la orden y la consulta de telemetría por el técnico. | 5 | 6 |Joaquín Cuentas | Done |
+| US-31 | Registrar intervención sin conexión | UT-B21 | Intervención idempotente | Registrar la intervención de forma idempotente y cerrar la orden en una sola operación. | 8 | 10 |Jeremy Quijada | Done |
+| US-10 | Consultar el historial de intervenciones de un equipo | UT-B22 | Historial de intervenciones | Exponer las intervenciones realizadas sobre cada equipo. | 5 | 5 |Gianmarco Jiménez | Done |
+| US-12 | Evaluar un servicio completado | UT-B23 | Evaluación del servicio | Implementar el registro y la edición de la evaluación en tres dimensiones. | 5 | 7 |Julio Guillén | Done |
+| US-43 | Consultar el centro de notificaciones | UT-B24 | Centro de notificaciones | Implementar el listado, el contador de no leídas y el marcado como leída o descartada. | 5 | 6 |César Arostegui | Done |
+| US-44 | Recibir la notificación correcta según mi rol | UT-B25 | Notificaciones por rol | Enrutar cada notificación al propietario o al técnico que corresponde. | 5 | 6 |César Arostegui | Done |
+| US-32 | Recibir alertas push de anomalías térmicas en el móvil | UT-B26 | Push con Firebase | Registrar el token del dispositivo y enviar el push mediante FCM. | 5 | 6 |Joaquín Cuentas | Done |
+| US-45 | Generar el reporte de excursiones térmicas | UT-B27 | Reporte de excursiones | Implementar la generación asíncrona del reporte y su descarga. | 8 | 12 |Joaquín Cuentas | Done |
 
 <p align="center">
   <img src="assets/chapter06/Trello-Sprint-2.png" alt="trello2" width="1000">
