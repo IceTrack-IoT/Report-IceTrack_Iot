@@ -6901,11 +6901,68 @@ Durante el desarrollo del Sprint 2, el equipo ha mantenido ciertas desciciones e
 ## 6.3. Validation Interviews
 ### 6.3.1. Diseño de Entrevistas
 
+Las pregunta buscan comprobar si IceTrack responde a problemas reales de los usuarios, si su propuesta de valor resulta relevante y si las funcionalidades de la plataforma son comprensibles y útiles. Se priorizan preguntas abiertas, neutrales y centradas en experiencias y necesidades reales.
+
 **Preguntas para el Segmento Objetivo 1 - Heladerías con equipos de refrigeración:**
+1\. ¿Cómo realiza actualmente el monitoreo y control de la temperatura de sus equipos de refrigeración?
+
+2\. ¿Cuáles son los principales problemas que ha experimentado al mantener sus productos y equipos en condiciones adecuadas de refrigeración?
+
+3\. ¿Cómo se da cuenta actualmente de que un equipo presenta una falla o una temperatura fuera del rango establecido?
+
+4\. ¿Qué consecuencias ha tenido para su negocio no detectar a tiempo una falla o variación de temperatura en sus equipos?
+
+5\. ¿Cómo organiza actualmente el mantenimiento de sus equipos de refrigeración y qué dificultades encuentra en ese proceso?
+
+6\. Al revisar la Landing Page de IceTrack, ¿qué entiende que ofrece la plataforma y qué problema considera que busca resolver?
+
+7\. ¿Qué funcionalidades presentadas en la Landing Page considera más relevantes para la gestión de sus equipos de refrigeración?
+
+8\. Al utilizar el dashboard de IceTrack, ¿qué información considera importante para conocer rápidamente el estado de sus equipos y establecimientos?
+
+9\. ¿Cómo interpretaría las alertas de temperatura o fallas que muestra la plataforma y qué acciones esperaría poder realizar a partir de ellas?
+
+10\. ¿Qué tan útil sería para su gestión contar con un historial de temperaturas, alertas y consumo energético de sus equipos?
+
+11\. Al revisar la funcionalidad de solicitudes de mantenimiento, ¿cómo esperaría registrar y realizar el seguimiento de una atención técnica?
+
+12\. ¿Qué información necesitaría encontrar en los reportes de IceTrack para tomar decisiones sobre sus equipos de refrigeración?
+
+13\. ¿Qué dificultades encontró al navegar por la plataforma y realizar las tareas presentadas?
+
+14\. Después de conocer y utilizar IceTrack, ¿qué aspectos considera que deberían modificarse o incorporarse para que la plataforma sea útil en la gestión diaria de su negocio?
 
 ---
 
 **Preguntas para el Segmento Objetivo 2 - Técnicos y empresas de mantenimiento de refrigeración:**
+
+1\. ¿Cómo organiza actualmente la recepción, asignación y atención de solicitudes de mantenimiento de equipos de refrigeración?
+
+2\. ¿Cuáles son las principales dificultades que encuentra al coordinar y realizar los servicios técnicos?
+
+3\. ¿Qué información necesita conocer antes de acudir a un establecimiento para realizar una intervención técnica?
+
+4\. ¿Cómo registra actualmente los trabajos realizados, los repuestos utilizados y los resultados de cada intervención?
+
+5\. ¿Qué problemas ha experimentado al realizar el seguimiento de solicitudes de mantenimiento o comunicar el avance de un servicio a sus clientes?
+
+6\. Al revisar la Landing Page de IceTrack, ¿qué entiende que ofrece la plataforma y cómo considera que podría relacionarse con su trabajo como técnico o empresa de mantenimiento?
+
+7\. ¿Qué funcionalidades presentadas en la Landing Page considera más relevantes para mejorar la gestión de los servicios técnicos?
+
+8\. Al utilizar la aplicación móvil de IceTrack, ¿qué información considera indispensable para gestionar una solicitud de mantenimiento?
+
+9\. ¿Cómo interpretaría los estados y prioridades de las solicitudes presentadas en la aplicación y qué información esperaría encontrar en cada una?
+
+10\. ¿Qué tan adecuado considera el proceso para actualizar el estado de una solicitud y registrar las actividades realizadas durante una intervención?
+
+11\. ¿Qué información debería incluir el historial de una intervención para facilitar el seguimiento y la comunicación con el cliente?
+
+12\. ¿Cómo le ayudaría disponer de reportes e historiales de los servicios realizados para organizar su trabajo y evaluar sus intervenciones?
+
+13\. ¿Qué dificultades encontró al navegar por la aplicación móvil y completar las tareas relacionadas con la atención de solicitudes?
+
+14\. Después de conocer y utilizar IceTrack, ¿qué aspectos considera que deberían modificarse o incorporarse para facilitar su trabajo como técnico o empresa de mantenimiento?
 
 ### 6.3.2. Registro de Entrevistas
 
