@@ -6998,6 +6998,97 @@ Las pregunta buscan comprobar si IceTrack responde a problemas reales de los usu
 
 ### 6.3.3. Evaluación según heurísticas
 
+#### UX Heuristics & Principles Evaluation
+
+**Usability – Inclusive Design – Information Architecture**
+
+| | |
+|---|---|
+| **CARRERA :** | Ingeniería de Software |
+| **CURSO :** | Desarrollo de Soluciones IoT |
+| **SECCIÓN :** | Código de la sección |
+| **PROFESORES :** | Todos |
+| **AUDITOR :** | Nombre del Grupo que ejecuta la Sesión de evaluación |
+| **CLIENTE(S) :** | Nombre de las personas que participan en la sesión |
+
+
+#### SITE o APP A EVALUAR:
+
+[Nombre de la App o del Sitio]
+
+#### TAREAS A EVALUAR:
+
+El alcance de esta evaluación incluye la revisión de la usabilidad de las siguientes tareas:
+
+1. [Tarea 1 (p. ej. Registro de un usuario nuevo)]
+2. [Tarea 2]
+3. [Tarea 3]
+4. Etc.
+
+No están incluidas en esta versión de la evaluación las siguientes tareas:
+
+1. [Tarea excluida 1]
+2. [Tarea excluida 2]
+3. Etc.
+
+#### ESCALA DE SEVERIDAD:
+
+Los errores serán puntuados tomando en cuenta la siguiente escala de severidad:
+
+| Nivel | Descripción |
+|:---:|---|
+| 1 | Problema superficial: puede ser fácilmente superado por el usuario o bien ocurre con muy poca frecuencia. No necesita ser arreglado a no ser que exista disponibilidad de tiempo. |
+| 2 | Problema menor: puede ocurrir un poco más frecuentemente o es un poco más difícil de superar para el usuario. Se le debería asignar una prioridad baja para resolverlo de cara al siguiente release. |
+| 3 | Problema mayor: ocurre frecuentemente o los usuarios no son capaces de resolverlo. Es importante que sea corregido y se le debe asignar una prioridad alta. |
+| 4 | Problema muy grave: un error de gran impacto que impide al usuario continuar con el uso de la herramienta. Es imperativo que sea corregido antes del lanzamiento. |
+
+#### TABLA RESUMEN:
+
+| # | Problema | Escala de severidad | Heurística/Principio violada(o) |
+|:---:|---|:---:|---|
+| 1 | [Descripción breve del problema] | [1 – 4] | [Categoría: Heurística o principio violado (p. ej. Usability: Libertad y control del usuario)] |
+| 2 | [...] | [...] | [...] |
+| 3 | [...] | [...] | [...] |
+| … | … | … | … |
+
+#### DESCRIPCIÓN DE PROBLEMAS:
+
+##### PROBLEMA #1: [Título del problema]
+
+**Severidad:** [1 – 4]
+
+**Heurística violada:** [Categoría (Usability / Inclusive Design / Information Architecture) – Nombre de la heurística o principio]
+
+**Problema:**
+
+[Descripción del problema observado durante la sesión de evaluación: en qué tarea ocurrió, qué hizo el cliente, qué esperaba que sucediera y qué sucedió realmente.]
+
+![Captura de pantalla que ilustra el problema #1](ruta/a/captura-problema-1.png)
+
+**Recomendación:**
+
+[Propuesta concreta y viable para corregir el problema.]
+
+---
+
+##### PROBLEMA #2: [Título del problema]
+
+**Severidad:** [1 – 4]
+
+**Heurística violada:** [Categoría – Nombre de la heurística o principio]
+
+**Problema:**
+
+[Descripción del problema observado durante la sesión de evaluación.]
+
+![Captura de pantalla que ilustra el problema #2](ruta/a/captura-problema-2.png)
+
+**Recomendación:**
+
+[Propuesta concreta y viable para corregir el problema.]
+
+
+
 ### 6.3.4. Video About-the-Product
 
 # Conclusiones
