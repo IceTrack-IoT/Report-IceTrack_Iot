@@ -6056,6 +6056,14 @@ Durante este sprint, el equipo centró la validación en la especificación y di
 | IceTrack-IoT/Pruebas-Gherkin | feature/gherkin-sprint-1 | 470bea9 | test: add feature for US16 mission and vision | Cubre el acceso a la mision en el contenido corporativo y el acceso a la vision a futuro en el contenido estrategico de la pagina institucional. | 09/10/2026 |
 | IceTrack-IoT/Pruebas-Gherkin | feature/gherkin-sprint-1 | f899818 | test: add feature for US17 call to action access | Cubre el acceso a la pantalla de inicio de sesion web para el segmento propietario y el acceso al punto de descarga movil para el segmento tecnico. | 09/10/2026 |
 
+#### Ejecución de las Pruebas
+A continuación se mostrará la evidencia de algunas pruebas ejecutadas dentro del proyecto:
+
+#### US01 - Registro de Usuario
+
+#### US02 - Inicio de Sesión
+
+
 #### 6.2.1.6. Execution Evidence for Sprint Review
 
 Durante el Sprint 1 se completó la implementación de las funcionalidades priorizadas para la Landing Page y el primer flujo funcional del propietario dentro de la aplicación web IceTrack. Como resultado, se habilitaron el registro e inicio de sesión de usuarios, la gestión de sedes y equipos de refrigeración, la consulta y filtrado de los activos registrados y la generación de solicitudes de servicio de mantenimiento. Asimismo, se implementaron en la Landing Page la propuesta de valor del producto, las soluciones orientadas a los distintos tipos de negocio, las funcionalidades principales, la misión y visión de IceTrack y los accesos hacia las aplicaciones de la plataforma. Estas funcionalidades corresponden a los elementos definidos y completados en el Sprint Backlog 1.
@@ -6707,6 +6715,14 @@ Durante el desarrollo del sprint 2, al igual que el sprint anterior, el equipo c
 | IceTrack-IoT/Pruebas-Gherkin | feature/gherkin-sprint-2 | f9df32f | test: add feature for US46 mobile Google sign-in | Cubre el inicio de sesion con Google en el movil, el registro de tecnicos nuevos (201) y la reautenticacion con sesion vencida sin perder registros pendientes. | 09/11/2026 |
 | IceTrack-IoT/Pruebas-Gherkin | feature/gherkin-sprint-2 | 4caac55 | test: add feature for US47 site location navigation | Cubre la visualizacion de la sede en el mapa, el inicio de la navegacion sin cambiar el estado de la orden y las sedes sin ubicacion o sin conexion. | 09/11/2026 |
 | IceTrack-IoT/Pruebas-Gherkin | feature/gherkin-sprint-2 | 172ec98 | test: add feature for US50 address verification | Cubre la verificacion de direcciones en Lima y Callao, el ajuste del marcador hasta 150 m, las direcciones no verificables (422), fuera de cobertura, el servicio no disponible (503) y el limite de 20 verificaciones por minuto (429). | 09/11/2026 |
+
+
+#### Ejecución de las Pruebas
+A continuación se mostrará la evidencia de algunas pruebas ejecutadas dentro del proyecto:
+
+#### US05 - Dar seguimiento al progreso de un servicio 
+
+#### US06 - Cancelar una solicitud de servicio
 
 #### 6.2.2.6. Execution Evidence for Sprint Review
 #### 6.2.2.7. Services Documentation Evidence for Sprint Review
