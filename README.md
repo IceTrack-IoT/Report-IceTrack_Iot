@@ -7292,18 +7292,24 @@ Las pregunta buscan comprobar si IceTrack responde a problemas reales de los usu
 - **URL:**[`https://upcedupe-my.sharepoint.com/:v:/g/personal/u202318731_upc_edu_pe/IQC4uaiFQ7CjRrsTC9fQ0DAWASnL_PbufVDuW7FN8E6rQ8I?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifX0%3D&e=ggzK02`](https://upcedupe-my.sharepoint.com/:v:/g/personal/u202318731_upc_edu_pe/IQC4uaiFQ7CjRrsTC9fQ0DAWASnL_PbufVDuW7FN8E6rQ8I?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifX0%3D&e=ggzK02)
 
 ![Entrevistado 1 segmento #1](assets/capturas/Emtrevista-1.png)
+
 - **Resumen:**
 El trabajador de la heladería indicó que actualmente el monitoreo de la temperatura de los equipos de refrigeración se realiza de manera manual, revisando los termómetros y registrando la información periódicamente. Comentó que los principales problemas que enfrentan son las variaciones de temperatura, cortes de energía y fallas mecánicas que pueden afectar la conservación de los productos. Sobre la propuesta presentada, indicó que la landing page le pareció clara, atractiva y fácil de entender. Consideró que el sistema propuesto es simple, práctico y fácil de usar, lo cual representa una de sus mayores fortalezas. Destacó que la simplicidad de la solución permitiría que cualquier trabajador, incluso sin conocimientos técnicos, pueda comprender rápidamente la información, recibir alertas y dar seguimiento al estado de los equipos de refrigeración sin complicaciones. Esto generó una percepción positiva sobre la utilidad y accesibilidad del sistema para el personal de la heladería.
 
 ---
 #### Entrevista 2:
-- **Nombres y apellidos:** 
-- **Edad:** 
-- **Distrito:** 
+- **Nombres y apellidos:** Nicole del Rocio
+- **Edad:** 26
+- **Distrito:** Pueblo Libre
 
 - **Inicio:** 09:24 min
 - **Duración:** 17:34 min 
 - **URL:** [`https://upcedupe-my.sharepoint.com/:v:/g/personal/u202318731_upc_edu_pe/IQC4uaiFQ7CjRrsTC9fQ0DAWASnL_PbufVDuW7FN8E6rQ8I?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifX0%3D&e=ggzK02`](https://upcedupe-my.sharepoint.com/:v:/g/personal/u202318731_upc_edu_pe/IQC4uaiFQ7CjRrsTC9fQ0DAWASnL_PbufVDuW7FN8E6rQ8I?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifX0%3D&e=ggzK02)
+
+![Entrevistado 1 segmento #2](assets/capturas/Emtrevista-2.png)
+
+- **Resumen:**
+La propietaria de la heladería explicó que, por el momento, el control de la temperatura de las máquinas de refrigeración está a su cargo y se lleva a cabo de forma tradicional, observando los indicadores de temperatura y anotando los valores en determinados momentos del día. Mencionó que entre las dificultades más frecuentes se encuentran los cambios inesperados de temperatura, las interrupciones del suministro eléctrico y los desperfectos que pueden presentar los equipos, situaciones que ponen en riesgo la calidad de los helados y demás productos almacenados. Menciono que IceTrack podira ser muy util para su negocio.
 
 ---
 
