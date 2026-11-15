@@ -7342,15 +7342,16 @@ Andree Cárdenas es compañero de trabajo de del primero entrevistado: Gabriel M
 ---
 
 #### Entrevista 2:
-- **Nombres y apellidos:** 
-- **Edad:** 
-- **Distrito:** 
+- **Nombres y apellidos:** Alessandro Bravo 
+- **Edad:** 25 años
+- **Distrito:** San Martin de Porres
 
-- **Inicio:** 
-- **Duración:** 
+- **Inicio:** 17 min
+- **Duración:** 7:43 min
 - **URL:** [`https://upcedupe-my.sharepoint.com/:v:/g/personal/u202318731_upc_edu_pe/IQC4uaiFQ7CjRrsTC9fQ0DAWASnL_PbufVDuW7FN8E6rQ8I?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifX0%3D&e=ggzK02`](https://upcedupe-my.sharepoint.com/:v:/g/personal/u202318731_upc_edu_pe/IQC4uaiFQ7CjRrsTC9fQ0DAWASnL_PbufVDuW7FN8E6rQ8I?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifX0%3D&e=ggzK02)
 
 - **Resumen:**
+Durante la entrevista de validación, Alessandro Bravo, técnico de mantenimiento, probó la aplicación móvil de IceTrack para consultar solicitudes de reparación de equipos de refrigeración. La prueba se centró en localizar una solicitud en el listado, abrir su detalle y revisar la información disponible, como el equipo afectado, la falla reportada y el estado de atención. Desde la perspectiva del técnico, la sesión permitió evaluar si la aplicación facilita la consulta de los datos necesarios para preparar una intervención. Tener esta información en un solo lugar podría reducir la necesidad de solicitar detalles por llamadas o mensajes antes de atender una reparación.
 
 ---
 
