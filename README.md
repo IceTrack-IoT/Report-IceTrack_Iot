@@ -7283,19 +7283,39 @@ Las pregunta buscan comprobar si IceTrack responde a problemas reales de los usu
 
 #### Entrevista 1:
 
-- **Nombres y apellidos:** Jeremy Alexander Quijada Magro
+- **Nombres y apellidos:** Renato Mathias
 - **Edad:** 26
 - **Distrito:** San Miguel 
 
 - **Inicio:** 0:00 min
 - **Duración:** 9:26 
-- **URL:** [-](-)
+- **URL:**[`https://upcedupe-my.sharepoint.com/:v:/g/personal/u202318731_upc_edu_pe/IQC4uaiFQ7CjRrsTC9fQ0DAWASnL_PbufVDuW7FN8E6rQ8I?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifX0%3D&e=ggzK02`](https://upcedupe-my.sharepoint.com/:v:/g/personal/u202318731_upc_edu_pe/IQC4uaiFQ7CjRrsTC9fQ0DAWASnL_PbufVDuW7FN8E6rQ8I?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifX0%3D&e=ggzK02)
 
 ![Entrevistado 1 segmento #1](assets/capturas/Emtrevista-1.png)
 - **Resumen:**
 El trabajador de la heladería indicó que actualmente el monitoreo de la temperatura de los equipos de refrigeración se realiza de manera manual, revisando los termómetros y registrando la información periódicamente. Comentó que los principales problemas que enfrentan son las variaciones de temperatura, cortes de energía y fallas mecánicas que pueden afectar la conservación de los productos. Sobre la propuesta presentada, indicó que la landing page le pareció clara, atractiva y fácil de entender. Consideró que el sistema propuesto es simple, práctico y fácil de usar, lo cual representa una de sus mayores fortalezas. Destacó que la simplicidad de la solución permitiría que cualquier trabajador, incluso sin conocimientos técnicos, pueda comprender rápidamente la información, recibir alertas y dar seguimiento al estado de los equipos de refrigeración sin complicaciones. Esto generó una percepción positiva sobre la utilidad y accesibilidad del sistema para el personal de la heladería.
 
 ---
+#### Entrevista 2:
+- **Nombres y apellidos:** 
+- **Edad:** 
+- **Distrito:** 
+
+- **Inicio:** 09:24 min
+- **Duración:** 17:34 min 
+- **URL:** [`https://upcedupe-my.sharepoint.com/:v:/g/personal/u202318731_upc_edu_pe/IQC4uaiFQ7CjRrsTC9fQ0DAWASnL_PbufVDuW7FN8E6rQ8I?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifX0%3D&e=ggzK02`](https://upcedupe-my.sharepoint.com/:v:/g/personal/u202318731_upc_edu_pe/IQC4uaiFQ7CjRrsTC9fQ0DAWASnL_PbufVDuW7FN8E6rQ8I?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifX0%3D&e=ggzK02)
+
+---
+
+#### Entrevista 3:
+- **Nombres y apellidos:** 
+- **Edad:** 
+- **Distrito:** 
+
+- **Inicio:** 
+- **Duración:**
+- **URL:** [`https://upcedupe-my.sharepoint.com/:v:/g/personal/u202318731_upc_edu_pe/IQC4uaiFQ7CjRrsTC9fQ0DAWASnL_PbufVDuW7FN8E6rQ8I?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifX0%3D&e=ggzK02`](https://upcedupe-my.sharepoint.com/:v:/g/personal/u202318731_upc_edu_pe/IQC4uaiFQ7CjRrsTC9fQ0DAWASnL_PbufVDuW7FN8E6rQ8I?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifX0%3D&e=ggzK02)
+
 
 ## Segmento Objetivo 2 - Técnicos y empresas de mantenimiento de refrigeración:
 
@@ -7304,9 +7324,9 @@ El trabajador de la heladería indicó que actualmente el monitoreo de la temper
 - **Edad:** 21 años
 - **Distrito:** Los Olivos
 
-- **Inicio:** 00:00 min
-- **Duración:** 17:50 minutos
-- **URL:** [-](-)
+- **Inicio:** 
+- **Duración:** 
+- **URL:** [`https://upcedupe-my.sharepoint.com/:v:/g/personal/u202318731_upc_edu_pe/IQC4uaiFQ7CjRrsTC9fQ0DAWASnL_PbufVDuW7FN8E6rQ8I?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifX0%3D&e=ggzK02`](https://upcedupe-my.sharepoint.com/:v:/g/personal/u202318731_upc_edu_pe/IQC4uaiFQ7CjRrsTC9fQ0DAWASnL_PbufVDuW7FN8E6rQ8I?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifX0%3D&e=ggzK02)
 
 ![Entrevistado 1 segmento #2](assets/chapter06/validation-interview/S2-Andree.png)
 - **Resumen:**
@@ -7318,24 +7338,25 @@ Andree Cárdenas es compañero de trabajo de del primero entrevistado: Gabriel M
 - **Edad:** 
 - **Distrito:** 
 
-- **Inicio:** 00:00 min
+- **Inicio:** 
 - **Duración:** 
-- **URL:** [-](-)
+- **URL:** [`https://upcedupe-my.sharepoint.com/:v:/g/personal/u202318731_upc_edu_pe/IQC4uaiFQ7CjRrsTC9fQ0DAWASnL_PbufVDuW7FN8E6rQ8I?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifX0%3D&e=ggzK02`](https://upcedupe-my.sharepoint.com/:v:/g/personal/u202318731_upc_edu_pe/IQC4uaiFQ7CjRrsTC9fQ0DAWASnL_PbufVDuW7FN8E6rQ8I?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifX0%3D&e=ggzK02)
 
 - **Resumen:**
 
 ---
 
 #### Entrevista 3:
-- **Nombres y apellidos:** 
-- **Edad:** 
-- **Distrito:** 
+- **Nombres y apellidos:** Marcos Contreras 
+- **Edad:** 25 años
+- **Distrito:** Los Olivos
 
-- **Inicio:** 00:00 min
+- **Inicio:** 
 - **Duración:** 
-- **URL:** [-](-)
+- **URL:** [`https://upcedupe-my.sharepoint.com/:v:/g/personal/u202318731_upc_edu_pe/IQC4uaiFQ7CjRrsTC9fQ0DAWASnL_PbufVDuW7FN8E6rQ8I?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifX0%3D&e=ggzK02`](https://upcedupe-my.sharepoint.com/:v:/g/personal/u202318731_upc_edu_pe/IQC4uaiFQ7CjRrsTC9fQ0DAWASnL_PbufVDuW7FN8E6rQ8I?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifX0%3D&e=ggzK02)
 
 - **Resumen:**
+Marcos es un técnico independiente que se adecua a las partes de refrigeración de equipos. Marcos nos cuenta que ya desde antes tenía problemas a la hora de organizar los equipos que atendía de sus clientes, ya que lo transcribía en un cuaderno a mano. Se le mostró a Marcos la parte de la Landing Page como también la aplicación Móvil. Marcos resalta que la aplicación cumple con lo esperado para un técnico implementado funcionalidades clave que pueden servirle día a día. Cree que Icetrack como producto puede refinar algunos aspecto e implementar nuevas funcionalidades, pero cree que la aplicación como está puede rendir y ayudara suplir ciertos problemas que se le presenten.
 
 ---
 
