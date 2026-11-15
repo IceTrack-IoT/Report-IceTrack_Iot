@@ -7420,6 +7420,12 @@ Corregir los enlaces o publicar los repositorios faltantes, verificar los identi
 
 ### 6.3.4. Video About-the-Product
 
+![Captura del Video About-the-Produc](assets/chapter06/validation-interview/about-the-product.png)
+
+Link del About-the-Product en OneDrive: <https://upcedupe-my.sharepoint.com/:v:/g/personal/u202114548_upc_edu_pe/IQBYMoRQgrZWQLdIx2di7dSWARcB-GxubRC2vBRoxXlohq8?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJPbmVEcml2ZUZvckJ1c2luZXNzIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXciLCJyZWZlcnJhbFZpZXciOiJNeUZpbGVzTGlua0NvcHkifX0&e=GINAly>
+
+Link del Youtube: [https://youtu.be/Zc5sQSHoAks](https://youtu.be/Zc5sQSHoAks)
+
 # Conclusiones
 
 ## Conclusiones y Recomendaciones
