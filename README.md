@@ -7188,15 +7188,17 @@ Las pregunta buscan comprobar si IceTrack responde a problemas reales de los usu
 
 #### Entrevista 1:
 
-- **Nombres y apellidos:** 
-- **Edad:** 
-- **Distrito:** 
+- **Nombres y apellidos:** Jeremy Alexander Quijada Magro
+- **Edad:** 26
+- **Distrito:** San Miguel 
 
-- **Inicio:** 00:00 min
-- **Duración:** 
+- **Inicio:** 0:00 min
+- **Duración:** 9:26 
 - **URL:** [-](-)
 
+![Entrevistado 1 segmento #1](assets/capturas/Emtrevista-1.png)
 - **Resumen:**
+El trabajador de la heladería indicó que actualmente el monitoreo de la temperatura de los equipos de refrigeración se realiza de manera manual, revisando los termómetros y registrando la información periódicamente. Comentó que los principales problemas que enfrentan son las variaciones de temperatura, cortes de energía y fallas mecánicas que pueden afectar la conservación de los productos. Sobre la propuesta presentada, indicó que la landing page le pareció clara, atractiva y fácil de entender. Consideró que el sistema propuesto es simple, práctico y fácil de usar, lo cual representa una de sus mayores fortalezas. Destacó que la simplicidad de la solución permitiría que cualquier trabajador, incluso sin conocimientos técnicos, pueda comprender rápidamente la información, recibir alertas y dar seguimiento al estado de los equipos de refrigeración sin complicaciones. Esto generó una percepción positiva sobre la utilidad y accesibilidad del sistema para el personal de la heladería.
 
 ---
 
