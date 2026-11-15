@@ -7420,11 +7420,11 @@ Corregir los enlaces o publicar los repositorios faltantes, verificar los identi
 
 ### 6.3.4. Video About-the-Product
 
-![Captura del Video About-the-Produc](assets/chapter06/validation-interview/about-the-product.png)
+![Captura del Video About-the-Product](assets/chapter06/validation-interview/about-the-product.png)
 
-Link del About-the-Product en OneDrive: <https://upcedupe-my.sharepoint.com/:v:/g/personal/u202114548_upc_edu_pe/IQBYMoRQgrZWQLdIx2di7dSWARcB-GxubRC2vBRoxXlohq8?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJPbmVEcml2ZUZvckJ1c2luZXNzIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXciLCJyZWZlcnJhbFZpZXciOiJNeUZpbGVzTGlua0NvcHkifX0&e=GINAly>
+Link del Video About-the-Product en OneDrive: <https://upcedupe-my.sharepoint.com/:v:/g/personal/u202114548_upc_edu_pe/IQBYMoRQgrZWQLdIx2di7dSWARcB-GxubRC2vBRoxXlohq8?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJPbmVEcml2ZUZvckJ1c2luZXNzIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXciLCJyZWZlcnJhbFZpZXciOiJNeUZpbGVzTGlua0NvcHkifX0&e=GINAly>
 
-Link del Youtube: [https://youtu.be/Zc5sQSHoAks](https://youtu.be/Zc5sQSHoAks)
+Link del Video About-the-Product en Youtube: [https://youtu.be/Zc5sQSHoAks](https://youtu.be/Zc5sQSHoAks)
 
 # Conclusiones
 
@@ -7445,6 +7445,12 @@ En cuanto al trabajo en equipo, como grupo consolidamos liderazgo conjunto, cola
 - Recomendamos construir primero un flujo completo y mínimo del Core Domain, que va desde el envío de la telemetría por el ESP32 hasta la generación de una alerta y su visualización en el dashboard, e implementarlo con las historias de mayor prioridad del backlog. Una vez funcionando, conviene validarlo con una prueba piloto en una o dos heladerías de Lima antes de desarrollar los contextos de soporte, como Reporting and Analytics. Esto permitirá confirmar con usuarios reales las hipótesis sobre alertas y umbrales, y ajustar las reglas de evaluación con datos reales de operación. Así reducimos el riesgo de invertir esfuerzo en funciones que los usuarios no necesiten.
 
 # Video About-the-Team
+
+![Captura del Video About-the-Team](assets/chapter06/about-the-team.png)
+
+Link del About-the-Team en OneDrive: <https://upcedupe-my.sharepoint.com/:v:/g/personal/u202114548_upc_edu_pe/IQBS1nTDYpGXSbcmQMB7RXwWAQyEkSkvny-SjadUQSZ53lI?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJPbmVEcml2ZUZvckJ1c2luZXNzIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXciLCJyZWZlcnJhbFZpZXciOiJNeUZpbGVzTGlua0NvcHkifX0&e=1SI1Mz>
+
+Link del Video de About-the-Team en Youtube: [https://youtu.be/eaGIYadO0rY](https://youtu.be/eaGIYadO0rY)
 
 # Bibliografía
 
