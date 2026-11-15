@@ -53,6 +53,12 @@
 | 2.1     | 8/10/2026 | Joaquin Cuentas   | Desarrollo de wireframes, mockups y userflow | 
 | 2.0     | 9/10/2026 | Cesar Arostegui       | Desarrollo de la primera versión del Web Services y Web Application |
 | 3.0     | 9/11/2026 | Piero Tenorio  | Avance del Sprint 2 |
+| 3.0     | 9/11/2026 | Walter Fajardo  | Avance del Sprint 2 |
+| 3.0     | 9/11/2026 | Joaquin Cuentas  | Avance del Sprint 2 |
+| 3.0     | 9/11/2026 | Cesar Arostegui  | Avance del Sprint 2 |
+
+
+
 
 
 </div>
