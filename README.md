@@ -7308,14 +7308,16 @@ El trabajador de la heladería indicó que actualmente el monitoreo de la temper
 ---
 
 #### Entrevista 3:
-- **Nombres y apellidos:** 
-- **Edad:** 
-- **Distrito:** 
+- **Nombres y apellidos:** Diego Avalos
+- **Edad:** 25 años
+- **Distrito:** San Miguel
 
-- **Inicio:** 
-- **Duración:**
+- **Inicio:** 25:02 min
+- **Duración:** 10 min
 - **URL:** [`https://upcedupe-my.sharepoint.com/:v:/g/personal/u202318731_upc_edu_pe/IQC4uaiFQ7CjRrsTC9fQ0DAWASnL_PbufVDuW7FN8E6rQ8I?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifX0%3D&e=ggzK02`](https://upcedupe-my.sharepoint.com/:v:/g/personal/u202318731_upc_edu_pe/IQC4uaiFQ7CjRrsTC9fQ0DAWASnL_PbufVDuW7FN8E6rQ8I?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifX0%3D&e=ggzK02)
 
+- **Resumen:**
+Durante la entrevista de validación, Diego Avalos exploró la aplicación web de IceTrack y revisó cómo el dashboard presenta las lecturas de temperatura, el estado de los equipos de refrigeración y las alertas. La actividad principal fue la prueba del dispositivo IoT, en la que se observó el proceso de captura de una lectura de temperatura y se revisó cómo se refleja esa información en el dashboard. La sesión permitió evaluar si la información que muestra la aplicación es clara para el personal de la heladería y si el dispositivo puede facilitar el seguimiento de la temperatura, una tarea que actualmente se realiza mediante la revisión manual de termómetros y el registro periódico de las lecturas.
 
 ## Segmento Objetivo 2 - Técnicos y empresas de mantenimiento de refrigeración:
 
