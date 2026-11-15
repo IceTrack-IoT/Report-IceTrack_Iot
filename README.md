@@ -7008,6 +7008,103 @@ La respuesta `202` confirma que el reporte quedó en cola. Al consultar `GET /ap
 
 #### 6.2.2.8. Software Deployment Evidence for Sprint Review
 
+Durante el presente Sprint se realizaron las actividades de despliegue de los diferentes componentes de software que conforman **IceTrack**.
+
+El proceso contempló la publicación y configuración de los siguientes productos digitales:
+
+- **Landing Page:** Desplegada mediante GitHub Pages, permitiendo disponer de una página informativa y accesible públicamente.
+- **Aplicación Web:** Desplegada en Vercel, facilitando el acceso a la interfaz web de IceTrack.
+- **Aplicación Móvil:** Distribuida mediante Firebase App Distribution, permitiendo compartir versiones de prueba con los usuarios y miembros del equipo.
+- **Backend:** Desplegado en Railway, proporcionando un entorno remoto para la ejecución de los servicios y la lógica de negocio de la solución.
+
+Para llevar a cabo estos despliegues se utilizaron servicios cloud que permiten alojar, distribuir y mantener disponibles los diferentes componentes del proyecto.
+
+A continuación, se detallan las actividades realizadas y las evidencias obtenidas durante el proceso de Deployment.
+
+## Landing Page – GitHub Pages
+
+Se realizó el despliegue de la Landing Page de IceTrack utilizando **GitHub Pages**, servicio que permite publicar sitios web estáticos a partir de un repositorio de GitHub.
+
+### Actividades realizadas
+
+1. Se preparó y modificó el proyecto de la Landing Page respecto al Sprint 1.
+2. Se almacenó el código fuente en un repositorio de GitHub.
+3. Se habilitó GitHub Pages desde la configuración del repositorio.
+4. Se seleccionó la rama y la carpeta correspondiente para obtener los archivos que serían publicados.
+5. Se verificó la generación del sitio web y su disponibilidad mediante la URL proporcionada por GitHub Pages.
+
+### Evidencia del despliegue
+
+**Figura 1. Despliegue de la Landing Page de IceTrack en GitHub Pages.**
+
+![LandingPage.jpeg](assets/chapter06/sprint-2/Deployment%20Evidence/landing-page.jpeg)
+
+La evidencia muestra la configuración del servicio y/o la Landing Page publicada, permitiendo verificar que el producto ya se encuentra disponible mediante una dirección web pública.
+
+## Aplicación Web – Vercel
+
+Se realizó el despliegue de la aplicación web de IceTrack creada para el segmento de dueños de equipos de refrigeración para heladerías utilizando **Vercel**, plataforma de alojamiento que permite publicar aplicaciones frontend e integrar los procesos de despliegue con repositorios de GitHub.
+
+### Actividades realizadas
+
+1. Se preparó el proyecto frontend desarrollado en Angular para su despliegue.
+2. Se vinculó el repositorio de GitHub con la plataforma Vercel.
+3. Se configuró el proyecto para identificar el framework utilizado y los parámetros necesarios para su compilación.
+4. Se estableció la rama principal como referencia para los despliegues de producción.
+5. Se ejecutó el proceso de compilación y publicación de la aplicación.
+6. Se verificó el estado del despliegue y el acceso a la aplicación mediante el dominio generado por Vercel.
+
+### Evidencia del despliegue
+
+**Figura 2. Panel de despliegue de la aplicación web de IceTrack en Vercel.**
+
+![WebApp.jpeg](assets/chapter06/sprint-2/Deployment%20Evidence/frontend.jpeg)
+
+La evidencia permite observar el despliegue de producción de la aplicación web, cuyo estado figura como *Ready*.
+
+## Aplicación Móvil – Firebase App Distribution
+
+Para la distribución de la aplicación móvil de IceTrack, desarrollada en Flutter para el segmento de técnicos o talleres de reparación, se utilizó **Firebase App Distribution**, servicio que permite distribuir versiones de prueba de aplicaciones móviles a diferentes grupos de evaluadores.
+
+### Actividades realizadas
+
+1. Se preparó el proyecto Flutter para generar una versión instalable de la aplicación.
+2. Se configuró el proyecto correspondiente en Firebase.
+3. Se integró la aplicación móvil con Firebase App Distribution.
+4. Se generó el archivo de instalación de la aplicación para la plataforma correspondiente (APK o AAB, según la versión distribuida).
+5. Se cargó la compilación generada en Firebase App Distribution.
+6. Se configuraron los grupos de distribución o evaluadores autorizados para acceder a la versión de prueba.
+7. Se verificó la disponibilidad de la compilación para su descarga e instalación.
+
+### Evidencia del despliegue
+
+**Figura 3. Distribución de la aplicación móvil de IceTrack mediante Firebase App Distribution.**
+
+![MobileApp.jpeg](assets/chapter06/sprint-2/Deployment%20Evidence/mobile.jpeg)
+
+La evidencia permite visualizar la versión de la aplicación móvil distribuida y su disponibilidad para los evaluadores registrados, facilitando las pruebas y validaciones correspondientes.
+
+## Backend – Railway
+
+Se realizó el despliegue del backend de IceTrack, desarrollado en Spring Boot, Java, utilizando **Railway**, plataforma cloud que permite ejecutar aplicaciones y servicios backend en un entorno remoto.
+
+### Actividades realizadas
+
+1. Se preparó el proyecto backend para su ejecución en un entorno de producción.
+2. Se almacenó y vinculó el código fuente con el repositorio correspondiente en GitHub.
+3. Se creó el proyecto y servicio de despliegue en Railway.
+4. Se configuraron los parámetros necesarios para la compilación y ejecución de la aplicación Java.
+5. Se establecieron las variables de entorno y configuraciones requeridas por el servicio, cuando correspondía.
+6. Se ejecutó el proceso de construcción y despliegue del backend.
+7. Se verificó el estado del servicio y su disponibilidad mediante la dirección proporcionada por Railway.
+
+### Evidencia del despliegue
+
+**Figura 4. Despliegue del backend de IceTrack en Railway.**
+
+![LandingPage.jpeg](assets/chapter06/sprint-2/Deployment%20Evidence/backend.jpeg)
+
+
 #### 6.2.2.9. Team Collaboration Insights during Sprint
 
 Durante el desarrollo del Sprint 2, el equipo ha mantenido ciertas desciciones en temas de organización que se sugirieron durante el Sprint 1. Se distribuyeron responsabilidades durante reuniones periodicas con los integrantes, tanto de manera virtual como de manera presencial. Estas responsabilidades abarcan tanto en el lado frontend, backend, dispositivos IoT y apartados móviles, donde se evaluó a cada integrante y sus capacidades para poder dearrollar ciertas tareas en el tiempo estimado. Durante el Sprint 2, se implementaron funcionalidades clave, como desplegar ciertos apartados que son necesarios para el desarrollo de IceTrack como producto como el apartado móvil o el lado Iot de la solución. Esta forma de organizar facilita la integración de tareas con anticipación por cada integrante, aportando valor a la solución y un grado de calidad que estamos buscando para IceTrack. A continuación se evidencia la contribución de los integrantes del equipo en los diversos entregables del trabajo hasta la fecha:
