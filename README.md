@@ -6730,6 +6730,95 @@ A continuación se mostrará la evidencia de algunas pruebas ejecutadas dentro d
 <img src="./assets/chapter06/Tests-code/test6.png" alt="test6">
 
 #### 6.2.2.6. Execution Evidence for Sprint Review
+
+Durante el Sprint 2, el trabajo de IceTrack se orientó a ampliar las funcionalidades desarrolladas durante el primer sprint e integrar los flujos de gestión del propietario con las actividades del técnico de mantenimiento. El alcance comprende la autenticación con Google, la configuración del dashboard, la gestión de dispositivos y umbrales de temperatura, la consulta de telemetría, el seguimiento de alertas y el ciclo de atención de solicitudes de servicio. Asimismo, incluye las notificaciones y la generación de reportes de excursiones térmicas.
+
+A continuación, se presentan las evidencias de ejecución correspondientes a las historias de usuario del Sprint Backlog 2. Las capturas muestran las acciones realizadas y los resultados obtenidos en los componentes evaluados.
+
+##### Aplicación web
+
+**Figura 1. Autenticación del propietario mediante Google**
+
+<p align="center">
+  <img src="assets/chapter06/sprint-1/web1.jpeg" alt="Autenticación del propietario mediante Google" width="1000">
+</p>
+
+Nota. Se presenta el flujo de inicio de sesión mediante Google y el acceso del propietario a IceTrack después de completar la autenticación. La evidencia corresponde a la US-34. Elaboración propia.
+
+**Figura 2. Personalización de las tarjetas del dashboard**
+
+<p align="center">
+  <img src="assets/chapter06/sprint-1/web2.jpeg" alt="Configuración y resultado de las tarjetas del dashboard" width="1000">
+</p>
+
+Nota. Se presenta la configuración del orden y la visibilidad de las tarjetas del dashboard, junto con el resultado obtenido al guardar los cambios. Esta funcionalidad permite adaptar la información del panel a las necesidades del propietario y corresponde a la US-35. Elaboración propia.
+
+**Figura 3. Verificación de la dirección de una sede**
+
+<p align="center">
+  <img src="assets/chapter06/sprint-1/web3.jpeg" alt="Verificación de dirección y ubicación de una sede" width="1000">
+</p>
+
+Nota. Se presenta la verificación de la dirección de una sede mediante el servicio de mapas y su ubicación antes de completar el registro. La evidencia corresponde a la US-50. Elaboración propia.
+
+**Figura 5. Emparejamiento y administración de credenciales de un dispositivo**
+
+<p align="center">
+  <img src="assets/chapter06/sprint-1/web5.jpeg" alt="Vinculación de dispositivo y administración de sus credenciales" width="1000">
+</p>
+
+Nota. Se presenta la vinculación de un dispositivo de monitoreo con un equipo de refrigeración y el resultado de la administración de su credencial de acceso. Las claves se ocultan en las capturas. La evidencia corresponde a las US-37 y US-38. Elaboración propia.
+
+**Figura 8. Detección de un equipo que dejó de reportar**
+
+<p align="center">
+  <img src="assets/chapter06/sprint-1/web8.jpeg" alt="Equipo sin comunicación y alerta de desconexión" width="1000">
+</p>
+
+Nota. Se presenta el estado de un equipo después de interrumpir el envío de sus lecturas y cumplirse las ventanas de detección configuradas. Se muestra la alerta de desconexión asociada y la última comunicación registrada. La evidencia corresponde a la US-42. Elaboración propia.
+
+**Figura 11. Historial de intervenciones y evaluación de un servicio**
+
+<p align="center">
+  <img src="assets/chapter06/sprint-1/web11.jpeg" alt="Historial del equipo y evaluación de un servicio completado" width="1000">
+</p>
+
+Nota. Se presenta la consulta de las intervenciones realizadas sobre un equipo y el registro de la evaluación de un servicio completado. Asimismo, se muestra el perfil público del técnico con la información disponible sobre sus servicios y calificaciones. La evidencia corresponde a las US-10, US-12 y US-08. Elaboración propia.
+
+##### Aplicación móvil
+
+**Figura 14. Autenticación y actualización del perfil del técnico**
+
+<p align="center">
+  <img src="assets/chapter06/sprint-2/movil14.jpeg" alt="Inicio de sesión con Google y actualización del perfil del técnico" width="700">
+</p>
+
+Nota. Se presenta el acceso del técnico a la aplicación móvil mediante Google y la actualización de sus datos profesionales. La evidencia incluye la consulta posterior de los datos guardados y corresponde a las US-46 y US-07. Elaboración propia.
+
+**Figura 16. Inicio del servicio y consulta de telemetría en campo**
+
+<p align="center">
+  <img src="assets/chapter06/sprint-2/movil16.jpeg" alt="Inicio de atención y consulta de telemetría desde la aplicación móvil" width="700">
+</p>
+
+Nota. Se presenta el inicio de la atención de una solicitud y la consulta de las lecturas del equipo asociado desde la aplicación móvil. El cambio de estado se relaciona con la solicitud consultada por el propietario. La evidencia corresponde a la US-33. Elaboración propia.
+
+**Figura 17. Registro de una intervención sin conexión y sincronización posterior**
+
+<p align="center">
+  <img src="assets/chapter06/sprint-2/movil17.jpeg" alt="Registro sin conexión y sincronización de una intervención" width="700">
+</p>
+
+Nota. Se presenta el registro de una intervención mientras el dispositivo móvil se encuentra sin conexión, su conservación como operación pendiente y la sincronización al recuperar la conectividad. La consulta posterior permite comprobar que la intervención se registró una sola vez. La evidencia corresponde a la US-31. Elaboración propia.
+
+**Figura 18. Recepción de una notificación push por anomalía térmica**
+
+<p align="center">
+  <img src="assets/chapter06/sprint-1/movil18.jpeg" alt="Notificación push recibida y acceso al equipo afectado" width="700">
+</p>
+
+Nota. Se presenta la recepción de una notificación push en el dispositivo móvil del técnico y el acceso a la información relacionada con el equipo afectado. Esta evidencia complementa la distribución de notificaciones según el rol y corresponde a las US-32 y US-44. Elaboración propia.
+
 #### 6.2.2.7. Services Documentation Evidence for Sprint Review
 
 Durante el Sprint 2 se extendió la documentación OpenAPI de IceTrack Platform API mediante anotaciones `@Operation`, `@ApiResponses`, `@Schema` y seguridad Bearer JWT. El alcance incluye Service Request Management (solicitudes, asignación, intervenciones y evaluaciones), Profiles (perfil del técnico), Assets Management (validación de dirección y umbral térmico), Device Management (emparejamiento y credenciales), Monitoring (telemetría en vivo y ciclo de vida de alertas), Notifications (centro de notificaciones y push), Reporting (reporte de excursiones térmicas) e IAM (autenticación con Google).
