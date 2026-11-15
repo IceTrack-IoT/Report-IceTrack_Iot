@@ -6061,8 +6061,11 @@ A continuación se mostrará la evidencia de algunas pruebas ejecutadas dentro d
 
 #### US01 - Registro de Usuario
 
+<img src="./assets/chapter06/Tests-code/test1.png" alt="test1">
+
 #### US02 - Inicio de Sesión
 
+<img src="./assets/chapter06/Tests-code/test2.png" alt="test2">
 
 #### 6.2.1.6. Execution Evidence for Sprint Review
 
@@ -6721,8 +6724,10 @@ Durante el desarrollo del sprint 2, al igual que el sprint anterior, el equipo c
 A continuación se mostrará la evidencia de algunas pruebas ejecutadas dentro del proyecto:
 
 #### US05 - Dar seguimiento al progreso de un servicio 
+<img src="./assets/chapter06/Tests-code/test5.png" alt="test5">
 
 #### US06 - Cancelar una solicitud de servicio
+<img src="./assets/chapter06/Tests-code/test6.png" alt="test6">
 
 #### 6.2.2.6. Execution Evidence for Sprint Review
 #### 6.2.2.7. Services Documentation Evidence for Sprint Review
