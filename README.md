@@ -7314,7 +7314,7 @@ Los errores serán puntuados tomando en cuenta la siguiente escala de severidad:
 
 La Landing, bajo el título "Precios claros, sin sorpresas", muestra los planes Básico (S/ 150), Profesional (S/ 300) y Empresa (a medida), todos "por edificio al mes". El informe dice otra cosa: el modelo de precios (sección 2.1) indica que "no existe una tarifa comercial validada" y que los costos de instalación IoT están por definir. En las conclusiones, los administradores consideraron aceptable una tarifa de 2 a 5 USD mensuales por departamento. El visitante lee precios firmes en soles por edificio, mientras el proyecto solo tiene un dato preliminar en dólares por departamento.
 
-![Captura de pantalla que ilustra el problema #1](capturas/problema-01-precios.png)
+![Captura de pantalla que ilustra el problema #1](assets/capturas/problema-01-precios.png)
 
 **Recomendación:**
 
