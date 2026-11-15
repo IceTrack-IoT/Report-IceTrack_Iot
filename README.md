@@ -6761,7 +6761,7 @@ Nota. Se presenta la configuración del orden y la visibilidad de las tarjetas d
 
 Nota. Se presenta la verificación de la dirección de una sede mediante el servicio de mapas y su ubicación antes de completar el registro. La evidencia corresponde a la US-50. Elaboración propia.
 
-**Figura 5. Emparejamiento y administración de credenciales de un dispositivo**
+**Figura 4. Emparejamiento y administración de credenciales de un dispositivo**
 
 <p align="center">
   <img src="assets/chapter06/sprint-1/web5.jpeg" alt="Vinculación de dispositivo y administración de sus credenciales" width="1000">
@@ -6769,7 +6769,7 @@ Nota. Se presenta la verificación de la dirección de una sede mediante el serv
 
 Nota. Se presenta la vinculación de un dispositivo de monitoreo con un equipo de refrigeración y el resultado de la administración de su credencial de acceso. Las claves se ocultan en las capturas. La evidencia corresponde a las US-37 y US-38. Elaboración propia.
 
-**Figura 8. Detección de un equipo que dejó de reportar**
+**Figura 5. Detección de un equipo que dejó de reportar**
 
 <p align="center">
   <img src="assets/chapter06/sprint-1/web8.jpeg" alt="Equipo sin comunicación y alerta de desconexión" width="1000">
@@ -6777,7 +6777,7 @@ Nota. Se presenta la vinculación de un dispositivo de monitoreo con un equipo d
 
 Nota. Se presenta el estado de un equipo después de interrumpir el envío de sus lecturas y cumplirse las ventanas de detección configuradas. Se muestra la alerta de desconexión asociada y la última comunicación registrada. La evidencia corresponde a la US-42. Elaboración propia.
 
-**Figura 11. Historial de intervenciones y evaluación de un servicio**
+**Figura 6. Historial de intervenciones y evaluación de un servicio**
 
 <p align="center">
   <img src="assets/chapter06/sprint-1/web11.jpeg" alt="Historial del equipo y evaluación de un servicio completado" width="1000">
@@ -6787,31 +6787,31 @@ Nota. Se presenta la consulta de las intervenciones realizadas sobre un equipo y
 
 ##### Aplicación móvil
 
-**Figura 14. Autenticación y actualización del perfil del técnico**
+**Figura 1. Autenticación y actualización del perfil del técnico**
 
 <p align="center">
-  <img src="assets/chapter06/sprint-2/movil14.jpeg" alt="Inicio de sesión con Google y actualización del perfil del técnico" width="700">
+  <img src="assets/chapter06/sprint-1/movil14.jpeg" alt="Inicio de sesión con Google y actualización del perfil del técnico" width="700">
 </p>
 
 Nota. Se presenta el acceso del técnico a la aplicación móvil mediante Google y la actualización de sus datos profesionales. La evidencia incluye la consulta posterior de los datos guardados y corresponde a las US-46 y US-07. Elaboración propia.
 
-**Figura 16. Inicio del servicio y consulta de telemetría en campo**
+**Figura 2. Inicio del servicio y consulta de telemetría en campo**
 
 <p align="center">
-  <img src="assets/chapter06/sprint-2/movil16.jpeg" alt="Inicio de atención y consulta de telemetría desde la aplicación móvil" width="700">
+  <img src="assets/chapter06/sprint-1/movil16.jpeg" alt="Inicio de atención y consulta de telemetría desde la aplicación móvil" width="700">
 </p>
 
 Nota. Se presenta el inicio de la atención de una solicitud y la consulta de las lecturas del equipo asociado desde la aplicación móvil. El cambio de estado se relaciona con la solicitud consultada por el propietario. La evidencia corresponde a la US-33. Elaboración propia.
 
-**Figura 17. Registro de una intervención sin conexión y sincronización posterior**
+**Figura 3. Registro de una intervención sin conexión y sincronización posterior**
 
 <p align="center">
-  <img src="assets/chapter06/sprint-2/movil17.jpeg" alt="Registro sin conexión y sincronización de una intervención" width="700">
+  <img src="assets/chapter06/sprint-1/movil17.jpeg" alt="Registro sin conexión y sincronización de una intervención" width="700">
 </p>
 
 Nota. Se presenta el registro de una intervención mientras el dispositivo móvil se encuentra sin conexión, su conservación como operación pendiente y la sincronización al recuperar la conectividad. La consulta posterior permite comprobar que la intervención se registró una sola vez. La evidencia corresponde a la US-31. Elaboración propia.
 
-**Figura 18. Recepción de una notificación push por anomalía térmica**
+**Figura 4. Recepción de una notificación push por anomalía térmica**
 
 <p align="center">
   <img src="assets/chapter06/sprint-1/movil18.jpeg" alt="Notificación push recibida y acceso al equipo afectado" width="700">
