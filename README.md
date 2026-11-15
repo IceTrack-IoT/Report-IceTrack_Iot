@@ -7334,7 +7334,7 @@ Unificar el modelo (por edificio o por departamento) y la moneda en ambos docume
 
 La sección 5.2.3 del informe define siete páginas públicas (Home, Módulos, Cómo funciona, Planes, Solicitar demo, Recursos y Contacto) con título, descripción, palabras clave y autor propios. También define `lang="es-PE"`, `canonical`, `robots`, `theme-color`, Open Graph, Twitter Card, `robots.txt` y `sitemap.xml`. La Landing publicada es una sola página con diez secciones, incluye Video, Testimonios y Equipo que el informe no define, y no tiene página de Recursos. Su `<head>` solo declara `lang="es"`, un título distinto ("Edifika – Gestión inteligente de condominios | Condomia") y una descripción distinta. No tiene canonical, robots, Open Graph, Twitter Card, palabras clave ni autor, y el repositorio no contiene `robots.txt` ni `sitemap.xml`.
 
-![Captura de pantalla que ilustra el problema #2](capturas/problema-02-seo.png)
+![Captura de pantalla que ilustra el problema #2](assets/capturas/problema-02-seo.png)
 
 **Recomendación:**
 
@@ -7352,7 +7352,9 @@ Aplicar las etiquetas definidas en 5.2.3 a la Landing y agregar `robots.txt` y `
 
 La barra de navegación tiene dos botones, "Ingresar" y "Empieza gratis", y ambos abren la pantalla de login de la Web Application. El botón principal del hero dice "Solicitar demo gratis" y lleva al formulario de contacto de la misma página. Hay tres textos para la misma intención y dos destinos distintos. Además, la sección de planes no incluye ninguno gratuito (el más barato es S/ 150 al mes), así que "Empieza gratis" promete algo que los planes no ofrecen. Un visitante nuevo que pulsa "Empieza gratis" llega a una pantalla de login sin explicación.
 
-![Captura de pantalla que ilustra el problema #3](capturas/problema-03-cta.png)
+![Captura de pantalla que ilustra el problema #3](assets/capturas/problema-03-cta.png)
+
+![Captura de pantalla que ilustra el problema #4](assets/capturas/problema-04-cta.png)
 
 **Recomendación:**
 
@@ -7370,7 +7372,7 @@ Dejar "Ingresar" para quienes ya tienen cuenta y usar un único botón "Solicita
 
 La sección de funcionalidades de la Landing dice "Tres módulos clave" (pagos, reservas y comunicados) y los planes listan solo esas funciones. El IoT (tarjetas RFID, iluminación, riego), que es el centro del informe, no aparece. Sin embargo, el testimonio de un administrador habla de luces de pasadizos encendidas todo el día y de riego, y el subtítulo del video menciona el acceso del residente a las áreas comunes. Además, la sección "Conoce Edifika en menos de 3 minutos" no reproduce ningún video y muestra "El video estará disponible muy pronto".
 
-![Captura de pantalla que ilustra el problema #4](capturas/problema-04-iot-video.png)
+![Captura de pantalla que ilustra el problema #4](assets/capturas/problema-04-iot-video.png)
 
 **Recomendación:**
 
@@ -7388,7 +7390,9 @@ Agregar un módulo "Accesos e IoT" a las funcionalidades y a los planes, y publi
 
 El Registro de Versiones y el Sprint 2 indican que TB1 se entregó el 09/10/2026, pero los Collaboration Insights lo fechan el 10/10/2026. El Sprint 1 figura con periodo 2026-09-21 a 2026-10-09 en el Sprint Planning, y como 21/09/2026 a 10/10/2026 en el resumen de lo alcanzado. En ese mismo cuadro, la Review y la Retrospective del Sprint 1 aparecen como "Pendiente de celebrarse el 2026-10-09", mientras que el resumen dice que el Sprint 1 cerró. Las conclusiones no se actualizaron para AV2: recomiendan integrar el Edge Gateway con los microservicios en la nube "en lugar del backend simulado", cuando el Sprint 2 ya declara esa integración (hito H1). También dicen que falta evidencia de contenedores `healthy`, aunque la tabla de despliegue marca el Edge Gateway como "Desplegado y accesible".
 
-![Captura de pantalla que ilustra el problema #5](capturas/problema-05-fechas-informe.png)
+![Captura de pantalla que ilustra el problema #5](assets/capturas/problema-05-fechas-informe.png)
+
+![Captura de pantalla que ilustra el problema #6](assets/capturas/problema-06-fechas-informe.png)
 
 **Recomendación:**
 
@@ -7406,7 +7410,7 @@ Fijar una sola fecha para cada entrega y para el cierre del Sprint 1, actualizar
 
 El anexo enlaza repositorios que no existen en la organización pública: Forum, Notification, Communications, IoT Gateway, IoT Telemetry, IoT Platform y esp32. En la sección 6.2.1.8, los commits `8787c8d`, `83d71c5` y `c7e320a` aparecen con mensajes distintos en el repositorio `FrontEnd` y en el del IoT Gateway, lo que no es posible para identificadores únicos. Siguen marcadas "POR COMPLETAR" las fechas y asistentes del Sprint 2, los Insights de AV2, las secciones 6.3 (entrevistas y evaluación heurística) y 6.4, el video About-the-Team y el Anexo A de videos.
 
-![Captura de pantalla que ilustra el problema #6](capturas/problema-06-repos-informe.png)
+![Captura de pantalla que ilustra el problema #6](assets/capturas/problema-06-repos-informe.png)
 
 **Recomendación:**
 
