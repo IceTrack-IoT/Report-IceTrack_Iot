@@ -250,15 +250,25 @@
       - [6.2.1.8. Software Deployment Evidence for Sprint Review](#6218-software-deployment-evidence-for-sprint-review)
       - [6.2.1.9. Team Collaboration Insights during Sprint](#6219-team-collaboration-insights-during-sprint)
     - [6.2.2. Sprint 2](#622-sprint-2)
-      - [6.2.2.1. Sprint Planning 2](#6221-sprint-planning-1)
+      - [6.2.2.1. Sprint Planning 2](#6221-sprint-planning-2)
       - [6.2.2.2. Aspect Leaders and Collaborators](#6222-aspect-leaders-and-collaborators)
       - [6.2.2.3. Sprint Backlog 2](#6223-sprint-backlog-2)
       - [6.2.2.4. Development Evidence for Sprint Review](#6224-development-evidence-for-sprint-review)
       - [6.2.2.5. Testing Suite Evidence for Sprint Review](#6225-testing-suite-evidence-for-sprint-review)
       - [6.2.2.6. Execution Evidence for Sprint Review](#6226-execution-evidence-for-sprint-review)
       - [6.2.2.7. Services Documentation Evidence for Sprint Review](#6227-services-documentation-evidence-for-sprint-review)
-      - [6.2.1.8. Software Deployment Evidence for Sprint Review](#6228-software-deployment-evidence-for-sprint-review)
-      - [6.2.1.9. Team Collaboration Insights during Sprint](#6229-team-collaboration-insights-during-sprint)
+      - [6.2.2.8. Software Deployment Evidence for Sprint Review](#6228-software-deployment-evidence-for-sprint-review)
+      - [6.2.2.9. Team Collaboration Insights during Sprint](#6229-team-collaboration-insights-during-sprint)
+    - [6.2.3. Sprint 3](#623-sprint-3)
+      - [6.2.3.1. Sprint Planning 3](#6231-sprint-planning-3)
+      - [6.2.3.2. Aspect Leaders and Collaborators](#6232-aspect-leaders-and-collaborators)
+      - [6.2.3.3. Sprint Backlog 3](#6233-sprint-backlog-3)
+      - [6.2.3.4. Development Evidence for Sprint Review](#6234-development-evidence-for-sprint-review)
+      - [6.2.3.5. Testing Suite Evidence for Sprint Review](#6235-testing-suite-evidence-for-sprint-review)
+      - [6.2.3.6. Execution Evidence for Sprint Review](#6236-execution-evidence-for-sprint-review)
+      - [6.2.3.7. Services Documentation Evidence for Sprint Review](#6237-services-documentation-evidence-for-sprint-review)
+      - [6.2.3.8. Software Deployment Evidence for Sprint Review](#6238-software-deployment-evidence-for-sprint-review)
+      - [6.2.3.9. Team Collaboration Insights during Sprint](#6239-team-collaboration-insights-during-sprint)
   - [6.3. Validation Interviews](#63-validation-interviews)
     - [6.3.1. Diseño de Entrevistas](#631-diseño-de-entrevistas)
     - [6.3.2. Registro de Entrevistas](#632-registro-de-entrevistas)
@@ -7210,6 +7220,46 @@ Durante el desarrollo del Sprint 2, el equipo ha mantenido ciertas desciciones e
   style="width: 100%; height: auto; border-radius: 8px; border: 1px solid #d0d7de; box-shadow: 0 4px 12px rgba(0,0,0,0.08);" />
 </div>
 
+
+### 6.2.3. Sprint 3
+
+#### 6.2.3.1. Sprint Planning 3
+
+| **Sprint #** | Sprint 3 |
+| :--- | :--- |
+| **Sprint Planning Background** | |
+| Date | 2026-11-24 10:00 AM  |
+| Location | Reunión virtual en Meet/Discord |
+| Prepared By | Jeremy Alexander Quijada Magro |
+| Attendees (to planning meeting) | Arostegui Alzamora Cesar Augusto, Cuentas Peña Joaquin Alberto, Fajardo Monrroy Walter Luis, Guillen Galindo Julio Adolfo, Jiménez Guerra Gianmarco Fabian, Quijada Magro Jeremy Alexander y Tenorio Medina, Piero Francesco |
+| Sprint 2 Review Summary | Durante el segundo sprint, el equipo se enfoco plenamente en implementar las funcionalidades de Icetrack para poder presentar un modelo funcional junto a los componentes IoT de la aplicación. Para ello, cada uno de los miembros se distribuyó en distintos apartados: Código Backend, Frontend, Aplicación móvil, tests de código, landing page y configuración de componentes. Esta forma de trabajar nos permitió desarrollar de manera conjunta la aplicación, haciendo much más eficiente la implementación de distintas funcionalidades si se plantean a futuro.  |
+| Sprint 2 Retrospective Summary | El equipo durante el sprint 2 se sintió cómodo en el desarrollo de los distintos apartados. Estos ultimos al ser seccionados, cada uno de los integrantes pudo desevolverse de manera eficiente de acuerdo a las competencias que cada uno posee. El desarrollo en conjunto del proyecto resultó en la implementación casi final de Icetrack en su totalidad.    |
+| **Sprint Goal & User Stories** | |
+| Sprint 3 Goal | El objetivo de esta entrega se enfoca en terminar y refinar algunos aspectos de Icetrack. Anteriormente se implementaron distintas funcionalidades que consideramos importantes y fundamentales para el funcionamiento de Icetrack. Para esta sprint, nos enfocaremos en mejorar estas funcionalidades implementadas para poder bridnar y asegurar que Icetrack pueda cumplir con su objetivo de brindar una solución efectiva ante los problemas enfocados a los equipos de refrigeración. |
+| Sprint 3 Velocity |  0 Story Points |
+| Sum of Story Points | 0 Story Points |
+
+#### 6.2.3.2. Aspect Leaders and Collaborators
+
+Para el desarrollo del Sprint 3 se distribuyó de esta manera:
+
+| Team Member (Last Name, First Name) | GitHub Username | Landing Page | Web App Authentication | Testing & Documentation | Deployment & Configuration |
+| :--- | :--- | :---: | :---: | :---: | :---: |
+| Arostegui Alzamora, Cesar Augusto | `[Legendnt1]` | C | - | - | L |
+| Cuentas Peña, Joaquin Alberto | `[JoaCupe]` | - | - | - | C |
+| Fajardo Monrroy, Walter Luis | `[WalterFajardo]` | L | C | - | - |
+| Guillen Galindo, Julio Adolfo | `[julio645]` | C | - | L | - |
+| Jiménez Guerra, Gianmarco Fabian | `[ZAICO21]` | - | C | - | - |
+| Quijada Magro, Jeremy Alexander | `jquijada-dev` | - | L | C | - |
+| Tenorio Medina, Piero Francesco | `[PieroTM2005]` | - | - | C | - |
+
+#### 6.2.3.3. Sprint Backlog 3
+#### 6.2.3.4. Development Evidence for Sprint Review
+#### 6.2.3.5. Testing Suite Evidence for Sprint Review
+#### 6.2.3.6. Execution Evidence for Sprint Review
+#### 6.2.3.7. Services Documentation Evidence for Sprint Review
+#### 6.2.3.8. Software Deployment Evidence for Sprint Review
+#### 6.2.3.9. Team Collaboration Insights during Sprint
 
 ## 6.3. Validation Interviews
 ### 6.3.1. Diseño de Entrevistas
