@@ -9,7 +9,7 @@
   <h2>NRC: 8740</h2>
   <h2>Profesor: David Carlos Olivera</h2>
 <br>
- <h1>Informe del Avance 2</h1>
+ <h1>Informe del Trabajo Final</h1>
   <h2>Startup: Frostshield </h2>
   <h2>Producto: IceTrack </h2>
 <br>
@@ -7254,10 +7254,214 @@ Para el desarrollo del Sprint 3 se distribuyó de esta manera:
 | Tenorio Medina, Piero Francesco | `[PieroTM2005]` | - | - | C | - |
 
 #### 6.2.3.3. Sprint Backlog 3
+
+El objetivo de este **Sprint3** fue implementar las funcionalidades restantes que se habian desarrollado en una fase temprana en el anterior sprint. Además, se refinaron funcionalidades anteriormente planteadas con el objetivo de mejorar su rendimiento dentro del proyecto:
+
+| Sprint # | Sprint 3 |  |  |  |  | | |  |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| **User Story** |  | **Work-Item / Task** |  |  |  |  |  |
+| **Story Id** | **Story Title** | **Task Id** | **Task Title** | **Task Description** | **Estimation (Story Points)**| **Estimation (Hours)**| **Assigned To** | **Status (To-do / In-Process / To-Review / Done)** |
+| US-51 | Activar el modo mantenimiento con el botón del dispositivo | UT-C1 | Mantenimiento con botón físico | Abrir y cerrar la ventana BUTTON de 30 minutos con una pulsación de 3 segundos, con tope diario, límite de seguridad y vínculo a la orden. | 5 | 10 | Gianmarco Jiménez | Done |
+| US-52 | Detectar la puerta abierta de un equipo con el sensor de luz y alertar al propietario | UT-C2 | Detección de puerta abierta | Detectar la apertura con el sensor de luz, registrar su duración y abrir la alerta DOOR_OPEN. | 5 | 10 | César Arostegui | In-Process |
+| US-53 | Registrar la presencia junto al equipo con el sensor PIR | UT-C3 | Registro de presencia | Registrar la presencia detectada por el PIR sin identificar personas y sincronizarla con la nube. | 3 | 6 | César Arostegui | Done |
+| US-54 | Consultar las aperturas de puerta junto con la temperatura | UT-C4 | Aperturas en gráfica y reportes | Mostrar las aperturas de puerta sobre la gráfica de temperatura y como indicador en el reporte de excursiones. | 5 | 8 | Walter Fajardo | In-Process |
+| US-55 | Detectar un sensor de temperatura defectuoso | UT-C5 | Alerta por sensor defectuoso | Detectar lecturas inválidas o congeladas del DHT11, excluirlas de la evaluación y abrir la alerta SENSOR_FAULT. | 5 | 8 | Piero Tenorio | In-Process |
+| US-56 | Calibrar el sensor de temperatura de un equipo | UT-C6 | Calibración del sensor | Definir un desfase de −5 °C a +5 °C por equipo, aplicarlo a las nuevas lecturas y conservar la lectura original. | 3 | 6 | Julio Guillén | In-Process |
+
 #### 6.2.3.4. Development Evidence for Sprint Review
+En esta sección se explica y presenta los avances en implementación con relación a los productos de Icetrack:
+
+| Repository | Branch | Commit Id | Commit Message | Commit Message Body | Commited on (Date) |
+| --- | --- | --- | --- | --- | --- |
+
 #### 6.2.3.5. Testing Suite Evidence for Sprint Review
+Durante el desarrollo del sprint 3, al igual que el sprint anterior, el equipo centró la validación en la especificación y diseño de las pruebas de aceptación escritas en Gherkin (.feature, uno por cada User Story). 
+
+| Repository | Branch | Commit Id | Commit Message | Commit Message Body | Commited on (Date) |
+|---|---|---|---|---|---|
+| IceTrack-IoT/Pruebas-Gherkin | feature/gherkin-sprint-2 | 91aaf93 | test: add feature for US05 service progress tracking | Cubre la consulta del estado actual con su historial de transiciones y ventanas de mantenimiento, el reflejo de los cambios del tecnico y el rechazo de solicitudes ajenas (404). | 09/11/2026 |
+
 #### 6.2.3.6. Execution Evidence for Sprint Review
 #### 6.2.3.7. Services Documentation Evidence for Sprint Review
+
+Durante el Sprint se documentaron los servicios que intervienen en el flujo del dispositivo IoT hacia la nube. En IceTrack Platform API se extendió la documentación OpenAPI mediante anotaciones `@Operation`, `@ApiResponses` y `@Schema`, con seguridad `X-API-Key` para el dispositivo y Bearer JWT para el propietario. El alcance incluye Monitoring (lotes con lecturas crudas y calibradas, nivel de luz, segundos de puerta abierta y presencia, eventos del borde y ventanas de mantenimiento). Además, el Edge Service publica su especificación OpenAPI mediante `flask-openapi3`, con los endpoints de lecturas, botón de mantenimiento, comandos del técnico y sincronización.
+
+La documentación está disponible mediante:
+
+- Swagger UI local: `http://localhost:8080/swagger-ui/index.html`
+- Especificación OpenAPI local: `http://localhost:8080/v3/api-docs`
+- Swagger UI productivo configurado: `https://platform-icetrackiot-production.up.railway.app/swagger-ui/index.html`
+- Swagger UI del Edge Service local: `http://127.0.0.1:5000/docs/swagger`
+- Especificación OpenAPI del Edge Service local: `http://127.0.0.1:5000/docs/openapi.json`
+- Repositorios: [IceTrack-IoT/Platform-IceTrack_IoT](https://github.com/IceTrack-IoT/Platform-IceTrack_IoT) e [IceTrack-IoT/IceTrack-edge-service](https://github.com/IceTrack-IoT/IceTrack-edge-service)
+
+Los endpoints de la plataforma usados por el borde requieren `X-API-Key`, y las consultas del propietario requieren `Authorization: Bearer <JWT>`. Los endpoints `/edge/api/v1/*` requieren `X-Device-Key` (ESP32) o `X-Edge-Grant` (comandos del técnico). Los cuerpos JSON de la plataforma usan convención `snake_case` y los del Edge Service usan `camelCase`.
+
+##### Relación de endpoints documentados
+
+| Contexto | Acción y sintaxis | Parámetros / cuerpo principal | Response y evidencia OpenAPI |
+|---|---|---|---|
+| Edge Service | `POST /edge/api/v1/readings` | `deviceId`, `readingUid`, `temperature`, `humidity`, `lightLevel`, `presence`, `presenceAvailable`, `sensorValid`, `sensorFailures`, `sequence`, `uptimeMs`, `capturedAt` | `201`; guarda la lectura y devuelve `alarmActive`, `buzzerMuted`, `signalTest` y `maintenanceMode`. `200` si es reenvío del mismo `readingUid`; `409` si se reutiliza con otros datos. |
+| Edge Service | `POST /edge/api/v1/button-events` | `deviceId`, `pressType` (`LONG`), `eventUid`, `timestamp`, `capturedAt`, `uptimeMs` | `200`; `feedback` `ACTIVATED`, `DEACTIVATED` o `REJECTED_DAILY_LIMIT`, `maintenanceMode` e `idempotentReplay`. `409` si el `eventUid` ya se usó en otra acción. |
+| Edge Service | `POST /edge/api/v1/maintenance` | `deviceId`, `commandUid`, `active` | `200`; abre o cierra la ventana de mantenimiento APP de 2 horas. `401` sin `X-Edge-Grant` vigente. |
+| Edge Service | `POST /edge/api/v1/buzzer/mute` | `deviceId`, `commandUid`, `muted` | `200`; silencia o restaura el zumbador mientras dure la excursión. |
+| Edge Service | `POST /edge/api/v1/signal-tests` | `deviceId`, `commandUid` | `200`; solicita al ESP32 la prueba de señalización en su siguiente lectura. |
+| Edge Service | `GET /api/v1/synchronization/status` | `X-Device-Key` | `200`; estado de la cola local de lotes y eventos pendientes. |
+| Edge Service | `POST /api/v1/synchronization/attempts` | `X-Device-Key` | `200`; ejecuta un intento manual de sincronización con la nube. |
+| Monitoring | `POST /api/v1/telemetry` | `reading_uid`, temperaturas calibradas, `raw_min/raw_max/raw_avg_temperature`, `humidity`, `sample_count`, `light_level_max`, `door_open_seconds`, `presence_detected`, `recorded_at`, `applied_config_version` | `201`; registra el lote. `200` si es reenvío. `400` si un valor crudo está fuera del rango del DHT11 o el calibrado difiere en más de 5 °C. |
+| Monitoring | `POST /api/v1/telemetry/events` | `event_uid`, `type`, `occurred_at`, `origin` (`APP` o `BUTTON`), `closure_reason` | `201 MAINTENANCE_WINDOW_OPENED` o `MAINTENANCE_WINDOW_CLOSED`; `200` si la ventana se promueve, ya estaba activa o es reenvío. `400` si falta `origin` o `closure_reason`. |
+| Monitoring | `GET /api/v1/maintenance-windows?equipment_id=...&from=...&to=...` | Query: `equipment_id` obligatorio; `from`, `to` opcionales | `200 MaintenanceWindowResource[]`; incluye `origin`, `closure_reason`, `service_request_id` y `unlinked`. `404 EQUIPMENT_NOT_FOUND`. |
+| Monitoring | `GET /api/v1/telemetry/equipment/{equipmentId}?from=...&to=...&bucket=...` | Path: `equipmentId`; query ISO-8601 `from`, `to`; `bucket` y `max_points` opcionales | `200`; lecturas o intervalos con `door_open_seconds`. `400 VALIDATION_ERROR`; `404 EQUIPMENT_NOT_FOUND`. |
+
+#### Interacciones de muestra
+
+#### 1. Enviar una lectura del ESP32 al gateway del local
+
+```
+POST /edge/api/v1/readings
+Content-Type: application/json
+X-Device-Key: <device-key>
+
+{
+    "deviceId": "ice-esp32-001",
+    "firmwareVersion": "1.0.0",
+    "readingUid": "ice-esp32-001-1a2b3c4d-42",
+    "temperature": 5.5,
+    "humidity": 55.0,
+    "lightLevel": 12,
+    "presence": false,
+    "presenceAvailable": true,
+    "sensorValid": true,
+    "sensorFailures": 0,
+    "sequence": 42,
+    "uptimeMs": 420000,
+    "capturedAt": 0
+}
+```
+
+```
+{
+    "deviceId": "ice-esp32-001",
+    "readingUid": "ice-esp32-001-1a2b3c4d-42",
+    "accepted": true,
+    "alarmActive": false,
+    "buzzerMuted": false,
+    "signalTest": false,
+    "maintenanceMode": {
+        "active": false
+    }
+}
+```
+
+La respuesta 201 confirma que el gateway guardó la lectura y devuelve las directivas que el dispositivo aplica en el LED y el zumbador. Si el ESP32 reenvía el mismo `readingUid`, el gateway responde 200 sin duplicar la lectura.
+
+#### 2. Activar el modo mantenimiento con el botón del dispositivo
+
+```
+POST /edge/api/v1/button-events
+Content-Type: application/json
+X-Device-Key: <device-key>
+
+{
+    "deviceId": "ice-esp32-001",
+    "pressType": "LONG",
+    "timestamp": 540000,
+    "capturedAt": 0,
+    "uptimeMs": 540000,
+    "eventUid": "ice-esp32-001-1a2b3c4d-btn-1"
+}
+```
+
+```
+{
+    "feedback": "ACTIVATED",
+    "maintenanceMode": {
+        "active": true,
+        "origin": "BUTTON",
+        "expiresAt": "2026-11-11T18:30:00Z"
+    },
+    "idempotentReplay": false
+}
+```
+
+La respuesta abre una ventana BUTTON de 30 minutos; el dispositivo enciende el LED azul y emite dos pitidos. Una cuarta activación en 24 horas devuelve `REJECTED_DAILY_LIMIT` y el dispositivo emite tres pitidos cortos.
+
+#### 3. Reportar a la nube la apertura de la ventana de mantenimiento
+
+```
+POST /api/v1/telemetry/events
+Content-Type: application/json
+X-API-Key: <device-api-key>
+
+{
+    "event_uid": "6f1c2d34-8a7b-4c1e-9f00-1a2b3c4d5e6f",
+    "type": "MAINTENANCE_WINDOW_STARTED",
+    "occurred_at": "2026-11-11T18:00:00Z",
+    "origin": "BUTTON"
+}
+```
+
+La respuesta 201 `MAINTENANCE_WINDOW_OPENED` registra la ventana. Si el equipo tiene una orden IN_PROGRESS, la ventana queda vinculada a esa orden; de lo contrario se marca como `unlinked` y se notifica al propietario.
+
+#### 4. Consultar las ventanas de mantenimiento de un equipo
+
+```
+GET /api/v1/maintenance-windows?equipment_id=10&from=2026-11-01T00:00:00Z&to=2026-11-30T23:59:59Z
+Authorization: Bearer <JWT>
+```
+
+```
+[
+    {
+        "id": 18,
+        "equipment_id": 10,
+        "origin": "APP",
+        "started_at": "2026-11-07T13:05:00Z",
+        "expires_at": "2026-11-07T15:05:00Z",
+        "ended_at": "2026-11-07T14:10:00Z",
+        "closure_reason": "MANUAL_APP",
+        "technician_id": 7,
+        "service_request_id": 42,
+        "unlinked": false,
+        "active": false
+    }
+]
+```
+
+#### 5. Sincronizar un lote con lectura cruda, luz y presencia
+
+```
+POST /api/v1/telemetry
+Content-Type: application/json
+X-API-Key: <device-api-key>
+
+{
+    "reading_uid": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+    "min_temperature": 3.3,
+    "max_temperature": 4.6,
+    "avg_temperature": 3.9,
+    "raw_min_temperature": 3.8,
+    "raw_max_temperature": 5.1,
+    "raw_avg_temperature": 4.4,
+    "humidity": 62.0,
+    "sample_count": 6,
+    "light_level_max": 41.0,
+    "door_open_seconds": 12,
+    "presence_detected": true,
+    "recorded_at": "2026-09-29T08:30:00Z",
+    "applied_config_version": 3
+}
+```
+
+La respuesta 201 registra el lote con los valores crudos y calibrados. Si la diferencia entre un valor crudo y su calibrado supera 5 °C, o un valor crudo está fuera del rango del DHT11, el servicio responde 400 y no guarda el lote. Cuando el lote no informa `presence_detected`, la presencia se guarda como no disponible.
+
+##### Commits relacionados con el Sprint
+
+| Commit | Relación |
+|---|---|
+| [`5c64ef4`](https://github.com/IceTrack-IoT/Platform-IceTrack_IoT/commit/5c64ef4ad4a6519e1fc8ebdcd4b4ed4208036a91) | Se integra servicios de Firebase Cloud Messaging. |
+
+
 #### 6.2.3.8. Software Deployment Evidence for Sprint Review
 #### 6.2.3.9. Team Collaboration Insights during Sprint
 
