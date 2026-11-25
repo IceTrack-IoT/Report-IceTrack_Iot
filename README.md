@@ -7273,13 +7273,17 @@ En esta sección se explica y presenta los avances en implementación con relaci
 
 | Repository | Branch | Commit Id | Commit Message | Commit Message Body | Commited on (Date) |
 | --- | --- | --- | --- | --- | --- |
+| Icetrack-edge-service | main | f5d2bc7 | Initial commit | | 23/10/2026 |
+| Icetrack-edge-service | main | afa2aee | feat: add docker configuration | | 23/10/2026 |
+| Icetrack-edge-service | main | a9175a0 | feat: add configuration based on the embedded application | |10/11/2026 |
+| Embedded-App-Icetrack_IoT | main | 038c0b5 | Init embedded application | | 09/11/2026 |
 
 #### 6.2.3.5. Testing Suite Evidence for Sprint Review
 Durante el desarrollo del sprint 3, al igual que el sprint anterior, el equipo centró la validación en la especificación y diseño de las pruebas de aceptación escritas en Gherkin (.feature, uno por cada User Story). 
 
 | Repository | Branch | Commit Id | Commit Message | Commit Message Body | Commited on (Date) |
 |---|---|---|---|---|---|
-| IceTrack-IoT/Pruebas-Gherkin | feature/gherkin-sprint-2 | 91aaf93 | test: add feature for US05 service progress tracking | Cubre la consulta del estado actual con su historial de transiciones y ventanas de mantenimiento, el reflejo de los cambios del tecnico y el rechazo de solicitudes ajenas (404). | 09/11/2026 |
+| Icetrack-edge-service | main | a9175a0 | feat: add configuration based on the embedded application | |10/11/2026 |
 
 #### 6.2.3.6. Execution Evidence for Sprint Review
 #### 6.2.3.7. Services Documentation Evidence for Sprint Review
@@ -7459,7 +7463,10 @@ La respuesta 201 registra el lote con los valores crudos y calibrados. Si la dif
 
 | Commit | Relación |
 |---|---|
-| [`5c64ef4`](https://github.com/IceTrack-IoT/Platform-IceTrack_IoT/commit/5c64ef4ad4a6519e1fc8ebdcd4b4ed4208036a91) | Se integra servicios de Firebase Cloud Messaging. |
+| [`f5d2bc7`](https://github.com/IceTrack-IoT/icetrack-edge-service/commit/f5d2bc7be565fde7d6bfc33d36a040464e578542) | Se integra una primera versión del Edge Service |
+| [`afa2aee`](https://github.com/IceTrack-IoT/icetrack-edge-service/commit/afa2aeefa88a7d581ecfdb92f36287811917f14f) | Se integra el Docker Compose del Edge Service |
+| [`a9175a0`](https://github.com/IceTrack-IoT/icetrack-edge-service/commit/a9175a0eba1e20f5928214f4e27ad972bb1bd62e) | Se integra la configuracion del Embedded Application |
+| [`038c0b5`](https://github.com/IceTrack-IoT/Embedded-App-IceTrack_IoT/commit/038c0b5a40c801e78f992833346a26f1deecccc4) | Se integra la configuracion del Embedded Application de manera incial en el repositorio |
 
 
 #### 6.2.3.8. Software Deployment Evidence for Sprint Review
