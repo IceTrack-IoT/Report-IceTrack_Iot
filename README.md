@@ -7268,6 +7268,46 @@ El objetivo de este **Sprint3** fue implementar las funcionalidades restantes qu
 | US-55 | Detectar un sensor de temperatura defectuoso | UT-C5 | Alerta por sensor defectuoso | Detectar lecturas inválidas o congeladas del DHT11, excluirlas de la evaluación y abrir la alerta SENSOR_FAULT. | 5 | 8 | Piero Tenorio | In-Process |
 | US-56 | Calibrar el sensor de temperatura de un equipo | UT-C6 | Calibración del sensor | Definir un desfase de −5 °C a +5 °C por equipo, aplicarlo a las nuevas lecturas y conservar la lectura original. | 3 | 6 | Julio Guillén | In-Process |
 
+<p align="center">
+  <img src="assets/chapter06/Trello-Sprint-3.png" alt="trello3" width="1000">
+</p>
+
+* **URL pública del Board de Trello:** https://trello.com/invite/b/6ac91c87c32b30e15cf90b14/ATTI800b8473167aaf37736c6f13443d013550F75477/icetrack-iot
+
+Para poder considerar los estados de los US mencionados en el Sprint Backlog se ha tenido en cuenta los siguientes puntos:
+
+### Definition of Done (DoD)
+
+El Definition of Done (DoD) es un conjunto de criterios El Definition of Done (DoD) es un conjunto de criterios que se establecen para que una historia de usuario debe cumplir para que se considere como terminado según estándares del equipos scrum; dichos criterios aseguran calidad coherencia en la entrega y transparencia ya que abarcan desde la implementación hasta la documentación y despliegue del proyecto.
+
+| N° | Criterio de "Done" | Descripción | Responsable | Evidencia | Momento de Revisión |
+|---|---|---|---|---|---|
+| 1 | Código finalizado, revisado y fusionado | El código se compila sin errores, está versionado en una rama de la historia y se fusionó a `develop` (o `master` en la Landing Page) mediante Pull Request. | Equipo de Icetrack | Pull Request aprobado en GitHub e historial de commits revisado. | Code Review |
+| 2 | Criterios de aceptación cumplidos | La funcionalidad cumple todos los criterios de la historia, incluidos los flujos alternativos y los mensajes de error. | Equipo de Icetrack | Capturas de cada pantalla y de los estados de error y vacíos. | Sprint Review |
+| 3 | Diseño fiel y responsive | La interfaz coincide con el diseño aprobado y se verificó en móvil, tablet y escritorio. | Equipo de Icetrack | Capturas en los tres tamaños de pantalla. | Sprint Review |
+| 4 | Enlaces y acciones funcionando | Los botones y enlaces funcionan; los CTA de la Landing Page abren el inicio de sesión web y la descarga móvil. | Equipo de Icetrack | Capturas o video del flujo. | Sprint Review |
+| 5 | Pruebas especificadas | Existe el archivo `.feature` de la historia en el repositorio `Pruebas-Gherkin`. | Equipo de Icetrack | Commit del archivo `.feature` con su hash. | Code Review |
+| 6 | Pruebas ejecutadas | Los escenarios de la historia se ejecutaron y se registró su resultado (Pass / Fail), la fecha y quién los ejecutó. | Equipo de Icetrack | Matriz de resultados de pruebas con capturas. | Sprint Review |
+| 7 | Funcionalidad desplegada | La funcionalidad está en producción y se comprobó que abre y responde. | Equipo de Icetrack | Enlace al despliegue y captura de la aplicación en producción. | Sprint Review |
+| 8 | Evidencia documentada | La historia tiene evidencia en el documento: capturas, commits con hash y fecha, y referencias correctas. | Equipo de Icetrack | Secciones de evidencia del Sprint completas en el README. | Sprint Review |
+| 9 | Seguimiento registrado | La tarea está en *Done* en el tablero y tiene registradas las horas reales frente a las estimadas. | Equipo de Icetrack | Tablero de Trello y tabla de horas reales. | Daily Scrum |
+| 10 | Historia aceptada | El Product Owner revisó la historia y la aceptó. | Equipo de Icetrack | Resultado de la Sprint Review. | Sprint Review |
+
+
+### Definition of Ready (DoR)
+
+El Definition of Ready (DoR) es un conjunto de criterios que se establecen por el equipo Scrum que determina que historia de usuario está lo suficientemente preparado para ser abordado dentro de un Sprint. El propósito principal de esto es garantizar antes del desarrollo, cada ítem esté debidamente comprendido, priorizado, estimado y libre de impedimentos, de modo que se minimicen los riesgos y se optimice la ejecución durante una iteración.
+
+| N° | Criterio de "Ready" | Descripción | Responsable | Evidencia | Momento de Revisión |
+|---|---|---|---|---|---|
+| 1 | Historia bien formulada | La historia tiene título y descripción con el formato *Como [rol], quiero [acción], para [beneficio]* y está vinculada a una Épica (EP-XX) del Product Backlog. | Equipo de Icetrack | Product Backlog actualizado con la historia y su Épica. | Backlog Refinement |
+| 2 | Criterios de aceptación definidos | Los criterios están escritos en formato Dado / Cuando / Entonces e incluyen al menos un flujo alternativo o de error. | Equipo de Icetrack | Criterios de aceptación de la historia en el Product Backlog. | Backlog Refinement |
+| 3 | Historia estimada | La historia tiene Story Points y su tarea tiene una estimación en horas. | Equipo de Icetrack | Sprint Backlog con las columnas de Story Points y horas. | Sprint Planning |
+| 4 | Diseño UI/UX aprobado | Las pantallas que involucra tienen wireframe o mockup aprobado, con sus versiones móvil, tablet y escritorio. | Equipo de Icetrack| Enlace al diseño en Figma. | Sprint Planning |
+| 5 | Dependencias identificadas | Las dependencias de otras historias o del backend (endpoints que consume el frontend) están resueltas o identificadas. | Equipo de Icetrack | Dependencias anotadas en la tarea del tablero. | Sprint Planning |
+| 6 | Responsable asignado | La tarea tiene un integrante a cargo y cabe en la capacidad del Sprint. | Equipo de Icetrack | Columna *Assigned To* del Sprint Backlog. | Sprint Planning |
+| 7 | Historia priorizada y comprendida | El Product Owner la priorizó y el equipo entendió su alcance. | Equipo de Icetrack | Acta o resumen del Sprint Planning. | Sprint Planning |
+
 #### 6.2.3.4. Development Evidence for Sprint Review
 En esta sección se explica y presenta los avances en implementación con relación a los productos de Icetrack:
 
