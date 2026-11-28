@@ -7284,6 +7284,13 @@ Durante el desarrollo del sprint 3, al igual que el sprint anterior, el equipo c
 | Repository | Branch | Commit Id | Commit Message | Commit Message Body | Commited on (Date) |
 |---|---|---|---|---|---|
 | Icetrack-edge-service | main | a9175a0 | feat: add configuration based on the embedded application | |10/11/2026 |
+| Pruebas-Gherkin | feature/gherkin-sprint 3 | cd7c60e | test: add feature for US51 maintenance mode with device button | | 27/11/2026 |
+| Pruebas-Gherkin | feature/gherkin-sprint 3 | 75a9ec2 | test: add feature for US52 door open detection | | 27/11/2026 |
+| Pruebas-Gherkin | feature/gherkin-sprint 3 | 1d01d54 | test: add feature for US53 PIR presence detection | | 27/11/2026 |
+| Pruebas-Gherkin | feature/gherkin-sprint 3 | e444eba | test: add feature for US54 door openings with temperature | | 27/11/2026 |
+| Pruebas-Gherkin | feature/gherkin-sprint 3 | f12f53d | test: add feature for US55 faulty temperature sensor detection | | 27/11/2026 |
+| Pruebas-Gherkin | feature/gherkin-sprint 3 | af1201b | test: add feature for US56 temperature sensor calibration | | 27/11/2026 |
+
 
 #### 6.2.3.6. Execution Evidence for Sprint Review
 #### 6.2.3.7. Services Documentation Evidence for Sprint Review
